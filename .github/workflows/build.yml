@@ -22,6 +22,20 @@ jobs:
         with:
           gradle-version: '8.7'
 
+      - name: Inject online token into assets
+        env:
+          NEON_GITHUB_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import os, pathlib
+          token = os.environ['NEON_GITHUB_TOKEN']
+          js_path = pathlib.Path('neon-online-api.js')
+          js = js_path.read_text(encoding='utf-8')
+          js = js.replace('window.NEON_GITHUB_TOKEN', repr(token))
+          target = pathlib.Path('app/src/main/assets/neon-online-api.js')
+          target.write_text(js, encoding='utf-8')
+          PY
+
       - name: Build debug APK
         run: gradle assembleDebug --no-daemon
 
