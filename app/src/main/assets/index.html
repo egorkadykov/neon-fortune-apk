@@ -3463,7 +3463,7 @@
         balance,
         level,
         games: stats.spins,
-        gifts: giftStats.received,
+        gifts: Object.values(gifts).reduce((sum, count) => sum + Math.max(0, count), 0),
         rank: getRank(),
         ts: Date.now()
       };

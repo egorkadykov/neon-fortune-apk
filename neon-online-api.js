@@ -247,16 +247,14 @@
     });
   }
 
-  // В топе показываем количество подарков, а не сумму вырученных за них звёзд.
-  function countProfileGifts(profile) {
-    var stats = profile.giftStats || {};
-    if (typeof stats.received === 'number') return Math.max(0, Math.floor(stats.received));
-    var held = 0;
+  // В топе показываем подарки, которые сейчас лежат в инвентаре.
+  function countOwnedGifts(profile) {
     var savedGifts = profile.gifts || {};
+    var total = 0;
     Object.keys(savedGifts).forEach(function (key) {
-      held += Math.max(0, Number(savedGifts[key]) || 0);
+      total += Math.max(0, Number(savedGifts[key]) || 0);
     });
-    return Math.max(0, Math.floor(Number(stats.sold) || 0)) + held;
+    return Math.max(0, Math.floor(total));
   }
 
   function buildLeaderboard(state) {
@@ -269,7 +267,7 @@
         balance: (profile.balance || 0),
         level: (profile.level || 1),
         games: (profile.stats && profile.stats.spins) || 0,
-        gifts: countProfileGifts(profile),
+        gifts: countOwnedGifts(profile),
         chests: (profile.chestStats && profile.chestStats.opened) || 0,
         achievements: Array.isArray(profile.unlocked) ? profile.unlocked.length : 0,
         rank: typeof getRank === 'function' ? getRank() : '',
@@ -298,7 +296,7 @@
       balance: balance,
       level: level,
       games: stats.spins,
-      gifts: giftStats.received,
+      gifts: Object.keys(gifts).reduce(function (sum, key) { return sum + Math.max(0, Number(gifts[key]) || 0); }, 0),
       chests: chestStats.opened,
       achievements: unlocked.size,
       rank: typeof getRank === 'function' ? getRank() : '',
