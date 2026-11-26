@@ -2369,6 +2369,43 @@
     function chestSvg(id, scope = "card") {
       const uid = `${id}-${scope}`;
       const art = {
+        free: `
+          <svg class="chest-art chest-art--free" viewBox="0 0 120 100" aria-label="Стеклянный кейс">
+            <defs>
+              <linearGradient id="glass-${uid}" x1="0" y1="0" x2="1" y2="1">
+                <stop stop-color="#ecfeff" stop-opacity=".55"/><stop offset=".45" stop-color="#67e8f9" stop-opacity=".22"/><stop offset="1" stop-color="#0e7490" stop-opacity=".38"/>
+              </linearGradient>
+              <linearGradient id="glassTop-${uid}" x1="0" y1="0" x2="0" y2="1">
+                <stop stop-color="#f0fdfa" stop-opacity=".75"/><stop offset="1" stop-color="#22d3ee" stop-opacity=".25"/>
+              </linearGradient>
+              <linearGradient id="glassEdge-${uid}" x1="0" y1="0" x2="0" y2="1">
+                <stop stop-color="#a5f3fc"/><stop offset="1" stop-color="#0e7490"/>
+              </linearGradient>
+            </defs>
+            <ellipse cx="60" cy="93" rx="42" ry="5" fill="rgba(8,145,178,.28)"/>
+            <g class="chest-body">
+              <path d="M16 43h88l-6 43a5 5 0 0 1-5 4H27a5 5 0 0 1-5-4L16 43Z" fill="url(#glass-${uid})" stroke="url(#glassEdge-${uid})" stroke-width="2"/>
+              <path d="M22 56h76M24 71h72" stroke="#a5f3fc" stroke-width="1" opacity=".45"/>
+              <path d="M31 47v40M89 47v40" stroke="#ecfeff" stroke-width="1.4" opacity=".4"/>
+              <path d="M20 46c10 10 10 30 0 40" fill="none" stroke="#fff" stroke-width="2" opacity=".38"/>
+              <path d="M100 46c-10 10-10 30 0 40" fill="none" stroke="#fff" stroke-width="1.6" opacity=".28"/>
+              <rect x="14" y="82" width="92" height="7" rx="3" fill="url(#glassEdge-${uid})" opacity=".85"/>
+              <circle cx="25" cy="85" r="1.8" fill="#ecfeff"/><circle cx="95" cy="85" r="1.8" fill="#ecfeff"/>
+            </g>
+            <ellipse class="chest-inside" cx="60" cy="44" rx="43" ry="7" fill="#083344" stroke="#a5f3fc" stroke-width="1.5"/>
+            <g class="chest-lid">
+              <path d="M14 43V29Q14 13 32 13H88Q106 13 106 29V43Z" fill="url(#glassTop-${uid})" stroke="url(#glassEdge-${uid})" stroke-width="2"/>
+              <path d="M14 35H106" stroke="url(#glassEdge-${uid})" stroke-width="6" opacity=".9"/>
+              <path d="M28 18q9 9 0 22M92 18q-9 9 0 22" fill="none" stroke="#fff" stroke-width="2" opacity=".55"/>
+              <path d="M46 19q14 8 28 0" fill="none" stroke="#fff" stroke-width="1.8" opacity=".5"/>
+              <circle class="chest-sparkle" cx="34" cy="25" r="1.8" fill="#ecfeff"/>
+              <circle class="chest-sparkle" cx="86" cy="23" r="1.5" fill="#ecfeff" style="animation-delay:.5s"/>
+            </g>
+            <g class="chest-lock">
+              <rect x="51" y="39" width="18" height="20" rx="5" fill="url(#glassEdge-${uid})" stroke="#ecfeff" stroke-width="1.6"/>
+              <path d="M60 43l5 6-5 6-5-6z" fill="#6ee7a8"/>
+            </g>
+          </svg>`,
         paper: `
           <svg class="chest-art chest-art--paper" viewBox="0 0 120 100" aria-label="Бумажный сундук">
             <defs>
@@ -2689,7 +2726,7 @@
         delay: 500,
         accent: "#6ee7a8",
         glow: "rgba(110,231,168,.16)",
-        desc: "Раз в 24 часа. Внутри гарантированно любой подарок дешевле 100 звёзд.",
+        desc: "Стеклянный кейс. Раз в 24 часа. Внутри гарантированно любой подарок дешевле 100 звёзд.",
         free: true,
         prizes: freePrizeTable()
       },
