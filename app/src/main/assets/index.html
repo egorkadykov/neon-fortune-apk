@@ -2,11 +2,22 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <title>NEON FORTUNE — виртуальное казино</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     [hidden] { display: none !important; }
+
+    /* Приложение, а не браузер: выделение текста и системное меню по долгому нажатию не нужны. */
+    html, body {
+      -webkit-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+      touch-action: manipulation;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+    input, textarea { -webkit-user-select: text; user-select: text; }
 
     :root {
       --bg: #07070d;
@@ -1521,7 +1532,10 @@
         position: sticky;
         top: 0;
         z-index: 50;
-        margin: 0 -10px 10px;
+        /* Растягиваем только вширь: высота и верхние отступы остаются прежними. */
+        width: 100vw;
+        max-width: 100vw;
+        margin: 0 calc(50% - 50vw) 10px;
         padding: calc(7px + env(safe-area-inset-top, 0px)) 10px 6px;
         border: 0;
         border-bottom: 1px solid var(--border);
@@ -1565,9 +1579,12 @@
       .gear-btn .ui-icon { width: 18px; height: 18px; }
 
       .section-tabs {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
         margin-top: 5px;
-        padding: 4px;
-        gap: 4px;
+        padding: 3px;
+        gap: 3px;
+        overflow: hidden;
         border: 0;
         border-radius: 10px;
         background: rgba(255, 255, 255, 0.04);
@@ -1575,7 +1592,18 @@
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
       }
-      .section-tab { padding: 7px 10px; border-radius: 8px; font-size: 0.72rem; }
+      .section-tab {
+        min-width: 0;
+        justify-content: center;
+        gap: 4px;
+        padding: 7px 3px;
+        border-radius: 8px;
+        font-size: 0.68rem;
+        white-space: nowrap;
+      }
+      .section-tab span:last-child { overflow: hidden; text-overflow: ellipsis; }
+      .section-tab[data-view="top"] span:last-child { font-size: 0; }
+      .section-tab[data-view="top"] span:last-child::after { content: "Топ"; font-size: 0.68rem; }
       .section-tab .ui-icon { width: 15px; height: 15px; }
       .section-tab.active { box-shadow: none; }
 
@@ -1680,13 +1708,7 @@
         <button id="authSubmit" class="auth-submit" type="submit">Создать аккаунт</button>
       </form>
 
-      <div class="auth-server">
-        <label for="authApiInput">Адрес онлайн-сервера</label>
-        <input id="authApiInput" class="online-input" type="url" placeholder="https://xxxx.trycloudflare.com" autocomplete="off" />
-        <button id="authApiSave" class="side-btn" type="button">Сохранить адрес</button>
-      </div>
-
-      <p class="auth-note">Профиль, пароль и рекорды хранятся на твоём сервере. Таблица лидеров общая для всех игроков. Реальных денег нет — только виртуальные звёзды.</p>
+      <p class="auth-note">Один общий онлайн-сервер уже подключён. Ник, пароль и рекорды хранятся на сервере; таблица лидеров общая для всех игроков. Реальных денег нет — только виртуальные звёзды.</p>
     </div>
   </div>
 
@@ -3087,6 +3109,14 @@
     }
 
     function setButton(button, icon, label) {
+      if (button.dataset.icon === icon) {
+        if (button.dataset.label === label) return;
+        button.dataset.label = label;
+        const span = button.querySelector("span");
+        if (span) { span.textContent = label; return; }
+      }
+      button.dataset.icon = icon;
+      button.dataset.label = label;
       button.innerHTML = uiIcon(icon) + `<span>${label}</span>`;
     }
 
@@ -3120,9 +3150,11 @@
     }
 
     function discover(items) {
+      let foundNew = false;
       items.forEach((item) => {
         if (!collection.has(item)) {
           collection.add(item);
+          foundNew = true;
           toast(`Найдено: ${symbolName(item)}`, "sparkle");
         }
       });
@@ -3131,8 +3163,10 @@
         balance += 200;
         toast("Коллекция собрана! +200 звёзд", "trophy");
         confetti();
+        foundNew = true;
       }
-      renderCollection();
+      // Перерисовываем коллекцию только когда в ней появилось что-то новое.
+      if (foundNew) renderCollection();
     }
 
     function checkAchievements(extra = {}) {
@@ -3328,14 +3362,21 @@
     }
 
     function tickChestCooldowns() {
+      // Нет перезарядки и сундук не открывается — делать нечего.
+      if (!Object.keys(chestCooldowns).length && !chestBusy) return;
       chestGrid.querySelectorAll(".chest-card").forEach((card) => {
-        const id = card.querySelector(".chest-open")?.dataset.chest;
+        const button = card.querySelector(".chest-open");
+        const id = button && button.dataset.chest;
         if (!id) return;
         const left = chestCooldownLeft(id);
-        const button = card.querySelector(".chest-open");
         const label = chestLockLabel(id);
-        card.classList.toggle("cooling", left > 0 && chestBusy !== id);
-        button.disabled = !currentUser || !!chestBusy || playing || balance < chestTypes.find((c) => c.id === id).cost || left > 0;
+        const cooling = left > 0 && chestBusy !== id;
+        const disabled = !currentUser || !!chestBusy || playing || balance < chestTypes.find((c) => c.id === id).cost || left > 0;
+        if (card.dataset.cooling !== String(cooling)) {
+          card.dataset.cooling = String(cooling);
+          card.classList.toggle("cooling", cooling);
+        }
+        if (button.disabled !== disabled) button.disabled = disabled;
         if (chestBusy === id) setButton(button, "sparkle", "Открываем…");
         else setButton(button, left > 0 ? "lock" : "arrow", left > 0 ? label : "Открыть");
       });
@@ -3391,6 +3432,13 @@
       sectionTabs.forEach((button) => {
         button.classList.toggle("active", button.dataset.view === view);
       });
+      // На телефоне тяжёлые списки строим только при открытии нужного раздела.
+      if (LITE) {
+        if (view === "chests") renderChests();
+        else if (view === "gifts") renderGifts();
+        else if (view === "progress") { renderMissions(); renderCollection(); }
+        else if (view === "top") renderHistory();
+      }
       window.scrollTo(0, 0);
       if (persist) saveProfile();
     }
@@ -3546,6 +3594,13 @@
       saveProfile();
     }
 
+    let uiRefreshTimer = null;
+    function scheduleFullUI() {
+      if (!LITE) return;
+      if (uiRefreshTimer) clearTimeout(uiRefreshTimer);
+      uiRefreshTimer = setTimeout(() => { uiRefreshTimer = null; updateUI(false); }, 500);
+    }
+
     function updateUI(light = false) {
       balanceEl.textContent = balance;
       betEl.textContent = currentBet;
@@ -3561,8 +3616,17 @@
       });
       if (light) return; // только шапка и кнопки — для частых действий
       renderProgress();
-      renderMissions();
       renderStats();
+      if (LITE) {
+        // На телефоне обновляем только открытый раздел: пересоздавать 25 подарков
+        // и 8 сундуков после каждой игры — главный источник лагов.
+        if (activeView === "progress") { renderMissions(); renderCollection(); }
+        else if (activeView === "chests") renderChests();
+        else if (activeView === "gifts") renderGifts();
+        else if (activeView === "top") renderHistory();
+        return;
+      }
+      renderMissions();
       renderHistory();
       renderCollection();
       renderChests();
@@ -3610,7 +3674,8 @@
       updateLeaderboard();
       setMessage(text, kind);
       checkAchievements({ jackpot, ...extra });
-      updateUI();
+      updateUI(LITE);
+      scheduleFullUI();
       saveProfile();
 
       if (autoEnabled) {
@@ -3932,7 +3997,7 @@
         activeGame === "slots" ? "Крутим барабаны…" : activeGame === "dice" ? "Бросаем кости…" : activeGame === "roulette" ? "Крутим колесо…" : activeGame === "darts" ? "Метам дротики…" : "Раздаём карты…"
       );
       const multiplier = getMultiplier();
-      updateUI();
+      updateUI(LITE);
       beep(220, 0.08, "square", 0.025);
 
       if (activeGame === "slots") spinSlots(multiplier);
@@ -4049,7 +4114,8 @@
 
         checkAchievements({ jackpot: !!prize.jackpot });
         updateLeaderboard();
-        updateUI();
+        updateUI(LITE);
+        scheduleFullUI();
         saveProfile();
       }, Math.max(900, chest.delay + 200));
     }
@@ -4313,359 +4379,7 @@
       if (before !== Object.keys(chestCooldowns).length) saveProfile();
     }, LITE ? 1000 : 250);
   </script>
-  <script id="neonOnlineLayer">
-  (function () {
-    'use strict';
-    if (window.__NEON_ONLINE_READY) return;
-    window.__NEON_ONLINE_READY = true;
-
-    var API_KEY = 'neon-online-api';
-    var TOKEN_KEY = 'neon-online-token';
-    var USER_KEY = 'neon-online-user';
-    var LITE_UI = window.matchMedia('(max-width: 700px)').matches;
-    var saveTimer = null;
-    var saving = false;
-    var pendingSave = false;
-
-    function byId(id) { return document.getElementById(id); }
-    function trimUrl(value) { return String(value || '').trim().replace(/\/+$/, ''); }
-    function apiUrl() { return trimUrl(localStorage.getItem(API_KEY) || window.NEON_API_URL || ''); }
-    function endpoint() {
-      var url = apiUrl();
-      if (!url) return '';
-      return /\/api\.php$/i.test(url) ? url : url + '/api.php';
-    }
-    function setApiUrl(value) {
-      var url = trimUrl(value);
-      if (url) localStorage.setItem(API_KEY, url);
-      else localStorage.removeItem(API_KEY);
-      var input = byId('onlineApiInput');
-      if (input) input.value = url;
-      var authInput = byId('authApiInput');
-      if (authInput) authInput.value = url;
-      setStatus(url ? 'сервер: ' + url : 'сервер не настроен', url ? 'ok' : 'warn');
-    }
-    function token() { return localStorage.getItem(TOKEN_KEY) || ''; }
-    function friendly(error) {
-      var text = error && error.message ? error.message : String(error || 'Неизвестная ошибка');
-      if (/Failed to fetch|NetworkError|Load failed/i.test(text)) return 'нет связи с сервером';
-      return text;
-    }
-    function setStatus(text, kind) {
-      var auth = byId('onlineStatus');
-      var settings = byId('onlineSettingsStatus');
-      var full = 'Онлайн: ' + text;
-      if (auth) { auth.textContent = full; auth.className = 'online-status online-' + (kind || 'wait'); }
-      if (settings) { settings.textContent = text; settings.className = 'online-inline online-' + (kind || 'wait'); }
-    }
-
-    function request(action, payload) {
-      var url = endpoint();
-      if (!url) return Promise.reject(new Error('сервер не настроен'));
-      var body = Object.assign({ action: action }, payload || {});
-      if (token() && !('token' in body)) body.token = token();
-      return fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body)
-      }).then(function (response) {
-        return response.json().catch(function () { throw new Error('сервер вернул не JSON'); });
-      }).then(function (data) {
-        if (!data || data.ok !== true) {
-          throw new Error(data && data.error ? data.error : 'ошибка сервера');
-        }
-        return data;
-      });
-    }
-
-    var css = document.createElement('style');
-    css.id = 'neonOnlineCss';
-    css.textContent = '' +
-      '.online-status{margin:10px 0 4px;padding:7px 10px;border-radius:10px;font-size:11px;letter-spacing:.03em;text-align:center;border:1px solid rgba(0,255,213,.22);background:rgba(0,255,213,.06);color:#8fffe9;}' +
-      '.online-ok{border-color:rgba(80,255,170,.35);color:#8bffb8;}' +
-      '.online-warn{border-color:rgba(255,180,80,.35);color:#ffd18b;}' +
-      '.online-wait{border-color:rgba(140,160,255,.35);color:#b8c4ff;}' +
-      '.online-input{width:100%;box-sizing:border-box;margin:8px 0;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(5,8,20,.75);color:#eaf6ff;font-size:13px;}' +
-      '.online-actions{display:flex;gap:8px;flex-wrap:wrap;}' +
-      '.online-actions .side-btn{flex:1 1 120px;justify-content:center;}' +
-      '.online-inline{margin-top:8px;font-size:11px;color:#8fffe9;word-break:break-word;}' +
-      '.leader-extra{display:block;font-size:10px;opacity:.72;margin-top:2px;}';
-    document.head.appendChild(css);
-
-    var authCard = document.querySelector('#authScreen .auth-card');
-    if (authCard && !byId('onlineStatus')) {
-      var status = document.createElement('div');
-      status.id = 'onlineStatus';
-      status.className = 'online-status online-wait';
-      var subtitle = authCard.querySelector('.auth-subtitle');
-      if (subtitle && subtitle.parentNode) subtitle.parentNode.insertBefore(status, subtitle.nextSibling);
-      else authCard.insertBefore(status, authCard.firstChild);
-    }
-    var note = document.querySelector('#authScreen .auth-note');
-    if (note) note.textContent = 'Сначала сохрани адрес сервера выше. Ник, пароль и рекорды хранятся на твоём сервере; таблица лидеров общая. Реальных денег нет.';
-
-    var stack = document.querySelector('#settingsDrawer .settings-stack');
-    if (stack && !byId('onlineApiInput')) {
-      var card = document.createElement('section');
-      card.className = 'card online-card';
-      card.innerHTML = '' +
-        '<h2><span data-icon="chart"></span>Онлайн-сервер</h2>' +
-        '<p class="setting-note">Адрес твоего API-сервера. После сохранения рекорды станут общими.</p>' +
-        '<input id="onlineApiInput" class="online-input" type="url" placeholder="https://example.trycloudflare.com" autocomplete="off" />' +
-        '<div class="online-actions">' +
-        '<button id="onlineSaveBtn" class="side-btn" type="button">Сохранить адрес</button>' +
-        '<button id="onlineTestBtn" class="side-btn" type="button">Проверить связь</button>' +
-        '</div>' +
-        '<div id="onlineSettingsStatus" class="online-inline online-wait">Не настроено</div>';
-      var danger = stack.querySelector('.danger-card');
-      stack.insertBefore(card, danger || stack.lastChild);
-      byId('onlineApiInput').value = apiUrl();
-    }
-
-    // Ввод адреса прямо на экране входа — без системного prompt при каждом запуске.
-    var authApiInput = byId('authApiInput');
-    if (authApiInput) {
-      authApiInput.value = apiUrl();
-      byId('authApiSave').addEventListener('click', function () {
-        var value = authApiInput.value.trim();
-        if (!/^https?:\/\//i.test(value)) {
-          authError.textContent = 'Адрес должен начинаться с http:// или https://';
-          return;
-        }
-        setApiUrl(value);
-        authError.textContent = '';
-        fetchLeaderboard();
-      });
-    }
-
-    function fetchLeaderboard() {
-      if (!apiUrl()) return;
-      request('leaderboard', {}).then(function (data) {
-        leaderboard = Array.isArray(data.leaderboard) ? data.leaderboard : [];
-        renderLeaderboard();
-        setStatus('подключено · ' + leaderboard.length + ' в топе', 'ok');
-      }).catch(function (error) {
-        setStatus('офлайн · ' + friendly(error), 'warn');
-      });
-    }
-
-    function scheduleSave() {
-      pendingSave = true;
-      if (saveTimer) clearTimeout(saveTimer);
-      saveTimer = setTimeout(flushSave, LITE_UI ? 1800 : 900);
-    }
-
-    function flushSave() {
-      if (!token() || !apiUrl()) { pendingSave = false; return; }
-      if (saving) { pendingSave = true; return; }
-      pendingSave = false;
-      saving = true;
-      request('save', { profile: getProfileState() }).then(function () {
-        saving = false;
-        setStatus('прогресс сохранён', 'ok');
-        if (pendingSave) flushSave();
-      }).catch(function (error) {
-        saving = false;
-        pendingSave = true;
-        setStatus('не сохранено · ' + friendly(error), 'warn');
-      });
-    }
-
-    var originalSaveProfile = saveProfile;
-    saveProfile = function () {
-      originalSaveProfile();
-      if (currentUser && token()) scheduleSave();
-    };
-
-    var originalUpdateLeaderboard = updateLeaderboard;
-    updateLeaderboard = function () {
-      if (!currentUser) return;
-      var entry = {
-        name: currentUser.name,
-        balance: balance,
-        level: level,
-        games: stats.spins,
-        gifts: giftStats.earned,
-        chests: chestStats.opened,
-        achievements: unlocked.size,
-        rank: typeof getRank === 'function' ? getRank() : '',
-        ts: Date.now()
-      };
-      var index = leaderboard.findIndex(function (item) { return item && item.name === entry.name; });
-      if (index >= 0) leaderboard[index] = entry;
-      else leaderboard.push(entry);
-      leaderboard.sort(function (a, b) { return (b.balance || 0) - (a.balance || 0); });
-      leaderboard = leaderboard.slice(0, 20);
-      renderLeaderboard();
-      scheduleSave();
-    };
-
-    renderLeaderboard = function () {
-      var list = byId('leaderboard');
-      if (!list) return;
-      list.innerHTML = '';
-      if (!leaderboard.length) {
-        list.innerHTML = '<li><span>Пока пусто</span><span>—</span></li>';
-        return;
-      }
-      leaderboard.forEach(function (entry, index) {
-        var item = document.createElement('li');
-        if (currentUser && entry.name === currentUser.name) item.className = 'me';
-        var label = document.createElement('span');
-        label.textContent = (index + 1) + '. ' + entry.name + ' · Ур.' + (entry.level || 1) + ' · ' + (entry.balance || 0) + '★';
-        var extra = document.createElement('span');
-        extra.className = 'leader-extra';
-        extra.textContent = (entry.games || 0) + ' игр · ' + (entry.gifts || 0) + ' подарков · ' + (entry.chests || 0) + ' сундуков · ' + (entry.achievements || 0) + ' достижений';
-        var score = document.createElement('strong');
-        score.textContent = entry.rank || '';
-        label.appendChild(extra);
-        item.append(label, score);
-        list.appendChild(item);
-      });
-    };
-
-    function enterOnline(name, profile, isNew, silent) {
-      currentUser = { name: name };
-      localStorage.setItem(USER_KEY, name);
-      setSession(normalizeName(name));
-      applyProfile(profile || null);
-      authScreen.hidden = true;
-      authError.textContent = '';
-      authPassword.value = '';
-      authConfirm.value = '';
-      statusEl.textContent = 'Готово к игре';
-      setMessage(isNew ? 'Привет, ' + name + '! Профиль создан на сервере.' : 'С возвращением, ' + name + '! Прогресс загружен с сервера.');
-      updateUI();
-      saveProfile();
-      fetchLeaderboard();
-      if (!silent) {
-        toast(isNew ? 'Добро пожаловать, ' + name + '!' : 'С возвращением, ' + name + '!', isNew ? 'sparkle' : 'user');
-        beep(620, 0.12, 'triangle', 0.04);
-      }
-    }
-
-    authForm.addEventListener('submit', function (event) {
-      if (!apiUrl()) {
-        authError.textContent = 'Сначала сохрани адрес сервера выше';
-        return;
-      }
-      event.preventDefault();
-      event.stopImmediatePropagation();
-      var name = authNickname.value.trim();
-      var password = authPassword.value;
-      authError.textContent = '';
-      if (!/^[A-Za-zА-Яа-яЁё0-9_]{3,16}$/.test(name)) {
-        authError.textContent = 'Никнейм: от 3 до 16 букв, цифр или _';
-        return;
-      }
-      if (password.length < 4) {
-        authError.textContent = 'Пароль слишком короткий — минимум 4 символа';
-        return;
-      }
-      if (authMode === 'register' && authConfirm.value !== password) {
-        authError.textContent = 'Пароли не совпадают';
-        return;
-      }
-      var action = authMode === 'register' ? 'register' : 'login';
-      setStatus('связь с сервером...', 'wait');
-      request(action, { name: name, password: password }).then(function (data) {
-        localStorage.setItem(TOKEN_KEY, data.token);
-        enterOnline(data.name || name, data.profile || null, action === 'register');
-      }).catch(function (error) {
-        authError.textContent = friendly(error);
-        setStatus('ошибка входа', 'warn');
-      });
-    }, true);
-
-    restoreSession = function () {
-      if (!apiUrl() || !token()) {
-        showAuth('login');
-        setStatus(apiUrl() ? 'войди в аккаунт' : 'укажи адрес сервера выше', 'warn');
-        return;
-      }
-      setStatus('проверка сессии...', 'wait');
-      request('me', {}).then(function (data) {
-        enterOnline(data.name, data.profile || null, false, true);
-      }).catch(function (error) {
-        localStorage.removeItem(TOKEN_KEY);
-        localStorage.removeItem(USER_KEY);
-        showAuth('login');
-        setStatus('нужен вход · ' + friendly(error), 'warn');
-      });
-    };
-
-    logoutBtn.addEventListener('click', function (event) {
-      if (!currentUser || !token()) return;
-      event.preventDefault();
-      event.stopImmediatePropagation();
-      flushSave();
-      currentUser = null;
-      localStorage.removeItem(TOKEN_KEY);
-      localStorage.removeItem(USER_KEY);
-      clearSession();
-      authNickname.value = '';
-      authPassword.value = '';
-      authConfirm.value = '';
-      closeSettings();
-      showAuth('login');
-      setMessage('Ты вышел из онлайн-аккаунта. Войди, чтобы продолжить.');
-      updateUI();
-      setStatus('вышел из аккаунта', 'ok');
-    }, true);
-
-    deleteAccountBtn.addEventListener('click', function (event) {
-      if (!currentUser || !token()) return;
-      event.preventDefault();
-      event.stopImmediatePropagation();
-      if (!window.confirm('Удалить онлайн-аккаунт и весь прогресс на сервере?')) return;
-      stopAuto();
-      setStatus('удаление аккаунта...', 'wait');
-      request('delete', {}).then(function () {
-        localStorage.removeItem(TOKEN_KEY);
-        localStorage.removeItem(USER_KEY);
-        location.reload();
-      }).catch(function (error) {
-        setStatus('не удалось удалить · ' + friendly(error), 'warn');
-      });
-    }, true);
-
-    var apiInput = byId('onlineApiInput');
-    if (apiInput) {
-      byId('onlineSaveBtn').addEventListener('click', function () {
-        var value = apiInput.value.trim();
-        if (!/^https?:\/\//i.test(value)) {
-          byId('onlineSettingsStatus').textContent = 'Адрес должен начинаться с http:// или https://';
-          byId('onlineSettingsStatus').className = 'online-inline online-warn';
-          return;
-        }
-        setApiUrl(value);
-        fetchLeaderboard();
-      });
-      byId('onlineTestBtn').addEventListener('click', function () {
-        setStatus('проверка связи...', 'wait');
-        fetchLeaderboard();
-      });
-    }
-
-    document.addEventListener('visibilitychange', function () {
-      if (document.visibilityState === 'hidden') flushSave();
-    });
-    setInterval(function () {
-      if (document.visibilityState === 'visible') fetchLeaderboard();
-    }, LITE_UI ? 30000 : 15000);
-
-    window.NEON_ONLINE = {
-      request: request,
-      setApiUrl: setApiUrl,
-      fetchLeaderboard: fetchLeaderboard,
-      flushSave: flushSave
-    };
-
-    // Никаких window.prompt — адрес вводится в поле на экране входа или в Настройках.
-    setStatus(apiUrl() ? 'сервер настроен' : 'сервер не настроен', apiUrl() ? 'ok' : 'warn');
-    restoreSession();
-  })();
-  </script>
+  <script id="neonOnlineLayer" src="neon-online-api.js"></script>
 
 </body>
 </html>
