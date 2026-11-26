@@ -163,7 +163,9 @@ public class MainActivity extends Activity {
         if (window == null) return;
 
         window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN
-                | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+                | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+                | WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
+                | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         window.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
