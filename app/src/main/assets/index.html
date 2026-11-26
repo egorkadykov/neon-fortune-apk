@@ -1585,11 +1585,36 @@
         left: 10px;
       }
 
-      /* Экран входа должен прокручиваться на маленьких телефонах. */
-      .auth-screen { overflow-y: auto; backdrop-filter: none; -webkit-backdrop-filter: none; }
-      .auth-server { margin-top: 14px; text-align: left; }
+      /* Экран входа должен полностью помещаться на телефоне, а не обрезаться внизу. */
+      .auth-screen {
+        align-items: flex-start;
+        overflow-y: auto;
+        padding: calc(12px + env(safe-area-inset-top, 0px)) 12px calc(18px + env(safe-area-inset-bottom, 0px));
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      .auth-card {
+        width: 100%;
+        max-width: 420px;
+        margin: auto 0;
+        padding: 18px 16px 16px;
+        border-radius: 18px;
+      }
+      .auth-logo { width: 54px; height: 54px; margin-bottom: 10px; border-radius: 16px; }
+      .auth-logo .ui-icon { width: 30px; height: 30px; }
+      .auth-card h1 { font-size: 1.45rem; letter-spacing: 0.12em; }
+      .auth-subtitle { margin-top: 4px; font-size: 0.76rem; }
+      .auth-tabs { margin: 14px 0 12px; gap: 4px; padding: 4px; }
+      .auth-tab { padding: 8px; font-size: 0.85rem; }
+      .auth-form { gap: 10px; }
+      .auth-form label { gap: 5px; font-size: 0.74rem; }
+      .auth-form input { padding: 10px 12px; font-size: 0.88rem; }
+      .auth-error { min-height: 14px; font-size: 0.74rem; }
+      .auth-submit { padding: 12px; font-size: 0.94rem; }
+      .auth-note { margin-top: 10px; font-size: 0.66rem; line-height: 1.4; }
+      .auth-server { margin-top: 10px; text-align: left; }
       .auth-server label { display: block; margin-bottom: 4px; font-size: 11px; color: var(--muted); }
-      .auth-server .side-btn { width: 100%; justify-content: center; margin-top: 6px; }
+      .auth-server .side-btn { width: 100%; justify-content: center; margin-top: 6px; padding: 9px; font-size: 0.8rem; }
 
       /* Облегчаем отрисовку: тяжёлые эффекты на телефоне не нужны. */
       .auth-screen, .settings-backdrop, .chest-overlay, .topbar, .section-tabs {
