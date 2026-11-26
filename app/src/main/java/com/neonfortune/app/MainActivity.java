@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowInsets;
@@ -41,6 +42,34 @@ public class MainActivity extends Activity {
             webView.setImportantForAutofill(View.IMPORTANT_FOR_AUTOFILL_NO);
         }
         setContentView(webView);
+
+        // Даже если прошивка игнорирует setSupportZoom(false), жесты двумя пальцами
+        // не должны масштабировать страницу.
+        final boolean[] multiTouch = { false };
+        webView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                int action = event.getActionMasked();
+                if (action == MotionEvent.ACTION_POINTER_DOWN || event.getPointerCount() > 1) {
+                    multiTouch[0] = true;
+                }
+                if (multiTouch[0]) {
+                    if (action == MotionEvent.ACTION_UP || action == MotionEvent.ACTION_CANCEL
+                            || (action == MotionEvent.ACTION_POINTER_UP && event.getPointerCount() <= 2)) {
+                        multiTouch[0] = false;
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
+        // Системное меню по долгому нажатию отключено — текст не выделяется.
+        webView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                return true;
+            }
+        });
 
         WebSettings settings = webView.getSettings();
         // Интерактивность приложения: JS, локальные хранилища и доступ к assets.
