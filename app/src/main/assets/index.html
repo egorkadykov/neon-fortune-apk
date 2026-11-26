@@ -407,6 +407,7 @@
 
     /* Слоты */
     .reels {
+      --reel-item-height: 104px;
       position: relative;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -435,7 +436,7 @@
 
     .reel {
       position: relative;
-      height: 104px;
+      height: var(--reel-item-height);
       overflow: hidden;
       border: 1px solid rgba(231, 199, 123, 0.28);
       border-radius: 12px;
@@ -472,7 +473,7 @@
     .reel.win, .dice-board.win { box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.7), 0 0 0 3px var(--green), 0 0 26px rgba(110, 231, 168, 0.45); }
     .wheel.win { box-shadow: 0 0 0 5px var(--green), 0 0 36px rgba(110, 231, 168, 0.5); }
 
-    .reel-symbol { height: 104px; display: flex; align-items: center; justify-content: center; padding: 16px; }
+    .reel-symbol { height: var(--reel-item-height); display: flex; align-items: center; justify-content: center; padding: 16px; }
     .reel-symbol .art-svg { width: min(72px, 100%); height: auto; max-height: 72px; filter: drop-shadow(0 5px 6px rgba(0, 0, 0, 0.16)); }
 
     /* Кости */
@@ -1613,8 +1614,7 @@
       .tab span:last-child { overflow: hidden; text-overflow: ellipsis; }
       .machine-head { font-size: 0.62rem; letter-spacing: 0.08em; }
       .cabinet { padding: 10px; }
-      .reels { gap: 6px; padding: 7px; }
-      .reel { height: 86px; }
+      .reels { --reel-item-height: 86px; gap: 6px; padding: 7px; }
       .reel-symbol { padding: 7px; }
       .reel-symbol .art-svg { width: min(52px, 100%); height: auto; max-height: 52px; }
 
@@ -2287,7 +2287,12 @@
     // Анимации не отключаем даже при системной настройке «меньше движения».
     const LITE = window.matchMedia("(max-width: 700px)").matches;
     const RANDOM_BUF = new Uint32Array(1);
-    const REEL_ITEM_HEIGHT = 104;
+    // Высота ячейки берётся из CSS: на телефоне барабан ниже, чем на компьютере.
+    // Так выпавший символ оказывается ровно по центру выигрышной линии.
+    function reelItemHeight() {
+      const value = parseFloat(getComputedStyle(reelsWrap).getPropertyValue("--reel-item-height"));
+      return Number.isFinite(value) && value > 0 ? value : 104;
+    }
     const REEL_ITEM_COUNT = LITE ? 8 : 30;
     const FINAL_INDEX = REEL_ITEM_COUNT - 1;
     const SPIN_DURATIONS = LITE ? [520, 700, 880] : [720, 980, 1240];
@@ -2859,7 +2864,7 @@
     let chestCooldowns = {};
     let chestStats = { opened: 0, best: 0, types: [] };
     let gifts = {};
-    let giftStats = { sold: 0, earned: 0, found: [] };
+    let giftStats = { sold: 0, earned: 0, received: 0, found: [] };
     let activeView = "games";
     let rouletteChoice = { type: "color", color: "red", number: 7 };
     let unlocked = new Set();
@@ -3024,7 +3029,7 @@
         chestStats: { opened: chestStats.opened, best: chestStats.best, types: [...chestStats.types] },
         chestCooldowns: { ...chestCooldowns },
         gifts: { ...gifts },
-        giftStats: { sold: giftStats.sold, earned: giftStats.earned, found: [...giftStats.found] },
+        giftStats: { sold: giftStats.sold, earned: giftStats.earned, received: giftStats.received, found: [...giftStats.found] },
         activeView,
         unlocked: [...unlocked],
         activeGame,
@@ -3112,9 +3117,12 @@
       });
 
       const savedGiftStats = saved.giftStats || {};
+      const heldGifts = Object.values(gifts).reduce((sum, count) => sum + Math.max(0, Math.floor(numberOr(count, 0))), 0);
       giftStats = {
         sold: Math.max(0, Math.floor(numberOr(savedGiftStats.sold, 0))),
         earned: Math.max(0, Math.floor(numberOr(savedGiftStats.earned, 0))),
+        // Старые профили без поля received считаем по проданным и лежащим подаркам.
+        received: Math.max(0, Math.floor(numberOr(savedGiftStats.received, Math.max(0, Math.floor(numberOr(savedGiftStats.sold, 0)) + heldGifts)))),
         found: (Array.isArray(savedGiftStats.found) ? savedGiftStats.found : [])
           .map((id) => legacyGiftMap[id] || id)
           .filter((id) => giftDefs.some((gift) => gift.id === id))
@@ -3259,13 +3267,13 @@
       strip.appendChild(createReelSymbol(finalIcon));
       reel.appendChild(strip);
       if (setFinalPosition) {
-        strip.style.transform = `translate3d(0, ${-FINAL_INDEX * REEL_ITEM_HEIGHT}px, 0)`;
+        strip.style.transform = `translate3d(0, ${-FINAL_INDEX * reelItemHeight()}px, 0)`;
       }
       return strip;
     }
 
     function animateReel(reel, strip, duration, onDone) {
-      const target = -FINAL_INDEX * REEL_ITEM_HEIGHT;
+      const target = -FINAL_INDEX * reelItemHeight();
       const overshoot = target - 16;
       reel.classList.add("spinning");
 
@@ -3455,6 +3463,7 @@
         balance,
         level,
         games: stats.spins,
+        gifts: giftStats.received,
         rank: getRank(),
         ts: Date.now()
       };
@@ -4291,6 +4300,7 @@
         const dropped = prize.gifts || (prize.gift ? [prize.gift] : []);
         dropped.forEach((id) => {
           gifts[id] = (gifts[id] || 0) + 1;
+          giftStats.received += 1;
           if (!giftStats.found.includes(id)) giftStats.found.push(id);
         });
 
@@ -4477,7 +4487,7 @@
       chestCooldowns = {};
       chestStats = { opened: 0, best: 0, types: [] };
       gifts = {};
-      giftStats = { sold: 0, earned: 0, found: [] };
+      giftStats = { sold: 0, earned: 0, received: 0, found: [] };
       leaderboard = store.leaderboard.slice();
       soundEnabled = true;
       setButton(soundBtn, "sound", "Звук включён");

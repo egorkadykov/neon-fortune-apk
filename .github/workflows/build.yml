@@ -37,7 +37,13 @@ jobs:
           PY
 
       - name: Build debug APK
-        run: gradle assembleDebug --no-daemon
+        run: |
+          for attempt in 1 2 3; do
+            if gradle assembleDebug --no-daemon; then exit 0; fi
+            echo "Сборка прервалась, повтор $attempt из 3..."
+            sleep 30
+          done
+          exit 1
 
       - name: Upload APK
         uses: actions/upload-artifact@v4

@@ -247,6 +247,18 @@
     });
   }
 
+  // В топе показываем количество подарков, а не сумму вырученных за них звёзд.
+  function countProfileGifts(profile) {
+    var stats = profile.giftStats || {};
+    if (typeof stats.received === 'number') return Math.max(0, Math.floor(stats.received));
+    var held = 0;
+    var savedGifts = profile.gifts || {};
+    Object.keys(savedGifts).forEach(function (key) {
+      held += Math.max(0, Number(savedGifts[key]) || 0);
+    });
+    return Math.max(0, Math.floor(Number(stats.sold) || 0)) + held;
+  }
+
   function buildLeaderboard(state) {
     var rows = [];
     Object.keys(state.users).forEach(function (key) {
@@ -257,7 +269,7 @@
         balance: (profile.balance || 0),
         level: (profile.level || 1),
         games: (profile.stats && profile.stats.spins) || 0,
-        gifts: (profile.giftStats && profile.giftStats.earned) || 0,
+        gifts: countProfileGifts(profile),
         chests: (profile.chestStats && profile.chestStats.opened) || 0,
         achievements: Array.isArray(profile.unlocked) ? profile.unlocked.length : 0,
         rank: typeof getRank === 'function' ? getRank() : '',
@@ -286,7 +298,7 @@
       balance: balance,
       level: level,
       games: stats.spins,
-      gifts: giftStats.earned,
+      gifts: giftStats.received,
       chests: chestStats.opened,
       achievements: unlocked.size,
       rank: typeof getRank === 'function' ? getRank() : '',
