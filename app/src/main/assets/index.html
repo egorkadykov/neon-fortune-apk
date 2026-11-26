@@ -473,12 +473,12 @@
     .wheel.win { box-shadow: 0 0 0 5px var(--green), 0 0 36px rgba(110, 231, 168, 0.5); }
 
     .reel-symbol { height: 104px; display: flex; align-items: center; justify-content: center; padding: 16px; }
-    .reel-symbol .art-svg { width: 72px; height: 72px; filter: drop-shadow(0 5px 6px rgba(0, 0, 0, 0.16)); }
+    .reel-symbol .art-svg { width: min(72px, 100%); height: auto; max-height: 72px; filter: drop-shadow(0 5px 6px rgba(0, 0, 0, 0.16)); }
 
     /* Кости */
     .dice-board {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
       padding: 11px;
       border: 2px solid rgba(231, 199, 123, 0.5);
@@ -488,6 +488,7 @@
     }
 
     .die {
+      min-width: 0;
       height: 104px;
       display: flex;
       align-items: center;
@@ -501,7 +502,7 @@
       box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.65), 0 6px 12px rgba(0, 0, 0, 0.25);
     }
 
-    .die .art-svg { width: 76px; height: 76px; filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.5)); }
+    .die .art-svg { width: min(76px, 100%); height: auto; max-height: 76px; filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.5)); }
     .dice-board.rolling .die { animation: dice-shake 0.12s linear infinite; }
 
     @keyframes dice-shake {
@@ -1614,7 +1615,15 @@
       .cabinet { padding: 10px; }
       .reels { gap: 6px; padding: 7px; }
       .reel { height: 86px; }
-      .reel-symbol .art-svg { width: 52px; height: 52px; }
+      .reel-symbol { padding: 7px; }
+      .reel-symbol .art-svg { width: min(52px, 100%); height: auto; max-height: 52px; }
+
+      /* Кубики должны влезать в автомат, а не вылезать за его правый край. */
+      .dice-board { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; padding: 7px; }
+      .die { min-width: 0; height: 84px; padding: 4px; }
+      .die .art-svg { width: min(58px, 100%); height: auto; max-height: 58px; }
+      .card-table { gap: 6px; }
+      .playing-card { width: min(88px, 30vw); height: 128px; font-size: 2rem; }
 
       /* Ровно по три сундука/подарка в ряд, включая бесплатный. */
       .chest-grid, .gift-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
@@ -1693,7 +1702,7 @@
       .auth-server label { display: block; margin-bottom: 4px; font-size: 11px; color: var(--muted); }
       .auth-server .side-btn { width: 100%; justify-content: center; margin-top: 6px; padding: 9px; font-size: 0.8rem; }
 
-      /* Облегчаем отрисовку: тяжёлые эффекты на телефоне не нужны. */
+      /* Облегчаем отрисовку, но сохраняем анимации игр и сундуков. */
       .auth-screen, .settings-backdrop, .chest-overlay, .topbar, .section-tabs {
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
@@ -1705,17 +1714,20 @@
         box-shadow: none !important;
       }
       .reel.spinning .reel-strip, .reel-symbol .art-svg, .die .art-svg,
-      .wheel-pointer, .collectible, .collectible.found, .chest-icon,
+      .wheel-pointer, .chest-icon,
       .chest-card.cooling .chest-icon, .gift-art, .chest-actor,
       .chest-drop, .chest-drop .gift-art, .spin-btn:hover, .spin-btn:disabled {
         filter: none !important;
       }
-      .dice-board.rolling .die, .card-table.rolling .playing-card,
-      .chest-overlay.is-opening .chest-actor, .chest-drop:not(:empty),
-      .chest-art .chest-sparkle, .toast { animation: none !important; }
+      /* Анимации не выключаем — только делаем их короче и дешевле. */
+      .dice-board.rolling .die { animation-duration: 0.16s; }
+      .card-table.rolling .playing-card { animation-duration: 0.16s; }
+      .chest-overlay.is-opening .chest-actor { animation-duration: 0.5s; }
+      .chest-drop:not(:empty) { animation-duration: 0.35s; }
+      .toast { animation-duration: 0.24s; }
       .reel-strip { will-change: auto; }
       .auth-tab, .tab, .section-tab, .bet-btn, .gear-btn, .settings-close,
-      .side-btn, .chest-open, .collectible { transition-duration: 0.01ms !important; }
+      .side-btn, .chest-open { transition-duration: 0.01ms !important; }
     }
 
     @media (max-width: 380px) {
@@ -2071,31 +2083,65 @@
         dice6: die([[21, 18], [43, 18], [21, 32], [43, 32], [21, 46], [43, 46]]),
         red: svg('<circle cx="32" cy="32" r="23" fill="#e11d48" stroke="#fecdd3" stroke-width="3"/><circle cx="32" cy="32" r="13" fill="none" stroke="#fff" stroke-width="2" opacity=".55"/>'),
         black: svg('<circle cx="32" cy="32" r="23" fill="#1e293b" stroke="#94a3b8" stroke-width="3"/><circle cx="32" cy="32" r="13" fill="none" stroke="#f8fafc" stroke-width="2" opacity=".4"/>'),
-        green: svg('<circle cx="32" cy="32" r="23" fill="#16a34a" stroke="#bbf7d0" stroke-width="3"/><circle cx="32" cy="32" r="13" fill="none" stroke="#fff" stroke-width="2" opacity=".5"/>')
+        green: svg('<circle cx="32" cy="32" r="23" fill="#16a34a" stroke="#bbf7d0" stroke-width="3"/><circle cx="32" cy="32" r="13" fill="none" stroke="#fff" stroke-width="2" opacity=".5"/>'),
+        bullseye: svg('<defs><radialGradient id="bullRed"><stop stop-color="#fecdd3"/><stop offset=".45" stop-color="#e11d48"/><stop offset="1" stop-color="#881337"/></radialGradient></defs><circle cx="32" cy="32" r="24" fill="#f8fafc" stroke="#facc15" stroke-width="2"/><circle cx="32" cy="32" r="16" fill="#ef4444"/><circle cx="32" cy="32" r="8" fill="url(#bullRed)"/><circle cx="32" cy="32" r="2.5" fill="#fff"/>'),
+        dartGold: svg('<path d="M32 5 39 24 59 24 43 36 49 56 32 44 15 56 21 36 5 24 25 24Z" fill="#facc15" stroke="#fef3c7" stroke-width="2"/><circle cx="32" cy="31" r="7" fill="#fff7d6" opacity=".75"/>'),
+        dartOuter: svg('<circle cx="32" cy="32" r="22" fill="none" stroke="#64748b" stroke-width="3" stroke-dasharray="5 4"/><path d="M22 22 42 42M42 22 22 42" stroke="#94a3b8" stroke-width="2"/><circle cx="32" cy="32" r="4" fill="#475569"/>'),
+        spades: svg('<path d="M32 6C24 18 12 24 12 36c0 8 6 13 13 13 4 0 7-2 9-5-1 6-5 10-11 12h18c-6-2-10-6-11-12 2 3 5 5 9 5 7 0 13-5 13-13C52 24 40 18 32 6Z" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/><path d="M28 55h8" stroke="#1e293b" stroke-width="4"/>'),
+        hearts: svg('<path d="M32 56 10 35C1 26 7 12 18 12c6 0 11 4 14 9 3-5 8-9 14-9 11 0 17 14 8 23Z" fill="#ef4444" stroke="#fecaca" stroke-width="2"/>'),
+        clubs: svg('<circle cx="32" cy="20" r="10" fill="#1e293b" stroke="#94a3b8" stroke-width="1.4"/><circle cx="20" cy="38" r="10" fill="#1e293b" stroke="#94a3b8" stroke-width="1.4"/><circle cx="44" cy="38" r="10" fill="#1e293b" stroke="#94a3b8" stroke-width="1.4"/><path d="M32 33v19M26 54h12" stroke="#1e293b" stroke-width="5"/>'),
+        diamonds: svg('<path d="M32 4 58 32 32 60 6 32 32 4Z" fill="#e11d48" stroke="#fecdd3" stroke-width="2"/><path d="M32 12 50 32 32 52 14 32 32 12Z" fill="#fb7185" opacity=".55"/>')
       };
       return art[id] || "";
     }
 
-    // Кэш тяжёлой SVG-графики: во время вращения барабанов и костей
-    // браузер клонирует готовые узлы вместо повторного парсинга строк.
+    // Один общий SVG-спрайт вместо десятков клонов с градиентами.
+    // Каждая иконка на поле — это теперь всего два узла (<svg><use>),
+    // поэтому барабаны и кости перестают перерисовывать тяжёлую графику.
     const artStringCache = Object.create(null);
-    const artNodeCache = Object.create(null);
+    const artIds = [
+      "cherry", "lemon", "bell", "star", "diamond", "melon", "slotDie", "seven",
+      "dice1", "dice2", "dice3", "dice4", "dice5", "dice6",
+      "red", "black", "green",
+      "bullseye", "dartGold", "dartOuter", "spades", "hearts", "clubs", "diamonds"
+    ];
+    let artSprite = null;
     function artSvgCached(id) {
       let value = artStringCache[id];
       if (value === undefined) value = artStringCache[id] = artSvg(id);
       return value;
     }
+    function ensureArtSprite() {
+      if (artSprite) return artSprite;
+      const ns = "http://www.w3.org/2000/svg";
+      artSprite = document.createElementNS(ns, "svg");
+      artSprite.setAttribute("aria-hidden", "true");
+      artSprite.style.cssText = "position:absolute;width:0;height:0;overflow:hidden";
+      artIds.forEach((id) => {
+        const html = artSvgCached(id);
+        if (!html) return;
+        const symbol = document.createElementNS(ns, "symbol");
+        symbol.setAttribute("id", "art-" + id);
+        symbol.setAttribute("viewBox", "0 0 64 64");
+        const match = html.match(/<svg[^>]*>([\s\S]*)<\/svg>/i);
+        symbol.innerHTML = match ? match[1] : "";
+        artSprite.appendChild(symbol);
+      });
+      document.body.appendChild(artSprite);
+      return artSprite;
+    }
     function artNode(id) {
-      const html = artSvgCached(id);
-      // У части коллекционных знаков нет отдельной картинки — просто не добавляем SVG.
-      if (!html) return document.createDocumentFragment();
-      let node = artNodeCache[id];
-      if (!node) {
-        const holder = document.createElement("div");
-        holder.innerHTML = html;
-        node = artNodeCache[id] = holder.firstElementChild;
-      }
-      return node.cloneNode(true);
+      if (!artIds.includes(id)) return document.createDocumentFragment();
+      ensureArtSprite();
+      const ns = "http://www.w3.org/2000/svg";
+      const svg = document.createElementNS(ns, "svg");
+      svg.setAttribute("class", "art-svg");
+      svg.setAttribute("viewBox", "0 0 64 64");
+      svg.setAttribute("aria-hidden", "true");
+      const use = document.createElementNS(ns, "use");
+      use.setAttribute("href", "#art-" + id);
+      svg.appendChild(use);
+      return svg;
     }
 
     const symbolNames = {
@@ -2247,7 +2293,7 @@
     const REEL_ITEM_HEIGHT = 104;
     const REEL_ITEM_COUNT = LITE ? 8 : 30;
     const FINAL_INDEX = REEL_ITEM_COUNT - 1;
-    const SPIN_DURATIONS = [720, 980, 1240];
+    const SPIN_DURATIONS = LITE ? [520, 700, 880] : [720, 980, 1240];
 
     const missionDefs = [
       { id: "games", title: "Сыграй 10 игр", target: 10, reward: 30 },
@@ -3179,7 +3225,7 @@
       strip.appendChild(createReelSymbol(finalIcon));
       reel.appendChild(strip);
       if (setFinalPosition) {
-        strip.style.transform = `translateY(${-FINAL_INDEX * REEL_ITEM_HEIGHT}px)`;
+        strip.style.transform = `translate3d(0, ${-FINAL_INDEX * REEL_ITEM_HEIGHT}px, 0)`;
       }
       return strip;
     }
@@ -3194,7 +3240,7 @@
         if (spinStart === null) spinStart = timestamp;
         const t = Math.min((timestamp - spinStart) / duration, 1);
         const eased = 1 - Math.pow(1 - t, 5);
-        strip.style.transform = `translateY(${eased * overshoot}px)`;
+        strip.style.transform = `translate3d(0, ${eased * overshoot}px, 0)`;
         if (t < 1) requestAnimationFrame(spinFrame);
         else settle();
       }
@@ -3205,7 +3251,7 @@
           if (settleStart === null) settleStart = timestamp;
           const t = Math.min((timestamp - settleStart) / 170, 1);
           const eased = 1 - Math.pow(1 - t, 3);
-          strip.style.transform = `translateY(${overshoot + (target - overshoot) * eased}px)`;
+          strip.style.transform = `translate3d(0, ${overshoot + (target - overshoot) * eased}px, 0)`;
           if (t < 1) requestAnimationFrame(settleFrame);
           else {
             reel.classList.remove("spinning");
