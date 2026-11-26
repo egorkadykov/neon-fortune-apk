@@ -7,5 +7,8 @@
         <item name="android:windowBackground">#050812</item>
         <!-- Не рисуем фон системных панелей: иначе некоторые прошивки оставляют верхний отступ. -->
         <item name="android:windowDrawsSystemBarBackgrounds">false</item>
+        <!-- Прозрачные системные панели убирают остаточный верхний отступ. -->
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 </resources>
