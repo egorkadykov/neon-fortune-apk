@@ -5,7 +5,7 @@
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowBackground">#050812</item>
-        <item name="android:statusBarColor">#050812</item>
-        <item name="android:navigationBarColor">#050812</item>
+        <!-- Не рисуем фон системных панелей: иначе некоторые прошивки оставляют верхний отступ. -->
+        <item name="android:windowDrawsSystemBarBackgrounds">false</item>
     </style>
 </resources>
