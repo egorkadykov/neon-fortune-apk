@@ -189,7 +189,14 @@ public class MainActivity extends Activity {
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
-        if (hasFocus) applyFullscreen();
+        if (hasFocus) {
+            Window window = getWindow();
+            if (window != null) {
+                // Некоторые прошивки возвращают этот флаг после onCreate.
+                window.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR);
+            }
+            applyFullscreen();
+        }
     }
 
     @Override
