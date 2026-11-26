@@ -277,6 +277,7 @@
 
     .brand p { color: var(--muted); font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; }
     .badges { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; }
+    .badge-short { display: none; }
 
     .balance-badge,
     .streak-badge,
@@ -1493,9 +1494,12 @@
     /* Адаптив */
     @media (max-width: 900px) {
       body { padding: 16px; }
-      .layout { grid-template-columns: 1fr; }
+      /* minmax(0, 1fr) не даёт минимальной ширине вкладок растянуть страницу. */
+      .layout { grid-template-columns: minmax(0, 1fr); }
+      .machine { min-width: 0; max-width: 100%; }
+      .game-tabs { grid-template-columns: repeat(5, minmax(0, 1fr)); }
       .topbar { padding: 12px 14px; gap: 12px; }
-      .chest-grid, .gift-grid { grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); }
+      .chest-grid, .gift-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .badges { gap: 7px; }
       .balance-badge, .streak-badge, .level-badge { padding: 8px 12px; font-size: 0.78rem; }
     }
@@ -1547,8 +1551,10 @@
       }
 
       .topbar {
+        display: flex;
         flex-wrap: nowrap;
-        gap: 8px;
+        justify-content: space-between;
+        gap: 6px;
         min-height: 40px;
         max-height: 46px;
         padding: 5px 6px;
@@ -1559,11 +1565,13 @@
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
       }
-      .brand { min-width: 0; gap: 6px; }
+      .brand { min-width: 0; flex: 0 1 auto; gap: 6px; }
       .brand-icon { width: 30px; height: 30px; border-radius: 9px; box-shadow: none; }
       .brand-icon .ui-icon { width: 18px; height: 18px; }
       .brand h1 {
-        max-width: 120px;
+        flex: 0 1 auto;
+        min-width: 0;
+        max-width: 90px;
         overflow: hidden;
         font-size: 0.82rem;
         letter-spacing: 0.05em;
@@ -1571,12 +1579,57 @@
         text-overflow: ellipsis;
       }
       .brand p { display: none; }
-      .badges { flex-wrap: nowrap; gap: 6px; min-width: 0; }
-      #userBadge, .level-badge, .streak-badge { display: none !important; }
-      .balance-badge { padding: 6px 8px; border-radius: 10px; font-size: 0.72rem; }
-      .balance-badge strong { font-size: 0.92rem; }
-      .gear-btn { width: 34px; height: 34px; border-radius: 10px; box-shadow: none; }
-      .gear-btn .ui-icon { width: 18px; height: 18px; }
+
+      /* Ник, уровень и баланс — в одной строке с логотипом-кнопкой. */
+      .badges { flex: 0 0 auto; flex-wrap: nowrap; gap: 5px; min-width: 0; }
+      .badge-full { display: none; }
+      .badge-short { display: inline; }
+      .streak-badge { display: none !important; }
+      #userBadge {
+        max-width: 76px;
+        gap: 4px;
+        padding: 5px 6px;
+        border-radius: 10px;
+        font-size: 0.7rem;
+      }
+      #userBadge .ui-icon { width: 13px; height: 13px; }
+      #userName {
+        display: block;
+        max-width: 50px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .level-badge, .balance-badge { padding: 5px 6px; border-radius: 10px; font-size: 0.72rem; }
+      .level-badge strong, .balance-badge strong { font-size: 0.86rem; }
+      .gear-btn { width: 32px; height: 32px; border-radius: 10px; box-shadow: none; }
+      .gear-btn .ui-icon { width: 22px; height: 22px; }
+      /* Кнопка справа выглядит как иконка приложения, но по-прежнему открывает настройки. */
+      .app-logo-btn {
+        border-color: rgba(0, 255, 213, 0.4);
+        background: rgba(0, 255, 213, 0.08);
+        color: #ecfaff;
+      }
+
+      /* Пять вкладок игр должны влезать в экран, а не растягивать его. */
+      .game-tabs { gap: 4px; margin-bottom: 12px; }
+      .tab { gap: 3px; padding: 8px 2px; border-radius: 9px; font-size: 0.6rem; }
+      .tab .ui-icon { width: 14px; height: 14px; }
+      .tab span:last-child { overflow: hidden; text-overflow: ellipsis; }
+      .machine-head { font-size: 0.62rem; letter-spacing: 0.08em; }
+      .cabinet { padding: 10px; }
+      .reels { gap: 6px; padding: 7px; }
+      .reel { height: 86px; }
+      .reel-symbol .art-svg { width: 52px; height: 52px; }
+
+      /* Сундуки и подарки — по два в ряд, а не по одному на всю ширину. */
+      .chest-grid, .gift-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+      .chest-card, .gift-card { padding: 12px 8px; gap: 6px; border-radius: 14px; }
+      .chest-art { width: 90px; }
+      .gift-card-icon { width: 84px; height: 84px; padding: 5px; border-radius: 18px; }
+      .gift-card-name { font-size: 0.8rem; }
+      .gift-card-rarity { font-size: 0.62rem; }
+      .gift-sell, .chest-open { padding: 8px 4px; font-size: 0.72rem; }
 
       .section-tabs {
         display: grid;
@@ -1724,10 +1777,12 @@
       </div>
       <div class="badges">
         <div id="userBadge" class="user-badge"><span data-icon="user"></span><strong id="userName">Гость</strong></div>
-        <div class="level-badge">Уровень <strong id="levelBadge">1</strong> · <span id="rankBadge">Новичок</span></div>
+        <div class="level-badge">
+          <span class="badge-full">Уровень</span><span class="badge-short">Ур.</span> <strong id="levelBadge">1</strong><span class="badge-full"> · <span id="rankBadge">Новичок</span></span>
+        </div>
         <div class="streak-badge">Серия <strong id="streakBadge">0</strong> · множитель <strong id="multiBadge">×1</strong></div>
-        <div class="balance-badge">Баланс <strong id="balance">100</strong> звёзд</div>
-        <button id="settingsBtn" class="gear-btn" type="button" aria-label="Настройки" title="Настройки"><span data-icon="gear"></span></button>
+        <div class="balance-badge"><span class="badge-full">Баланс </span><span class="badge-short">★</span><strong id="balance">100</strong><span class="badge-full"> звёзд</span></div>
+        <button id="settingsBtn" class="gear-btn app-logo-btn" type="button" aria-label="Настройки" title="Настройки"><span data-icon="neonLogo"></span></button>
       </div>
     </header>
 
@@ -1957,6 +2012,7 @@
     function uiIcon(name, extraClass = "") {
       const paths = {
         chip: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.4"/><path d="M12 3v5.6M12 15.4V21M3 12h5.6M15.4 12H21M5.6 5.6l4 4M14.4 14.4l4 4M18.4 5.6l-4 4M9.6 14.4l-4 4"/>',
+        neonLogo: '<circle cx="12" cy="12" r="9" stroke="#00FFD5" stroke-width="1.6"/><path d="M8 17V7L16 17V7" stroke="#ECFAFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>',
         slots: '<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M9 5v14M15 5v14"/><circle cx="6" cy="12" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="18" cy="12" r="1.4"/>',
         dice: '<rect x="3.5" y="3.5" width="17" height="17" rx="4"/><circle cx="8.5" cy="8.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="15.5" cy="8.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="8.5" cy="15.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="15.5" cy="15.5" r="1.3" fill="currentColor" stroke="none"/>',
         roulette: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v6M21 12h-6M12 21v-6M3 12h6M5.7 5.7l4.2 4.2M18.3 5.7l-4.2 4.2M18.3 18.3l-4.2-4.2M5.7 18.3l4.2-4.2"/>',
