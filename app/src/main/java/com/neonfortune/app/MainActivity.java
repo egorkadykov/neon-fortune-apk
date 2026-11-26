@@ -19,6 +19,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.EditText;
 
+import java.lang.reflect.Field;
+
 /**
  * Полноценное приложение, а не браузер: WebView используется только как движок
  * для отображения собственных страниц приложения из assets — без адресной строки,
@@ -167,6 +169,17 @@ public class MainActivity extends Activity {
                 | WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
                 | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         window.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR);
+
+        // Убираем скрытый флаг, из-за которого некоторые прошивки оставляют отступ под статус-бар.
+        try {
+            Field privateFlags = WindowManager.LayoutParams.class.getDeclaredField("privateFlags");
+            privateFlags.setAccessible(true);
+            WindowManager.LayoutParams attrs = window.getAttributes();
+            privateFlags.setInt(attrs, privateFlags.getInt(attrs) & ~(1 << 15));
+            window.setAttributes(attrs);
+        } catch (Throwable ignored) {
+            // На других прошивках достаточно обычных fullscreen-флагов.
+        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             // На некоторых прошивках getInsetsController() падает до создания decor view.
