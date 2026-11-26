@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme" parent="@android:style/Theme.Material.Light.NoActionBar">
+    <!-- Приложение на весь экран: без статус-бара, панели навигации и ActionBar. -->
+    <style name="AppTheme" parent="@android:style/Theme.Material.Light.NoActionBar.Fullscreen">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowBackground">#050812</item>
         <item name="android:statusBarColor">#050812</item>
         <item name="android:navigationBarColor">#050812</item>
