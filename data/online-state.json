@@ -1,1 +1,1 @@
-{"version":1,"users":{},"tokens":{},"leaderboard":[]}
+{"version":1,"users":{"globaltester":{"name":"GlobalTester","hash":"sha256-bd94dcda26fccb4e68d6a31f9b5aac0b571ae266d822620e901ef7ebe3a11d4f","created":1795723599339,"updated":1795723599339,"profile":null}},"tokens":{"667349214b0a019ba9a21b363e229ef3":"globaltester"},"leaderboard":[{"name":"GlobalTester","balance":0,"level":1,"games":0,"gifts":0,"chests":0,"achievements":0,"rank":"Новичок","ts":1795723599339}]}
