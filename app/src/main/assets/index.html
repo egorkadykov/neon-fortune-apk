@@ -1707,7 +1707,6 @@
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
       }
-      .spin-btn::before, .chest-aura, .particle, .spark { display: none !important; }
       .auth-card, .machine, .cabinet, .reels, .reels::after, .dice-board, .die,
       .chest-card, .gift-card, .toast, .settings-panel, .chest-actor,
       .chest-drop, .chest-drop .gift-art, .topbar, .section-tabs {
@@ -1723,11 +1722,9 @@
       .dice-board.rolling .die { animation-duration: 0.16s; }
       .card-table.rolling .playing-card { animation-duration: 0.16s; }
       .chest-overlay.is-opening .chest-actor { animation-duration: 0.5s; }
-      .chest-drop:not(:empty) { animation-duration: 0.35s; }
+      .chest-drop:not(:empty) { animation-duration: 0.35s, 2.2s; }
       .toast { animation-duration: 0.24s; }
       .reel-strip { will-change: auto; }
-      .auth-tab, .tab, .section-tab, .bet-btn, .gear-btn, .settings-close,
-      .side-btn, .chest-open { transition-duration: 0.01ms !important; }
     }
 
     @media (max-width: 380px) {
@@ -1735,9 +1732,8 @@
       .balance-badge { padding: 5px 7px; font-size: 0.68rem; }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-    }
+    /* Анимации специально не отключаем даже при системной настройке
+       «уменьшить движение»: слоты и кости должны оставаться живыми. */
 </style>
 </head>
 <body>
@@ -2287,8 +2283,9 @@
     function migrateIcon(value) {
       return legacyIcons[value] || value;
     }
-    const LITE = window.matchMedia("(max-width: 700px)").matches ||
-                 window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // Лёгкий режим только уменьшает число узлов и длительность вращений.
+    // Анимации не отключаем даже при системной настройке «меньше движения».
+    const LITE = window.matchMedia("(max-width: 700px)").matches;
     const RANDOM_BUF = new Uint32Array(1);
     const REEL_ITEM_HEIGHT = 104;
     const REEL_ITEM_COUNT = LITE ? 8 : 30;
@@ -3332,18 +3329,19 @@
     }
 
     function confetti() {
-      if (LITE) return;
       const colors = ["#facc15", "#f97316", "#4ade80", "#38bdf8", "#a78bfa"];
       const container = document.getElementById("confetti");
-      for (let i = 0; i < 42; i++) {
+      // На телефоне конфетти тоже есть, но частиц меньше — это почти не грузит.
+      const count = LITE ? 18 : 42;
+      for (let i = 0; i < count; i++) {
         const particle = document.createElement("div");
         particle.className = "particle";
         particle.style.left = randomValue() * 100 + "%";
         particle.style.background = colors[Math.floor(randomValue() * colors.length)];
-        particle.style.animationDuration = 1.1 + randomValue() * 0.9 + "s";
+        particle.style.animationDuration = (LITE ? 0.9 + randomValue() * 0.6 : 1.1 + randomValue() * 0.9) + "s";
         particle.style.animationDelay = randomValue() * 0.25 + "s";
         container.appendChild(particle);
-        setTimeout(() => particle.remove(), 2400);
+        setTimeout(() => particle.remove(), LITE ? 1700 : 2400);
       }
     }
 
@@ -3740,9 +3738,10 @@
 
     function spawnSparks() {
       chestBurst.innerHTML = "";
-      if (LITE) return;
       const icons = ["star", "sparkle", "bolt", "coin", "fire"];
-      for (let i = 0; i < 22; i++) {
+      // Искры при открытии сундука оставляем и на телефоне, просто их меньше.
+      const count = LITE ? 12 : 22;
+      for (let i = 0; i < count; i++) {
         const spark = document.createElement("span");
         spark.className = "spark";
         spark.innerHTML = uiIcon(icons[Math.floor(randomValue() * icons.length)]);
@@ -4084,18 +4083,12 @@
       const picks = [randomDiceFace(), randomDiceFace(), randomDiceFace()];
       diceBoard.classList.remove("win");
       diceBoard.classList.add("rolling");
-      if (LITE) {
-        setTimeout(() => {
-          dieEls.forEach((die, index) => { die.replaceChildren(artNode(picks[index])); });
-          diceBoard.classList.remove("rolling");
-          beep(480, 0.1, "triangle", 0.03);
-          finishDice(picks, multiplier);
-        }, 300);
-        return;
-      }
+      // На телефоне анимация короче, но кости всё равно перебирают грани.
+      const shuffleEvery = LITE ? 90 : 80;
+      const rollMs = LITE ? 620 : 950;
       const shuffle = setInterval(() => {
         dieEls.forEach((die) => { die.replaceChildren(artNode(randomDiceFace())); });
-      }, 80);
+      }, shuffleEvery);
 
       setTimeout(() => {
         clearInterval(shuffle);
@@ -4103,7 +4096,7 @@
         diceBoard.classList.remove("rolling");
         beep(480, 0.1, "triangle", 0.03);
         finishDice(picks, multiplier);
-      }, 950);
+      }, rollMs);
     }
 
     function spinRoulette(multiplier) {
