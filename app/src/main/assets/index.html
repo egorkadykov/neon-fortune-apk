@@ -1499,7 +1499,7 @@
       .machine { min-width: 0; max-width: 100%; }
       .game-tabs { grid-template-columns: repeat(5, minmax(0, 1fr)); }
       .topbar { padding: 12px 14px; gap: 12px; }
-      .chest-grid, .gift-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .chest-grid, .gift-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .badges { gap: 7px; }
       .balance-badge, .streak-badge, .level-badge { padding: 8px 12px; font-size: 0.78rem; }
     }
@@ -1602,14 +1602,8 @@
       }
       .level-badge, .balance-badge { padding: 5px 6px; border-radius: 10px; font-size: 0.72rem; }
       .level-badge strong, .balance-badge strong { font-size: 0.86rem; }
-      .gear-btn { width: 32px; height: 32px; border-radius: 10px; box-shadow: none; }
-      .gear-btn .ui-icon { width: 22px; height: 22px; }
-      /* Кнопка справа выглядит как иконка приложения, но по-прежнему открывает настройки. */
-      .app-logo-btn {
-        border-color: rgba(0, 255, 213, 0.4);
-        background: rgba(0, 255, 213, 0.08);
-        color: #ecfaff;
-      }
+      .gear-btn { width: 34px; height: 34px; border-radius: 10px; box-shadow: none; }
+      .gear-btn .ui-icon { width: 18px; height: 18px; }
 
       /* Пять вкладок игр должны влезать в экран, а не растягивать его. */
       .game-tabs { gap: 4px; margin-bottom: 12px; }
@@ -1622,14 +1616,16 @@
       .reel { height: 86px; }
       .reel-symbol .art-svg { width: 52px; height: 52px; }
 
-      /* Сундуки и подарки — по два в ряд, а не по одному на всю ширину. */
-      .chest-grid, .gift-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-      .chest-card, .gift-card { padding: 12px 8px; gap: 6px; border-radius: 14px; }
-      .chest-art { width: 90px; }
-      .gift-card-icon { width: 84px; height: 84px; padding: 5px; border-radius: 18px; }
-      .gift-card-name { font-size: 0.8rem; }
-      .gift-card-rarity { font-size: 0.62rem; }
-      .gift-sell, .chest-open { padding: 8px 4px; font-size: 0.72rem; }
+      /* Ровно по три сундука/подарка в ряд, включая бесплатный. */
+      .chest-grid, .gift-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+      .chest-card, .gift-card { padding: 8px 4px; gap: 4px; border-radius: 12px; }
+      .chest-art { width: 62px; }
+      .chest-desc { display: none; }
+      .gift-card-icon { width: 60px; height: 60px; padding: 3px; border-radius: 12px; }
+      .chest-name, .gift-card-name { font-size: 0.68rem; line-height: 1.15; overflow-wrap: anywhere; }
+      .chest-cost, .gift-card-rarity, .gift-card-count { font-size: 0.58rem; line-height: 1.15; }
+      .chest-open, .gift-sell { width: 100%; gap: 3px; padding: 6px 3px; font-size: 0.6rem; }
+      .chest-open .ui-icon, .gift-sell .ui-icon, .chest-cost .ui-icon { width: 12px; height: 12px; }
 
       .section-tabs {
         display: grid;
@@ -1769,7 +1765,7 @@
     <div class="sticky-head">
     <header class="topbar">
       <div class="brand">
-        <span class="brand-icon"><span data-icon="chip"></span></span>
+        <span class="brand-icon"><span data-icon="neonLogo"></span></span>
         <div>
           <h1>NEON FORTUNE</h1>
           <p>виртуальное казино</p>
@@ -1782,7 +1778,7 @@
         </div>
         <div class="streak-badge">Серия <strong id="streakBadge">0</strong> · множитель <strong id="multiBadge">×1</strong></div>
         <div class="balance-badge"><span class="badge-full">Баланс </span><span class="badge-short">★</span><strong id="balance">100</strong><span class="badge-full"> звёзд</span></div>
-        <button id="settingsBtn" class="gear-btn app-logo-btn" type="button" aria-label="Настройки" title="Настройки"><span data-icon="neonLogo"></span></button>
+        <button id="settingsBtn" class="gear-btn" type="button" aria-label="Настройки" title="Настройки"><span data-icon="gear"></span></button>
       </div>
     </header>
 
@@ -1883,7 +1879,7 @@
       <div class="chest-head">
         <div>
           <h2><span data-icon="chest"></span>Сундуки</h2>
-          <p class="chest-sub">Восемь сундуков. Падают только подарки (95%) или пусто (5%) — звёзд и опыта больше нет. В бумажном и деревянном — подарки дешевле 100 звёзд, с бронзового доступны подарки от 100, с золотого — от 450. В алмазном и выше подарков дешевле 100 нет. Шанс зависит от цены подарка и кейса. Всё найденное можно продать в разделе «Подарки».</p>
+          <p class="chest-sub">Девять сундуков. Первый — бесплатный: раз в 24 часа и только подарок дешевле 100 звёзд. В остальных падают подарки (95%) или пусто (5%) — звёзд и опыта больше нет. В бумажном и деревянном — подарки дешевле 100 звёзд, с бронзового доступны подарки от 100, с золотого — от 450. В алмазном и выше подарков дешевле 100 нет. Всё найденное можно продать в разделе «Подарки».</p>
         </div>
         <div class="chest-stats">
           <span>Открыто <strong id="chestOpened">0</strong></span>
@@ -2080,6 +2076,28 @@
       return art[id] || "";
     }
 
+    // Кэш тяжёлой SVG-графики: во время вращения барабанов и костей
+    // браузер клонирует готовые узлы вместо повторного парсинга строк.
+    const artStringCache = Object.create(null);
+    const artNodeCache = Object.create(null);
+    function artSvgCached(id) {
+      let value = artStringCache[id];
+      if (value === undefined) value = artStringCache[id] = artSvg(id);
+      return value;
+    }
+    function artNode(id) {
+      const html = artSvgCached(id);
+      // У части коллекционных знаков нет отдельной картинки — просто не добавляем SVG.
+      if (!html) return document.createDocumentFragment();
+      let node = artNodeCache[id];
+      if (!node) {
+        const holder = document.createElement("div");
+        holder.innerHTML = html;
+        node = artNodeCache[id] = holder.firstElementChild;
+      }
+      return node.cloneNode(true);
+    }
+
     const symbolNames = {
       cherry: "Вишня", lemon: "Лимон", bell: "Колокол", star: "Звезда",
       diamond: "Алмаз", melon: "Арбуз", slotDie: "Кубик", seven: "Семёрка",
@@ -2094,7 +2112,7 @@
     }
 
     function artBadge(id) {
-      return `<span class="art-badge" title="${symbolName(id)}">${artSvg(id)}</span>`;
+      return `<span class="art-badge" title="${symbolName(id)}">${artSvgCached(id)}</span>`;
     }
 
     function toIconList(value) {
@@ -2227,7 +2245,7 @@
                  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const RANDOM_BUF = new Uint32Array(1);
     const REEL_ITEM_HEIGHT = 104;
-    const REEL_ITEM_COUNT = LITE ? 12 : 30;
+    const REEL_ITEM_COUNT = LITE ? 8 : 30;
     const FINAL_INDEX = REEL_ITEM_COUNT - 1;
     const SPIN_DURATIONS = [720, 980, 1240];
 
@@ -2553,7 +2571,7 @@
             </g>
           </svg>`
       };
-      return art[id] || "";
+      return art[id] || art.paper; // бесплатный сундук использует форму бумажного
     }
 
     function prizeTable(cost) {
@@ -2599,7 +2617,36 @@
       return [...giftEntries, chestPrize(5, 0, "Пусто! В сундуке ничего нет.", { kind: "empty" })];
     }
 
+    function freePrizeTable() {
+      // Бесплатный сундук даёт только подарки дешевле 100 звёзд, без «пусто» и без звёзд.
+      const allowed = giftDefs.filter((gift) => gift.value < 100);
+      const rarityFactor = { Базовый: 1, Редкий: 0.75, Эпический: 0.45, Легендарный: 0.15 };
+      const weights = allowed.map(
+        (gift) => (rarityFactor[gift.rarity] ?? 1) / (0.5 + gift.value / 100)
+      );
+      const sum = weights.reduce((total, weight) => total + weight, 0);
+      return allowed.map((gift, index) =>
+        chestPrize((100 * weights[index]) / sum, 0, `${gift.name}! Продай его в разделе «Подарки»`, {
+          gift: gift.id,
+          kind: "special"
+        })
+      );
+    }
+
     const chestTypes = [
+      {
+        id: "free",
+        label: "Бесплатный сундук",
+        name: "Бесплатный",
+        cost: 0,
+        cooldown: 24 * 60 * 60 * 1000,
+        delay: 500,
+        accent: "#6ee7a8",
+        glow: "rgba(110,231,168,.16)",
+        desc: "Раз в 24 часа. Внутри гарантированно любой подарок дешевле 100 звёзд.",
+        free: true,
+        prizes: freePrizeTable()
+      },
       {
         id: "paper",
         label: "Бумажный сундук",
@@ -2805,7 +2852,8 @@
       };
     }
 
-    function persistStore() {
+    let persistTimer = null;
+    function persistStoreNow() {
       try {
         localStorage.setItem(SAVE_KEY, JSON.stringify(store));
       } catch (error) {
@@ -2818,6 +2866,17 @@
       } catch (error) {
         /* если ссылку нельзя обновить, продолжим без неё */
       }
+    }
+
+    function persistStore() {
+      // Во время игры сохранение вызывается несколько раз подряд.
+      // На телефоне сливаем записи в одну, чтобы не тормозить главный поток.
+      if (LITE) {
+        if (persistTimer) clearTimeout(persistTimer);
+        persistTimer = setTimeout(() => { persistTimer = null; persistStoreNow(); }, 300);
+        return;
+      }
+      persistStoreNow();
     }
 
     function getSession() {
@@ -3105,7 +3164,7 @@
     function createReelSymbol(icon) {
       const item = document.createElement("div");
       item.className = "reel-symbol";
-      item.innerHTML = artSvg(icon);
+      item.appendChild(artNode(icon));
       return item;
     }
 
@@ -3279,7 +3338,10 @@
       collectibles.forEach((item) => {
         const cell = document.createElement("div");
         cell.className = "collectible" + (collection.has(item) ? " found" : "");
-        cell.innerHTML = artSvg(item) + `<span>${symbolName(item)}</span>`;
+        cell.appendChild(artNode(item));
+        const label = document.createElement("span");
+        label.textContent = symbolName(item);
+        cell.appendChild(label);
         cell.title = symbolName(item);
         grid.appendChild(cell);
       });
@@ -3414,7 +3476,10 @@
 
     function chestLockLabel(id) {
       const left = chestCooldownLeft(id);
-      return left > 0 ? `Перезарядка ${Math.ceil(left / 1000)} с` : "";
+      if (!left) return "";
+      if (left >= 3600000) return `Перезарядка ${Math.ceil(left / 3600000)} ч`;
+      if (left >= 60000) return `Перезарядка ${Math.ceil(left / 60000)} мин`;
+      return `Перезарядка ${Math.ceil(left / 1000)} с`;
     }
 
     function tickChestCooldowns() {
@@ -3461,7 +3526,7 @@
 
         const cost = document.createElement("div");
         cost.className = "chest-cost";
-        setButton(cost, "star", `${chest.cost} звёзд`);
+        setButton(cost, "star", chest.free ? "Бесплатно" : `${chest.cost} звёзд`);
 
         const button = document.createElement("button");
         button.type = "button";
@@ -3938,7 +4003,7 @@
       diceBoard.classList.add("rolling");
       if (LITE) {
         setTimeout(() => {
-          dieEls.forEach((die, index) => { die.innerHTML = artSvg(picks[index]); });
+          dieEls.forEach((die, index) => { die.replaceChildren(artNode(picks[index])); });
           diceBoard.classList.remove("rolling");
           beep(480, 0.1, "triangle", 0.03);
           finishDice(picks, multiplier);
@@ -3946,12 +4011,12 @@
         return;
       }
       const shuffle = setInterval(() => {
-        dieEls.forEach((die) => { die.innerHTML = artSvg(randomDiceFace()); });
+        dieEls.forEach((die) => { die.replaceChildren(artNode(randomDiceFace())); });
       }, 80);
 
       setTimeout(() => {
         clearInterval(shuffle);
-        dieEls.forEach((die, index) => { die.innerHTML = artSvg(picks[index]); });
+        dieEls.forEach((die, index) => { die.replaceChildren(artNode(picks[index])); });
         diceBoard.classList.remove("rolling");
         beep(480, 0.1, "triangle", 0.03);
         finishDice(picks, multiplier);
@@ -4104,7 +4169,7 @@
 
     function resetGameVisuals() {
       ["cherry", "lemon", "bell"].forEach((icon, index) => buildReel(reelEls[index], icon));
-      dieEls.forEach((die, index) => { die.innerHTML = artSvg(diceFaces[index]); });
+      dieEls.forEach((die, index) => { die.replaceChildren(artNode(diceFaces[index])); });
       diceBoard.classList.remove("win", "rolling");
       wheelEl.classList.remove("win");
       wheelEl.style.transition = "none";
@@ -4415,7 +4480,14 @@
       updateUI();
     });
 
-    window.addEventListener("beforeunload", saveProfile);
+    window.addEventListener("beforeunload", () => {
+      saveProfile();
+      if (persistTimer) {
+        clearTimeout(persistTimer);
+        persistTimer = null;
+      }
+      persistStoreNow();
+    });
 
     resetGameVisuals();
     syncGameView();
@@ -4426,14 +4498,19 @@
     renderLeaderboard();
     updateUI();
     restoreSession();
+    // Обновляем подписи перезарядки только когда сундуки на экране.
     setInterval(() => {
       if (document.hidden) return;
-      if (activeView !== "chests" && !Object.keys(chestCooldowns).length) return;
+      if (activeView !== "chests" && !chestBusy) return;
       tickChestCooldowns();
+    }, LITE ? 1000 : 250);
+    // Убираем закончившиеся перезарядки редко — раз в 30 секунд.
+    setInterval(() => {
+      if (!Object.keys(chestCooldowns).length) return;
       const before = Object.keys(chestCooldowns).length;
       chestCooldowns = Object.fromEntries(Object.entries(chestCooldowns).filter(([, until]) => until > Date.now()));
       if (before !== Object.keys(chestCooldowns).length) saveProfile();
-    }, LITE ? 1000 : 250);
+    }, 30000);
   </script>
   <script id="neonOnlineLayer" src="neon-online-api.js"></script>
 
