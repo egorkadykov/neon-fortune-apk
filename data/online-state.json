@@ -79,16 +79,24 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795817111484,
+      "updated": 1795817113140,
       "profile": {
-        "balance": 26,
+        "balance": 28,
         "currentBet": 10,
         "stats": {
-          "spins": 443,
-          "wins": 300,
+          "spins": 444,
+          "wins": 301,
           "best": 2000
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "11",
+              "red"
+            ],
+            "delta": 2
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -128,18 +136,10 @@
               "black"
             ],
             "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "6",
-              "black"
-            ],
-            "delta": -100
           }
         ],
-        "streak": 0,
-        "xp": 226,
+        "streak": 1,
+        "xp": 236,
         "level": 8,
         "xpToNext": 960,
         "collection": [
@@ -269,7 +269,7 @@
       "name": "Егор",
       "hash": "sha256-03aaef0fd45d47ee37afee60b41f0a80010f58f95d3d34e9b7dc253c8558bf2a",
       "created": 1795801871294,
-      "updated": 1795817042193,
+      "updated": 1795817114034,
       "profile": {
         "balance": 999587,
         "currentBet": 100,
@@ -420,7 +420,7 @@
             "giftBox"
           ]
         },
-        "activeView": "games",
+        "activeView": "top",
         "unlocked": [
           "giftSell",
           "first",
@@ -452,7 +452,7 @@
       "chests": 37,
       "achievements": 5,
       "rank": "Игрок",
-      "ts": 1795817042193
+      "ts": 1795817114034
     },
     {
       "name": "Ольга",
@@ -468,13 +468,13 @@
     {
       "name": "pithp",
       "level": 8,
-      "balance": 26,
-      "games": 443,
+      "balance": 28,
+      "games": 444,
       "gifts": 0,
       "chests": 94,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795817111484
+      "ts": 1795817113140
     }
   ],
   "admin": {
