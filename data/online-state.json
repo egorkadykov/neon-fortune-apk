@@ -603,22 +603,35 @@
       "name": "bot730544",
       "hash": "fnv1a-8162f0b4",
       "created": 1795815392618,
-      "updated": 1795815392618,
+      "updated": 1795815411860,
       "sessionAt": 1795815392618,
       "profile": {
-        "balance": 100,
+        "balance": 99,
         "currentBet": 1,
         "stats": {
-          "spins": 0,
+          "spins": 1,
           "wins": 0,
           "best": 0
         },
-        "history": [],
+        "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "cherry",
+              "lemon",
+              "cherry"
+            ],
+            "delta": -1
+          }
+        ],
         "streak": 0,
-        "xp": 0,
+        "xp": 2,
         "level": 1,
         "xpToNext": 120,
-        "collection": [],
+        "collection": [
+          "cherry",
+          "lemon"
+        ],
         "collectionRewardGiven": false,
         "missions": [
           {
@@ -626,7 +639,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 0,
+            "progress": 1,
             "claimed": false
           },
           {
@@ -671,7 +684,7 @@
         "unlocked": [],
         "activeGame": "slots",
         "cardsChoice": "spades",
-        "soundEnabled": true,
+        "soundEnabled": false,
         "lastActionAt": 0,
         "actionWindowStart": 0,
         "actionCount": 0
@@ -744,13 +757,13 @@
     {
       "name": "bot730544",
       "level": 1,
-      "balance": 100,
-      "games": 0,
+      "balance": 99,
+      "games": 1,
       "gifts": 0,
       "chests": 0,
       "achievements": 0,
       "rank": "Новичок",
-      "ts": 1795815392618
+      "ts": 1795815411860
     }
   ],
   "admin": {
