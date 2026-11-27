@@ -22,16 +22,16 @@ jobs:
         with:
           gradle-version: '8.7'
 
-      - name: Inject online token into assets
+      - name: Inject server URL into assets
         env:
-          NEON_GITHUB_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+          NEON_API_BASE: ${{ vars.NEON_API_BASE }}
         run: |
           python3 - <<'PY'
           import os, pathlib
-          token = os.environ['NEON_GITHUB_TOKEN']
+          base = os.environ.get('NEON_API_BASE', '').strip()
           js_path = pathlib.Path('neon-online-api.js')
           js = js_path.read_text(encoding='utf-8')
-          js = js.replace('window.NEON_GITHUB_TOKEN', repr(token))
+          js = js.replace('window.NEON_API_BASE', repr(base))
           target = pathlib.Path('app/src/main/assets/neon-online-api.js')
           target.write_text(js, encoding='utf-8')
           PY
