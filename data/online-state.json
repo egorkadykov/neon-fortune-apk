@@ -447,7 +447,7 @@
       "name": "verifytest",
       "hash": "sha256-dcf59bad207b5071095d5ba0ddb56d1d8def687430aff92e3a2f76163e86adfa",
       "created": 1795814959670,
-      "updated": 1795814985635,
+      "updated": 1795814988459,
       "sessionAt": 1795814959670,
       "profile": {
         "balance": 99,
@@ -583,7 +583,7 @@
       "chests": 0,
       "achievements": 0,
       "rank": "Новичок",
-      "ts": 1795814985635
+      "ts": 1795814988459
     }
   ],
   "admin": {
