@@ -450,157 +450,11 @@
         "actionCount": 0
       },
       "sessionAt": 1795810651372
-    },
-    "wintest": {
-      "name": "wintest",
-      "hash": "sha256-bc51ba801c2031795d35a215e5ffd3e16c19facc2df6b247787c6fd5478c3bde",
-      "created": 1795813856141,
-      "updated": 1795813877512,
-      "sessionAt": 1795813856141,
-      "profile": {
-        "balance": 57,
-        "currentBet": 1,
-        "stats": {
-          "spins": 45,
-          "wins": 1,
-          "best": 2
-        },
-        "history": [
-          {
-            "glyph": "slots",
-            "icons": [
-              "cherry",
-              "lemon",
-              "star"
-            ],
-            "delta": 1
-          },
-          {
-            "glyph": "slots",
-            "icons": [
-              "diamond",
-              "bell",
-              "lemon"
-            ],
-            "delta": -1
-          },
-          {
-            "glyph": "slots",
-            "icons": [
-              "diamond",
-              "star",
-              "bell"
-            ],
-            "delta": -1
-          },
-          {
-            "glyph": "slots",
-            "icons": [
-              "lemon",
-              "seven",
-              "melon"
-            ],
-            "delta": -1
-          },
-          {
-            "glyph": "slots",
-            "icons": [
-              "cherry",
-              "cherry",
-              "star"
-            ],
-            "delta": -1
-          },
-          {
-            "glyph": "slots",
-            "icons": [
-              "diamond",
-              "star",
-              "melon"
-            ],
-            "delta": -1
-          }
-        ],
-        "streak": 1,
-        "xp": 98,
-        "level": 1,
-        "xpToNext": 120,
-        "collection": [
-          "lemon",
-          "star",
-          "seven",
-          "melon",
-          "cherry",
-          "diamond",
-          "bell",
-          "slotDie"
-        ],
-        "collectionRewardGiven": false,
-        "missions": [
-          {
-            "id": "games",
-            "title": "Сыграй 10 игр",
-            "target": 10,
-            "reward": 30,
-            "progress": 10,
-            "claimed": false
-          },
-          {
-            "id": "wins",
-            "title": "Победи 5 раз",
-            "target": 5,
-            "reward": 50,
-            "progress": 1,
-            "claimed": false
-          },
-          {
-            "id": "triple",
-            "title": "Получи трипу в костях",
-            "target": 1,
-            "reward": 75,
-            "progress": 0,
-            "claimed": false
-          },
-          {
-            "id": "jackpot",
-            "title": "Сорви джекпот",
-            "target": 1,
-            "reward": 100,
-            "progress": 0,
-            "claimed": false
-          }
-        ],
-        "chestStats": {
-          "opened": 0,
-          "best": 0,
-          "types": []
-        },
-        "chestCooldowns": {},
-        "gifts": {},
-        "giftStats": {
-          "sold": 0,
-          "earned": 0,
-          "received": 0,
-          "found": []
-        },
-        "activeView": "games",
-        "unlocked": [
-          "games10",
-          "first"
-        ],
-        "activeGame": "slots",
-        "cardsChoice": "spades",
-        "soundEnabled": true,
-        "lastActionAt": 0,
-        "actionWindowStart": 0,
-        "actionCount": 0
-      }
     }
   },
   "tokens": {
     "f6cbb883479d36ed93e7817f9525f9fa4a1936b05fcc5d3f72c5f28d9c6b7c79": "егор",
-    "91a15eca0a835ca6f603ea3e11d332a0fa994c5a836182b796c2e4e3dcb3134e": "pithp",
-    "7a50c38f3bd23cb361a00687e72b2a2d4d5d8fdf54ea88a227f10387f941db6d": "wintest"
+    "91a15eca0a835ca6f603ea3e11d332a0fa994c5a836182b796c2e4e3dcb3134e": "pithp"
   },
   "leaderboard": [
     {
@@ -624,17 +478,6 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795729367800
-    },
-    {
-      "name": "wintest",
-      "level": 1,
-      "balance": 57,
-      "games": 45,
-      "gifts": 0,
-      "chests": 0,
-      "achievements": 2,
-      "rank": "Новичок",
-      "ts": 1795813877512
     },
     {
       "name": "pithp",
