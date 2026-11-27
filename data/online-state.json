@@ -79,7 +79,7 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795815386712,
+      "updated": 1795815421675,
       "profile": {
         "balance": 395,
         "currentBet": 100,
@@ -656,10 +656,10 @@
       "name": "bot730544",
       "hash": "fnv1a-8162f0b4",
       "created": 1795815392618,
-      "updated": 1795815414119,
+      "updated": 1795815422588,
       "sessionAt": 1795815392618,
       "profile": {
-        "balance": 99,
+        "balance": 189,
         "currentBet": 1,
         "stats": {
           "spins": 1,
@@ -730,19 +730,19 @@
         "chestCooldowns": {
           "free": 1795901814119
         },
-        "gifts": {
-          "musicBox": 1
-        },
+        "gifts": {},
         "giftStats": {
-          "sold": 0,
-          "earned": 0,
+          "sold": 1,
+          "earned": 90,
           "received": 1,
           "found": [
             "musicBox"
           ]
         },
-        "activeView": "chests",
-        "unlocked": [],
+        "activeView": "gifts",
+        "unlocked": [
+          "giftSell"
+        ],
         "activeGame": "slots",
         "cardsChoice": "spades",
         "soundEnabled": false,
@@ -780,7 +780,18 @@
       "chests": 94,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795815386712
+      "ts": 1795815421675
+    },
+    {
+      "name": "bot730544",
+      "level": 1,
+      "balance": 189,
+      "games": 1,
+      "gifts": 0,
+      "chests": 1,
+      "achievements": 1,
+      "rank": "Новичок",
+      "ts": 1795815422588
     },
     {
       "name": "Ольга",
@@ -803,17 +814,6 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795815419234
-    },
-    {
-      "name": "bot730544",
-      "level": 1,
-      "balance": 99,
-      "games": 1,
-      "gifts": 1,
-      "chests": 1,
-      "achievements": 0,
-      "rank": "Новичок",
-      "ts": 1795815414119
     },
     {
       "name": "bot981290",
