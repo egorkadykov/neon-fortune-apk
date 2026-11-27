@@ -440,157 +440,11 @@
         "actionCount": 0
       },
       "sessionAt": 1795810651372
-    },
-    "probe_61580": {
-      "name": "probe_61580",
-      "hash": "fnv1a-1ecde0e6",
-      "created": 1795822755976,
-      "updated": 1795822770797,
-      "sessionAt": 1795822755976,
-      "profile": {
-        "balance": 74,
-        "currentBet": 1,
-        "stats": {
-          "spins": 30,
-          "wins": 2,
-          "best": 2
-        },
-        "history": [
-          {
-            "glyph": "slots",
-            "icons": [
-              "melon",
-              "diamond",
-              "melon"
-            ],
-            "delta": -1
-          },
-          {
-            "glyph": "slots",
-            "icons": [
-              "diamond",
-              "cherry",
-              "cherry"
-            ],
-            "delta": -1
-          },
-          {
-            "glyph": "slots",
-            "icons": [
-              "star",
-              "diamond",
-              "star"
-            ],
-            "delta": -1
-          },
-          {
-            "glyph": "slots",
-            "icons": [
-              "star",
-              "lemon",
-              "melon"
-            ],
-            "delta": -1
-          },
-          {
-            "glyph": "slots",
-            "icons": [
-              "lemon",
-              "bell",
-              "bell"
-            ],
-            "delta": -1
-          },
-          {
-            "glyph": "slots",
-            "icons": [
-              "melon",
-              "lemon",
-              "bell"
-            ],
-            "delta": -1
-          }
-        ],
-        "streak": 0,
-        "xp": 76,
-        "level": 1,
-        "xpToNext": 120,
-        "collection": [
-          "cherry",
-          "diamond",
-          "lemon",
-          "bell",
-          "slotDie",
-          "star",
-          "melon",
-          "seven"
-        ],
-        "collectionRewardGiven": false,
-        "missions": [
-          {
-            "id": "games",
-            "title": "Сыграй 10 игр",
-            "target": 10,
-            "reward": 30,
-            "progress": 10,
-            "claimed": false
-          },
-          {
-            "id": "wins",
-            "title": "Победи 5 раз",
-            "target": 5,
-            "reward": 50,
-            "progress": 2,
-            "claimed": false
-          },
-          {
-            "id": "triple",
-            "title": "Получи трипу в костях",
-            "target": 1,
-            "reward": 75,
-            "progress": 0,
-            "claimed": false
-          },
-          {
-            "id": "jackpot",
-            "title": "Сорви джекпот",
-            "target": 1,
-            "reward": 100,
-            "progress": 0,
-            "claimed": false
-          }
-        ],
-        "chestStats": {
-          "opened": 0,
-          "best": 0,
-          "types": []
-        },
-        "chestCooldowns": {},
-        "gifts": {},
-        "giftStats": {
-          "sold": 0,
-          "earned": 0,
-          "received": 0,
-          "found": []
-        },
-        "activeView": "games",
-        "unlocked": [
-          "first",
-          "games10"
-        ],
-        "activeGame": "slots",
-        "cardsChoice": "spades",
-        "soundEnabled": false,
-        "lastActionAt": 0,
-        "actionWindowStart": 0,
-        "actionCount": 0
-      }
     }
   },
   "tokens": {
     "f6cbb883479d36ed93e7817f9525f9fa4a1936b05fcc5d3f72c5f28d9c6b7c79": "егор",
-    "e6f385f0bdbc96c6fface2a6b00ae130f60657140b08ede0ddadb2e9da565130": "pithp",
-    "aad670c4255fe42e634fba2603c797a6ebcc0f53b5436acfe9009667f5f72252": "probe_61580"
+    "e6f385f0bdbc96c6fface2a6b00ae130f60657140b08ede0ddadb2e9da565130": "pithp"
   },
   "leaderboard": [
     {
@@ -625,17 +479,6 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795817400915
-    },
-    {
-      "name": "probe_61580",
-      "level": 1,
-      "balance": 74,
-      "games": 30,
-      "gifts": 0,
-      "chests": 0,
-      "achievements": 2,
-      "rank": "Новичок",
-      "ts": 1795822770797
     }
   ],
   "admin": {
