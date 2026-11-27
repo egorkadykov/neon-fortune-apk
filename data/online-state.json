@@ -79,16 +79,24 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795815609198,
+      "updated": 1795815611205,
       "profile": {
-        "balance": 395,
+        "balance": 295,
         "currentBet": 100,
         "stats": {
-          "spins": 434,
+          "spins": 435,
           "wins": 297,
           "best": 2000
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "6",
+              "black"
+            ],
+            "delta": -100
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -128,18 +136,10 @@
               "black"
             ],
             "delta": -1
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "7",
-              "red"
-            ],
-            "delta": 0
           }
         ],
         "streak": 0,
-        "xp": 184,
+        "xp": 186,
         "level": 8,
         "xpToNext": 960,
         "collection": [
@@ -256,7 +256,7 @@
           "jackpot",
           "allChests"
         ],
-        "activeGame": "darts",
+        "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": true,
         "lastActionAt": 0,
@@ -2389,7 +2389,7 @@
       "name": "bot886262",
       "hash": "fnv1a-8162f0b4",
       "created": 1795815569399,
-      "updated": 1795815569399,
+      "updated": 1795815611219,
       "sessionAt": 1795815569399,
       "profile": {
         "balance": 100,
@@ -2441,23 +2441,31 @@
           }
         ],
         "chestStats": {
-          "opened": 0,
-          "best": 0,
-          "types": []
+          "opened": 1,
+          "best": 5,
+          "types": [
+            "free"
+          ]
         },
-        "chestCooldowns": {},
-        "gifts": {},
+        "chestCooldowns": {
+          "free": 1795902011219
+        },
+        "gifts": {
+          "candy": 1
+        },
         "giftStats": {
           "sold": 0,
           "earned": 0,
-          "received": 0,
-          "found": []
+          "received": 1,
+          "found": [
+            "candy"
+          ]
         },
-        "activeView": "games",
+        "activeView": "chests",
         "unlocked": [],
         "activeGame": "slots",
         "cardsChoice": "spades",
-        "soundEnabled": true,
+        "soundEnabled": false,
         "lastActionAt": 0,
         "actionWindowStart": 0,
         "actionCount": 0
@@ -2467,7 +2475,7 @@
       "name": "bot188859",
       "hash": "fnv1a-8162f0b4",
       "created": 1795815569924,
-      "updated": 1795815569924,
+      "updated": 1795815611881,
       "sessionAt": 1795815569924,
       "profile": {
         "balance": 100,
@@ -2519,23 +2527,31 @@
           }
         ],
         "chestStats": {
-          "opened": 0,
-          "best": 0,
-          "types": []
+          "opened": 1,
+          "best": 25,
+          "types": [
+            "free"
+          ]
         },
-        "chestCooldowns": {},
-        "gifts": {},
+        "chestCooldowns": {
+          "free": 1795902011881
+        },
+        "gifts": {
+          "rose": 1
+        },
         "giftStats": {
           "sold": 0,
           "earned": 0,
-          "received": 0,
-          "found": []
+          "received": 1,
+          "found": [
+            "rose"
+          ]
         },
-        "activeView": "games",
+        "activeView": "chests",
         "unlocked": [],
         "activeGame": "slots",
         "cardsChoice": "spades",
-        "soundEnabled": true,
+        "soundEnabled": false,
         "lastActionAt": 0,
         "actionWindowStart": 0,
         "actionCount": 0
@@ -3080,13 +3096,13 @@
     {
       "name": "pithp",
       "level": 8,
-      "balance": 395,
-      "games": 434,
+      "balance": 295,
+      "games": 435,
       "gifts": 0,
       "chests": 94,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795815609198
+      "ts": 1795815611205
     },
     {
       "name": "bot936812",
@@ -3203,22 +3219,22 @@
       "level": 1,
       "balance": 100,
       "games": 0,
-      "gifts": 0,
-      "chests": 0,
+      "gifts": 1,
+      "chests": 1,
       "achievements": 0,
       "rank": "Новичок",
-      "ts": 1795815569399
+      "ts": 1795815611219
     },
     {
       "name": "bot188859",
       "level": 1,
       "balance": 100,
       "games": 0,
-      "gifts": 0,
-      "chests": 0,
+      "gifts": 1,
+      "chests": 1,
       "achievements": 0,
       "rank": "Новичок",
-      "ts": 1795815569924
+      "ts": 1795815611881
     },
     {
       "name": "bot250376",
