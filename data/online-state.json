@@ -79,7 +79,7 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795812341125,
+      "updated": 1795812347702,
       "profile": {
         "balance": 5,
         "currentBet": 1,
@@ -255,7 +255,7 @@
             "bike"
           ]
         },
-        "activeView": "chests",
+        "activeView": "gifts",
         "unlocked": [
           "games10",
           "first",
@@ -489,7 +489,7 @@
       "chests": 94,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795812341125
+      "ts": 1795812347702
     }
   ],
   "admin": {
