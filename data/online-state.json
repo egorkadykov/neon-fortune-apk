@@ -1796,7 +1796,7 @@
       "name": "bot957784",
       "hash": "fnv1a-8162f0b4",
       "created": 1795815563245,
-      "updated": 1795815604656,
+      "updated": 1795815646414,
       "sessionAt": 1795815563245,
       "profile": {
         "balance": 99,
@@ -1862,19 +1862,27 @@
           }
         ],
         "chestStats": {
-          "opened": 0,
-          "best": 0,
-          "types": []
+          "opened": 1,
+          "best": 50,
+          "types": [
+            "free"
+          ]
         },
-        "chestCooldowns": {},
-        "gifts": {},
+        "chestCooldowns": {
+          "free": 1795902046414
+        },
+        "gifts": {
+          "champagne": 1
+        },
         "giftStats": {
           "sold": 0,
           "earned": 0,
-          "received": 0,
-          "found": []
+          "received": 1,
+          "found": [
+            "champagne"
+          ]
         },
-        "activeView": "games",
+        "activeView": "chests",
         "unlocked": [],
         "activeGame": "slots",
         "cardsChoice": "spades",
@@ -1888,10 +1896,10 @@
       "name": "bot637527",
       "hash": "fnv1a-8162f0b4",
       "created": 1795815565104,
-      "updated": 1795815624815,
+      "updated": 1795815647068,
       "sessionAt": 1795815565104,
       "profile": {
-        "balance": 99,
+        "balance": 114,
         "currentBet": 1,
         "stats": {
           "spins": 1,
@@ -1962,19 +1970,19 @@
         "chestCooldowns": {
           "free": 1795902024815
         },
-        "gifts": {
-          "teddy": 1
-        },
+        "gifts": {},
         "giftStats": {
-          "sold": 0,
-          "earned": 0,
+          "sold": 1,
+          "earned": 15,
           "received": 1,
           "found": [
             "teddy"
           ]
         },
-        "activeView": "chests",
-        "unlocked": [],
+        "activeView": "gifts",
+        "unlocked": [
+          "giftSell"
+        ],
         "activeGame": "slots",
         "cardsChoice": "spades",
         "soundEnabled": false,
@@ -3297,6 +3305,17 @@
       "ts": 1795815512001
     },
     {
+      "name": "bot637527",
+      "level": 1,
+      "balance": 114,
+      "games": 1,
+      "gifts": 0,
+      "chests": 1,
+      "achievements": 1,
+      "rank": "Новичок",
+      "ts": 1795815647068
+    },
+    {
       "name": "bot561563",
       "level": 1,
       "balance": 105,
@@ -3455,22 +3474,11 @@
       "level": 1,
       "balance": 99,
       "games": 1,
-      "gifts": 0,
-      "chests": 0,
-      "achievements": 0,
-      "rank": "Новичок",
-      "ts": 1795815604656
-    },
-    {
-      "name": "bot637527",
-      "level": 1,
-      "balance": 99,
-      "games": 1,
       "gifts": 1,
       "chests": 1,
       "achievements": 0,
       "rank": "Новичок",
-      "ts": 1795815624815
+      "ts": 1795815646414
     }
   ],
   "admin": {
