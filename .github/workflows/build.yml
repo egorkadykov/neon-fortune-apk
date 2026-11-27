@@ -1,8 +1,17 @@
 name: Build Neon Fortune APK
 
+# Только main: релиз создаёт тег, и сборка не должна запускать сама себя.
 on:
   push:
+    branches: [main]
   workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  APP_VERSION_CODE: ${{ vars.APP_VERSION_CODE || '2' }}
+  APP_VERSION_NAME: ${{ vars.APP_VERSION_NAME || '1.1' }}
 
 jobs:
   build:
@@ -21,6 +30,15 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
         with:
           gradle-version: '8.7'
+
+      # Один и тот же ключ на всех сборках: только так Android разрешает
+      # доустановить новую версию прямо из приложения.
+      - name: Prepare signing key
+        env:
+          SIGNING_KEYSTORE: ${{ secrets.SIGNING_KEYSTORE }}
+        run: |
+          test -n "$SIGNING_KEYSTORE"
+          printf '%s' "$SIGNING_KEYSTORE" | base64 -d > app/neon.jks
 
       - name: Inject server URL into assets
         env:
@@ -45,9 +63,22 @@ jobs:
           done
           exit 1
 
-      - name: Upload APK
+      - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: neon-fortune-apk
           path: app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
+
+      # Свежий релиз — источник для плашки обновления внутри игры.
+      - name: Prepare release asset
+        run: cp app/build/outputs/apk/debug/app-debug.apk NeonFortune.apk
+
+      - name: Publish in-app update
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ env.APP_VERSION_CODE }}
+          name: Neon Fortune ${{ env.APP_VERSION_NAME }}
+          body: Обновление приложения. Ставится прямо из игры.
+          files: NeonFortune.apk
+          overwrite_files: true
