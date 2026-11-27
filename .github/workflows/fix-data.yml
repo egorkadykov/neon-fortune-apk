@@ -1,0 +1,81 @@
+name: Fix Neon Fortune data
+on:
+  workflow_dispatch:
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set pithp balance
+        env:
+          GH_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import base64, json, os, time, urllib.request, urllib.error
+
+          api = "https://api.github.com/repos/egorkadykov/neon-fortune-apk/contents/data/online-state.json"
+          token = os.environ["GH_TOKEN"]
+
+          def request(url, method="GET", body=None):
+              data = None if body is None else json.dumps(body).encode()
+              target = url
+              if method == "GET":
+                  target = url + ("&" if "?" in url else "?") + "cb=" + str(time.time_ns())
+              req = urllib.request.Request(
+                  target, data=data, method=method,
+                  headers={
+                      "Authorization": "Bearer " + token,
+                      "Accept": "application/vnd.github+json",
+                      "User-Agent": "neon-data-fix",
+                      "Content-Type": "application/json",
+                  },
+              )
+              with urllib.request.urlopen(req, timeout=30) as response:
+                  return json.load(response)
+
+          for attempt in range(30):
+              try:
+                  current = request(api + "?ref=main")
+                  content = current["content"].replace("\n", "")
+                  state = json.loads(base64.b64decode(content).decode("utf-8"))
+                  user = state.get("users", {}).get("pithp")
+                  if not user:
+                      raise SystemExit("pithp not found")
+                  user["profile"]["balance"] = 500
+                  user["updated"] = int(time.time() * 1000)
+                  rows = []
+                  for key, item in state.get("users", {}).items():
+                      profile = item.get("profile") or {}
+                      stats = profile.get("stats") or {}
+                      gifts = (profile.get("gifts") or {})
+                      rows.append({
+                          "name": item.get("name"),
+                          "balance": int(profile.get("balance") or 0),
+                          "level": int(profile.get("level") or 1),
+                          "games": int(stats.get("spins") or 0),
+                          "gifts": int(sum(max(0, int(v or 0)) for v in gifts.values())),
+                          "chests": int((profile.get("chestStats") or {}).get("opened") or 0),
+                          "achievements": len(profile.get("unlocked") or []),
+                          "rank": "",
+                          "ts": int(item.get("updated") or 0),
+                      })
+                  rows.sort(key=lambda r: (-r["balance"], -r["level"], -r["games"]))
+                  state["leaderboard"] = rows[:20]
+                  encoded = base64.b64encode(
+                      json.dumps(state, ensure_ascii=False, indent=2).encode("utf-8")
+                  ).decode()
+                  request(api, "PUT", {
+                      "message": "server: BALANCE pithp 500",
+                      "content": encoded,
+                      "sha": current["sha"],
+                      "branch": "main",
+                  })
+                  print("pithp set to 500 on attempt", attempt + 1)
+                  break
+              except urllib.error.HTTPError as error:
+                  if error.code == 409 and attempt < 29:
+                      time.sleep(1)
+                      continue
+                  raise
+          else:
+              raise SystemExit("failed to set balance")
+          PY
