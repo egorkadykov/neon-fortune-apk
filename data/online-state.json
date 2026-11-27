@@ -79,16 +79,24 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795815613686,
+      "updated": 1795815615174,
       "profile": {
-        "balance": 295,
+        "balance": 306,
         "currentBet": 100,
         "stats": {
-          "spins": 435,
-          "wins": 297,
+          "spins": 436,
+          "wins": 298,
           "best": 2000
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "6",
+              "black"
+            ],
+            "delta": 11
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -128,18 +136,10 @@
               "black"
             ],
             "delta": -1
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "8",
-              "black"
-            ],
-            "delta": -1
           }
         ],
-        "streak": 0,
-        "xp": 186,
+        "streak": 1,
+        "xp": 196,
         "level": 8,
         "xpToNext": 960,
         "collection": [
@@ -269,7 +269,7 @@
       "name": "Егор",
       "hash": "sha256-03aaef0fd45d47ee37afee60b41f0a80010f58f95d3d34e9b7dc253c8558bf2a",
       "created": 1795801871294,
-      "updated": 1795815582247,
+      "updated": 1795815615739,
       "profile": {
         "balance": 999975,
         "currentBet": 5,
@@ -426,7 +426,7 @@
             "giftBox"
           ]
         },
-        "activeView": "games",
+        "activeView": "top",
         "unlocked": [
           "giftSell",
           "first",
@@ -884,10 +884,10 @@
       "name": "bot561563",
       "hash": "fnv1a-8162f0b4",
       "created": 1795815557674,
-      "updated": 1795815575420,
+      "updated": 1795815616439,
       "sessionAt": 1795815557674,
       "profile": {
-        "balance": 100,
+        "balance": 105,
         "currentBet": 1,
         "stats": {
           "spins": 0,
@@ -945,19 +945,19 @@
         "chestCooldowns": {
           "free": 1795901975420
         },
-        "gifts": {
-          "candy": 1
-        },
+        "gifts": {},
         "giftStats": {
-          "sold": 0,
-          "earned": 0,
+          "sold": 1,
+          "earned": 5,
           "received": 1,
           "found": [
             "candy"
           ]
         },
-        "activeView": "chests",
-        "unlocked": [],
+        "activeView": "gifts",
+        "unlocked": [
+          "giftSell"
+        ],
         "activeGame": "slots",
         "cardsChoice": "spades",
         "soundEnabled": false,
@@ -3000,22 +3000,36 @@
       "name": "bot867615",
       "hash": "fnv1a-8162f0b4",
       "created": 1795815574655,
-      "updated": 1795815574655,
+      "updated": 1795815615708,
       "sessionAt": 1795815574655,
       "profile": {
-        "balance": 100,
+        "balance": 99,
         "currentBet": 1,
         "stats": {
-          "spins": 0,
+          "spins": 1,
           "wins": 0,
           "best": 0
         },
-        "history": [],
+        "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "seven",
+              "star",
+              "lemon"
+            ],
+            "delta": -1
+          }
+        ],
         "streak": 0,
-        "xp": 0,
+        "xp": 2,
         "level": 1,
         "xpToNext": 120,
-        "collection": [],
+        "collection": [
+          "seven",
+          "star",
+          "lemon"
+        ],
         "collectionRewardGiven": false,
         "missions": [
           {
@@ -3023,7 +3037,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 0,
+            "progress": 1,
             "claimed": false
           },
           {
@@ -3068,7 +3082,7 @@
         "unlocked": [],
         "activeGame": "slots",
         "cardsChoice": "spades",
-        "soundEnabled": true,
+        "soundEnabled": false,
         "lastActionAt": 0,
         "actionWindowStart": 0,
         "actionCount": 0
@@ -3118,18 +3132,18 @@
       "chests": 37,
       "achievements": 5,
       "rank": "Игрок",
-      "ts": 1795815582247
+      "ts": 1795815615739
     },
     {
       "name": "pithp",
       "level": 8,
-      "balance": 295,
-      "games": 435,
+      "balance": 306,
+      "games": 436,
       "gifts": 0,
       "chests": 94,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795815613686
+      "ts": 1795815615174
     },
     {
       "name": "bot936812",
@@ -3143,6 +3157,17 @@
       "ts": 1795815512001
     },
     {
+      "name": "bot561563",
+      "level": 1,
+      "balance": 105,
+      "games": 0,
+      "gifts": 0,
+      "chests": 1,
+      "achievements": 1,
+      "rank": "Новичок",
+      "ts": 1795815616439
+    },
+    {
       "name": "Ольга",
       "level": 1,
       "balance": 100,
@@ -3152,17 +3177,6 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795729367800
-    },
-    {
-      "name": "bot561563",
-      "level": 1,
-      "balance": 100,
-      "games": 0,
-      "gifts": 1,
-      "chests": 1,
-      "achievements": 0,
-      "rank": "Новичок",
-      "ts": 1795815575420
     },
     {
       "name": "bot534444",
@@ -3286,17 +3300,6 @@
       "ts": 1795815573931
     },
     {
-      "name": "bot867615",
-      "level": 1,
-      "balance": 100,
-      "games": 0,
-      "gifts": 0,
-      "chests": 0,
-      "achievements": 0,
-      "rank": "Новичок",
-      "ts": 1795815574655
-    },
-    {
       "name": "bot410142",
       "level": 1,
       "balance": 99,
@@ -3328,6 +3331,17 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795815600565
+    },
+    {
+      "name": "bot811076",
+      "level": 1,
+      "balance": 99,
+      "games": 1,
+      "gifts": 0,
+      "chests": 0,
+      "achievements": 0,
+      "rank": "Новичок",
+      "ts": 1795815601266
     }
   ],
   "admin": {
