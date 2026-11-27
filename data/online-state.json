@@ -443,22 +443,36 @@
       "name": "anticheattest",
       "hash": "sha256-937e8d5fbb48bd4949536cd65b8d35c426b80d2f830c5c308e2cdec422ae2244",
       "created": 1795809765988,
-      "updated": 1795809765988,
+      "updated": 1795809767588,
       "sessionAt": 1795809765988,
       "profile": {
-        "balance": 100,
-        "currentBet": 1,
+        "balance": 0,
+        "currentBet": 100,
         "stats": {
-          "spins": 0,
+          "spins": 1,
           "wins": 0,
           "best": 0
         },
-        "history": [],
+        "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "star",
+              "lemon",
+              "melon"
+            ],
+            "delta": -100
+          }
+        ],
         "streak": 0,
-        "xp": 0,
+        "xp": 2,
         "level": 1,
         "xpToNext": 120,
-        "collection": [],
+        "collection": [
+          "star",
+          "lemon",
+          "melon"
+        ],
         "collectionRewardGiven": false,
         "missions": [
           {
@@ -466,7 +480,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 0,
+            "progress": 1,
             "claimed": false
           },
           {
@@ -573,13 +587,13 @@
     {
       "name": "anticheattest",
       "level": 1,
-      "balance": 100,
-      "games": 0,
+      "balance": 0,
+      "games": 1,
       "gifts": 0,
       "chests": 0,
       "achievements": 0,
       "rank": "Новичок",
-      "ts": 1795809765988
+      "ts": 1795809767588
     }
   ],
   "admin": {
