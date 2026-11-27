@@ -82,10 +82,10 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795820875690,
+      "updated": 1795823032661,
       "profile": {
         "balance": 1806,
-        "currentBet": 100,
+        "currentBet": 1,
         "stats": {
           "spins": 518,
           "wins": 339,
@@ -250,7 +250,7 @@
             "crownGem"
           ]
         },
-        "activeView": "chests",
+        "activeView": "top",
         "unlocked": [
           "games10",
           "first",
@@ -260,7 +260,7 @@
           "jackpot",
           "allChests"
         ],
-        "activeGame": "roulette",
+        "activeGame": "slots",
         "cardsChoice": "spades",
         "soundEnabled": true,
         "lastActionAt": 0,
@@ -445,22 +445,75 @@
       "name": "probe_67789",
       "hash": "fnv1a-b674f67d",
       "created": 1795822978387,
-      "updated": 1795822978387,
+      "updated": 1795823050090,
       "sessionAt": 1795822978387,
       "profile": {
-        "balance": 100,
+        "balance": 186,
         "currentBet": 1,
         "stats": {
-          "spins": 0,
-          "wins": 0,
-          "best": 0
+          "spins": 120,
+          "wins": 59,
+          "best": 3
         },
-        "history": [],
+        "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "2",
+              "black"
+            ],
+            "delta": -1
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "1",
+              "red"
+            ],
+            "delta": 2
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "1",
+              "red"
+            ],
+            "delta": 2
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "5",
+              "red"
+            ],
+            "delta": 2
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "7",
+              "red"
+            ],
+            "delta": 2
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "1",
+              "red"
+            ],
+            "delta": 1
+          }
+        ],
         "streak": 0,
-        "xp": 0,
-        "level": 1,
-        "xpToNext": 120,
-        "collection": [],
+        "xp": 352,
+        "level": 3,
+        "xpToNext": 360,
+        "collection": [
+          "red",
+          "black",
+          "green"
+        ],
         "collectionRewardGiven": false,
         "missions": [
           {
@@ -468,7 +521,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 0,
+            "progress": 10,
             "claimed": false
           },
           {
@@ -476,7 +529,7 @@
             "title": "Победи 5 раз",
             "target": 5,
             "reward": 50,
-            "progress": 0,
+            "progress": 5,
             "claimed": false
           },
           {
@@ -510,10 +563,15 @@
           "found": []
         },
         "activeView": "games",
-        "unlocked": [],
-        "activeGame": "slots",
+        "unlocked": [
+          "first",
+          "games10",
+          "streak3",
+          "level3"
+        ],
+        "activeGame": "roulette",
         "cardsChoice": "spades",
-        "soundEnabled": true,
+        "soundEnabled": false,
         "lastActionAt": 0,
         "actionWindowStart": 0,
         "actionCount": 0
@@ -546,7 +604,18 @@
       "chests": 110,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795820875690
+      "ts": 1795823032661
+    },
+    {
+      "name": "probe_67789",
+      "level": 3,
+      "balance": 186,
+      "games": 120,
+      "gifts": 0,
+      "chests": 0,
+      "achievements": 4,
+      "rank": "Игрок",
+      "ts": 1795823050090
     },
     {
       "name": "Ольга",
@@ -558,17 +627,6 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795817400915
-    },
-    {
-      "name": "probe_67789",
-      "level": 1,
-      "balance": 100,
-      "games": 0,
-      "gifts": 0,
-      "chests": 0,
-      "achievements": 0,
-      "rank": "Новичок",
-      "ts": 1795822978387
     }
   ],
   "admin": {
