@@ -440,7 +440,7 @@
       "name": "diagplayer",
       "hash": "sha256-5b203744dbefd668a7c1d0d20b4d1a11fc484e10ea3463f604cd775e889f0241",
       "created": 1795810805882,
-      "updated": 1795810828182,
+      "updated": 1795810841721,
       "sessionAt": 1795810805882,
       "profile": {
         "balance": 99,
@@ -577,7 +577,7 @@
       "chests": 0,
       "achievements": 0,
       "rank": "Новичок",
-      "ts": 1795810828182
+      "ts": 1795810841721
     }
   ],
   "admin": {
