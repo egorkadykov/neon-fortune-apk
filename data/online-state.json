@@ -262,7 +262,7 @@
         "actionWindowStart": 0,
         "actionCount": 0
       },
-      "sessionAt": 1795810644595
+      "sessionAt": 1795811449347
     },
     "егор": {
       "name": "Егор",
@@ -444,8 +444,8 @@
     }
   },
   "tokens": {
-    "0f57459a2a13cdd68eadcc8a5a943f67a6119ed531aade4ebb6fcdd1ee588fd0": "pithp",
-    "f6cbb883479d36ed93e7817f9525f9fa4a1936b05fcc5d3f72c5f28d9c6b7c79": "егор"
+    "f6cbb883479d36ed93e7817f9525f9fa4a1936b05fcc5d3f72c5f28d9c6b7c79": "егор",
+    "6261d690a90245902e156ee855ced21af8de5e6216f3463591d3182d219a34b9": "pithp"
   },
   "leaderboard": [
     {
