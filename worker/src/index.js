@@ -81,11 +81,10 @@ const CORS = {
 
 let env = {};
 
-// Состояние живёт в памяти воркера: ходы считаются мгновенно, а запись в
-// GitHub уходит в фоне через ctx.waitUntil. Клиент никогда не видит задержку
-// на сетевой записи, но сервер остаётся единственным источником баланса.
-let cached = null;
-let flushChain = Promise.resolve();
+// Все запросы идут через один Durable Object: он сериализует ходы и хранит
+// состояние в постоянном хранилище. GitHub синхронизируется в фоне только
+// для админского просмотра и никогда не перезаписывает выигрыши игроков.
+let store = null;
 
 function reply(data, status = 200) {
   return new Response(JSON.stringify(data), {
@@ -151,50 +150,30 @@ async function writeState(state, sha) {
 }
 
 async function loadState(force) {
-  if (force || !cached) {
-    const server = await readState();
-    cached = { state: server.state, sha: server.sha, dirty: false };
-  }
-  return cached;
+  if (!store) return await readState();
+  return await store.ensure(force);
 }
 
-// Записи идут строго по очереди: каждый следующий снимок использует уже
-// актуальный sha. Если запись не прошла — состояние остаётся «грязным» и
-// будет повторно отправлено при следующем действии.
-function scheduleFlush(ctx) {
-  if (!cached || !cached.dirty) return;
-  const source = cached;
-  const snapshot = JSON.parse(JSON.stringify(source.state));
-  source.dirty = false;
-  const task = flushChain.then(async () => {
-    const newSha = await writeState(snapshot, source.sha);
-    if (newSha) source.sha = newSha;
-  }).catch((error) => {
-    if (error && error.conflict) {
-      if (cached === source) cached = null;
-    } else if (cached === source) source.dirty = true;
-  });
-  flushChain = task;
-  if (ctx && typeof ctx.waitUntil === 'function') ctx.waitUntil(task);
+// Состояние сохраняется в Durable Object до ответа игроку — выигрыш не может
+// пропасть при перезапуске или при параллельных запросах с других устройств.
+// GitHub обновляется тревогой в фоне и служит только для просмотра админом.
+async function persistStore() {
+  if (!store) return;
+  const snapshot = JSON.parse(JSON.stringify(store.state));
+  store.dirty = true;
+  await store.storage.put({ state: snapshot, sha: store.sha });
+  await store.storage.setAlarm(Date.now() + 1000);
 }
 
-// Вход, выход и удаление меняют токены — эти записи обязательно дожидаются
-// сохранения, иначе после перезапуска игра не найдёт свой токен на сервере.
-async function mutateSync(action) {
-  await flushChain;
-  const server = await readState();
-  const result = await action(server.state);
-  await writeState(server.state, server.sha);
-  cached = null;
-  return result;
-}
-
-async function mutate(action, ctx) {
+async function mutate(action) {
   const server = await loadState();
   const result = await action(server.state);
-  server.dirty = true;
-  scheduleFlush(ctx);
+  await persistStore();
   return result;
+}
+
+async function mutateSync(action) {
+  return await mutate(action);
 }
 
 function int(value, fallback, min, max) {
@@ -820,7 +799,7 @@ async function handle(request, ctx) {
 
   if (path === '/session') {
     const token = String(body.token || '');
-    const server = await loadState(true);
+    const server = await loadState();
     const key = server.state.tokens[token];
     if (!key || !server.state.users[key]) return fail('Нужно войти снова', 401);
     sessionFor(server.state, token, server.state.users[key]);
@@ -879,13 +858,92 @@ async function handle(request, ctx) {
   return fail('Не найдено', 404);
 }
 
-export default {
-  async fetch(request, environment, ctx) {
-    env = environment;
+export class FortuneState {
+  constructor(state, environment) {
+    this.storage = state.storage;
+    this.env = environment;
+    this.state = null;
+    this.sha = null;
+    this.dirty = false;
+    this.loading = null;
+  }
+
+  ensure(force) {
+    if (this.loading) return this.loading;
+    if (this.state && !(force && !this.dirty)) return Promise.resolve(this);
+    this.loading = (async () => {
+      if (force && !this.dirty) {
+        const server = await readState();
+        this.state = server.state;
+        this.sha = server.sha;
+        this.dirty = false;
+        await this.storage.put({ state: this.state, sha: this.sha });
+      } else if (!this.state) {
+        const saved = await this.storage.get(['state', 'sha']);
+        if (saved && saved.state) {
+          this.state = saved.state;
+          this.sha = saved.sha || null;
+        } else {
+          const server = await readState();
+          this.state = server.state;
+          this.sha = server.sha;
+          await this.storage.put({ state: this.state, sha: this.sha });
+        }
+      }
+      this.loading = null;
+      return this;
+    })();
+    return this.loading;
+  }
+
+  async fetch(request) {
+    env = this.env;
+    store = this;
+    await this.ensure();
     try {
-      return await handle(request, ctx);
+      return await handle(request);
     } catch (error) {
       return fail(error && error.message ? error.message : String(error), 500);
     }
+  }
+
+  // Фоновая синхронизация с GitHub: состояние DO всегда главнее, поэтому
+  // чужие правки файла не перезаписывают выигрыши и токены игроков.
+  async alarm() {
+    env = this.env;
+    store = this;
+    await this.ensure();
+    if (!this.state) return;
+    try {
+      let newSha = await writeState(this.state, this.sha);
+      if (!newSha) {
+        const server = await readState();
+        this.sha = server.sha;
+        newSha = await writeState(this.state, this.sha);
+      }
+      if (newSha) this.sha = newSha;
+      this.dirty = false;
+      await this.storage.put({ state: this.state, sha: this.sha });
+    } catch (error) {
+      if (error && error.conflict) {
+        const server = await readState();
+        this.sha = server.sha;
+        const newSha = await writeState(this.state, this.sha);
+        if (newSha) this.sha = newSha;
+        this.dirty = false;
+        await this.storage.put({ state: this.state, sha: this.sha });
+      } else {
+        await this.storage.setAlarm(Date.now() + 5000);
+        throw error;
+      }
+    }
+  }
+}
+
+export default {
+  async fetch(request, environment) {
+    env = environment;
+    const id = environment.STATE.idFromName('global');
+    return environment.STATE.get(id).fetch(request);
   }
 };
