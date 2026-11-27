@@ -557,10 +557,10 @@
       "name": "bot981290",
       "hash": "fnv1a-8162f0b4",
       "created": 1795815391826,
-      "updated": 1795815417784,
+      "updated": 1795815432502,
       "sessionAt": 1795815391826,
       "profile": {
-        "balance": 98,
+        "balance": 123,
         "currentBet": 1,
         "stats": {
           "spins": 2,
@@ -642,19 +642,19 @@
         "chestCooldowns": {
           "free": 1795901813303
         },
-        "gifts": {
-          "giftBox": 1
-        },
+        "gifts": {},
         "giftStats": {
-          "sold": 0,
-          "earned": 0,
+          "sold": 1,
+          "earned": 25,
           "received": 1,
           "found": [
             "giftBox"
           ]
         },
-        "activeView": "games",
-        "unlocked": [],
+        "activeView": "gifts",
+        "unlocked": [
+          "giftSell"
+        ],
         "activeGame": "slots",
         "cardsChoice": "spades",
         "soundEnabled": false,
@@ -805,6 +805,17 @@
       "ts": 1795815422588
     },
     {
+      "name": "bot981290",
+      "level": 1,
+      "balance": 123,
+      "games": 2,
+      "gifts": 0,
+      "chests": 1,
+      "achievements": 1,
+      "rank": "Новичок",
+      "ts": 1795815432502
+    },
+    {
       "name": "Ольга",
       "level": 1,
       "balance": 100,
@@ -825,17 +836,6 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795815431495
-    },
-    {
-      "name": "bot981290",
-      "level": 1,
-      "balance": 98,
-      "games": 2,
-      "gifts": 1,
-      "chests": 1,
-      "achievements": 0,
-      "rank": "Новичок",
-      "ts": 1795815417784
     }
   ],
   "admin": {
