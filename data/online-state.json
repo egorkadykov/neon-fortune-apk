@@ -1484,22 +1484,36 @@
       "name": "bot534444",
       "hash": "fnv1a-8162f0b4",
       "created": 1795815561310,
-      "updated": 1795815580503,
+      "updated": 1795815643986,
       "sessionAt": 1795815561310,
       "profile": {
-        "balance": 100,
+        "balance": 99,
         "currentBet": 1,
         "stats": {
-          "spins": 0,
+          "spins": 1,
           "wins": 0,
           "best": 0
         },
-        "history": [],
+        "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "diamond",
+              "star",
+              "cherry"
+            ],
+            "delta": -1
+          }
+        ],
         "streak": 0,
-        "xp": 0,
+        "xp": 2,
         "level": 1,
         "xpToNext": 120,
-        "collection": [],
+        "collection": [
+          "diamond",
+          "star",
+          "cherry"
+        ],
         "collectionRewardGiven": false,
         "missions": [
           {
@@ -1507,7 +1521,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 0,
+            "progress": 1,
             "claimed": false
           },
           {
@@ -1556,7 +1570,7 @@
             "brick"
           ]
         },
-        "activeView": "chests",
+        "activeView": "games",
         "unlocked": [],
         "activeGame": "slots",
         "cardsChoice": "spades",
@@ -1570,17 +1584,26 @@
       "name": "bot317239",
       "hash": "fnv1a-8162f0b4",
       "created": 1795815562026,
-      "updated": 1795815622890,
+      "updated": 1795815644693,
       "sessionAt": 1795815562026,
       "profile": {
-        "balance": 98,
+        "balance": 97,
         "currentBet": 1,
         "stats": {
-          "spins": 2,
+          "spins": 3,
           "wins": 0,
           "best": 0
         },
         "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "cherry",
+              "melon",
+              "bell"
+            ],
+            "delta": -1
+          },
           {
             "glyph": "slots",
             "icons": [
@@ -1601,7 +1624,7 @@
           }
         ],
         "streak": 0,
-        "xp": 4,
+        "xp": 6,
         "level": 1,
         "xpToNext": 120,
         "collection": [
@@ -1609,7 +1632,8 @@
           "star",
           "diamond",
           "melon",
-          "lemon"
+          "lemon",
+          "bell"
         ],
         "collectionRewardGiven": false,
         "missions": [
@@ -1618,7 +1642,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 2,
+            "progress": 3,
             "claimed": false
           },
           {
@@ -3295,17 +3319,6 @@
       "ts": 1795729367800
     },
     {
-      "name": "bot534444",
-      "level": 1,
-      "balance": 100,
-      "games": 0,
-      "gifts": 1,
-      "chests": 1,
-      "achievements": 0,
-      "rank": "Новичок",
-      "ts": 1795815580503
-    },
-    {
       "name": "bot199701",
       "level": 1,
       "balance": 100,
@@ -3414,6 +3427,17 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795815620034
+    },
+    {
+      "name": "bot534444",
+      "level": 1,
+      "balance": 99,
+      "games": 1,
+      "gifts": 1,
+      "chests": 1,
+      "achievements": 0,
+      "rank": "Новичок",
+      "ts": 1795815643986
     },
     {
       "name": "bot928048",
