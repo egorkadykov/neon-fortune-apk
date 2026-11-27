@@ -79,16 +79,24 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795813364400,
+      "updated": 1795813364604,
       "profile": {
-        "balance": 509,
+        "balance": 529,
         "currentBet": 100,
         "stats": {
-          "spins": 391,
-          "wins": 278,
+          "spins": 392,
+          "wins": 279,
           "best": 2000
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "1",
+              "red"
+            ],
+            "delta": 20
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -128,18 +136,10 @@
               "black"
             ],
             "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "10",
-              "black"
-            ],
-            "delta": 11
           }
         ],
-        "streak": 1,
-        "xp": 786,
+        "streak": 2,
+        "xp": 796,
         "level": 7,
         "xpToNext": 840,
         "collection": [
@@ -471,13 +471,13 @@
     {
       "name": "pithp",
       "level": 7,
-      "balance": 509,
-      "games": 391,
+      "balance": 529,
+      "games": 392,
       "gifts": 11,
       "chests": 94,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795813364400
+      "ts": 1795813364604
     },
     {
       "name": "Ольга",
