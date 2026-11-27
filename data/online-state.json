@@ -447,17 +447,25 @@
       "name": "verifytest",
       "hash": "sha256-dcf59bad207b5071095d5ba0ddb56d1d8def687430aff92e3a2f76163e86adfa",
       "created": 1795814959670,
-      "updated": 1795815047555,
+      "updated": 1795815061166,
       "sessionAt": 1795814959670,
       "profile": {
         "balance": 98,
         "currentBet": 1,
         "stats": {
-          "spins": 2,
-          "wins": 0,
-          "best": 0
+          "spins": 3,
+          "wins": 1,
+          "best": 1
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "5",
+              "red"
+            ],
+            "delta": 0
+          },
           {
             "glyph": "slots",
             "icons": [
@@ -477,8 +485,8 @@
             "delta": -1
           }
         ],
-        "streak": 0,
-        "xp": 4,
+        "streak": 1,
+        "xp": 14,
         "level": 1,
         "xpToNext": 120,
         "collection": [
@@ -486,7 +494,8 @@
           "star",
           "lemon",
           "melon",
-          "diamond"
+          "diamond",
+          "red"
         ],
         "collectionRewardGiven": false,
         "missions": [
@@ -495,7 +504,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 2,
+            "progress": 3,
             "claimed": false
           },
           {
@@ -503,7 +512,7 @@
             "title": "Победи 5 раз",
             "target": 5,
             "reward": 50,
-            "progress": 0,
+            "progress": 1,
             "claimed": false
           },
           {
@@ -537,8 +546,10 @@
           "found": []
         },
         "activeView": "games",
-        "unlocked": [],
-        "activeGame": "slots",
+        "unlocked": [
+          "first"
+        ],
+        "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": true,
         "lastActionAt": 0,
@@ -590,12 +601,12 @@
       "name": "verifytest",
       "level": 1,
       "balance": 98,
-      "games": 2,
+      "games": 3,
       "gifts": 0,
       "chests": 0,
-      "achievements": 0,
+      "achievements": 1,
       "rank": "Новичок",
-      "ts": 1795815047555
+      "ts": 1795815061166
     }
   ],
   "admin": {
