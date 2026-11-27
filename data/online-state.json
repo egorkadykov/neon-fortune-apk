@@ -270,6 +270,7 @@
       "created": 1795801871294,
       "updated": 1795809696891,
       "profile": {
+        "balance": 1000115,
         "currentBet": 50,
         "stats": {
           "spins": 116,
@@ -354,7 +355,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 116,
+            "progress": 10,
             "claimed": true
           },
           {
@@ -362,7 +363,7 @@
             "title": "Победи 5 раз",
             "target": 5,
             "reward": 50,
-            "progress": 14,
+            "progress": 5,
             "claimed": true
           },
           {
@@ -429,8 +430,11 @@
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": true,
-        "balance": 1000115
-      }
+        "lastActionAt": 0,
+        "actionWindowStart": 0,
+        "actionCount": 0
+      },
+      "sessionAt": 1795809774992
     },
     "_neoncfg": {
       "name": "_neoncfg",
@@ -441,10 +445,9 @@
     }
   },
   "tokens": {
-    "83f5e12cb9ca7eca59fd8048014279fb": "егор",
-    "2a24ad851278fc604d374fc07c180ad1": "егор",
     "cb3bff3fc1121a79e78d79939a5ac90d": "_neoncfg",
-    "31a4267d1737784006daba78b0a5b68823ac46ab3cfe995b53c3544f66a88d32": "pithp"
+    "31a4267d1737784006daba78b0a5b68823ac46ab3cfe995b53c3544f66a88d32": "pithp",
+    "710b36cb333c482a471ddef322d3b42eadb9f89c17c1695f199426b5fa780cfa": "егор"
   },
   "leaderboard": [
     {
