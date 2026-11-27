@@ -269,16 +269,25 @@
       "name": "Егор",
       "hash": "sha256-03aaef0fd45d47ee37afee60b41f0a80010f58f95d3d34e9b7dc253c8558bf2a",
       "created": 1795801871294,
-      "updated": 1795814125701,
+      "updated": 1795814131642,
       "profile": {
-        "balance": 1000065,
+        "balance": 1000062,
         "currentBet": 5,
         "stats": {
-          "spins": 139,
+          "spins": 140,
           "wins": 15,
           "best": 1000
         },
         "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "star",
+              "melon",
+              "star"
+            ],
+            "delta": -3
+          },
           {
             "glyph": "slots",
             "icons": [
@@ -323,19 +332,10 @@
               "diamond"
             ],
             "delta": -5
-          },
-          {
-            "glyph": "slots",
-            "icons": [
-              "cherry",
-              "bell",
-              "star"
-            ],
-            "delta": -5
           }
         ],
         "streak": 0,
-        "xp": 218,
+        "xp": 220,
         "level": 3,
         "xpToNext": 360,
         "collection": [
@@ -442,23 +442,168 @@
         "actionCount": 0
       },
       "sessionAt": 1795810651372
+    },
+    "bot600522": {
+      "name": "bot600522",
+      "hash": "fnv1a-8162f0b4",
+      "created": 1795814127044,
+      "updated": 1795814135286,
+      "sessionAt": 1795814127044,
+      "profile": {
+        "balance": 88,
+        "currentBet": 1,
+        "stats": {
+          "spins": 12,
+          "wins": 0,
+          "best": 0
+        },
+        "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "melon",
+              "cherry",
+              "star"
+            ],
+            "delta": -1
+          },
+          {
+            "glyph": "slots",
+            "icons": [
+              "diamond",
+              "cherry",
+              "diamond"
+            ],
+            "delta": -1
+          },
+          {
+            "glyph": "slots",
+            "icons": [
+              "melon",
+              "diamond",
+              "bell"
+            ],
+            "delta": -1
+          },
+          {
+            "glyph": "slots",
+            "icons": [
+              "bell",
+              "bell",
+              "star"
+            ],
+            "delta": -1
+          },
+          {
+            "glyph": "slots",
+            "icons": [
+              "cherry",
+              "melon",
+              "star"
+            ],
+            "delta": -1
+          },
+          {
+            "glyph": "slots",
+            "icons": [
+              "lemon",
+              "bell",
+              "seven"
+            ],
+            "delta": -1
+          }
+        ],
+        "streak": 0,
+        "xp": 24,
+        "level": 1,
+        "xpToNext": 120,
+        "collection": [
+          "star",
+          "diamond",
+          "lemon",
+          "bell",
+          "melon",
+          "slotDie",
+          "seven",
+          "cherry"
+        ],
+        "collectionRewardGiven": false,
+        "missions": [
+          {
+            "id": "games",
+            "title": "Сыграй 10 игр",
+            "target": 10,
+            "reward": 30,
+            "progress": 10,
+            "claimed": false
+          },
+          {
+            "id": "wins",
+            "title": "Победи 5 раз",
+            "target": 5,
+            "reward": 50,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "triple",
+            "title": "Получи трипу в костях",
+            "target": 1,
+            "reward": 75,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "jackpot",
+            "title": "Сорви джекпот",
+            "target": 1,
+            "reward": 100,
+            "progress": 0,
+            "claimed": false
+          }
+        ],
+        "chestStats": {
+          "opened": 0,
+          "best": 0,
+          "types": []
+        },
+        "chestCooldowns": {},
+        "gifts": {},
+        "giftStats": {
+          "sold": 0,
+          "earned": 0,
+          "received": 0,
+          "found": []
+        },
+        "activeView": "games",
+        "unlocked": [
+          "games10"
+        ],
+        "activeGame": "slots",
+        "cardsChoice": "spades",
+        "soundEnabled": false,
+        "lastActionAt": 0,
+        "actionWindowStart": 0,
+        "actionCount": 0
+      }
     }
   },
   "tokens": {
     "f6cbb883479d36ed93e7817f9525f9fa4a1936b05fcc5d3f72c5f28d9c6b7c79": "егор",
-    "91a15eca0a835ca6f603ea3e11d332a0fa994c5a836182b796c2e4e3dcb3134e": "pithp"
+    "91a15eca0a835ca6f603ea3e11d332a0fa994c5a836182b796c2e4e3dcb3134e": "pithp",
+    "c1716bcafd19e099ff25e510116bec7e7b33c5ec392011aac637f6add13c7234": "bot600522"
   },
   "leaderboard": [
     {
       "name": "Егор",
       "level": 3,
-      "balance": 1000065,
-      "games": 139,
+      "balance": 1000062,
+      "games": 140,
       "gifts": 0,
       "chests": 37,
       "achievements": 5,
       "rank": "Игрок",
-      "ts": 1795814125701
+      "ts": 1795814131642
     },
     {
       "name": "pithp",
@@ -481,6 +626,17 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795729367800
+    },
+    {
+      "name": "bot600522",
+      "level": 1,
+      "balance": 88,
+      "games": 12,
+      "gifts": 0,
+      "chests": 0,
+      "achievements": 1,
+      "rank": "Новичок",
+      "ts": 1795814135286
     }
   ],
   "admin": {
