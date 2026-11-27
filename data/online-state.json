@@ -79,7 +79,7 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795815622306,
+      "updated": 1795815624674,
       "profile": {
         "balance": 226,
         "currentBet": 100,
@@ -1843,7 +1843,7 @@
       "name": "bot637527",
       "hash": "fnv1a-8162f0b4",
       "created": 1795815565104,
-      "updated": 1795815584844,
+      "updated": 1795815624815,
       "sessionAt": 1795815565104,
       "profile": {
         "balance": 99,
@@ -1908,19 +1908,27 @@
           }
         ],
         "chestStats": {
-          "opened": 0,
-          "best": 0,
-          "types": []
+          "opened": 1,
+          "best": 15,
+          "types": [
+            "free"
+          ]
         },
-        "chestCooldowns": {},
-        "gifts": {},
+        "chestCooldowns": {
+          "free": 1795902024815
+        },
+        "gifts": {
+          "teddy": 1
+        },
         "giftStats": {
           "sold": 0,
           "earned": 0,
-          "received": 0,
-          "found": []
+          "received": 1,
+          "found": [
+            "teddy"
+          ]
         },
-        "activeView": "games",
+        "activeView": "chests",
         "unlocked": [],
         "activeGame": "slots",
         "cardsChoice": "spades",
@@ -3194,7 +3202,7 @@
       "chests": 94,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795815622306
+      "ts": 1795815624674
     },
     {
       "name": "bot936812",
