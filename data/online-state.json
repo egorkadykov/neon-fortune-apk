@@ -79,7 +79,7 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795812335683,
+      "updated": 1795812338225,
       "profile": {
         "balance": 5,
         "currentBet": 1,
@@ -217,7 +217,6 @@
         },
         "chestCooldowns": {
           "free": 1795888370619,
-          "silver": 1795812337704,
           "legendary": 1795812372761
         },
         "gifts": {
@@ -266,7 +265,7 @@
           "jackpot",
           "allChests"
         ],
-        "activeGame": "roulette",
+        "activeGame": "slots",
         "cardsChoice": "spades",
         "soundEnabled": true,
         "lastActionAt": 0,
@@ -490,7 +489,7 @@
       "chests": 94,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795812335683
+      "ts": 1795812338225
     }
   ],
   "admin": {
