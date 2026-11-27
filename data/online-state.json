@@ -79,7 +79,7 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795815589859,
+      "updated": 1795815605492,
       "profile": {
         "balance": 395,
         "currentBet": 100,
@@ -246,7 +246,7 @@
             "bike"
           ]
         },
-        "activeView": "top",
+        "activeView": "games",
         "unlocked": [
           "games10",
           "first",
@@ -1614,7 +1614,7 @@
       "name": "bot928048",
       "hash": "fnv1a-8162f0b4",
       "created": 1795815562739,
-      "updated": 1795815562739,
+      "updated": 1795815604035,
       "sessionAt": 1795815562739,
       "profile": {
         "balance": 100,
@@ -1666,23 +1666,31 @@
           }
         ],
         "chestStats": {
-          "opened": 0,
-          "best": 0,
-          "types": []
+          "opened": 1,
+          "best": 50,
+          "types": [
+            "free"
+          ]
         },
-        "chestCooldowns": {},
-        "gifts": {},
+        "chestCooldowns": {
+          "free": 1795902004035
+        },
+        "gifts": {
+          "rocket": 1
+        },
         "giftStats": {
           "sold": 0,
           "earned": 0,
-          "received": 0,
-          "found": []
+          "received": 1,
+          "found": [
+            "rocket"
+          ]
         },
-        "activeView": "games",
+        "activeView": "chests",
         "unlocked": [],
         "activeGame": "slots",
         "cardsChoice": "spades",
-        "soundEnabled": true,
+        "soundEnabled": false,
         "lastActionAt": 0,
         "actionWindowStart": 0,
         "actionCount": 0
@@ -1692,22 +1700,36 @@
       "name": "bot957784",
       "hash": "fnv1a-8162f0b4",
       "created": 1795815563245,
-      "updated": 1795815563245,
+      "updated": 1795815604656,
       "sessionAt": 1795815563245,
       "profile": {
-        "balance": 100,
+        "balance": 99,
         "currentBet": 1,
         "stats": {
-          "spins": 0,
+          "spins": 1,
           "wins": 0,
           "best": 0
         },
-        "history": [],
+        "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "cherry",
+              "diamond",
+              "lemon"
+            ],
+            "delta": -1
+          }
+        ],
         "streak": 0,
-        "xp": 0,
+        "xp": 2,
         "level": 1,
         "xpToNext": 120,
-        "collection": [],
+        "collection": [
+          "cherry",
+          "diamond",
+          "lemon"
+        ],
         "collectionRewardGiven": false,
         "missions": [
           {
@@ -1715,7 +1737,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 0,
+            "progress": 1,
             "claimed": false
           },
           {
@@ -1760,7 +1782,7 @@
         "unlocked": [],
         "activeGame": "slots",
         "cardsChoice": "spades",
-        "soundEnabled": true,
+        "soundEnabled": false,
         "lastActionAt": 0,
         "actionWindowStart": 0,
         "actionCount": 0
@@ -3056,7 +3078,7 @@
       "chests": 94,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795815589859
+      "ts": 1795815605492
     },
     {
       "name": "bot936812",
@@ -3107,22 +3129,11 @@
       "level": 1,
       "balance": 100,
       "games": 0,
-      "gifts": 0,
-      "chests": 0,
+      "gifts": 1,
+      "chests": 1,
       "achievements": 0,
       "rank": "Новичок",
-      "ts": 1795815562739
-    },
-    {
-      "name": "bot957784",
-      "level": 1,
-      "balance": 100,
-      "games": 0,
-      "gifts": 0,
-      "chests": 0,
-      "achievements": 0,
-      "rank": "Новичок",
-      "ts": 1795815563245
+      "ts": 1795815604035
     },
     {
       "name": "bot199701",
@@ -3255,6 +3266,17 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795815574655
+    },
+    {
+      "name": "bot410142",
+      "level": 1,
+      "balance": 99,
+      "games": 1,
+      "gifts": 0,
+      "chests": 0,
+      "achievements": 0,
+      "rank": "Новичок",
+      "ts": 1795815598445
     }
   ],
   "admin": {
