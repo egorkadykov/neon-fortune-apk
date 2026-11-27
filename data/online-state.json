@@ -550,17 +550,26 @@
       "name": "bot869668",
       "hash": "fnv1a-8162f0b4",
       "created": 1795815489172,
-      "updated": 1795815504945,
+      "updated": 1795815507544,
       "sessionAt": 1795815489172,
       "profile": {
-        "balance": 99,
+        "balance": 98,
         "currentBet": 1,
         "stats": {
-          "spins": 1,
+          "spins": 2,
           "wins": 0,
           "best": 0
         },
         "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "diamond",
+              "seven",
+              "bell"
+            ],
+            "delta": -1
+          },
           {
             "glyph": "slots",
             "icons": [
@@ -572,12 +581,14 @@
           }
         ],
         "streak": 0,
-        "xp": 2,
+        "xp": 4,
         "level": 1,
         "xpToNext": 120,
         "collection": [
           "seven",
-          "lemon"
+          "lemon",
+          "diamond",
+          "bell"
         ],
         "collectionRewardGiven": false,
         "missions": [
@@ -586,7 +597,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 1,
+            "progress": 2,
             "claimed": false
           },
           {
@@ -641,17 +652,26 @@
       "name": "bot200454",
       "hash": "fnv1a-8162f0b4",
       "created": 1795815489679,
-      "updated": 1795815505623,
+      "updated": 1795815508227,
       "sessionAt": 1795815489679,
       "profile": {
-        "balance": 99,
+        "balance": 98,
         "currentBet": 1,
         "stats": {
-          "spins": 1,
+          "spins": 2,
           "wins": 0,
           "best": 0
         },
         "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "star",
+              "star",
+              "diamond"
+            ],
+            "delta": -1
+          },
           {
             "glyph": "slots",
             "icons": [
@@ -663,13 +683,14 @@
           }
         ],
         "streak": 0,
-        "xp": 2,
+        "xp": 4,
         "level": 1,
         "xpToNext": 120,
         "collection": [
           "diamond",
           "cherry",
-          "seven"
+          "seven",
+          "star"
         ],
         "collectionRewardGiven": false,
         "missions": [
@@ -678,7 +699,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 1,
+            "progress": 2,
             "claimed": false
           },
           {
@@ -870,28 +891,6 @@
       "ts": 1795729367800
     },
     {
-      "name": "bot869668",
-      "level": 1,
-      "balance": 99,
-      "games": 1,
-      "gifts": 0,
-      "chests": 0,
-      "achievements": 0,
-      "rank": "Новичок",
-      "ts": 1795815504945
-    },
-    {
-      "name": "bot200454",
-      "level": 1,
-      "balance": 99,
-      "games": 1,
-      "gifts": 0,
-      "chests": 0,
-      "achievements": 0,
-      "rank": "Новичок",
-      "ts": 1795815505623
-    },
-    {
       "name": "bot534651",
       "level": 1,
       "balance": 98,
@@ -901,6 +900,28 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795815504336
+    },
+    {
+      "name": "bot869668",
+      "level": 1,
+      "balance": 98,
+      "games": 2,
+      "gifts": 0,
+      "chests": 0,
+      "achievements": 0,
+      "rank": "Новичок",
+      "ts": 1795815507544
+    },
+    {
+      "name": "bot200454",
+      "level": 1,
+      "balance": 98,
+      "games": 2,
+      "gifts": 0,
+      "chests": 0,
+      "achievements": 0,
+      "rank": "Новичок",
+      "ts": 1795815508227
     }
   ],
   "admin": {
