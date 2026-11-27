@@ -447,17 +447,26 @@
       "name": "bot534651",
       "hash": "fnv1a-8162f0b4",
       "created": 1795815488676,
-      "updated": 1795815509630,
+      "updated": 1795815512650,
       "sessionAt": 1795815488676,
       "profile": {
-        "balance": 97,
+        "balance": 96,
         "currentBet": 1,
         "stats": {
-          "spins": 3,
+          "spins": 4,
           "wins": 0,
           "best": 0
         },
         "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "diamond",
+              "lemon",
+              "star"
+            ],
+            "delta": -1
+          },
           {
             "glyph": "slots",
             "icons": [
@@ -487,7 +496,7 @@
           }
         ],
         "streak": 0,
-        "xp": 6,
+        "xp": 8,
         "level": 1,
         "xpToNext": 120,
         "collection": [
@@ -505,7 +514,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 3,
+            "progress": 4,
             "claimed": false
           },
           {
@@ -662,17 +671,26 @@
       "name": "bot200454",
       "hash": "fnv1a-8162f0b4",
       "created": 1795815489679,
-      "updated": 1795815508227,
+      "updated": 1795815511392,
       "sessionAt": 1795815489679,
       "profile": {
-        "balance": 98,
+        "balance": 97,
         "currentBet": 1,
         "stats": {
-          "spins": 2,
+          "spins": 3,
           "wins": 0,
           "best": 0
         },
         "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "bell",
+              "bell",
+              "slotDie"
+            ],
+            "delta": -1
+          },
           {
             "glyph": "slots",
             "icons": [
@@ -693,14 +711,16 @@
           }
         ],
         "streak": 0,
-        "xp": 4,
+        "xp": 6,
         "level": 1,
         "xpToNext": 120,
         "collection": [
           "diamond",
           "cherry",
           "seven",
-          "star"
+          "star",
+          "bell",
+          "slotDie"
         ],
         "collectionRewardGiven": false,
         "missions": [
@@ -709,7 +729,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 2,
+            "progress": 3,
             "claimed": false
           },
           {
@@ -764,22 +784,36 @@
       "name": "bot936812",
       "hash": "fnv1a-8162f0b4",
       "created": 1795815490441,
-      "updated": 1795815506437,
+      "updated": 1795815512001,
       "sessionAt": 1795815490441,
       "profile": {
-        "balance": 125,
+        "balance": 124,
         "currentBet": 1,
         "stats": {
-          "spins": 0,
+          "spins": 1,
           "wins": 0,
           "best": 0
         },
-        "history": [],
+        "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "bell",
+              "lemon",
+              "melon"
+            ],
+            "delta": -1
+          }
+        ],
         "streak": 0,
-        "xp": 0,
+        "xp": 2,
         "level": 1,
         "xpToNext": 120,
-        "collection": [],
+        "collection": [
+          "bell",
+          "lemon",
+          "melon"
+        ],
         "collectionRewardGiven": false,
         "missions": [
           {
@@ -787,7 +821,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 0,
+            "progress": 1,
             "claimed": false
           },
           {
@@ -834,7 +868,7 @@
             "giftBox"
           ]
         },
-        "activeView": "gifts",
+        "activeView": "games",
         "unlocked": [
           "giftSell"
         ],
@@ -881,13 +915,13 @@
     {
       "name": "bot936812",
       "level": 1,
-      "balance": 125,
-      "games": 0,
+      "balance": 124,
+      "games": 1,
       "gifts": 0,
       "chests": 1,
       "achievements": 1,
       "rank": "Новичок",
-      "ts": 1795815506437
+      "ts": 1795815512001
     },
     {
       "name": "Ольга",
@@ -914,24 +948,24 @@
     {
       "name": "bot200454",
       "level": 1,
-      "balance": 98,
-      "games": 2,
-      "gifts": 0,
-      "chests": 0,
-      "achievements": 0,
-      "rank": "Новичок",
-      "ts": 1795815508227
-    },
-    {
-      "name": "bot534651",
-      "level": 1,
       "balance": 97,
       "games": 3,
       "gifts": 0,
       "chests": 0,
       "achievements": 0,
       "rank": "Новичок",
-      "ts": 1795815509630
+      "ts": 1795815511392
+    },
+    {
+      "name": "bot534651",
+      "level": 1,
+      "balance": 96,
+      "games": 4,
+      "gifts": 0,
+      "chests": 0,
+      "achievements": 0,
+      "rank": "Новичок",
+      "ts": 1795815512650
     }
   ],
   "admin": {
