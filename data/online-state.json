@@ -79,7 +79,7 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795811773625,
+      "updated": 1795811776747,
       "profile": {
         "balance": 25,
         "currentBet": 1,
@@ -217,9 +217,7 @@
         },
         "chestCooldowns": {
           "free": 1795888370619,
-          "paper": 1795811773696,
-          "bronze": 1795811785625,
-          "cosmic": 1795811775994
+          "bronze": 1795811785625
         },
         "gifts": {
           "ring": 2,
@@ -633,7 +631,7 @@
       "chests": 89,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795811773625
+      "ts": 1795811776747
     }
   ],
   "admin": {
