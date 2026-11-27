@@ -440,156 +440,11 @@
         "actionCount": 0
       },
       "sessionAt": 1795810651372
-    },
-    "probe_67789": {
-      "name": "probe_67789",
-      "hash": "fnv1a-b674f67d",
-      "created": 1795822978387,
-      "updated": 1795823086542,
-      "sessionAt": 1795822978387,
-      "profile": {
-        "balance": 291,
-        "currentBet": 1,
-        "stats": {
-          "spins": 120,
-          "wins": 59,
-          "best": 3
-        },
-        "history": [
-          {
-            "glyph": "roulette",
-            "icons": [
-              "2",
-              "black"
-            ],
-            "delta": -1
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "1",
-              "red"
-            ],
-            "delta": 2
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "1",
-              "red"
-            ],
-            "delta": 2
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "5",
-              "red"
-            ],
-            "delta": 2
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "7",
-              "red"
-            ],
-            "delta": 2
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "1",
-              "red"
-            ],
-            "delta": 1
-          }
-        ],
-        "streak": 0,
-        "xp": 352,
-        "level": 3,
-        "xpToNext": 360,
-        "collection": [
-          "red",
-          "black",
-          "green"
-        ],
-        "collectionRewardGiven": false,
-        "missions": [
-          {
-            "id": "games",
-            "title": "Сыграй 10 игр",
-            "target": 10,
-            "reward": 30,
-            "progress": 10,
-            "claimed": false
-          },
-          {
-            "id": "wins",
-            "title": "Победи 5 раз",
-            "target": 5,
-            "reward": 50,
-            "progress": 5,
-            "claimed": false
-          },
-          {
-            "id": "triple",
-            "title": "Получи трипу в костях",
-            "target": 1,
-            "reward": 75,
-            "progress": 0,
-            "claimed": false
-          },
-          {
-            "id": "jackpot",
-            "title": "Сорви джекпот",
-            "target": 1,
-            "reward": 100,
-            "progress": 0,
-            "claimed": false
-          }
-        ],
-        "chestStats": {
-          "opened": 6,
-          "best": 90,
-          "types": [
-            "paper"
-          ]
-        },
-        "chestCooldowns": {},
-        "gifts": {},
-        "giftStats": {
-          "sold": 6,
-          "earned": 165,
-          "received": 6,
-          "found": [
-            "musicBox",
-            "brick",
-            "candy",
-            "champagne"
-          ]
-        },
-        "activeView": "games",
-        "unlocked": [
-          "first",
-          "games10",
-          "streak3",
-          "level3",
-          "giftSell"
-        ],
-        "activeGame": "roulette",
-        "cardsChoice": "spades",
-        "soundEnabled": false,
-        "lastActionAt": 0,
-        "actionWindowStart": 0,
-        "actionCount": 0
-      }
     }
   },
   "tokens": {
     "f6cbb883479d36ed93e7817f9525f9fa4a1936b05fcc5d3f72c5f28d9c6b7c79": "егор",
-    "e6f385f0bdbc96c6fface2a6b00ae130f60657140b08ede0ddadb2e9da565130": "pithp",
-    "2e3dc5cd811986e33f4417a9f317090d8196c95a8c275aef12a7c25f3f60e0b8": "probe_67789"
+    "e6f385f0bdbc96c6fface2a6b00ae130f60657140b08ede0ddadb2e9da565130": "pithp"
   },
   "leaderboard": [
     {
@@ -613,17 +468,6 @@
       "achievements": 7,
       "rank": "Мастер",
       "ts": 1795823075749
-    },
-    {
-      "name": "probe_67789",
-      "level": 3,
-      "balance": 291,
-      "games": 120,
-      "gifts": 0,
-      "chests": 6,
-      "achievements": 5,
-      "rank": "Игрок",
-      "ts": 1795823086542
     },
     {
       "name": "Ольга",
