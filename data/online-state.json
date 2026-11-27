@@ -82,7 +82,7 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795820614238,
+      "updated": 1795820618036,
       "profile": {
         "balance": 1806,
         "currentBet": 100,
@@ -252,7 +252,7 @@
             "crownGem"
           ]
         },
-        "activeView": "gifts",
+        "activeView": "chests",
         "unlocked": [
           "games10",
           "first",
@@ -469,7 +469,7 @@
       "chests": 110,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795820614238
+      "ts": 1795820618036
     },
     {
       "name": "Ольга",
