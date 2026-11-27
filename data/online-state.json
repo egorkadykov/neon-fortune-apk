@@ -79,9 +79,9 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795813953342,
+      "updated": 1795813959887,
       "profile": {
-        "balance": 1455,
+        "balance": 500,
         "currentBet": 1,
         "stats": {
           "spins": 425,
@@ -451,35 +451,35 @@
   "leaderboard": [
     {
       "name": "Егор",
-      "level": 3,
       "balance": 1000105,
+      "level": 3,
       "games": 132,
       "gifts": 0,
       "chests": 37,
       "achievements": 5,
-      "rank": "Игрок",
+      "rank": "",
       "ts": 1795813351927
     },
     {
       "name": "pithp",
+      "balance": 500,
       "level": 8,
-      "balance": 1455,
       "games": 425,
       "gifts": 0,
       "chests": 94,
       "achievements": 7,
-      "rank": "Мастер",
-      "ts": 1795813953342
+      "rank": "",
+      "ts": 1795813959887
     },
     {
       "name": "Ольга",
-      "level": 1,
       "balance": 100,
+      "level": 1,
       "games": 0,
       "gifts": 0,
       "chests": 0,
       "achievements": 0,
-      "rank": "Новичок",
+      "rank": "",
       "ts": 1795729367800
     }
   ],
