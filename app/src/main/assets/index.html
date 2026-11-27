@@ -3063,7 +3063,7 @@
       setTimeout(() => authNickname.focus(), 0);
     }
 
-    function applyProfile(state) {
+    function applyProfile(state, keepVisuals = false) {
       const saved = state || {};
       const numberOr = (value, fallback) => (Number.isFinite(value) ? value : fallback);
 
@@ -3136,14 +3136,17 @@
       });
 
       activeView = ["games", "chests", "gifts", "progress", "top"].includes(saved.activeView) ? saved.activeView : "games";
-      switchView(activeView, false);
+      if (!keepVisuals) switchView(activeView, false);
       activeGame = ["slots", "dice", "roulette", "darts", "cards"].includes(saved.activeGame) ? saved.activeGame : "slots";
       cardsChoice = ["spades", "hearts", "clubs", "diamonds"].includes(saved.cardsChoice) ? saved.cardsChoice : "spades";
       soundEnabled = saved.soundEnabled !== false;
       playing = false;
       chestBusy = null;
-      stopAuto();
       setButton(soundBtn, soundEnabled ? "sound" : "muted", soundEnabled ? "Звук включён" : "Звук выключен");
+      // После серверного хода обновляем только числа: сброс игрового поля
+      // стёр бы выпавшие символы сразу после окончания анимации.
+      if (keepVisuals) return;
+      stopAuto();
       resetGameVisuals();
       syncGameView();
     }
@@ -3845,9 +3848,11 @@
       renderGifts();
     }
 
-    function finishRound({ icons, win, text, kind, jackpot = false, triple = false, discovered = [], refund = false, ...extra }) {
-      // Во всех играх добавляем +5% шанса на маленький выигрыш.
-      if (win <= 0 && randomValue() < 0.05) {
+    function finishRound({ icons, win, text, kind, jackpot = false, triple = false, discovered = [], refund = false, serverAuthoritative = false, ...extra }) {
+      // Локальный «счастливый шанс» допустим только офлайн. Сервер уже
+      // решил исход хода: подбрасывать выигрыш здесь нельзя — он тут же
+      // откатывается при синхронизации баланса.
+      if (!serverAuthoritative && win <= 0 && randomValue() < 0.05) {
         win = Math.max(1, Math.ceil(currentBet * 1.25));
         text = `Счастливый шанс! ×1.25 — +${win}`;
         kind = "win";

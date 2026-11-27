@@ -114,7 +114,9 @@
     }
     var auto = autoEnabled;
     var timer = autoTimer;
-    applyProfile(profile);
+    // keepVisuals: сервер обновляет баланс и прогресс, но не стирает
+    // символы, которые только что показала анимация.
+    applyProfile(profile, true);
     if (auto) {
       autoEnabled = true;
       autoTimer = timer;
@@ -143,7 +145,8 @@
       refund: !!result.refund,
       dartBull: !!result.dartBull,
       cardFlush: !!result.cardFlush,
-      discovered: details && details.discovered ? details.discovered : []
+      discovered: details && details.discovered ? details.discovered : [],
+      serverAuthoritative: true
     };
     originalFinishRound(merged);
     if (!serverResult) {
@@ -163,14 +166,31 @@
     fetchLeaderboard();
   };
 
+  // Сервер считает ход через Constant Object и отвечает ~250 мс. Пока ответ
+  // идёт, поле слегка размыто — игрок видит реакцию мгновенно, а настоящая
+  // анимация стартует сразу после получения честных случайных чисел.
+  function waitingVisual(on) {
+    var id = activeGame === 'slots' ? 'reelsWrap' : activeGame === 'dice' ? 'diceWrap' :
+      activeGame === 'roulette' ? 'wheel' : activeGame === 'darts' ? 'dartsWrap' : 'cardTable';
+    var element = byId(id);
+    if (element) element.classList.toggle('neon-wait', !!on);
+  }
+
   var originalPlay = play;
   play = function () {
     if (!currentUser || playing || serverBusy || !token()) return;
     if (autoTimer) { clearTimeout(autoTimer); autoTimer = null; }
     setStatus('проверка хода...', 'wait');
+    statusEl.textContent = 'Играем…';
+    setMessage(
+      activeGame === 'slots' ? 'Крутим барабаны…' : activeGame === 'dice' ? 'Бросаем кости…' :
+      activeGame === 'roulette' ? 'Крутим колесо…' : activeGame === 'darts' ? 'Метам дротики…' : 'Раздаём карты…'
+    );
+    waitingVisual(true);
     serverBusy = true;
     api('/play', actionBody({ game: activeGame })).then(function (result) {
       serverBusy = false;
+      waitingVisual(false);
       serverRolls = Array.isArray(result.rolls) ? result.rolls.slice() : [];
       serverResult = result;
       currentBet = result.bet;
@@ -190,6 +210,7 @@
       else playCards(multiplier);
     }).catch(function (error) {
       serverBusy = false;
+      waitingVisual(false);
       playing = false;
       statusEl.textContent = 'Готово к игре';
       setStatus('ошибка хода · ' + friendly(error), 'warn');
@@ -467,7 +488,8 @@
     '.online-warn{border-color:rgba(255,180,80,.35);color:#ffd18b;}' +
     '.online-wait{border-color:rgba(140,160,255,.35);color:#b8c4ff;}' +
     '.online-inline{margin-top:8px;font-size:11px;color:#8fffe9;word-break:break-word;}' +
-    '.leader-extra{display:block;font-size:10px;opacity:.72;margin-top:2px;}';
+    '.leader-extra{display:block;font-size:10px;opacity:.72;margin-top:2px;}' +
+    '.neon-wait{filter:blur(3px) brightness(.8);transition:filter .12s linear;}';
   document.head.appendChild(css);
 
   var authCard = document.querySelector('#authScreen .auth-card');
