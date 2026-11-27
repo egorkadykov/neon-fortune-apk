@@ -447,22 +447,35 @@
       "name": "verifytest",
       "hash": "sha256-dcf59bad207b5071095d5ba0ddb56d1d8def687430aff92e3a2f76163e86adfa",
       "created": 1795814959670,
-      "updated": 1795814959670,
+      "updated": 1795814985635,
       "sessionAt": 1795814959670,
       "profile": {
-        "balance": 100,
+        "balance": 99,
         "currentBet": 1,
         "stats": {
-          "spins": 0,
+          "spins": 1,
           "wins": 0,
           "best": 0
         },
-        "history": [],
+        "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "bell",
+              "bell",
+              "star"
+            ],
+            "delta": -1
+          }
+        ],
         "streak": 0,
-        "xp": 0,
+        "xp": 2,
         "level": 1,
         "xpToNext": 120,
-        "collection": [],
+        "collection": [
+          "bell",
+          "star"
+        ],
         "collectionRewardGiven": false,
         "missions": [
           {
@@ -470,7 +483,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 0,
+            "progress": 1,
             "claimed": false
           },
           {
@@ -564,13 +577,13 @@
     {
       "name": "verifytest",
       "level": 1,
-      "balance": 100,
-      "games": 0,
+      "balance": 99,
+      "games": 1,
       "gifts": 0,
       "chests": 0,
       "achievements": 0,
       "rank": "Новичок",
-      "ts": 1795814959670
+      "ts": 1795814985635
     }
   ],
   "admin": {
