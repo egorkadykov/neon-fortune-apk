@@ -79,7 +79,7 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795813613634,
+      "updated": 1795813615645,
       "profile": {
         "balance": 8,
         "currentBet": 1,
@@ -488,7 +488,7 @@
       "chests": 94,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795813613634
+      "ts": 1795813615645
     }
   ],
   "admin": {
