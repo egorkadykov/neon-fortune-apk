@@ -3145,7 +3145,7 @@
       setButton(soundBtn, soundEnabled ? "sound" : "muted", soundEnabled ? "Звук включён" : "Звук выключен");
       // После серверного хода обновляем только числа: сброс игрового поля
       // стёр бы выпавшие символы сразу после окончания анимации.
-      if (keepVisuals) return;
+      if (keepVisuals) { updateUI(true); return; }
       stopAuto();
       resetGameVisuals();
       syncGameView();
