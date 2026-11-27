@@ -79,16 +79,24 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795813536762,
+      "updated": 1795813536788,
       "profile": {
-        "balance": 59,
+        "balance": 9,
         "currentBet": 50,
         "stats": {
-          "spins": 409,
+          "spins": 410,
           "wins": 288,
           "best": 2000
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "6",
+              "black"
+            ],
+            "delta": -50
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -128,18 +136,10 @@
               "black"
             ],
             "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "10",
-              "black"
-            ],
-            "delta": -100
           }
         ],
         "streak": 0,
-        "xp": 62,
+        "xp": 64,
         "level": 8,
         "xpToNext": 960,
         "collection": [
@@ -482,13 +482,13 @@
     {
       "name": "pithp",
       "level": 8,
-      "balance": 59,
-      "games": 409,
+      "balance": 9,
+      "games": 410,
       "gifts": 11,
       "chests": 94,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795813536762
+      "ts": 1795813536788
     }
   ],
   "admin": {
