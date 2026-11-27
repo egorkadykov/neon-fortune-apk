@@ -19,6 +19,8 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           GITHUB_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+          ADMIN_TOKEN: ${{ secrets.ADMIN_TOKEN }}
         run: |
           printf '%s' "$GITHUB_TOKEN" | npx --yes wrangler@4 secret put GITHUB_TOKEN --name neon-fortune-api
+          printf '%s' "$ADMIN_TOKEN" | npx --yes wrangler@4 secret put ADMIN_TOKEN --name neon-fortune-api
           npx --yes wrangler@4 deploy --config worker/wrangler.toml
