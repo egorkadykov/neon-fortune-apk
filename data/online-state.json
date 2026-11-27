@@ -216,8 +216,7 @@
           ]
         },
         "chestCooldowns": {
-          "free": 1795888370619,
-          "legendary": 1795812372761
+          "free": 1795888370619
         },
         "gifts": {
           "ring": 2,
@@ -272,7 +271,7 @@
         "actionWindowStart": 0,
         "actionCount": 0
       },
-      "sessionAt": 1795811449347
+      "sessionAt": 1795812459925
     },
     "егор": {
       "name": "Егор",
@@ -455,7 +454,7 @@
   },
   "tokens": {
     "f6cbb883479d36ed93e7817f9525f9fa4a1936b05fcc5d3f72c5f28d9c6b7c79": "егор",
-    "6261d690a90245902e156ee855ced21af8de5e6216f3463591d3182d219a34b9": "pithp"
+    "9eea031f502fab6f71291727d877383ae4526d3e5cbeade9bb61d82fe81da010": "pithp"
   },
   "leaderboard": [
     {
