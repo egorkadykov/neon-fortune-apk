@@ -818,6 +818,27 @@ async function handle(request, ctx) {
     return reply({ ok: true, user: sessionUser(server.state.users[key]) });
   }
 
+  // Админская правка баланса. Ключ хранится только в секрете Cloudflare,
+  // клиент не знает его и не может изменить свои звёзды.
+  if (path === '/admin/balance') {
+    const supplied = String(request.headers.get('x-admin-token') || '');
+    if (!env.ADMIN_TOKEN || supplied !== env.ADMIN_TOKEN) return fail('Нет доступа', 403);
+    if (typeof body.balance !== 'number' || !Number.isFinite(body.balance)) {
+      return fail('Некорректный баланс');
+    }
+    const balance = Math.min(MAX_BALANCE, Math.max(0, Math.floor(body.balance)));
+    const result = await mutateSync((state) => {
+      const user = state.users[keyFor(String(body.name || ''))];
+      if (!user) throw new Error('Игрок не найден');
+      user.profile = normalizeProfile(user.profile);
+      user.profile.balance = balance;
+      user.updated = Date.now();
+      state.leaderboard = buildLeaderboard(state);
+      return { name: user.name, balance: user.profile.balance };
+    });
+    return reply({ ok: true, ...result });
+  }
+
   // Действия. Клиент НЕ передаёт баланс, статистику или подарки —
   // сервер сам решает, что выпало и сколько начислено.
   const actions = {
