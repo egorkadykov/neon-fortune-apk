@@ -3,6 +3,8 @@ const REPO = 'neon-fortune-apk';
 const PATH = 'data/online-state.json';
 const BRANCH = 'main';
 const GH_API = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${PATH}`;
+const RELEASES_API = `https://api.github.com/repos/${OWNER}/${REPO}/releases/latest`;
+let versionCache = { at: 0, value: null };
 
 const MAX_BALANCE = 1000000000000;
 // Игровая экономика полностью считается здесь. Клиент не присылает ни баланс,
@@ -100,6 +102,31 @@ function reply(data, status = 200) {
 
 function fail(message, status = 400) {
   return reply({ ok: false, error: String(message || 'Ошибка сервера') }, status);
+}
+
+// Информация о свежем APK берётся из публичного релиза GitHub. Клиент получает
+// только номер версии и ссылку на скачивание — токенов и секретов здесь нет.
+async function latestRelease() {
+  const now = Date.now();
+  if (versionCache.value && now - versionCache.at < 10 * 60 * 1000) return versionCache.value;
+  const response = await fetch(RELEASES_API, {
+    headers: {
+      Accept: 'application/vnd.github+json',
+      'User-Agent': 'neon-fortune-worker',
+      ...(env.GITHUB_TOKEN ? { Authorization: `Bearer ${env.GITHUB_TOKEN}` } : {})
+    }
+  });
+  if (!response.ok) throw new Error(`GitHub вернул ${response.status}`);
+  const release = await response.json();
+  const asset = (release.assets || []).find((item) => /\.apk$/i.test(item.name || ''));
+  const value = {
+    code: Number(String(release.tag_name || '').replace(/^v/i, '')) || 0,
+    name: release.name || release.tag_name || '',
+    url: asset ? asset.browser_download_url : '',
+    notes: String(release.body || '').slice(0, 300)
+  };
+  versionCache = { at: now, value };
+  return value;
 }
 
 function emptyState() {
@@ -1009,13 +1036,21 @@ export default {
     const length = Number(request.headers.get('content-length') || 0);
     if (length > MAX_BODY_BYTES) return fail('Слишком большой запрос', 413);
 
+    // Проверка обновлений не должна зависеть от игровых лимитов и Durable Object.
+    if (path === '/version' && request.method === 'GET') {
+      try {
+        return reply({ ok: true, version: await latestRelease() });
+      } catch (error) {
+        return reply({ ok: true, version: { code: 0, name: '', url: '', notes: '' } });
+      }
+    }
+
     const ip = request.headers.get('cf-connecting-ip') ||
       (request.headers.get('x-forwarded-for') || '').split(',')[0].trim() || 'unknown';
     const login = path === '/login';
     // Проверку сессии не ограничиваем: временный 429 заставлял старый клиент
-    // удалить токен и требовать вход заново. Лимиты nella остальных роутов
-    // Остальные запросы по-прежнему ограничены.
-    const skipLimit = path === '/session';
+    // удалить токен и требовать вход заново. Остальные запросы по-прежнему ограничены.
+    const skipLimit = path === '/session' || path === '/version';
     const limiter = skipLimit ? null : login ? environment.AUTH_GUARD : environment.API_GUARD;
     if (limiter) {
       // Ход стоит дороже чтения таблицы лидеров, вход — отдельный квотный пул.
