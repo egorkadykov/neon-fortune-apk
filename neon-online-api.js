@@ -550,6 +550,63 @@
     syncSettings: function () { api('/settings', actionBody()).catch(function () {}); }
   };
 
+  // Встроенное обновление: плашка появляется, только если на сервере есть
+  // версия свежее той, что зашита в текущий APK.
+  (function () {
+    var bridge = window.NeonUpdate;
+    if (!bridge || typeof bridge.versionCode !== 'function' || !API) return;
+    var current = 0;
+    try { current = bridge.versionCode(); } catch (error) { return; }
+
+    var banner = document.createElement('div');
+    banner.id = 'neonUpdateBanner';
+    banner.style.cssText = 'position:fixed;left:8px;right:8px;top:8px;z-index:99999;padding:10px 12px;border-radius:12px;background:rgba(8,14,32,.96);border:1px solid rgba(0,255,213,.45);color:#d9fff7;font:600 12px/1.35 system-ui,sans-serif;display:none;box-shadow:0 8px 30px rgba(0,0,0,.6)';
+    var text = document.createElement('div');
+    text.style.cssText = 'margin-bottom:8px';
+    var button = document.createElement('button');
+    button.type = 'button';
+    button.style.cssText = 'width:100%;padding:9px;border:0;border-radius:9px;background:#00ffd5;color:#04121a;font:700 12px system-ui,sans-serif;cursor:pointer';
+    button.textContent = 'Скачать обновление';
+    banner.appendChild(text);
+    banner.appendChild(button);
+    document.body.appendChild(banner);
+
+    var target = '';
+    window.NeonUpdater = {
+      progress: function (percent) {
+        button.textContent = percent < 0 ? 'Скачивание…' : 'Скачивание… ' + percent + '%';
+      },
+      ready: function () {
+        button.textContent = 'Установить обновление';
+        button.dataset.ready = '1';
+      },
+      error: function () {
+        button.textContent = 'Повторить скачивание';
+        button.dataset.ready = '';
+      }
+    };
+    button.addEventListener('click', function () {
+      if (button.dataset.ready === '1') { bridge.install(); return; }
+      if (target) {
+        button.textContent = 'Скачивание… 0%';
+        bridge.download(target);
+      }
+    });
+
+    fetch(API.replace(/\/$/, '') + '/version', { cache: 'no-store' })
+      .then(function (response) { return response.json(); })
+      .then(function (data) {
+        if (!data || data.ok !== true || !data.version) return;
+        var version = data.version;
+        if (!(Number(version.code) > current) || !version.url) return;
+        target = version.url;
+        text.textContent = 'Доступно обновление ' + (version.name || version.code) +
+          (version.notes ? ' · ' + version.notes : '');
+        banner.style.display = 'block';
+      })
+      .catch(function () {});
+  })();
+
   setStatus('подключение к общему серверу...', 'wait');
   restoreSession();
 })();
