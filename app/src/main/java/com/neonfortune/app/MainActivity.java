@@ -3,9 +3,12 @@ package com.neonfortune.app;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.InputType;
 import android.view.MotionEvent;
 import android.view.View;
@@ -13,6 +16,7 @@ import android.view.Window;
 import android.view.WindowInsets;
 import android.view.WindowInsetsController;
 import android.view.WindowManager;
+import android.webkit.JavascriptInterface;
 import android.webkit.JsPromptResult;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
@@ -21,7 +25,14 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.EditText;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.lang.reflect.Field;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Полноценное приложение, а не браузер: WebView используется только как движок
@@ -30,6 +41,108 @@ import java.lang.reflect.Field;
  */
 public class MainActivity extends Activity {
     private WebView webView;
+    private final ExecutorService updateExecutor = Executors.newSingleThreadExecutor();
+
+    /** Мост между игрой и системным установщиком обновлений. */
+    public class UpdateBridge {
+        @JavascriptInterface
+        public int versionCode() {
+            return BuildConfig.VERSION_CODE;
+        }
+
+        @JavascriptInterface
+        public void download(final String url) {
+            if (url == null || !url.startsWith("https://github.com/")) return;
+            updateExecutor.execute(new Runnable() {
+                @Override
+                public void run() {
+                    HttpURLConnection connection = null;
+                    try {
+                        final File apk = new File(getExternalFilesDir(null), UpdateFileProvider.FILE_NAME);
+                        connection = (HttpURLConnection) new URL(url).openConnection();
+                        connection.setConnectTimeout(20000);
+                        connection.setReadTimeout(30000);
+                        connection.setInstanceFollowRedirects(true);
+                        connection.connect();
+                        final int total = connection.getContentLength();
+                        InputStream input = connection.getInputStream();
+                        FileOutputStream output = new FileOutputStream(apk, false);
+                        byte[] buffer = new byte[16384];
+                        int read;
+                        long done = 0;
+                        try {
+                            while ((read = input.read(buffer)) != -1) {
+                                output.write(buffer, 0, read);
+                                done += read;
+                                final int percent = total > 0 ? (int) (done * 100 / total) : -1;
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        callUpdater("progress", percent);
+                                    }
+                                });
+                            }
+                        } finally {
+                            output.close();
+                            input.close();
+                        }
+                        if (apk.length() < 10000) throw new IllegalStateException("Файл обновления пуст");
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                callUpdater("ready", 0);
+                            }
+                        });
+                    } catch (final Exception error) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                callUpdater("error", 0);
+                            }
+                        });
+                    } finally {
+                        if (connection != null) connection.disconnect();
+                    }
+                }
+            });
+        }
+
+        @JavascriptInterface
+        public void install() {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    File apk = new File(getExternalFilesDir(null), UpdateFileProvider.FILE_NAME);
+                    if (!apk.exists() || apk.length() < 10000) return;
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
+                            && !getPackageManager().canRequestPackageInstalls()) {
+                        try {
+                            Intent settings = new Intent(
+                                    Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES,
+                                    Uri.parse("package:" + getPackageName()));
+                            startActivity(settings);
+                        } catch (Exception ignored) {
+                        }
+                        return;
+                    }
+                    Uri uri = Uri.parse("content://" + getPackageName() + ".updateprovider/update.apk");
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setDataAndType(uri, "application/vnd.android.package-archive");
+                    intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    try {
+                        startActivity(intent);
+                    } catch (Exception ignored) {
+                    }
+                }
+            });
+        }
+    }
+
+    private void callUpdater(String method, int value) {
+        if (webView == null) return;
+        webView.evaluateJavascript(
+                "window.NeonUpdater && window.NeonUpdater." + method + "(" + value + ")", null);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -184,7 +297,14 @@ public class MainActivity extends Activity {
             }
         });
 
-        webView.setWebViewClient(new WebViewClient());
+        webView.addJavascriptInterface(new UpdateBridge(), "NeonUpdate");
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                // Игра живёт только в assets: внешние страницы не должны получать мост обновления.
+                return url == null || !url.startsWith("file:///android_asset/");
+            }
+        });
         webView.loadUrl("file:///android_asset/index.html");
     }
 
