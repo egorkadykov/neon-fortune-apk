@@ -15,12 +15,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy Cloudflare Worker
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy --config worker/wrangler.toml
-          secrets: |
-            GITHUB_TOKEN
         env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           GITHUB_TOKEN: ${{ secrets.NEON_API_TOKEN }}
+        run: |
+          printf '%s' "$GITHUB_TOKEN" | npx --yes wrangler@4 secret put GITHUB_TOKEN --name neon-fortune-api
+          npx --yes wrangler@4 deploy --config worker/wrangler.toml
