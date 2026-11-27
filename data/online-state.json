@@ -79,7 +79,7 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795815605492,
+      "updated": 1795815609198,
       "profile": {
         "balance": 395,
         "currentBet": 100,
@@ -256,7 +256,7 @@
           "jackpot",
           "allChests"
         ],
-        "activeGame": "slots",
+        "activeGame": "darts",
         "cardsChoice": "spades",
         "soundEnabled": true,
         "lastActionAt": 0,
@@ -1969,7 +1969,7 @@
       "name": "bot516871",
       "hash": "fnv1a-8162f0b4",
       "created": 1795815566427,
-      "updated": 1795815586255,
+      "updated": 1795815607335,
       "sessionAt": 1795815566427,
       "profile": {
         "balance": 99,
@@ -2035,19 +2035,27 @@
           }
         ],
         "chestStats": {
-          "opened": 0,
-          "best": 0,
-          "types": []
+          "opened": 1,
+          "best": 50,
+          "types": [
+            "free"
+          ]
         },
-        "chestCooldowns": {},
-        "gifts": {},
+        "chestCooldowns": {
+          "free": 1795902007335
+        },
+        "gifts": {
+          "rocket": 1
+        },
         "giftStats": {
           "sold": 0,
           "earned": 0,
-          "received": 0,
-          "found": []
+          "received": 1,
+          "found": [
+            "rocket"
+          ]
         },
-        "activeView": "games",
+        "activeView": "chests",
         "unlocked": [],
         "activeGame": "slots",
         "cardsChoice": "spades",
@@ -3078,7 +3086,7 @@
       "chests": 94,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795815605492
+      "ts": 1795815609198
     },
     {
       "name": "bot936812",
