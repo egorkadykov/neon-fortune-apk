@@ -2620,17 +2620,26 @@
       "name": "bot210816",
       "hash": "fnv1a-8162f0b4",
       "created": 1795815570437,
-      "updated": 1795815592011,
+      "updated": 1795815632325,
       "sessionAt": 1795815570437,
       "profile": {
-        "balance": 99,
+        "balance": 98,
         "currentBet": 1,
         "stats": {
-          "spins": 1,
+          "spins": 2,
           "wins": 0,
           "best": 0
         },
         "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "melon",
+              "lemon",
+              "cherry"
+            ],
+            "delta": -1
+          },
           {
             "glyph": "slots",
             "icons": [
@@ -2642,13 +2651,15 @@
           }
         ],
         "streak": 0,
-        "xp": 2,
+        "xp": 4,
         "level": 1,
         "xpToNext": 120,
         "collection": [
           "seven",
           "melon",
-          "bell"
+          "bell",
+          "lemon",
+          "cherry"
         ],
         "collectionRewardGiven": false,
         "missions": [
@@ -2657,7 +2668,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 1,
+            "progress": 2,
             "claimed": false
           },
           {
