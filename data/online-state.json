@@ -79,7 +79,7 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795811522381,
+      "updated": 1795811524184,
       "profile": {
         "balance": 990,
         "currentBet": 1,
@@ -216,8 +216,7 @@
           ]
         },
         "chestCooldowns": {
-          "free": 1795888370619,
-          "paper": 1795811523149
+          "free": 1795888370619
         },
         "gifts": {
           "heart": 1
@@ -248,7 +247,7 @@
             "cake"
           ]
         },
-        "activeView": "chests",
+        "activeView": "gifts",
         "unlocked": [
           "games10",
           "first",
@@ -471,7 +470,7 @@
       "chests": 81,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795811522381
+      "ts": 1795811524184
     },
     {
       "name": "Ольга",
