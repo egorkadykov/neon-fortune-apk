@@ -12,8 +12,8 @@ const PAYOUT_FACTOR = 0.6;
 const MAX_MULT = 1.5;
 const LUCKY_CHANCE = 0.03;
 const MAX_GAIN_PER_ACTION = 10000;
-const MIN_ACTION_MS = 350;
-const MAX_ACTIONS_PER_MIN = 60;
+const MIN_ACTION_MS = 120;
+const MAX_ACTIONS_PER_MIN = 180;
 const SESSION_MAX_MS = 30 * 24 * 60 * 60 * 1000;
 const MAX_BET = 100;
 const BETS = [1, 5, 10, 25, 50, 100];
@@ -81,6 +81,12 @@ const CORS = {
 
 let env = {};
 
+// Состояние живёт в памяти воркера: ходы считаются мгновенно, а запись в
+// GitHub уходит в фоне через ctx.waitUntil. Клиент никогда не видит задержку
+// на сетевой записи, но сервер остаётся единственным источником баланса.
+let cached = null;
+let flushChain = Promise.resolve();
+
 function reply(data, status = 200) {
   return new Response(JSON.stringify(data), {
     status,
@@ -140,22 +146,42 @@ async function writeState(state, sha) {
     if (response.status === 409) error.conflict = true;
     throw error;
   }
+  const json = await response.json();
+  return json && json.content ? json.content.sha : null;
 }
 
-async function mutate(action) {
-  let lastError;
-  for (let attempt = 0; attempt < 5; attempt++) {
-    try {
-      const server = await readState();
-      const result = await action(server.state);
-      await writeState(server.state, server.sha);
-      return result;
-    } catch (error) {
-      if (error && error.conflict) { lastError = error; continue; }
-      throw error;
-    }
+async function loadState(force) {
+  if (force || !cached) {
+    const server = await readState();
+    cached = { state: server.state, sha: server.sha, dirty: false };
   }
-  throw lastError || new Error('не удалось записать прогресс');
+  return cached;
+}
+
+// Записи идут строго по очереди: каждый следующий снимок использует уже
+// актуальный sha. Если запись не прошла — состояние остаётся «грязным» и
+// будет повторно отправлено при следующем действии.
+function scheduleFlush(ctx) {
+  if (!cached || !cached.dirty) return;
+  const snapshot = JSON.parse(JSON.stringify(cached.state));
+  cached.dirty = false;
+  const task = flushChain.then(async () => {
+    const newSha = await writeState(snapshot, cached.sha);
+    if (newSha && cached) cached.sha = newSha;
+  }).catch((error) => {
+    if (error && error.conflict) cached = null;
+    else if (cached) cached.dirty = true;
+  });
+  flushChain = task;
+  if (ctx && typeof ctx.waitUntil === 'function') ctx.waitUntil(task);
+}
+
+async function mutate(action, ctx) {
+  const server = await loadState();
+  const result = await action(server.state);
+  server.dirty = true;
+  scheduleFlush(ctx);
+  return result;
 }
 
 function int(value, fallback, min, max) {
@@ -719,14 +745,14 @@ function answerMission(profile, body) {
   return { reward: mission.reward, title: mission.title, profile };
 }
 
-async function handle(request) {
+async function handle(request, ctx) {
   if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: CORS });
 
   const url = new URL(request.url);
   const path = url.pathname.replace(/\/$/, '') || '/state';
 
   if (path === '/state' && request.method === 'GET') {
-    const server = await readState();
+    const server = await loadState(url.searchParams.has('reload'));
     return reply({ ok: true, state: publicState(server.state) });
   }
   if (request.method !== 'POST') return fail('Метод не поддерживается', 405);
@@ -775,13 +801,13 @@ async function handle(request) {
       user.sessionAt = Date.now();
       user.profile = normalizeProfile(user.profile);
       return { token, user: sessionUser(user), isNew: false };
-    });
+    }, ctx);
     return reply({ ok: true, ...result });
   }
 
   if (path === '/session') {
     const token = String(body.token || '');
-    const server = await readState();
+    const server = await loadState();
     const key = server.state.tokens[token];
     if (!key || !server.state.users[key]) return fail('Нужно войти снова', 401);
     sessionFor(server.state, token, server.state.users[key]);
@@ -814,12 +840,12 @@ async function handle(request) {
       user.updated = Date.now();
       state.leaderboard = buildLeaderboard(state);
       return outcome;
-    });
+    }, ctx);
     return reply({ ok: true, ...result });
   }
 
   if (path === '/logout') {
-    await mutate((state) => { delete state.tokens[String(body.token || '')]; });
+    await mutate((state) => { delete state.tokens[String(body.token || '')]; }, ctx);
     return reply({ ok: true });
   }
 
@@ -833,7 +859,7 @@ async function handle(request) {
         if (state.tokens[saved] === key) delete state.tokens[saved];
       });
       state.leaderboard = buildLeaderboard(state);
-    });
+    }, ctx);
     return reply({ ok: true });
   }
 
@@ -841,10 +867,10 @@ async function handle(request) {
 }
 
 export default {
-  async fetch(request, environment) {
+  async fetch(request, environment, ctx) {
     env = environment;
     try {
-      return await handle(request);
+      return await handle(request, ctx);
     } catch (error) {
       return fail(error && error.message ? error.message : String(error), 500);
     }
