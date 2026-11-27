@@ -1,14 +1,9 @@
 (function () {
   'use strict';
 
-  var OWNER = 'egorkadykov';
-  var REPO = 'neon-fortune-apk';
-  var PATH = 'data/online-state.json';
-  var BRANCH = 'main';
-  var API = 'https://api.github.com/repos/' + OWNER + '/' + REPO + '/contents/' + PATH;
+  var API = window.NEON_API_BASE || '';
   var TOKEN_KEY = 'neon-online-token';
   var USER_KEY = 'neon-online-user';
-  var TOKEN = window.NEON_GITHUB_TOKEN;
   var LITE_UI = window.matchMedia('(max-width: 700px)').matches;
   var saveTimer = null;
   var saving = false;
@@ -33,95 +28,48 @@
     if (settings) { settings.textContent = text; settings.className = 'online-inline online-' + (kind || 'wait'); }
   }
 
-  function headers() {
-    return {
-      'Accept': 'application/vnd.github+json',
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + TOKEN
+  function api(path, body) {
+    if (!API) return Promise.reject(new Error('адрес сервера не настроен'));
+    var init = {
+      method: body ? 'POST' : 'GET',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      cache: 'no-store'
     };
+    if (body) init.body = JSON.stringify(body);
+    return fetch(API.replace(/\/$/, '') + path, init)
+      .then(function (response) {
+        return response.json().catch(function () {
+          throw new Error('сервер вернул некорректный ответ (' + response.status + ')');
+        });
+      })
+      .then(function (data) {
+        if (!data || data.ok !== true) {
+          throw new Error(data && data.error ? data.error : 'ошибка сервера');
+        }
+        return data;
+      });
   }
 
   function emptyState() {
     return { version: 1, users: {}, tokens: {}, leaderboard: [] };
   }
 
-  function decodeContent(content) {
-    var binary = atob(String(content || '').replace(/\s/g, ''));
-    if (window.TextDecoder) {
-      var bytes = new Uint8Array(binary.length);
-      for (var i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
-      return new TextDecoder('utf-8').decode(bytes);
-    }
-    return decodeURIComponent(escape(binary));
+  function normalizeState(state) {
+    var safe = state && typeof state === 'object' ? state : emptyState();
+    if (!safe.users || typeof safe.users !== 'object') safe.users = {};
+    if (!safe.tokens || typeof safe.tokens !== 'object') safe.tokens = {};
+    if (!Array.isArray(safe.leaderboard)) safe.leaderboard = [];
+    return safe;
   }
 
   function loadServer() {
-    return fetch(API + '?ref=' + BRANCH + '&t=' + Date.now(), {
-      headers: headers(),
-      cache: 'no-store'
-    }).then(function (response) {
-      if (!response.ok) throw new Error('не удалось прочитать сервер (' + response.status + ')');
-      return response.json();
-    }).then(function (meta) {
-      var state;
-      try {
-        state = JSON.parse(decodeContent(meta.content));
-      } catch (error) {
-        state = emptyState();
-      }
-      var safe = state && typeof state === 'object' ? state : emptyState();
-      if (!safe.users || typeof safe.users !== 'object') safe.users = {};
-      if (!safe.tokens || typeof safe.tokens !== 'object') safe.tokens = {};
-      if (!Array.isArray(safe.leaderboard)) safe.leaderboard = [];
-      return { state: safe, sha: meta.sha || '' };
+    return api('/state').then(function (data) {
+      return { state: normalizeState(data.state), sha: '' };
     });
   }
 
   function readState() {
     return loadServer().then(function (result) { return result.state; });
-  }
-
-  function writeState(state, sha) {
-    var body = {
-      message: 'Обновление прогресса ' + new Date().toISOString(),
-      content: btoa(unescape(encodeURIComponent(JSON.stringify(state)))),
-      branch: BRANCH
-    };
-    if (sha) body.sha = sha;
-    return fetch(API, {
-      method: 'PUT',
-      headers: headers(),
-      body: JSON.stringify(body)
-    }).then(function (response) {
-      if (response.status === 409) {
-        var conflict = new Error('сервер обновился, повторяем');
-        conflict.conflict = true;
-        throw conflict;
-      }
-      if (!response.ok) {
-        return response.text().then(function (text) {
-          var message = text;
-          try { message = JSON.parse(text).message || text; } catch (ignored) {}
-          throw new Error(message || ('ошибка сервера ' + response.status));
-        });
-      }
-      return response.json();
-    });
-  }
-
-  function runMutation(action, attempt) {
-    return loadServer().then(function (server) {
-      return Promise.resolve(action(server.state)).then(function (result) {
-        return writeState(server.state, server.sha).then(function () { return result; });
-      });
-    }).catch(function (error) {
-      if (error && error.conflict && attempt < 2) return runMutation(action, attempt + 1);
-      throw error;
-    });
-  }
-
-  function mutate(action) {
-    return runMutation(action, 0);
   }
 
   function keyFor(name) { return String(name).trim().toLowerCase(); }
@@ -137,11 +85,8 @@
 
   function makeToken() {
     var bytes = new Uint8Array(16);
-    if (window.crypto && window.crypto.getRandomValues) {
-      window.crypto.getRandomValues(bytes);
-    } else {
-      for (var i = 0; i < bytes.length; i++) bytes[i] = Math.floor(Math.random() * 256);
-    }
+    if (window.crypto && window.crypto.getRandomValues) window.crypto.getRandomValues(bytes);
+    for (var i = 0; i < bytes.length; i++) bytes[i] = bytes[i] || Math.floor(Math.random() * 256);
     return Array.prototype.map.call(bytes, function (b) { return ('0' + b.toString(16)).slice(-2); }).join('');
   }
 
@@ -155,15 +100,11 @@
   }
 
   function hashPassword(value) {
-    if (!window.crypto || !window.crypto.subtle || !window.TextEncoder) {
-      return Promise.resolve(simpleHash(value));
-    }
+    if (!window.crypto || !window.crypto.subtle || !window.TextEncoder) return Promise.resolve(simpleHash(value));
     var bytes = new TextEncoder().encode(value);
     return window.crypto.subtle.digest('SHA-256', bytes).then(function (buffer) {
       return 'sha256-' + Array.prototype.map.call(new Uint8Array(buffer), function (b) { return ('0' + b.toString(16)).slice(-2); }).join('');
-    }).catch(function () {
-      return simpleHash(value);
-    });
+    }).catch(function () { return simpleHash(value); });
   }
 
   function findUser(state, suppliedToken) {
@@ -193,7 +134,7 @@
     else authCard.insertBefore(status, authCard.firstChild);
   }
   var note = document.querySelector('#authScreen .auth-note');
-  if (note) note.textContent = 'Общая онлайн-таблица: ник, пароль, баланс, уровень, игры, подарки, сундуки и достижения. Реальных денег нет — только виртуальные звёзды.';
+  if (note) note.textContent = 'Общий сервер с защитой: ник, пароль, баланс, уровень, игры, подарки, сундуки и достижения. Секрет сервера не лежит в игре. Реальных денег нет — только виртуальные звёзды.';
 
   var stack = document.querySelector('#settingsDrawer .settings-stack');
   if (stack && !byId('onlineSettingsStatus')) {
@@ -201,7 +142,7 @@
     card.className = 'card online-card';
     card.innerHTML = '' +
       '<h2><span data-icon="chart"></span>Онлайн-аккаунт</h2>' +
-      '<p class="setting-note">Один общий сервер уже подключён. Прогресс сохраняется автоматически.</p>' +
+      '<p class="setting-note">Общий сервер подключён. Секрет хранится на сервере, а не в APK. Прогресс сохраняется автоматически.</p>' +
       '<div class="online-actions"><button id="onlineTestBtn" class="side-btn" type="button">Проверить связь</button></div>' +
       '<div id="onlineSettingsStatus" class="online-inline online-wait">Проверяем связь...</div>';
     var danger = stack.querySelector('.danger-card');
@@ -230,13 +171,7 @@
     pendingSave = false;
     saving = true;
     var snapshot = getProfileState();
-    mutate(function (state) {
-      var found = findUser(state, token());
-      if (!found) throw new Error('Нужно войти снова');
-      found[1].profile = snapshot;
-      found[1].updated = Date.now();
-      state.leaderboard = buildLeaderboard(state);
-    }).then(function () {
+    api('/save', { token: token(), profile: snapshot }).then(function () {
       saving = false;
       setStatus('прогресс сохранён', 'ok');
       if (pendingSave) flushSave();
@@ -380,25 +315,14 @@
     }
     setStatus('связь с сервером...', 'wait');
     hashPassword(password).then(function (hash) {
-      return mutate(function (state) {
-        var key = keyFor(name);
-        if (authMode === 'register') {
-          if (state.users[key]) throw new Error('Такой игрок уже есть — войди или придумай другой ник');
-          var newToken = makeToken();
-          state.users[key] = { name: name, hash: hash, created: Date.now(), updated: Date.now(), profile: null };
-          state.tokens[newToken] = key;
-          state.leaderboard = buildLeaderboard(state);
-          return { token: newToken, user: state.users[key], isNew: true };
-        }
-        var user = state.users[key];
-        if (!user || user.hash !== hash) throw new Error('Неверный никнейм или пароль');
-        var loginToken = makeToken();
-        state.tokens[loginToken] = key;
-        return { token: loginToken, user: user, isNew: false };
+      return api('/login', {
+        name: name,
+        hash: hash,
+        mode: authMode === 'register' ? 'register' : 'login'
       });
     }).then(function (result) {
       localStorage.setItem(TOKEN_KEY, result.token);
-      enterOnline(result.user.name, result.user.profile || null, result.isNew);
+      enterOnline(result.user.name, result.user.profile || null, result.isNew === true);
     }).catch(function (error) {
       authError.textContent = friendly(error);
       setStatus('ошибка входа', 'warn');
@@ -412,14 +336,11 @@
       return;
     }
     setStatus('проверка сессии...', 'wait');
-    var savedName = localStorage.getItem(USER_KEY);
-    readState().then(function (state) {
-      var found = findUser(state, token());
-      if (!found) throw new Error('Нужно войти снова');
-      enterOnline(found[1].name, found[1].profile || null, false, true);
+    api('/session', { token: token() }).then(function (result) {
+      enterOnline(result.user.name, result.user.profile || null, false, true);
     }).catch(function (error) {
       localStorage.removeItem(TOKEN_KEY);
-      if (savedName) localStorage.removeItem(USER_KEY);
+      localStorage.removeItem(USER_KEY);
       showAuth('login');
       setStatus('нужен вход · ' + friendly(error), 'warn');
     });
@@ -429,7 +350,9 @@
     if (!currentUser || !token()) return;
     event.preventDefault();
     event.stopImmediatePropagation();
+    var savedToken = token();
     flushSave();
+    api('/logout', { token: savedToken }).catch(function () {});
     currentUser = null;
     localStorage.removeItem(TOKEN_KEY);
     localStorage.removeItem(USER_KEY);
@@ -451,15 +374,7 @@
     if (!window.confirm('Удалить онлайн-аккаунт и весь прогресс на сервере?')) return;
     stopAuto();
     setStatus('удаление аккаунта...', 'wait');
-    mutate(function (state) {
-      var found = findUser(state, token());
-      if (!found) throw new Error('Нужно войти снова');
-      delete state.users[found[0]];
-      Object.keys(state.tokens).forEach(function (savedToken) {
-        if (state.tokens[savedToken] === found[0]) delete state.tokens[savedToken];
-      });
-      state.leaderboard = buildLeaderboard(state);
-    }).then(function () {
+    api('/delete', { token: token() }).then(function () {
       localStorage.removeItem(TOKEN_KEY);
       localStorage.removeItem(USER_KEY);
       location.reload();
