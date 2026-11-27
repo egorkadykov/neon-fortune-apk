@@ -513,91 +513,12 @@
         "actionWindowStart": 0,
         "actionCount": 0
       }
-    },
-    "probe_save_01": {
-      "name": "probe_save_01",
-      "hash": "sha256-1273026790aa34a8287699a3b920fc9eee23ad040e6b7ca9d4eb5586421c9ad2",
-      "created": 1795810321643,
-      "updated": 1795810321643,
-      "sessionAt": 1795810323381,
-      "profile": {
-        "balance": 100,
-        "currentBet": 1,
-        "stats": {
-          "spins": 0,
-          "wins": 0,
-          "best": 0
-        },
-        "history": [],
-        "streak": 0,
-        "xp": 0,
-        "level": 1,
-        "xpToNext": 120,
-        "collection": [],
-        "collectionRewardGiven": false,
-        "missions": [
-          {
-            "id": "games",
-            "title": "Сыграй 10 игр",
-            "target": 10,
-            "reward": 30,
-            "progress": 0,
-            "claimed": false
-          },
-          {
-            "id": "wins",
-            "title": "Победи 5 раз",
-            "target": 5,
-            "reward": 50,
-            "progress": 0,
-            "claimed": false
-          },
-          {
-            "id": "triple",
-            "title": "Получи трипу в костях",
-            "target": 1,
-            "reward": 75,
-            "progress": 0,
-            "claimed": false
-          },
-          {
-            "id": "jackpot",
-            "title": "Сорви джекпот",
-            "target": 1,
-            "reward": 100,
-            "progress": 0,
-            "claimed": false
-          }
-        ],
-        "chestStats": {
-          "opened": 0,
-          "best": 0,
-          "types": []
-        },
-        "chestCooldowns": {},
-        "gifts": {},
-        "giftStats": {
-          "sold": 0,
-          "earned": 0,
-          "received": 0,
-          "found": []
-        },
-        "activeView": "games",
-        "unlocked": [],
-        "activeGame": "slots",
-        "cardsChoice": "spades",
-        "soundEnabled": true,
-        "lastActionAt": 0,
-        "actionWindowStart": 0,
-        "actionCount": 0
-      }
     }
   },
   "tokens": {
     "31a4267d1737784006daba78b0a5b68823ac46ab3cfe995b53c3544f66a88d32": "pithp",
     "710b36cb333c482a471ddef322d3b42eadb9f89c17c1695f199426b5fa780cfa": "егор",
-    "8858b4897e2ea9791a3e920d6f7f6c5a56e4c8a97cc081534d96f366fa9bca07": "_neoncfg",
-    "adce5c350486f74df3987cf86816f3d6eef18292bfe78744b331d029ec969a76": "probe_save_01"
+    "8858b4897e2ea9791a3e920d6f7f6c5a56e4c8a97cc081534d96f366fa9bca07": "_neoncfg"
   },
   "leaderboard": [
     {
@@ -643,17 +564,6 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795810154647
-    },
-    {
-      "name": "probe_save_01",
-      "level": 1,
-      "balance": 100,
-      "games": 0,
-      "gifts": 0,
-      "chests": 0,
-      "achievements": 0,
-      "rank": "Новичок",
-      "ts": 1795810321643
     }
   ],
   "admin": {
