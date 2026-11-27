@@ -440,22 +440,36 @@
       "name": "diagplayer",
       "hash": "sha256-5b203744dbefd668a7c1d0d20b4d1a11fc484e10ea3463f604cd775e889f0241",
       "created": 1795810805882,
-      "updated": 1795810805882,
+      "updated": 1795810824462,
       "sessionAt": 1795810805882,
       "profile": {
-        "balance": 100,
+        "balance": 99,
         "currentBet": 1,
         "stats": {
-          "spins": 0,
+          "spins": 1,
           "wins": 0,
           "best": 0
         },
-        "history": [],
+        "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "cherry",
+              "lemon",
+              "melon"
+            ],
+            "delta": -1
+          }
+        ],
         "streak": 0,
-        "xp": 0,
+        "xp": 2,
         "level": 1,
         "xpToNext": 120,
-        "collection": [],
+        "collection": [
+          "cherry",
+          "lemon",
+          "melon"
+        ],
         "collectionRewardGiven": false,
         "missions": [
           {
@@ -463,7 +477,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 0,
+            "progress": 1,
             "claimed": false
           },
           {
@@ -557,13 +571,13 @@
     {
       "name": "diagplayer",
       "level": 1,
-      "balance": 100,
-      "games": 0,
+      "balance": 99,
+      "games": 1,
       "gifts": 0,
       "chests": 0,
       "achievements": 0,
       "rank": "Новичок",
-      "ts": 1795810805882
+      "ts": 1795810824462
     }
   ],
   "admin": {
