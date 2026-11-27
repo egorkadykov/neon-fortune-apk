@@ -970,17 +970,26 @@
       "name": "bot410142",
       "hash": "fnv1a-8162f0b4",
       "created": 1795815558336,
-      "updated": 1795815598445,
+      "updated": 1795815638916,
       "sessionAt": 1795815558336,
       "profile": {
-        "balance": 99,
+        "balance": 98,
         "currentBet": 1,
         "stats": {
-          "spins": 1,
+          "spins": 2,
           "wins": 0,
           "best": 0
         },
         "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "bell",
+              "melon",
+              "diamond"
+            ],
+            "delta": -1
+          },
           {
             "glyph": "slots",
             "icons": [
@@ -992,13 +1001,16 @@
           }
         ],
         "streak": 0,
-        "xp": 2,
+        "xp": 4,
         "level": 1,
         "xpToNext": 120,
         "collection": [
           "star",
           "slotDie",
-          "cherry"
+          "cherry",
+          "bell",
+          "melon",
+          "diamond"
         ],
         "collectionRewardGiven": false,
         "missions": [
@@ -1007,7 +1019,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 1,
+            "progress": 2,
             "claimed": false
           },
           {
@@ -3373,17 +3385,6 @@
       "ts": 1795815573931
     },
     {
-      "name": "bot410142",
-      "level": 1,
-      "balance": 99,
-      "games": 1,
-      "gifts": 0,
-      "chests": 0,
-      "achievements": 0,
-      "rank": "Новичок",
-      "ts": 1795815598445
-    },
-    {
       "name": "bot441920",
       "level": 1,
       "balance": 99,
@@ -3426,6 +3427,17 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795815623548
+    },
+    {
+      "name": "bot957784",
+      "level": 1,
+      "balance": 99,
+      "games": 1,
+      "gifts": 0,
+      "chests": 0,
+      "achievements": 0,
+      "rank": "Новичок",
+      "ts": 1795815604656
     }
   ],
   "admin": {
