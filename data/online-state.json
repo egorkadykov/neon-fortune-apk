@@ -1659,6 +1659,1020 @@
         "actionWindowStart": 0,
         "actionCount": 0
       }
+    },
+    "bot637527": {
+      "name": "bot637527",
+      "hash": "fnv1a-8162f0b4",
+      "created": 1795815565104,
+      "updated": 1795815565104,
+      "sessionAt": 1795815565104,
+      "profile": {
+        "balance": 100,
+        "currentBet": 1,
+        "stats": {
+          "spins": 0,
+          "wins": 0,
+          "best": 0
+        },
+        "history": [],
+        "streak": 0,
+        "xp": 0,
+        "level": 1,
+        "xpToNext": 120,
+        "collection": [],
+        "collectionRewardGiven": false,
+        "missions": [
+          {
+            "id": "games",
+            "title": "Сыграй 10 игр",
+            "target": 10,
+            "reward": 30,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "wins",
+            "title": "Победи 5 раз",
+            "target": 5,
+            "reward": 50,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "triple",
+            "title": "Получи трипу в костях",
+            "target": 1,
+            "reward": 75,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "jackpot",
+            "title": "Сорви джекпот",
+            "target": 1,
+            "reward": 100,
+            "progress": 0,
+            "claimed": false
+          }
+        ],
+        "chestStats": {
+          "opened": 0,
+          "best": 0,
+          "types": []
+        },
+        "chestCooldowns": {},
+        "gifts": {},
+        "giftStats": {
+          "sold": 0,
+          "earned": 0,
+          "received": 0,
+          "found": []
+        },
+        "activeView": "games",
+        "unlocked": [],
+        "activeGame": "slots",
+        "cardsChoice": "spades",
+        "soundEnabled": true,
+        "lastActionAt": 0,
+        "actionWindowStart": 0,
+        "actionCount": 0
+      }
+    },
+    "bot199701": {
+      "name": "bot199701",
+      "hash": "fnv1a-8162f0b4",
+      "created": 1795815565685,
+      "updated": 1795815565685,
+      "sessionAt": 1795815565685,
+      "profile": {
+        "balance": 100,
+        "currentBet": 1,
+        "stats": {
+          "spins": 0,
+          "wins": 0,
+          "best": 0
+        },
+        "history": [],
+        "streak": 0,
+        "xp": 0,
+        "level": 1,
+        "xpToNext": 120,
+        "collection": [],
+        "collectionRewardGiven": false,
+        "missions": [
+          {
+            "id": "games",
+            "title": "Сыграй 10 игр",
+            "target": 10,
+            "reward": 30,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "wins",
+            "title": "Победи 5 раз",
+            "target": 5,
+            "reward": 50,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "triple",
+            "title": "Получи трипу в костях",
+            "target": 1,
+            "reward": 75,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "jackpot",
+            "title": "Сорви джекпот",
+            "target": 1,
+            "reward": 100,
+            "progress": 0,
+            "claimed": false
+          }
+        ],
+        "chestStats": {
+          "opened": 0,
+          "best": 0,
+          "types": []
+        },
+        "chestCooldowns": {},
+        "gifts": {},
+        "giftStats": {
+          "sold": 0,
+          "earned": 0,
+          "received": 0,
+          "found": []
+        },
+        "activeView": "games",
+        "unlocked": [],
+        "activeGame": "slots",
+        "cardsChoice": "spades",
+        "soundEnabled": true,
+        "lastActionAt": 0,
+        "actionWindowStart": 0,
+        "actionCount": 0
+      }
+    },
+    "bot516871": {
+      "name": "bot516871",
+      "hash": "fnv1a-8162f0b4",
+      "created": 1795815566427,
+      "updated": 1795815566427,
+      "sessionAt": 1795815566427,
+      "profile": {
+        "balance": 100,
+        "currentBet": 1,
+        "stats": {
+          "spins": 0,
+          "wins": 0,
+          "best": 0
+        },
+        "history": [],
+        "streak": 0,
+        "xp": 0,
+        "level": 1,
+        "xpToNext": 120,
+        "collection": [],
+        "collectionRewardGiven": false,
+        "missions": [
+          {
+            "id": "games",
+            "title": "Сыграй 10 игр",
+            "target": 10,
+            "reward": 30,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "wins",
+            "title": "Победи 5 раз",
+            "target": 5,
+            "reward": 50,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "triple",
+            "title": "Получи трипу в костях",
+            "target": 1,
+            "reward": 75,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "jackpot",
+            "title": "Сорви джекпот",
+            "target": 1,
+            "reward": 100,
+            "progress": 0,
+            "claimed": false
+          }
+        ],
+        "chestStats": {
+          "opened": 0,
+          "best": 0,
+          "types": []
+        },
+        "chestCooldowns": {},
+        "gifts": {},
+        "giftStats": {
+          "sold": 0,
+          "earned": 0,
+          "received": 0,
+          "found": []
+        },
+        "activeView": "games",
+        "unlocked": [],
+        "activeGame": "slots",
+        "cardsChoice": "spades",
+        "soundEnabled": true,
+        "lastActionAt": 0,
+        "actionWindowStart": 0,
+        "actionCount": 0
+      }
+    },
+    "bot512252": {
+      "name": "bot512252",
+      "hash": "fnv1a-8162f0b4",
+      "created": 1795815566950,
+      "updated": 1795815566950,
+      "sessionAt": 1795815566950,
+      "profile": {
+        "balance": 100,
+        "currentBet": 1,
+        "stats": {
+          "spins": 0,
+          "wins": 0,
+          "best": 0
+        },
+        "history": [],
+        "streak": 0,
+        "xp": 0,
+        "level": 1,
+        "xpToNext": 120,
+        "collection": [],
+        "collectionRewardGiven": false,
+        "missions": [
+          {
+            "id": "games",
+            "title": "Сыграй 10 игр",
+            "target": 10,
+            "reward": 30,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "wins",
+            "title": "Победи 5 раз",
+            "target": 5,
+            "reward": 50,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "triple",
+            "title": "Получи трипу в костях",
+            "target": 1,
+            "reward": 75,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "jackpot",
+            "title": "Сорви джекпот",
+            "target": 1,
+            "reward": 100,
+            "progress": 0,
+            "claimed": false
+          }
+        ],
+        "chestStats": {
+          "opened": 0,
+          "best": 0,
+          "types": []
+        },
+        "chestCooldowns": {},
+        "gifts": {},
+        "giftStats": {
+          "sold": 0,
+          "earned": 0,
+          "received": 0,
+          "found": []
+        },
+        "activeView": "games",
+        "unlocked": [],
+        "activeGame": "slots",
+        "cardsChoice": "spades",
+        "soundEnabled": true,
+        "lastActionAt": 0,
+        "actionWindowStart": 0,
+        "actionCount": 0
+      }
+    },
+    "bot846883": {
+      "name": "bot846883",
+      "hash": "fnv1a-8162f0b4",
+      "created": 1795815567814,
+      "updated": 1795815567814,
+      "sessionAt": 1795815567814,
+      "profile": {
+        "balance": 100,
+        "currentBet": 1,
+        "stats": {
+          "spins": 0,
+          "wins": 0,
+          "best": 0
+        },
+        "history": [],
+        "streak": 0,
+        "xp": 0,
+        "level": 1,
+        "xpToNext": 120,
+        "collection": [],
+        "collectionRewardGiven": false,
+        "missions": [
+          {
+            "id": "games",
+            "title": "Сыграй 10 игр",
+            "target": 10,
+            "reward": 30,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "wins",
+            "title": "Победи 5 раз",
+            "target": 5,
+            "reward": 50,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "triple",
+            "title": "Получи трипу в костях",
+            "target": 1,
+            "reward": 75,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "jackpot",
+            "title": "Сорви джекпот",
+            "target": 1,
+            "reward": 100,
+            "progress": 0,
+            "claimed": false
+          }
+        ],
+        "chestStats": {
+          "opened": 0,
+          "best": 0,
+          "types": []
+        },
+        "chestCooldowns": {},
+        "gifts": {},
+        "giftStats": {
+          "sold": 0,
+          "earned": 0,
+          "received": 0,
+          "found": []
+        },
+        "activeView": "games",
+        "unlocked": [],
+        "activeGame": "slots",
+        "cardsChoice": "spades",
+        "soundEnabled": true,
+        "lastActionAt": 0,
+        "actionWindowStart": 0,
+        "actionCount": 0
+      }
+    },
+    "bot198619": {
+      "name": "bot198619",
+      "hash": "fnv1a-8162f0b4",
+      "created": 1795815568332,
+      "updated": 1795815568332,
+      "sessionAt": 1795815568332,
+      "profile": {
+        "balance": 100,
+        "currentBet": 1,
+        "stats": {
+          "spins": 0,
+          "wins": 0,
+          "best": 0
+        },
+        "history": [],
+        "streak": 0,
+        "xp": 0,
+        "level": 1,
+        "xpToNext": 120,
+        "collection": [],
+        "collectionRewardGiven": false,
+        "missions": [
+          {
+            "id": "games",
+            "title": "Сыграй 10 игр",
+            "target": 10,
+            "reward": 30,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "wins",
+            "title": "Победи 5 раз",
+            "target": 5,
+            "reward": 50,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "triple",
+            "title": "Получи трипу в костях",
+            "target": 1,
+            "reward": 75,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "jackpot",
+            "title": "Сорви джекпот",
+            "target": 1,
+            "reward": 100,
+            "progress": 0,
+            "claimed": false
+          }
+        ],
+        "chestStats": {
+          "opened": 0,
+          "best": 0,
+          "types": []
+        },
+        "chestCooldowns": {},
+        "gifts": {},
+        "giftStats": {
+          "sold": 0,
+          "earned": 0,
+          "received": 0,
+          "found": []
+        },
+        "activeView": "games",
+        "unlocked": [],
+        "activeGame": "slots",
+        "cardsChoice": "spades",
+        "soundEnabled": true,
+        "lastActionAt": 0,
+        "actionWindowStart": 0,
+        "actionCount": 0
+      }
+    },
+    "bot319423": {
+      "name": "bot319423",
+      "hash": "fnv1a-8162f0b4",
+      "created": 1795815568872,
+      "updated": 1795815568872,
+      "sessionAt": 1795815568872,
+      "profile": {
+        "balance": 100,
+        "currentBet": 1,
+        "stats": {
+          "spins": 0,
+          "wins": 0,
+          "best": 0
+        },
+        "history": [],
+        "streak": 0,
+        "xp": 0,
+        "level": 1,
+        "xpToNext": 120,
+        "collection": [],
+        "collectionRewardGiven": false,
+        "missions": [
+          {
+            "id": "games",
+            "title": "Сыграй 10 игр",
+            "target": 10,
+            "reward": 30,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "wins",
+            "title": "Победи 5 раз",
+            "target": 5,
+            "reward": 50,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "triple",
+            "title": "Получи трипу в костях",
+            "target": 1,
+            "reward": 75,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "jackpot",
+            "title": "Сорви джекпот",
+            "target": 1,
+            "reward": 100,
+            "progress": 0,
+            "claimed": false
+          }
+        ],
+        "chestStats": {
+          "opened": 0,
+          "best": 0,
+          "types": []
+        },
+        "chestCooldowns": {},
+        "gifts": {},
+        "giftStats": {
+          "sold": 0,
+          "earned": 0,
+          "received": 0,
+          "found": []
+        },
+        "activeView": "games",
+        "unlocked": [],
+        "activeGame": "slots",
+        "cardsChoice": "spades",
+        "soundEnabled": true,
+        "lastActionAt": 0,
+        "actionWindowStart": 0,
+        "actionCount": 0
+      }
+    },
+    "bot886262": {
+      "name": "bot886262",
+      "hash": "fnv1a-8162f0b4",
+      "created": 1795815569399,
+      "updated": 1795815569399,
+      "sessionAt": 1795815569399,
+      "profile": {
+        "balance": 100,
+        "currentBet": 1,
+        "stats": {
+          "spins": 0,
+          "wins": 0,
+          "best": 0
+        },
+        "history": [],
+        "streak": 0,
+        "xp": 0,
+        "level": 1,
+        "xpToNext": 120,
+        "collection": [],
+        "collectionRewardGiven": false,
+        "missions": [
+          {
+            "id": "games",
+            "title": "Сыграй 10 игр",
+            "target": 10,
+            "reward": 30,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "wins",
+            "title": "Победи 5 раз",
+            "target": 5,
+            "reward": 50,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "triple",
+            "title": "Получи трипу в костях",
+            "target": 1,
+            "reward": 75,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "jackpot",
+            "title": "Сорви джекпот",
+            "target": 1,
+            "reward": 100,
+            "progress": 0,
+            "claimed": false
+          }
+        ],
+        "chestStats": {
+          "opened": 0,
+          "best": 0,
+          "types": []
+        },
+        "chestCooldowns": {},
+        "gifts": {},
+        "giftStats": {
+          "sold": 0,
+          "earned": 0,
+          "received": 0,
+          "found": []
+        },
+        "activeView": "games",
+        "unlocked": [],
+        "activeGame": "slots",
+        "cardsChoice": "spades",
+        "soundEnabled": true,
+        "lastActionAt": 0,
+        "actionWindowStart": 0,
+        "actionCount": 0
+      }
+    },
+    "bot188859": {
+      "name": "bot188859",
+      "hash": "fnv1a-8162f0b4",
+      "created": 1795815569924,
+      "updated": 1795815569924,
+      "sessionAt": 1795815569924,
+      "profile": {
+        "balance": 100,
+        "currentBet": 1,
+        "stats": {
+          "spins": 0,
+          "wins": 0,
+          "best": 0
+        },
+        "history": [],
+        "streak": 0,
+        "xp": 0,
+        "level": 1,
+        "xpToNext": 120,
+        "collection": [],
+        "collectionRewardGiven": false,
+        "missions": [
+          {
+            "id": "games",
+            "title": "Сыграй 10 игр",
+            "target": 10,
+            "reward": 30,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "wins",
+            "title": "Победи 5 раз",
+            "target": 5,
+            "reward": 50,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "triple",
+            "title": "Получи трипу в костях",
+            "target": 1,
+            "reward": 75,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "jackpot",
+            "title": "Сорви джекпот",
+            "target": 1,
+            "reward": 100,
+            "progress": 0,
+            "claimed": false
+          }
+        ],
+        "chestStats": {
+          "opened": 0,
+          "best": 0,
+          "types": []
+        },
+        "chestCooldowns": {},
+        "gifts": {},
+        "giftStats": {
+          "sold": 0,
+          "earned": 0,
+          "received": 0,
+          "found": []
+        },
+        "activeView": "games",
+        "unlocked": [],
+        "activeGame": "slots",
+        "cardsChoice": "spades",
+        "soundEnabled": true,
+        "lastActionAt": 0,
+        "actionWindowStart": 0,
+        "actionCount": 0
+      }
+    },
+    "bot210816": {
+      "name": "bot210816",
+      "hash": "fnv1a-8162f0b4",
+      "created": 1795815570437,
+      "updated": 1795815570437,
+      "sessionAt": 1795815570437,
+      "profile": {
+        "balance": 100,
+        "currentBet": 1,
+        "stats": {
+          "spins": 0,
+          "wins": 0,
+          "best": 0
+        },
+        "history": [],
+        "streak": 0,
+        "xp": 0,
+        "level": 1,
+        "xpToNext": 120,
+        "collection": [],
+        "collectionRewardGiven": false,
+        "missions": [
+          {
+            "id": "games",
+            "title": "Сыграй 10 игр",
+            "target": 10,
+            "reward": 30,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "wins",
+            "title": "Победи 5 раз",
+            "target": 5,
+            "reward": 50,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "triple",
+            "title": "Получи трипу в костях",
+            "target": 1,
+            "reward": 75,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "jackpot",
+            "title": "Сорви джекпот",
+            "target": 1,
+            "reward": 100,
+            "progress": 0,
+            "claimed": false
+          }
+        ],
+        "chestStats": {
+          "opened": 0,
+          "best": 0,
+          "types": []
+        },
+        "chestCooldowns": {},
+        "gifts": {},
+        "giftStats": {
+          "sold": 0,
+          "earned": 0,
+          "received": 0,
+          "found": []
+        },
+        "activeView": "games",
+        "unlocked": [],
+        "activeGame": "slots",
+        "cardsChoice": "spades",
+        "soundEnabled": true,
+        "lastActionAt": 0,
+        "actionWindowStart": 0,
+        "actionCount": 0
+      }
+    },
+    "bot250376": {
+      "name": "bot250376",
+      "hash": "fnv1a-8162f0b4",
+      "created": 1795815571011,
+      "updated": 1795815571011,
+      "sessionAt": 1795815571011,
+      "profile": {
+        "balance": 100,
+        "currentBet": 1,
+        "stats": {
+          "spins": 0,
+          "wins": 0,
+          "best": 0
+        },
+        "history": [],
+        "streak": 0,
+        "xp": 0,
+        "level": 1,
+        "xpToNext": 120,
+        "collection": [],
+        "collectionRewardGiven": false,
+        "missions": [
+          {
+            "id": "games",
+            "title": "Сыграй 10 игр",
+            "target": 10,
+            "reward": 30,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "wins",
+            "title": "Победи 5 раз",
+            "target": 5,
+            "reward": 50,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "triple",
+            "title": "Получи трипу в костях",
+            "target": 1,
+            "reward": 75,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "jackpot",
+            "title": "Сорви джекпот",
+            "target": 1,
+            "reward": 100,
+            "progress": 0,
+            "claimed": false
+          }
+        ],
+        "chestStats": {
+          "opened": 0,
+          "best": 0,
+          "types": []
+        },
+        "chestCooldowns": {},
+        "gifts": {},
+        "giftStats": {
+          "sold": 0,
+          "earned": 0,
+          "received": 0,
+          "found": []
+        },
+        "activeView": "games",
+        "unlocked": [],
+        "activeGame": "slots",
+        "cardsChoice": "spades",
+        "soundEnabled": true,
+        "lastActionAt": 0,
+        "actionWindowStart": 0,
+        "actionCount": 0
+      }
+    },
+    "bot723231": {
+      "name": "bot723231",
+      "hash": "fnv1a-8162f0b4",
+      "created": 1795815571534,
+      "updated": 1795815571534,
+      "sessionAt": 1795815571534,
+      "profile": {
+        "balance": 100,
+        "currentBet": 1,
+        "stats": {
+          "spins": 0,
+          "wins": 0,
+          "best": 0
+        },
+        "history": [],
+        "streak": 0,
+        "xp": 0,
+        "level": 1,
+        "xpToNext": 120,
+        "collection": [],
+        "collectionRewardGiven": false,
+        "missions": [
+          {
+            "id": "games",
+            "title": "Сыграй 10 игр",
+            "target": 10,
+            "reward": 30,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "wins",
+            "title": "Победи 5 раз",
+            "target": 5,
+            "reward": 50,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "triple",
+            "title": "Получи трипу в костях",
+            "target": 1,
+            "reward": 75,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "jackpot",
+            "title": "Сорви джекпот",
+            "target": 1,
+            "reward": 100,
+            "progress": 0,
+            "claimed": false
+          }
+        ],
+        "chestStats": {
+          "opened": 0,
+          "best": 0,
+          "types": []
+        },
+        "chestCooldowns": {},
+        "gifts": {},
+        "giftStats": {
+          "sold": 0,
+          "earned": 0,
+          "received": 0,
+          "found": []
+        },
+        "activeView": "games",
+        "unlocked": [],
+        "activeGame": "slots",
+        "cardsChoice": "spades",
+        "soundEnabled": true,
+        "lastActionAt": 0,
+        "actionWindowStart": 0,
+        "actionCount": 0
+      }
+    },
+    "bot344849": {
+      "name": "bot344849",
+      "hash": "fnv1a-8162f0b4",
+      "created": 1795815572157,
+      "updated": 1795815572157,
+      "sessionAt": 1795815572157,
+      "profile": {
+        "balance": 100,
+        "currentBet": 1,
+        "stats": {
+          "spins": 0,
+          "wins": 0,
+          "best": 0
+        },
+        "history": [],
+        "streak": 0,
+        "xp": 0,
+        "level": 1,
+        "xpToNext": 120,
+        "collection": [],
+        "collectionRewardGiven": false,
+        "missions": [
+          {
+            "id": "games",
+            "title": "Сыграй 10 игр",
+            "target": 10,
+            "reward": 30,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "wins",
+            "title": "Победи 5 раз",
+            "target": 5,
+            "reward": 50,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "triple",
+            "title": "Получи трипу в костях",
+            "target": 1,
+            "reward": 75,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "jackpot",
+            "title": "Сорви джекпот",
+            "target": 1,
+            "reward": 100,
+            "progress": 0,
+            "claimed": false
+          }
+        ],
+        "chestStats": {
+          "opened": 0,
+          "best": 0,
+          "types": []
+        },
+        "chestCooldowns": {},
+        "gifts": {},
+        "giftStats": {
+          "sold": 0,
+          "earned": 0,
+          "received": 0,
+          "found": []
+        },
+        "activeView": "games",
+        "unlocked": [],
+        "activeGame": "slots",
+        "cardsChoice": "spades",
+        "soundEnabled": true,
+        "lastActionAt": 0,
+        "actionWindowStart": 0,
+        "actionCount": 0
+      }
     }
   },
   "tokens": {
@@ -1677,7 +2691,20 @@
     "5b4b00ef9231c95ac77e7ec9a1a94206402198651e33af7a3615c87eccbd8716": "bot534444",
     "e083aa9f64111525966909d28fe400ca3ed9a49f2b614d744a36ce8fee567fe6": "bot317239",
     "44acf77ad29142ae9d6e9429d9fe9229b4d00443a3e76c427f5247ec339da41f": "bot928048",
-    "e40cedab15ef4963cb08d2cee9181581db8e5179b2bdf9659cb961a4ebcdd037": "bot957784"
+    "e40cedab15ef4963cb08d2cee9181581db8e5179b2bdf9659cb961a4ebcdd037": "bot957784",
+    "dc4caba4c53836c5c1397fed7123d83ce4dfffe70b901ae1928f4d1008e33e45": "bot637527",
+    "fa3f77afcb4d43a9acc1fa66a8d3e6efc0201d9e88c2b923023219e3b293bd1f": "bot199701",
+    "6ef3829884bc0d74abfc512ecc23fbfb1c39124a1101e2c9034d127aa6848074": "bot516871",
+    "cc66e70ffca67cddc8e5a95ab52eca6068598360b0bdf7e4b783887df493f22e": "bot512252",
+    "5ddbc34907c65e3c2f3f62bdb08e5d9e46a600047b0cdd9597843fceb78febdc": "bot846883",
+    "181edbb3d3b59d6489318317a3f43a9488508639cc0d0f0f7248b686e0868e42": "bot198619",
+    "bd2ce3d93d4b89f29c9038fc7b6110a510ffc710f3979fc12daae57f541f757b": "bot319423",
+    "dffd3a6cdaa3d5da905ca211fee73dd807bee1f4f80de35ed827b8bd139a6b71": "bot886262",
+    "9ea9ab1f29235da2fcc96512adf483bc02eb7ec2d59d055cfd76b6d2a8f87e9c": "bot188859",
+    "377313abdfbb78827e364a67ea372293ead8d479d4cde16c4ca734cdc37a6c26": "bot210816",
+    "4be965113b03b55fa2150cbc2ec3dcf3839f2068524edd6471ac32c712ef4ff8": "bot250376",
+    "b234e2dedd3fa5c0029c83e3e23aae0b75ba07b8b221a85e8bde890b105f5a89": "bot723231",
+    "25e4f99d86e26ee300a58ea7415c05b3b3586ec99bb3a6510504933a89eaa102": "bot344849"
   },
   "leaderboard": [
     {
@@ -1835,37 +2862,70 @@
       "ts": 1795815563245
     },
     {
-      "name": "bot869668",
+      "name": "bot637527",
       "level": 1,
-      "balance": 98,
-      "games": 2,
+      "balance": 100,
+      "games": 0,
       "gifts": 0,
       "chests": 0,
       "achievements": 0,
       "rank": "Новичок",
-      "ts": 1795815507544
+      "ts": 1795815565104
     },
     {
-      "name": "bot200454",
+      "name": "bot199701",
       "level": 1,
-      "balance": 97,
-      "games": 3,
+      "balance": 100,
+      "games": 0,
       "gifts": 0,
       "chests": 0,
       "achievements": 0,
       "rank": "Новичок",
-      "ts": 1795815511392
+      "ts": 1795815565685
     },
     {
-      "name": "bot534651",
+      "name": "bot516871",
       "level": 1,
-      "balance": 96,
-      "games": 4,
+      "balance": 100,
+      "games": 0,
       "gifts": 0,
       "chests": 0,
       "achievements": 0,
       "rank": "Новичок",
-      "ts": 1795815512650
+      "ts": 1795815566427
+    },
+    {
+      "name": "bot512252",
+      "level": 1,
+      "balance": 100,
+      "games": 0,
+      "gifts": 0,
+      "chests": 0,
+      "achievements": 0,
+      "rank": "Новичок",
+      "ts": 1795815566950
+    },
+    {
+      "name": "bot846883",
+      "level": 1,
+      "balance": 100,
+      "games": 0,
+      "gifts": 0,
+      "chests": 0,
+      "achievements": 0,
+      "rank": "Новичок",
+      "ts": 1795815567814
+    },
+    {
+      "name": "bot198619",
+      "level": 1,
+      "balance": 100,
+      "games": 0,
+      "gifts": 0,
+      "chests": 0,
+      "achievements": 0,
+      "rank": "Новичок",
+      "ts": 1795815568332
     }
   ],
   "admin": {
