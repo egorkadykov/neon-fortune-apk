@@ -82,9 +82,9 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795820557981,
+      "updated": 1795820559282,
       "profile": {
-        "balance": 1,
+        "balance": 856,
         "currentBet": 100,
         "stats": {
           "spins": 518,
@@ -224,16 +224,10 @@
           "gold": 1795820579277,
           "diamond": 1795820563894
         },
-        "gifts": {
-          "lamp": 3,
-          "trophy": 2,
-          "diamond": 1,
-          "teddy": 1,
-          "sneakers": 1
-        },
+        "gifts": {},
         "giftStats": {
-          "sold": 92,
-          "earned": 11105,
+          "sold": 100,
+          "earned": 11960,
           "received": 100,
           "found": [
             "postcard",
@@ -467,6 +461,17 @@
       "ts": 1795820145947
     },
     {
+      "name": "pithp",
+      "level": 8,
+      "balance": 856,
+      "games": 518,
+      "gifts": 0,
+      "chests": 102,
+      "achievements": 7,
+      "rank": "Мастер",
+      "ts": 1795820559282
+    },
+    {
       "name": "Ольга",
       "level": 1,
       "balance": 100,
@@ -476,17 +481,6 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795817400915
-    },
-    {
-      "name": "pithp",
-      "level": 8,
-      "balance": 1,
-      "games": 518,
-      "gifts": 8,
-      "chests": 102,
-      "achievements": 7,
-      "rank": "Мастер",
-      "ts": 1795820557981
     }
   ],
   "admin": {
