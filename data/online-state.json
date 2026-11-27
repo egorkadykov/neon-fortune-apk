@@ -447,10 +447,10 @@
       "name": "bot600522",
       "hash": "fnv1a-8162f0b4",
       "created": 1795814127044,
-      "updated": 1795814135286,
+      "updated": 1795814136494,
       "sessionAt": 1795814127044,
       "profile": {
-        "balance": 88,
+        "balance": 118,
         "currentBet": 1,
         "stats": {
           "spins": 12,
@@ -535,7 +535,7 @@
             "target": 10,
             "reward": 30,
             "progress": 10,
-            "claimed": false
+            "claimed": true
           },
           {
             "id": "wins",
@@ -575,7 +575,7 @@
           "received": 0,
           "found": []
         },
-        "activeView": "games",
+        "activeView": "progress",
         "unlocked": [
           "games10"
         ],
@@ -617,6 +617,17 @@
       "ts": 1795813975803
     },
     {
+      "name": "bot600522",
+      "level": 1,
+      "balance": 118,
+      "games": 12,
+      "gifts": 0,
+      "chests": 0,
+      "achievements": 1,
+      "rank": "Новичок",
+      "ts": 1795814136494
+    },
+    {
       "name": "Ольга",
       "level": 1,
       "balance": 100,
@@ -626,17 +637,6 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795729367800
-    },
-    {
-      "name": "bot600522",
-      "level": 1,
-      "balance": 88,
-      "games": 12,
-      "gifts": 0,
-      "chests": 0,
-      "achievements": 1,
-      "rank": "Новичок",
-      "ts": 1795814135286
     }
   ],
   "admin": {
