@@ -1,0 +1,16 @@
+name: Diagnostic keystore
+
+on:
+  workflow_dispatch:
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check secret
+        env:
+          SIGNING_KEYSTORE: ${{ secrets.SIGNING_KEYSTORE }}
+        run: |
+          echo "chars=${#SIGNING_KEYSTORE}"
+          printf '%s' "$SIGNING_KEYSTORE" | tr -d '[:space:]' | wc -c
+          printf '%s' "$SIGNING_KEYSTORE" | tr -d '[:space:]' | base64 -d 2>/dev/null | wc -c
