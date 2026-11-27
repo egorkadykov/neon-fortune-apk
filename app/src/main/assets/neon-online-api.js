@@ -13,6 +13,7 @@
   var serverBusy = false;
   var settingsTimer = null;
   var lastLeaderKey = '';
+  var sessionRetries = 0;
 
   function byId(id) { return document.getElementById(id); }
 
@@ -427,20 +428,35 @@
     });
   }, true);
 
-  restoreSession = function () {
+  restoreSession = function (retry) {
     if (!token()) {
       showAuth('login');
       setStatus('войди в аккаунт', 'warn');
       return;
     }
-    setStatus('проверка сессии...', 'wait');
+    setStatus(retry ? 'повторная проверка сессии...' : 'проверка сессии...', 'wait');
     api('/session', { token: token() }).then(function (result) {
+      sessionRetries = 0;
       enterOnline(result.user.name, result.user.profile || null, false, true);
     }).catch(function (error) {
-      localStorage.removeItem(TOKEN_KEY);
-      localStorage.removeItem(USER_KEY);
-      showAuth('login');
-      setStatus('нужен вход · ' + friendly(error), 'warn');
+      var message = String((error && error.message) || error || '');
+      // Токен недействителен — только в этом случае требуем вход.
+      if (/Нужно войти снова|Сессия истекла|Неверный никнейм|Некорректный запрос/.test(message)) {
+        localStorage.removeItem(TOKEN_KEY);
+        localStorage.removeItem(USER_KEY);
+        showAuth('login');
+        setStatus('нужен вход · ' + friendly(error), 'warn');
+        return;
+      }
+      // Сеть, 429, 5xx — временная ошибка. Токен сохраняем и пробуем ещё раз.
+      var attempt = Number(retry || 0);
+      sessionRetries = attempt + 1;
+      if (attempt < 3) {
+        setStatus('нет связи · ' + friendly(error) + ' — повтор ' + (attempt + 1), 'wait');
+        setTimeout(function () { restoreSession(attempt + 1); }, 1200 * (attempt + 1));
+      } else {
+        setStatus('офлайн · ' + friendly(error) + ' — токен сохранён', 'warn');
+      }
     });
   };
 
