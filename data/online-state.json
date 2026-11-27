@@ -438,106 +438,13 @@
       "created": 1795809577987,
       "updated": 1795809577987,
       "profile": null
-    },
-    "anticheattest": {
-      "name": "anticheattest",
-      "hash": "sha256-937e8d5fbb48bd4949536cd65b8d35c426b80d2f830c5c308e2cdec422ae2244",
-      "created": 1795809765988,
-      "updated": 1795809767588,
-      "sessionAt": 1795809765988,
-      "profile": {
-        "balance": 0,
-        "currentBet": 100,
-        "stats": {
-          "spins": 1,
-          "wins": 0,
-          "best": 0
-        },
-        "history": [
-          {
-            "glyph": "slots",
-            "icons": [
-              "star",
-              "lemon",
-              "melon"
-            ],
-            "delta": -100
-          }
-        ],
-        "streak": 0,
-        "xp": 2,
-        "level": 1,
-        "xpToNext": 120,
-        "collection": [
-          "star",
-          "lemon",
-          "melon"
-        ],
-        "collectionRewardGiven": false,
-        "missions": [
-          {
-            "id": "games",
-            "title": "Сыграй 10 игр",
-            "target": 10,
-            "reward": 30,
-            "progress": 1,
-            "claimed": false
-          },
-          {
-            "id": "wins",
-            "title": "Победи 5 раз",
-            "target": 5,
-            "reward": 50,
-            "progress": 0,
-            "claimed": false
-          },
-          {
-            "id": "triple",
-            "title": "Получи трипу в костях",
-            "target": 1,
-            "reward": 75,
-            "progress": 0,
-            "claimed": false
-          },
-          {
-            "id": "jackpot",
-            "title": "Сорви джекпот",
-            "target": 1,
-            "reward": 100,
-            "progress": 0,
-            "claimed": false
-          }
-        ],
-        "chestStats": {
-          "opened": 0,
-          "best": 0,
-          "types": []
-        },
-        "chestCooldowns": {},
-        "gifts": {},
-        "giftStats": {
-          "sold": 0,
-          "earned": 0,
-          "received": 0,
-          "found": []
-        },
-        "activeView": "games",
-        "unlocked": [],
-        "activeGame": "slots",
-        "cardsChoice": "spades",
-        "soundEnabled": true,
-        "lastActionAt": 0,
-        "actionWindowStart": 0,
-        "actionCount": 0
-      }
     }
   },
   "tokens": {
     "83f5e12cb9ca7eca59fd8048014279fb": "егор",
     "2a24ad851278fc604d374fc07c180ad1": "егор",
     "cb3bff3fc1121a79e78d79939a5ac90d": "_neoncfg",
-    "31a4267d1737784006daba78b0a5b68823ac46ab3cfe995b53c3544f66a88d32": "pithp",
-    "a710aa85da0187e404125eab273a318db848998f313e7c7c31720a711ea50849": "anticheattest"
+    "31a4267d1737784006daba78b0a5b68823ac46ab3cfe995b53c3544f66a88d32": "pithp"
   },
   "leaderboard": [
     {
@@ -583,17 +490,6 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795809577987
-    },
-    {
-      "name": "anticheattest",
-      "level": 1,
-      "balance": 0,
-      "games": 1,
-      "gifts": 0,
-      "chests": 0,
-      "achievements": 0,
-      "rank": "Новичок",
-      "ts": 1795809767588
     }
   ],
   "admin": {
