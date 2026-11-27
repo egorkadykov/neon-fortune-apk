@@ -79,10 +79,10 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795811563815,
+      "updated": 1795811565501,
       "profile": {
         "balance": 905,
-        "currentBet": 100,
+        "currentBet": 1,
         "stats": {
           "spins": 361,
           "wins": 258,
@@ -216,8 +216,7 @@
           ]
         },
         "chestCooldowns": {
-          "free": 1795888370619,
-          "silver": 1795811564399
+          "free": 1795888370619
         },
         "gifts": {
           "ring": 1
@@ -258,7 +257,7 @@
           "jackpot",
           "allChests"
         ],
-        "activeGame": "roulette",
+        "activeGame": "slots",
         "cardsChoice": "spades",
         "soundEnabled": true,
         "lastActionAt": 0,
@@ -471,7 +470,7 @@
       "chests": 82,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795811563815
+      "ts": 1795811565501
     },
     {
       "name": "Ольга",
