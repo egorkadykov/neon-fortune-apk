@@ -1154,22 +1154,35 @@
       "name": "bot743763",
       "hash": "fnv1a-8162f0b4",
       "created": 1795815559659,
-      "updated": 1795815578363,
+      "updated": 1795815600565,
       "sessionAt": 1795815559659,
       "profile": {
-        "balance": 100,
+        "balance": 99,
         "currentBet": 1,
         "stats": {
-          "spins": 0,
+          "spins": 1,
           "wins": 0,
           "best": 0
         },
-        "history": [],
+        "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "melon",
+              "lemon",
+              "melon"
+            ],
+            "delta": -1
+          }
+        ],
         "streak": 0,
-        "xp": 0,
+        "xp": 2,
         "level": 1,
         "xpToNext": 120,
-        "collection": [],
+        "collection": [
+          "melon",
+          "lemon"
+        ],
         "collectionRewardGiven": false,
         "missions": [
           {
@@ -1177,7 +1190,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 0,
+            "progress": 1,
             "claimed": false
           },
           {
@@ -1226,7 +1239,7 @@
             "teddy"
           ]
         },
-        "activeView": "chests",
+        "activeView": "games",
         "unlocked": [],
         "activeGame": "slots",
         "cardsChoice": "spades",
@@ -1240,22 +1253,35 @@
       "name": "bot811076",
       "hash": "fnv1a-8162f0b4",
       "created": 1795815560197,
-      "updated": 1795815560197,
+      "updated": 1795815601266,
       "sessionAt": 1795815560197,
       "profile": {
-        "balance": 100,
+        "balance": 99,
         "currentBet": 1,
         "stats": {
-          "spins": 0,
+          "spins": 1,
           "wins": 0,
           "best": 0
         },
-        "history": [],
+        "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "melon",
+              "seven",
+              "seven"
+            ],
+            "delta": -1
+          }
+        ],
         "streak": 0,
-        "xp": 0,
+        "xp": 2,
         "level": 1,
         "xpToNext": 120,
-        "collection": [],
+        "collection": [
+          "melon",
+          "seven"
+        ],
         "collectionRewardGiven": false,
         "missions": [
           {
@@ -1263,7 +1289,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 0,
+            "progress": 1,
             "claimed": false
           },
           {
@@ -1308,7 +1334,7 @@
         "unlocked": [],
         "activeGame": "slots",
         "cardsChoice": "spades",
-        "soundEnabled": true,
+        "soundEnabled": false,
         "lastActionAt": 0,
         "actionWindowStart": 0,
         "actionCount": 0
@@ -3066,28 +3092,6 @@
       "ts": 1795815575420
     },
     {
-      "name": "bot743763",
-      "level": 1,
-      "balance": 100,
-      "games": 0,
-      "gifts": 1,
-      "chests": 1,
-      "achievements": 0,
-      "rank": "Новичок",
-      "ts": 1795815578363
-    },
-    {
-      "name": "bot811076",
-      "level": 1,
-      "balance": 100,
-      "games": 0,
-      "gifts": 0,
-      "chests": 0,
-      "achievements": 0,
-      "rank": "Новичок",
-      "ts": 1795815560197
-    },
-    {
       "name": "bot534444",
       "level": 1,
       "balance": 100,
@@ -3229,6 +3233,28 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795815572157
+    },
+    {
+      "name": "bot157026",
+      "level": 1,
+      "balance": 100,
+      "games": 0,
+      "gifts": 0,
+      "chests": 0,
+      "achievements": 0,
+      "rank": "Новичок",
+      "ts": 1795815573931
+    },
+    {
+      "name": "bot867615",
+      "level": 1,
+      "balance": 100,
+      "games": 0,
+      "gifts": 0,
+      "chests": 0,
+      "achievements": 0,
+      "rank": "Новичок",
+      "ts": 1795815574655
     }
   ],
   "admin": {
