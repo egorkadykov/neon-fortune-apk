@@ -445,10 +445,10 @@
       "name": "probe_67789",
       "hash": "fnv1a-b674f67d",
       "created": 1795822978387,
-      "updated": 1795823080166,
+      "updated": 1795823086542,
       "sessionAt": 1795822978387,
       "profile": {
-        "balance": 126,
+        "balance": 291,
         "currentBet": 1,
         "stats": {
           "spins": 120,
@@ -556,18 +556,11 @@
             "paper"
           ]
         },
-        "chestCooldowns": {
-          "paper": 1795823085166
-        },
-        "gifts": {
-          "musicBox": 1,
-          "brick": 1,
-          "candy": 3,
-          "champagne": 1
-        },
+        "chestCooldowns": {},
+        "gifts": {},
         "giftStats": {
-          "sold": 0,
-          "earned": 0,
+          "sold": 6,
+          "earned": 165,
           "received": 6,
           "found": [
             "musicBox",
@@ -581,7 +574,8 @@
           "first",
           "games10",
           "streak3",
-          "level3"
+          "level3",
+          "giftSell"
         ],
         "activeGame": "roulette",
         "cardsChoice": "spades",
@@ -623,13 +617,13 @@
     {
       "name": "probe_67789",
       "level": 3,
-      "balance": 126,
+      "balance": 291,
       "games": 120,
-      "gifts": 6,
+      "gifts": 0,
       "chests": 6,
-      "achievements": 4,
+      "achievements": 5,
       "rank": "Игрок",
-      "ts": 1795823080166
+      "ts": 1795823086542
     },
     {
       "name": "Ольга",
