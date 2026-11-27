@@ -35,7 +35,7 @@ jobs:
       # доустановить новую версию прямо из приложения.
       - name: Prepare signing key
         env:
-          SIGNING_KEYSTORE: ${{ secrets.SIGNING_KEYSTORE }}
+          SIGNING_KEYSTORE: ${{ secrets.SIGNING_KEYSTORE2 }}
         run: |
           test -n "$SIGNING_KEYSTORE"
           printf '%s' "$SIGNING_KEYSTORE" | base64 -d > app/neon.jks
