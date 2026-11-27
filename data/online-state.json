@@ -79,16 +79,24 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795815618872,
+      "updated": 1795815622306,
       "profile": {
-        "balance": 326,
+        "balance": 226,
         "currentBet": 100,
         "stats": {
-          "spins": 437,
+          "spins": 438,
           "wins": 299,
           "best": 2000
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "6",
+              "black"
+            ],
+            "delta": -100
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -128,18 +136,10 @@
               "red"
             ],
             "delta": 0
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "10",
-              "black"
-            ],
-            "delta": -1
           }
         ],
-        "streak": 2,
-        "xp": 206,
+        "streak": 0,
+        "xp": 208,
         "level": 8,
         "xpToNext": 960,
         "collection": [
@@ -269,7 +269,7 @@
       "name": "Егор",
       "hash": "sha256-03aaef0fd45d47ee37afee60b41f0a80010f58f95d3d34e9b7dc253c8558bf2a",
       "created": 1795801871294,
-      "updated": 1795815615739,
+      "updated": 1795815622164,
       "profile": {
         "balance": 999975,
         "currentBet": 5,
@@ -1549,17 +1549,26 @@
       "name": "bot317239",
       "hash": "fnv1a-8162f0b4",
       "created": 1795815562026,
-      "updated": 1795815581154,
+      "updated": 1795815622890,
       "sessionAt": 1795815562026,
       "profile": {
-        "balance": 99,
+        "balance": 98,
         "currentBet": 1,
         "stats": {
-          "spins": 1,
+          "spins": 2,
           "wins": 0,
           "best": 0
         },
         "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "star",
+              "melon",
+              "lemon"
+            ],
+            "delta": -1
+          },
           {
             "glyph": "slots",
             "icons": [
@@ -1571,13 +1580,15 @@
           }
         ],
         "streak": 0,
-        "xp": 2,
+        "xp": 4,
         "level": 1,
         "xpToNext": 120,
         "collection": [
           "cherry",
           "star",
-          "diamond"
+          "diamond",
+          "melon",
+          "lemon"
         ],
         "collectionRewardGiven": false,
         "missions": [
@@ -1586,7 +1597,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 1,
+            "progress": 2,
             "claimed": false
           },
           {
@@ -1641,22 +1652,35 @@
       "name": "bot928048",
       "hash": "fnv1a-8162f0b4",
       "created": 1795815562739,
-      "updated": 1795815604035,
+      "updated": 1795815623548,
       "sessionAt": 1795815562739,
       "profile": {
-        "balance": 100,
+        "balance": 99,
         "currentBet": 1,
         "stats": {
-          "spins": 0,
+          "spins": 1,
           "wins": 0,
           "best": 0
         },
-        "history": [],
+        "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "cherry",
+              "bell",
+              "cherry"
+            ],
+            "delta": -1
+          }
+        ],
         "streak": 0,
-        "xp": 0,
+        "xp": 2,
         "level": 1,
         "xpToNext": 120,
-        "collection": [],
+        "collection": [
+          "cherry",
+          "bell"
+        ],
         "collectionRewardGiven": false,
         "missions": [
           {
@@ -1664,7 +1688,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 0,
+            "progress": 1,
             "claimed": false
           },
           {
@@ -1713,7 +1737,7 @@
             "rocket"
           ]
         },
-        "activeView": "chests",
+        "activeView": "games",
         "unlocked": [],
         "activeGame": "slots",
         "cardsChoice": "spades",
@@ -3159,18 +3183,18 @@
       "chests": 37,
       "achievements": 5,
       "rank": "Игрок",
-      "ts": 1795815615739
+      "ts": 1795815622164
     },
     {
       "name": "pithp",
       "level": 8,
-      "balance": 326,
-      "games": 437,
+      "balance": 226,
+      "games": 438,
       "gifts": 0,
       "chests": 94,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795815618872
+      "ts": 1795815622306
     },
     {
       "name": "bot936812",
@@ -3215,17 +3239,6 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795815580503
-    },
-    {
-      "name": "bot928048",
-      "level": 1,
-      "balance": 100,
-      "games": 0,
-      "gifts": 1,
-      "chests": 1,
-      "achievements": 0,
-      "rank": "Новичок",
-      "ts": 1795815604035
     },
     {
       "name": "bot199701",
@@ -3369,6 +3382,17 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795815620034
+    },
+    {
+      "name": "bot928048",
+      "level": 1,
+      "balance": 99,
+      "games": 1,
+      "gifts": 1,
+      "chests": 1,
+      "achievements": 0,
+      "rank": "Новичок",
+      "ts": 1795815623548
     }
   ],
   "admin": {
