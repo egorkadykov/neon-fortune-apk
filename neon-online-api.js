@@ -1,13 +1,17 @@
 (function () {
   'use strict';
 
+  // Тонкий слой поверх игры. Все решения о выигрыше принимает сервер:
+  // клиент отправляет только действие и проигрывает присланную сервером
+  // последовательность случайных чисел. Подмена файла игры ничего не даёт.
   var API = window.NEON_API_BASE || '';
   var TOKEN_KEY = 'neon-online-token';
   var USER_KEY = 'neon-online-user';
   var LITE_UI = window.matchMedia('(max-width: 700px)').matches;
-  var saveTimer = null;
-  var saving = false;
-  var pendingSave = false;
+  var serverRolls = [];
+  var serverResult = null;
+  var serverBusy = false;
+  var settingsTimer = null;
   var lastLeaderKey = '';
 
   function byId(id) { return document.getElementById(id); }
@@ -31,7 +35,7 @@
   function api(path, body) {
     if (!API) return Promise.reject(new Error('адрес сервера не настроен'));
     var init = {
-      method: body ? 'POST' : 'GET',
+      method: 'POST',
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
       cache: 'no-store'
     };
@@ -50,108 +54,46 @@
       });
   }
 
-  function emptyState() {
-    return { version: 1, users: {}, tokens: {}, leaderboard: [] };
-  }
-
-  function normalizeState(state) {
-    var safe = state && typeof state === 'object' ? state : emptyState();
-    if (!safe.users || typeof safe.users !== 'object') safe.users = {};
-    if (!safe.tokens || typeof safe.tokens !== 'object') safe.tokens = {};
-    if (!Array.isArray(safe.leaderboard)) safe.leaderboard = [];
-    return safe;
-  }
-
-  function loadServer() {
-    return api('/state').then(function (data) {
-      return { state: normalizeState(data.state), sha: '' };
-    });
-  }
-
-  function readState() {
-    return loadServer().then(function (result) { return result.state; });
-  }
-
-  function keyFor(name) { return String(name).trim().toLowerCase(); }
-
-  function publicUser(user) {
-    return {
-      name: user.name,
-      level: (user.profile && user.profile.level) || 1,
-      balance: (user.profile && user.profile.balance) || 0,
-      profile: user.profile || null
+  function actionBody(extra) {
+    var body = {
+      token: token(),
+      game: activeGame,
+      bet: currentBet,
+      view: activeView,
+      choice: cardsChoice,
+      sound: soundEnabled,
+      spinChoice: typeof rouletteChoice === 'object' ? rouletteChoice : null
     };
-  }
-
-  function makeToken() {
-    var bytes = new Uint8Array(16);
-    if (window.crypto && window.crypto.getRandomValues) window.crypto.getRandomValues(bytes);
-    for (var i = 0; i < bytes.length; i++) bytes[i] = bytes[i] || Math.floor(Math.random() * 256);
-    return Array.prototype.map.call(bytes, function (b) { return ('0' + b.toString(16)).slice(-2); }).join('');
-  }
-
-  function simpleHash(value) {
-    var hash = 2166136261;
-    for (var i = 0; i < value.length; i++) {
-      hash ^= value.charCodeAt(i);
-      hash = Math.imul(hash, 16777619);
-    }
-    return 'fnv1a-' + (hash >>> 0).toString(16);
+    if (extra) Object.keys(extra).forEach(function (key) { body[key] = extra[key]; });
+    return body;
   }
 
   function hashPassword(value) {
-    if (!window.crypto || !window.crypto.subtle || !window.TextEncoder) return Promise.resolve(simpleHash(value));
+    function simple() {
+      var hash = 2166136261;
+      for (var i = 0; i < value.length; i++) {
+        hash ^= value.charCodeAt(i);
+        hash = Math.imul(hash, 16777619);
+      }
+      return 'fnv1a-' + (hash >>> 0).toString(16);
+    }
+    if (!window.crypto || !window.crypto.subtle || !window.TextEncoder) return Promise.resolve(simple());
     var bytes = new TextEncoder().encode(value);
     return window.crypto.subtle.digest('SHA-256', bytes).then(function (buffer) {
-      return 'sha256-' + Array.prototype.map.call(new Uint8Array(buffer), function (b) { return ('0' + b.toString(16)).slice(-2); }).join('');
-    }).catch(function () { return simpleHash(value); });
-  }
-
-  function findUser(state, suppliedToken) {
-    var key = state.tokens[suppliedToken];
-    if (!key || !state.users[key]) return null;
-    return [key, state.users[key]];
-  }
-
-  var css = document.createElement('style');
-  css.id = 'neonOnlineCss';
-  css.textContent = '' +
-    '.online-status{margin:10px 0 4px;padding:7px 10px;border-radius:10px;font-size:11px;letter-spacing:.03em;text-align:center;border:1px solid rgba(0,255,213,.22);background:rgba(0,255,213,.06);color:#8fffe9;}' +
-    '.online-ok{border-color:rgba(80,255,170,.35);color:#8bffb8;}' +
-    '.online-warn{border-color:rgba(255,180,80,.35);color:#ffd18b;}' +
-    '.online-wait{border-color:rgba(140,160,255,.35);color:#b8c4ff;}' +
-    '.online-inline{margin-top:8px;font-size:11px;color:#8fffe9;word-break:break-word;}' +
-    '.leader-extra{display:block;font-size:10px;opacity:.72;margin-top:2px;}';
-  document.head.appendChild(css);
-
-  var authCard = document.querySelector('#authScreen .auth-card');
-  if (authCard && !byId('onlineStatus')) {
-    var status = document.createElement('div');
-    status.id = 'onlineStatus';
-    status.className = 'online-status online-wait';
-    var subtitle = authCard.querySelector('.auth-subtitle');
-    if (subtitle && subtitle.parentNode) subtitle.parentNode.insertBefore(status, subtitle.nextSibling);
-    else authCard.insertBefore(status, authCard.firstChild);
-  }
-  var note = document.querySelector('#authScreen .auth-note');
-  if (note) note.textContent = 'Общий сервер с защитой: ник, пароль, баланс, уровень, игры, подарки, сундуки и достижения. Секрет сервера не лежит в игре. Реальных денег нет — только виртуальные звёзды.';
-
-  var stack = document.querySelector('#settingsDrawer .settings-stack');
-  if (stack && !byId('onlineSettingsStatus')) {
-    var card = document.createElement('section');
-    card.className = 'card online-card';
-    card.innerHTML = '' +
-      '<h2><span data-icon="chart"></span>Онлайн-аккаунт</h2>' +
-      '<p class="setting-note">Общий сервер подключён. Секрет хранится на сервере, а не в APK. Прогресс сохраняется автоматически.</p>' +
-      '<div class="online-actions"><button id="onlineTestBtn" class="side-btn" type="button">Проверить связь</button></div>' +
-      '<div id="onlineSettingsStatus" class="online-inline online-wait">Проверяем связь...</div>';
-    var danger = stack.querySelector('.danger-card');
-    stack.insertBefore(card, danger || stack.lastChild);
+      return 'sha256-' + Array.prototype.map.call(new Uint8Array(buffer), function (b) {
+        return ('0' + b.toString(16)).slice(-2);
+      }).join('');
+    }).catch(function () { return simple(); });
   }
 
   function fetchLeaderboard() {
-    return readState().then(function (state) {
-      leaderboard = state.leaderboard.slice();
+    return fetch(API.replace(/\/$/, '') + '/state', {
+      method: 'GET',
+      headers: { 'Accept': 'application/json' },
+      cache: 'no-store'
+    }).then(function (response) { return response.json(); }).then(function (data) {
+      if (!data || data.ok !== true) throw new Error('ошибка сервера');
+      leaderboard = (data.state && data.state.leaderboard ? data.state.leaderboard : []).slice();
       renderLeaderboard();
       setStatus('подключено · ' + leaderboard.length + ' в топе', 'ok');
     }).catch(function (error) {
@@ -159,98 +101,169 @@
     });
   }
 
-  function scheduleSave() {
-    pendingSave = true;
-    if (saveTimer) clearTimeout(saveTimer);
-    saveTimer = setTimeout(flushSave, LITE_UI ? 1800 : 900);
+  function applyServerProfile(profile) {
+    var auto = autoEnabled;
+    var timer = autoTimer;
+    applyProfile(profile || null);
+    if (auto) {
+      autoEnabled = true;
+      autoTimer = timer;
+      updateAutoButton();
+    }
   }
 
-  function flushSave() {
-    if (!token()) { pendingSave = false; return; }
-    if (saving) { pendingSave = true; return; }
-    pendingSave = false;
-    saving = true;
-    var snapshot = getProfileState();
-    api('/save', { token: token(), profile: snapshot }).then(function () {
-      saving = false;
-      setStatus('прогресс сохранён', 'ok');
-      if (pendingSave) flushSave();
-    }).catch(function (error) {
-      saving = false;
-      pendingSave = true;
-      setStatus('не сохранено · ' + friendly(error), 'warn');
-    });
-  }
-
-  // В топе показываем подарки, которые сейчас лежат в инвентаре.
-  function countOwnedGifts(profile) {
-    var savedGifts = profile.gifts || {};
-    var total = 0;
-    Object.keys(savedGifts).forEach(function (key) {
-      total += Math.max(0, Number(savedGifts[key]) || 0);
-    });
-    return Math.max(0, Math.floor(total));
-  }
-
-  function buildLeaderboard(state) {
-    var rows = [];
-    Object.keys(state.users).forEach(function (key) {
-      var user = state.users[key];
-      var profile = user.profile || {};
-      rows.push({
-        name: user.name,
-        balance: (profile.balance || 0),
-        level: (profile.level || 1),
-        games: (profile.stats && profile.stats.spins) || 0,
-        gifts: countOwnedGifts(profile),
-        chests: (profile.chestStats && profile.chestStats.opened) || 0,
-        achievements: Array.isArray(profile.unlocked) ? profile.unlocked.length : 0,
-        rank: typeof getRank === 'function' ? getRank() : '',
-        ts: user.updated || 0
-      });
-    });
-    rows.sort(function (a, b) {
-      if (a.balance !== b.balance) return b.balance - a.balance;
-      if (a.level !== b.level) return b.level - a.level;
-      return b.games - a.games;
-    });
-    return rows.slice(0, 20);
-  }
-
-  var originalSaveProfile = saveProfile;
-  saveProfile = function () {
-    originalSaveProfile();
-    if (currentUser && token()) scheduleSave();
+  // Случайность приходит с сервера. Если поток кончился (декоративные
+  // искры, анимации), используется обычный локальный генератор.
+  var originalRandomValue = randomValue;
+  randomValue = function () {
+    if (serverRolls.length) return serverRolls.shift();
+    return originalRandomValue();
   };
 
-  var originalUpdateLeaderboard = updateLeaderboard;
-  updateLeaderboard = function () {
-    if (!currentUser) return;
-    var entry = {
-      name: currentUser.name,
-      balance: balance,
-      level: level,
-      games: stats.spins,
-      gifts: Object.keys(gifts).reduce(function (sum, key) { return sum + Math.max(0, Number(gifts[key]) || 0); }, 0),
-      chests: chestStats.opened,
-      achievements: unlocked.size,
-      rank: typeof getRank === 'function' ? getRank() : '',
-      ts: Date.now()
+  var originalFinishRound = finishRound;
+  finishRound = function (details) {
+    var result = serverResult || {};
+    var merged = {
+      icons: details && details.icons ? details.icons : [],
+      win: Number(result.win) || 0,
+      text: result.text || (details && details.text) || '',
+      kind: result.kind || (details && details.kind) || 'lose',
+      jackpot: !!result.jackpot,
+      triple: !!result.triple,
+      refund: !!result.refund,
+      dartBull: !!result.dartBull,
+      cardFlush: !!result.cardFlush,
+      discovered: details && details.discovered ? details.discovered : []
     };
-    var index = leaderboard.findIndex(function (item) { return item && item.name === entry.name; });
-    if (index >= 0) leaderboard[index] = entry;
-    else leaderboard.push(entry);
-    leaderboard.sort(function (a, b) { return (b.balance || 0) - (a.balance || 0); });
-    leaderboard = leaderboard.slice(0, 20);
-    renderLeaderboard();
-    scheduleSave();
+    originalFinishRound(merged);
+    applyServerProfile(result.profile);
+    serverRolls = [];
+    serverResult = null;
+    setStatus('ход проверен сервером', 'ok');
+    fetchLeaderboard();
+  };
+
+  var originalPlay = play;
+  play = function () {
+    if (!currentUser || playing || serverBusy || !token()) return;
+    if (autoTimer) { clearTimeout(autoTimer); autoTimer = null; }
+    setStatus('проверка хода...', 'wait');
+    serverBusy = true;
+    api('/play', actionBody({ game: activeGame })).then(function (result) {
+      serverBusy = false;
+      serverRolls = Array.isArray(result.rolls) ? result.rolls.slice() : [];
+      serverResult = result;
+      currentBet = result.bet;
+      playing = true;
+      statusEl.textContent = 'Играем…';
+      setMessage(
+        activeGame === 'slots' ? 'Крутим барабаны…' : activeGame === 'dice' ? 'Бросаем кости…' :
+        activeGame === 'roulette' ? 'Крутим колесо…' : activeGame === 'darts' ? 'Метам дротики…' : 'Раздаём карты…'
+      );
+      updateUI(LITE_UI);
+      beep(220, 0.08, 'square', 0.025);
+      var multiplier = Number(result.multiplier) || 1;
+      if (activeGame === 'slots') spinSlots(multiplier);
+      else if (activeGame === 'dice') rollDice(multiplier);
+      else if (activeGame === 'roulette') spinRoulette(multiplier);
+      else if (activeGame === 'darts') playDarts(multiplier);
+      else playCards(multiplier);
+    }).catch(function (error) {
+      serverBusy = false;
+      playing = false;
+      statusEl.textContent = 'Готово к игре';
+      setStatus('ошибка хода · ' + friendly(error), 'warn');
+      setMessage(friendly(error), 'warn');
+      updateUI(LITE_UI);
+    });
+  };
+
+  var originalOpenChest = openChest;
+  openChest = function (id) {
+    if (!currentUser || playing || chestBusy || serverBusy || !token()) return;
+    var chest = chestTypes.find(function (item) { return item.id === id; });
+    if (!chest) return;
+    setStatus('открываем сундук...', 'wait');
+    serverBusy = true;
+    api('/chest', actionBody({ id: id })).then(function (result) {
+      serverBusy = false;
+      chestBusy = id;
+      chestCooldowns[id] = result.cooldownUntil;
+      setMessage('Открываем ' + chest.name.toLowerCase() + ' сундук…');
+      showChestOverlay(chest);
+      updateUI();
+      setTimeout(function () {
+        var prize = result.prize || {};
+        setMessage(prize.text || '', prize.kind === 'empty' ? 'lose' : 'win');
+        revealChest(prize);
+        if (prize.kind !== 'empty') { confetti(); beep(700, 0.14, 'triangle', 0.05); }
+        checkAchievements({ jackpot: !!prize.jackpot });
+        applyServerProfile(result.profile);
+        chestBusy = null;
+        updateUI(LITE_UI);
+        setStatus('сундук открыт', 'ok');
+        fetchLeaderboard();
+      }, Math.max(900, chest.delay + 200));
+    }).catch(function (error) {
+      serverBusy = false;
+      setStatus('ошибка сундука · ' + friendly(error), 'warn');
+      setMessage(friendly(error), 'warn');
+    });
+  };
+
+  var originalSellGift = sellGift;
+  sellGift = function (id) {
+    if (!currentUser || playing || chestBusy || !token()) return;
+    setStatus('продажа...', 'wait');
+    api('/sell', actionBody({ id: id })).then(function (result) {
+      var gift = giftDefs.find(function (item) { return item.id === id; });
+      toast((gift ? gift.name : 'Подарок') + ' продан: +' + result.total + ' звёзд', 'coin');
+      setMessage('Подарок продан за ' + result.total + ' звёзд!', 'win');
+      applyServerProfile(result.profile);
+      updateUI();
+      setStatus('продажа сохранена', 'ok');
+      fetchLeaderboard();
+    }).catch(function (error) {
+      setStatus('ошибка продажи · ' + friendly(error), 'warn');
+    });
+  };
+
+  var originalSellAllGifts = sellAllGifts;
+  sellAllGifts = function () {
+    if (!currentUser || playing || chestBusy || !token()) return;
+    setStatus('продажа...', 'wait');
+    api('/sell', actionBody({ all: true })).then(function (result) {
+      toast('Продано ' + result.count + ' подарков: +' + result.total + ' звёзд', 'coin');
+      setMessage('Продано ' + result.count + ' подарков за ' + result.total + ' звёзд!', 'win');
+      applyServerProfile(result.profile);
+      updateUI();
+      setStatus('продажа сохранена', 'ok');
+      fetchLeaderboard();
+    }).catch(function (error) {
+      setStatus('ошибка продажи · ' + friendly(error), 'warn');
+    });
+  };
+
+  // Настройки (ставка, вкладка, звук) — косметика. Сервер хранит их,
+  // но никогда не берёт отсюда баланс или прогресс.
+  saveProfile = function () {
+    if (!token()) return;
+    if (settingsTimer) clearTimeout(settingsTimer);
+    settingsTimer = setTimeout(function () {
+      settingsTimer = null;
+      api('/settings', actionBody()).catch(function () {});
+    }, 600);
+  };
+
+  updateLeaderboard = function () {
+    if (currentUser) fetchLeaderboard();
   };
 
   renderLeaderboard = function () {
     var list = byId('leaderboard');
     if (!list) return;
-    var key = (currentUser ? currentUser.name : '') + '#' + leaderboard.map(function (e) {
-      return [e.name, e.balance, e.level, e.games, e.gifts, e.chests, e.achievements, e.rank].join('|');
+    var key = (currentUser ? currentUser.name : '') + '#' + leaderboard.map(function (entry) {
+      return [entry.name, entry.balance, entry.level, entry.games, entry.gifts, entry.chests, entry.achievements, entry.rank].join('|');
     }).join(';');
     if (key === lastLeaderKey) return;
     lastLeaderKey = key;
@@ -275,6 +288,27 @@
     });
   };
 
+  var missionsRoot = byId('missions');
+  if (missionsRoot) {
+    missionsRoot.addEventListener('click', function (event) {
+      var button = event.target.closest('.mission-claim');
+      if (!button || !currentUser || !token()) return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      setStatus('проверка задания...', 'wait');
+      api('/mission', actionBody({ id: button.dataset.id })).then(function (result) {
+        toast(result.title + ': +' + result.reward + ' звёзд', 'check');
+        confetti();
+        applyServerProfile(result.profile);
+        updateUI();
+        setStatus('задание выполнено', 'ok');
+        fetchLeaderboard();
+      }).catch(function (error) {
+        setStatus('ошибка задания · ' + friendly(error), 'warn');
+      });
+    }, true);
+  }
+
   function enterOnline(name, profile, isNew, silent) {
     currentUser = { name: name };
     localStorage.setItem(USER_KEY, name);
@@ -287,7 +321,6 @@
     statusEl.textContent = 'Готово к игре';
     setMessage(isNew ? 'Привет, ' + name + '! Профиль создан на сервере.' : 'С возвращением, ' + name + '! Прогресс загружен с сервера.');
     updateUI(LITE_UI);
-    saveProfile();
     fetchLeaderboard();
     if (!silent) {
       toast(isNew ? 'Добро пожаловать, ' + name + '!' : 'С возвращением, ' + name + '!', isNew ? 'sparkle' : 'user');
@@ -351,7 +384,6 @@
     event.preventDefault();
     event.stopImmediatePropagation();
     var savedToken = token();
-    flushSave();
     api('/logout', { token: savedToken }).catch(function () {});
     currentUser = null;
     localStorage.removeItem(TOKEN_KEY);
@@ -383,6 +415,42 @@
     });
   }, true);
 
+  var css = document.createElement('style');
+  css.id = 'neonOnlineCss';
+  css.textContent = '' +
+    '.online-status{margin:10px 0 4px;padding:7px 10px;border-radius:10px;font-size:11px;letter-spacing:.03em;text-align:center;border:1px solid rgba(0,255,213,.22);background:rgba(0,255,213,.06);color:#8fffe9;}' +
+    '.online-ok{border-color:rgba(80,255,170,.35);color:#8bffb8;}' +
+    '.online-warn{border-color:rgba(255,180,80,.35);color:#ffd18b;}' +
+    '.online-wait{border-color:rgba(140,160,255,.35);color:#b8c4ff;}' +
+    '.online-inline{margin-top:8px;font-size:11px;color:#8fffe9;word-break:break-word;}' +
+    '.leader-extra{display:block;font-size:10px;opacity:.72;margin-top:2px;}';
+  document.head.appendChild(css);
+
+  var authCard = document.querySelector('#authScreen .auth-card');
+  if (authCard && !byId('onlineStatus')) {
+    var status = document.createElement('div');
+    status.id = 'onlineStatus';
+    status.className = 'online-status online-wait';
+    var subtitle = authCard.querySelector('.auth-subtitle');
+    if (subtitle && subtitle.parentNode) subtitle.parentNode.insertBefore(status, subtitle.nextSibling);
+    else authCard.insertBefore(status, authCard.firstChild);
+  }
+  var note = document.querySelector('#authScreen .auth-note');
+  if (note) note.textContent = 'Общий сервер с защитой: ник, пароль, баланс, уровень, игры, подарки, сундуки и достижения. Все выигрыши считает сервер — подмена игры не поможет. Реальных денег нет — только виртуальные звёзды.';
+
+  var stack = document.querySelector('#settingsDrawer .settings-stack');
+  if (stack && !byId('onlineSettingsStatus')) {
+    var card = document.createElement('section');
+    card.className = 'card online-card';
+    card.innerHTML = '' +
+      '<h2><span data-icon="chart"></span>Онлайн-аккаунт</h2>' +
+      '<p class="setting-note">Общий сервер подключён. Баланс и выигрыши проверяет сервер, поэтому их нельзя подделать. Прогресс сохраняется автоматически.</p>' +
+      '<div class="online-actions"><button id="onlineTestBtn" class="side-btn" type="button">Проверить связь</button></div>' +
+      '<div id="onlineSettingsStatus" class="online-inline online-wait">Проверяем связь...</div>';
+    var danger = stack.querySelector('.danger-card');
+    stack.insertBefore(card, danger || stack.lastChild);
+  }
+
   var testBtn = byId('onlineTestBtn');
   if (testBtn) testBtn.addEventListener('click', function () {
     setStatus('проверка связи...', 'wait');
@@ -390,15 +458,14 @@
   });
 
   document.addEventListener('visibilitychange', function () {
-    if (document.visibilityState === 'hidden') flushSave();
+    if (document.visibilityState === 'hidden' && token()) {
+      api('/settings', actionBody()).catch(function () {});
+    }
   });
-  setInterval(function () {
-    if (document.visibilityState === 'visible') fetchLeaderboard();
-  }, LITE_UI ? 30000 : 15000);
 
   window.NEON_ONLINE = {
     fetchLeaderboard: fetchLeaderboard,
-    flushSave: flushSave
+    syncSettings: function () { api('/settings', actionBody()).catch(function () {}); }
   };
 
   setStatus('подключение к общему серверу...', 'wait');
