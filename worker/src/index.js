@@ -163,17 +163,30 @@ async function loadState(force) {
 // будет повторно отправлено при следующем действии.
 function scheduleFlush(ctx) {
   if (!cached || !cached.dirty) return;
-  const snapshot = JSON.parse(JSON.stringify(cached.state));
-  cached.dirty = false;
+  const source = cached;
+  const snapshot = JSON.parse(JSON.stringify(source.state));
+  source.dirty = false;
   const task = flushChain.then(async () => {
-    const newSha = await writeState(snapshot, cached.sha);
-    if (newSha && cached) cached.sha = newSha;
+    const newSha = await writeState(snapshot, source.sha);
+    if (newSha) source.sha = newSha;
   }).catch((error) => {
-    if (error && error.conflict) cached = null;
-    else if (cached) cached.dirty = true;
+    if (error && error.conflict) {
+      if (cached === source) cached = null;
+    } else if (cached === source) source.dirty = true;
   });
   flushChain = task;
   if (ctx && typeof ctx.waitUntil === 'function') ctx.waitUntil(task);
+}
+
+// Вход, выход и удаление меняют токены — эти записи обязательно дожидаются
+// сохранения, иначе после перезапуска игра не найдёт свой токен на сервере.
+async function mutateSync(action) {
+  await flushChain;
+  const server = await readState();
+  const result = await action(server.state);
+  await writeState(server.state, server.sha);
+  cached = null;
+  return result;
 }
 
 async function mutate(action, ctx) {
@@ -771,7 +784,7 @@ async function handle(request, ctx) {
     const mode = body.mode === 'register' ? 'register' : 'login';
     if (!/^[A-Za-zА-Яа-яЁё0-9_]{3,16}$/.test(name)) return fail('Никнейм: от 3 до 16 букв, цифр или _');
     if (!/^(sha256-[0-9a-f]{64}|fnv1a-[0-9a-f]{1,8})$/.test(hash)) return fail('Некорректный пароль');
-    const result = await mutate((state) => {
+    const result = await mutateSync((state) => {
       const key = keyFor(name);
       if (mode === 'register') {
         if (state.users[key]) throw new Error('Такой игрок уже есть — войди или придумай другой ник');
@@ -801,13 +814,13 @@ async function handle(request, ctx) {
       user.sessionAt = Date.now();
       user.profile = normalizeProfile(user.profile);
       return { token, user: sessionUser(user), isNew: false };
-    }, ctx);
+    });
     return reply({ ok: true, ...result });
   }
 
   if (path === '/session') {
     const token = String(body.token || '');
-    const server = await loadState();
+    const server = await loadState(true);
     const key = server.state.tokens[token];
     if (!key || !server.state.users[key]) return fail('Нужно войти снова', 401);
     sessionFor(server.state, token, server.state.users[key]);
@@ -845,12 +858,12 @@ async function handle(request, ctx) {
   }
 
   if (path === '/logout') {
-    await mutate((state) => { delete state.tokens[String(body.token || '')]; }, ctx);
+    await mutateSync((state) => { delete state.tokens[String(body.token || '')]; });
     return reply({ ok: true });
   }
 
   if (path === '/delete') {
-    await mutate((state) => {
+    await mutateSync((state) => {
       const token = String(body.token || '');
       const key = state.tokens[token];
       if (!key || !state.users[key]) throw new Error('Нужно войти снова');
@@ -859,7 +872,7 @@ async function handle(request, ctx) {
         if (state.tokens[saved] === key) delete state.tokens[saved];
       });
       state.leaderboard = buildLeaderboard(state);
-    }, ctx);
+    });
     return reply({ ok: true });
   }
 
