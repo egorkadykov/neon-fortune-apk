@@ -79,9 +79,9 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795811866499,
+      "updated": 1795811917151,
       "profile": {
-        "balance": 5,
+        "balance": 1000,
         "currentBet": 1,
         "stats": {
           "spins": 361,
@@ -448,190 +448,45 @@
         "actionCount": 0
       },
       "sessionAt": 1795810651372
-    },
-    "latencytest": {
-      "name": "latencytest",
-      "hash": "sha256-86d85960693c6aeb40f89a6df16927b30b74b1edd03123c2ee6ffd83e394cec6",
-      "created": 1795811720513,
-      "updated": 1795811721766,
-      "sessionAt": 1795811720513,
-      "profile": {
-        "balance": 95,
-        "currentBet": 1,
-        "stats": {
-          "spins": 5,
-          "wins": 0,
-          "best": 0
-        },
-        "history": [
-          {
-            "glyph": "slots",
-            "icons": [
-              "diamond",
-              "cherry",
-              "slotDie"
-            ],
-            "delta": -1
-          },
-          {
-            "glyph": "slots",
-            "icons": [
-              "bell",
-              "seven",
-              "cherry"
-            ],
-            "delta": -1
-          },
-          {
-            "glyph": "slots",
-            "icons": [
-              "diamond",
-              "cherry",
-              "melon"
-            ],
-            "delta": -1
-          },
-          {
-            "glyph": "slots",
-            "icons": [
-              "star",
-              "star",
-              "bell"
-            ],
-            "delta": -1
-          },
-          {
-            "glyph": "slots",
-            "icons": [
-              "lemon",
-              "bell",
-              "cherry"
-            ],
-            "delta": -1
-          }
-        ],
-        "streak": 0,
-        "xp": 10,
-        "level": 1,
-        "xpToNext": 120,
-        "collection": [
-          "lemon",
-          "bell",
-          "cherry",
-          "star",
-          "diamond",
-          "melon",
-          "seven",
-          "slotDie"
-        ],
-        "collectionRewardGiven": false,
-        "missions": [
-          {
-            "id": "games",
-            "title": "Сыграй 10 игр",
-            "target": 10,
-            "reward": 30,
-            "progress": 5,
-            "claimed": false
-          },
-          {
-            "id": "wins",
-            "title": "Победи 5 раз",
-            "target": 5,
-            "reward": 50,
-            "progress": 0,
-            "claimed": false
-          },
-          {
-            "id": "triple",
-            "title": "Получи трипу в костях",
-            "target": 1,
-            "reward": 75,
-            "progress": 0,
-            "claimed": false
-          },
-          {
-            "id": "jackpot",
-            "title": "Сорви джекпот",
-            "target": 1,
-            "reward": 100,
-            "progress": 0,
-            "claimed": false
-          }
-        ],
-        "chestStats": {
-          "opened": 0,
-          "best": 0,
-          "types": []
-        },
-        "chestCooldowns": {},
-        "gifts": {},
-        "giftStats": {
-          "sold": 0,
-          "earned": 0,
-          "received": 0,
-          "found": []
-        },
-        "activeView": "games",
-        "unlocked": [],
-        "activeGame": "slots",
-        "cardsChoice": "spades",
-        "soundEnabled": true,
-        "lastActionAt": 0,
-        "actionWindowStart": 0,
-        "actionCount": 0
-      }
     }
   },
   "tokens": {
     "f6cbb883479d36ed93e7817f9525f9fa4a1936b05fcc5d3f72c5f28d9c6b7c79": "егор",
-    "6261d690a90245902e156ee855ced21af8de5e6216f3463591d3182d219a34b9": "pithp",
-    "e858d431ebb7427e6791b78e472c465d27eb78f8019480b63d56ec434e899b8a": "latencytest"
+    "6261d690a90245902e156ee855ced21af8de5e6216f3463591d3182d219a34b9": "pithp"
   },
   "leaderboard": [
     {
       "name": "Егор",
-      "level": 3,
       "balance": 1000106,
+      "level": 3,
       "games": 125,
       "gifts": 0,
       "chests": 37,
       "achievements": 5,
-      "rank": "Игрок",
+      "rank": "",
       "ts": 1795811484736
     },
     {
-      "name": "Ольга",
-      "level": 1,
-      "balance": 100,
-      "games": 0,
-      "gifts": 0,
-      "chests": 0,
-      "achievements": 0,
-      "rank": "Новичок",
-      "ts": 1795729367800
-    },
-    {
-      "name": "latencytest",
-      "level": 1,
-      "balance": 95,
-      "games": 5,
-      "gifts": 0,
-      "chests": 0,
-      "achievements": 0,
-      "rank": "Новичок",
-      "ts": 1795811721766
-    },
-    {
       "name": "pithp",
+      "balance": 1000,
       "level": 7,
-      "balance": 5,
       "games": 361,
       "gifts": 9,
       "chests": 91,
       "achievements": 7,
-      "rank": "Мастер",
-      "ts": 1795811866499
+      "rank": "",
+      "ts": 1795811917151
+    },
+    {
+      "name": "Ольга",
+      "balance": 100,
+      "level": 1,
+      "games": 0,
+      "gifts": 0,
+      "chests": 0,
+      "achievements": 0,
+      "rank": "",
+      "ts": 1795729367800
     }
   ],
   "admin": {
