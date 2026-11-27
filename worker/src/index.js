@@ -108,7 +108,7 @@ function fail(message, status = 400) {
 // только номер версии и ссылку на скачивание — токенов и секретов здесь нет.
 async function latestRelease() {
   const now = Date.now();
-  if (versionCache.value && now - versionCache.at < 10 * 60 * 1000) return versionCache.value;
+  if (versionCache.value && now - versionCache.at < 30 * 1000) return versionCache.value;
   const response = await fetch(RELEASES_API, {
     headers: {
       Accept: 'application/vnd.github+json',
@@ -587,13 +587,13 @@ function answerPlay(profile, body) {
     discovered = [color];
     glyph = 'roulette';
     if (choice.type === 'number' && Number(choice.number) === index) {
-      win = Math.round(bet * 10 * mult * PAYOUT_FACTOR);
-      text = `Точное попадание! ${index} · +${win}`;
+      win = Math.min(MAX_GAIN_PER_ACTION, Math.round(bet * 10 * mult));
+      text = `Точное попадание! ${index} · ×10 — +${win}`;
       kind = 'win';
       jackpot = true;
     } else if (choice.type === 'color' && choice.color === color) {
-      win = Math.round(bet * 2 * mult * PAYOUT_FACTOR);
-      text = `Цвет угадан: ${color} — +${win}`;
+      win = Math.min(MAX_GAIN_PER_ACTION, Math.round(bet * 2 * mult));
+      text = `Цвет угадан: ${color} · ×2 — +${win}`;
       kind = 'win';
     } else {
       text = `Выпало ${index} (${color}) — не угадали`;
