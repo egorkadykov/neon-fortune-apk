@@ -275,16 +275,25 @@
       "name": "Егор",
       "hash": "sha256-03aaef0fd45d47ee37afee60b41f0a80010f58f95d3d34e9b7dc253c8558bf2a",
       "created": 1795801871294,
-      "updated": 1795811484736,
+      "updated": 1795812234183,
       "profile": {
-        "balance": 1000106,
+        "balance": 1000105,
         "currentBet": 1,
         "stats": {
-          "spins": 125,
+          "spins": 126,
           "wins": 14,
           "best": 1000
         },
         "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "cherry",
+              "melon",
+              "diamond"
+            ],
+            "delta": -1
+          },
           {
             "glyph": "slots",
             "icons": [
@@ -329,19 +338,10 @@
               "bell"
             ],
             "delta": -1
-          },
-          {
-            "glyph": "slots",
-            "icons": [
-              "lemon",
-              "lemon",
-              "diamond"
-            ],
-            "delta": -1
           }
         ],
         "streak": 0,
-        "xp": 152,
+        "xp": 154,
         "level": 3,
         "xpToNext": 360,
         "collection": [
@@ -457,35 +457,35 @@
   "leaderboard": [
     {
       "name": "Егор",
-      "balance": 1000106,
       "level": 3,
-      "games": 125,
+      "balance": 1000105,
+      "games": 126,
       "gifts": 0,
       "chests": 37,
       "achievements": 5,
-      "rank": "",
-      "ts": 1795811484736
+      "rank": "Игрок",
+      "ts": 1795812234183
     },
     {
       "name": "pithp",
-      "balance": 1000,
       "level": 7,
+      "balance": 1000,
       "games": 361,
       "gifts": 9,
       "chests": 91,
       "achievements": 7,
-      "rank": "",
+      "rank": "Мастер",
       "ts": 1795811917151
     },
     {
       "name": "Ольга",
-      "balance": 100,
       "level": 1,
+      "balance": 100,
       "games": 0,
       "gifts": 0,
       "chests": 0,
       "achievements": 0,
-      "rank": "",
+      "rank": "Новичок",
       "ts": 1795729367800
     }
   ],
