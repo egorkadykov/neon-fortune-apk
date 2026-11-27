@@ -269,7 +269,7 @@
       "name": "Егор",
       "hash": "sha256-03aaef0fd45d47ee37afee60b41f0a80010f58f95d3d34e9b7dc253c8558bf2a",
       "created": 1795801871294,
-      "updated": 1795815452599,
+      "updated": 1795815455215,
       "profile": {
         "balance": 999995,
         "currentBet": 50,
@@ -442,332 +442,10 @@
         "actionCount": 0
       },
       "sessionAt": 1795810651372
-    },
-    "bot920058": {
-      "name": "bot920058",
-      "hash": "fnv1a-8162f0b4",
-      "created": 1795815391224,
-      "updated": 1795815431495,
-      "sessionAt": 1795815391224,
-      "profile": {
-        "balance": 98,
-        "currentBet": 1,
-        "stats": {
-          "spins": 2,
-          "wins": 0,
-          "best": 0
-        },
-        "history": [
-          {
-            "glyph": "slots",
-            "icons": [
-              "slotDie",
-              "diamond",
-              "lemon"
-            ],
-            "delta": -1
-          },
-          {
-            "glyph": "slots",
-            "icons": [
-              "cherry",
-              "cherry",
-              "lemon"
-            ],
-            "delta": -1
-          }
-        ],
-        "streak": 0,
-        "xp": 4,
-        "level": 1,
-        "xpToNext": 120,
-        "collection": [
-          "cherry",
-          "lemon",
-          "slotDie",
-          "diamond"
-        ],
-        "collectionRewardGiven": false,
-        "missions": [
-          {
-            "id": "games",
-            "title": "Сыграй 10 игр",
-            "target": 10,
-            "reward": 30,
-            "progress": 2,
-            "claimed": false
-          },
-          {
-            "id": "wins",
-            "title": "Победи 5 раз",
-            "target": 5,
-            "reward": 50,
-            "progress": 0,
-            "claimed": false
-          },
-          {
-            "id": "triple",
-            "title": "Получи трипу в костях",
-            "target": 1,
-            "reward": 75,
-            "progress": 0,
-            "claimed": false
-          },
-          {
-            "id": "jackpot",
-            "title": "Сорви джекпот",
-            "target": 1,
-            "reward": 100,
-            "progress": 0,
-            "claimed": false
-          }
-        ],
-        "chestStats": {
-          "opened": 1,
-          "best": 10,
-          "types": [
-            "free"
-          ]
-        },
-        "chestCooldowns": {
-          "free": 1795901814918
-        },
-        "gifts": {
-          "brick": 1
-        },
-        "giftStats": {
-          "sold": 0,
-          "earned": 0,
-          "received": 1,
-          "found": [
-            "brick"
-          ]
-        },
-        "activeView": "games",
-        "unlocked": [],
-        "activeGame": "slots",
-        "cardsChoice": "spades",
-        "soundEnabled": false,
-        "lastActionAt": 0,
-        "actionWindowStart": 0,
-        "actionCount": 0
-      }
-    },
-    "bot981290": {
-      "name": "bot981290",
-      "hash": "fnv1a-8162f0b4",
-      "created": 1795815391826,
-      "updated": 1795815432502,
-      "sessionAt": 1795815391826,
-      "profile": {
-        "balance": 123,
-        "currentBet": 1,
-        "stats": {
-          "spins": 2,
-          "wins": 0,
-          "best": 0
-        },
-        "history": [
-          {
-            "glyph": "slots",
-            "icons": [
-              "star",
-              "bell",
-              "slotDie"
-            ],
-            "delta": -1
-          },
-          {
-            "glyph": "slots",
-            "icons": [
-              "bell",
-              "slotDie",
-              "melon"
-            ],
-            "delta": -1
-          }
-        ],
-        "streak": 0,
-        "xp": 4,
-        "level": 1,
-        "xpToNext": 120,
-        "collection": [
-          "bell",
-          "slotDie",
-          "melon",
-          "star"
-        ],
-        "collectionRewardGiven": false,
-        "missions": [
-          {
-            "id": "games",
-            "title": "Сыграй 10 игр",
-            "target": 10,
-            "reward": 30,
-            "progress": 2,
-            "claimed": false
-          },
-          {
-            "id": "wins",
-            "title": "Победи 5 раз",
-            "target": 5,
-            "reward": 50,
-            "progress": 0,
-            "claimed": false
-          },
-          {
-            "id": "triple",
-            "title": "Получи трипу в костях",
-            "target": 1,
-            "reward": 75,
-            "progress": 0,
-            "claimed": false
-          },
-          {
-            "id": "jackpot",
-            "title": "Сорви джекпот",
-            "target": 1,
-            "reward": 100,
-            "progress": 0,
-            "claimed": false
-          }
-        ],
-        "chestStats": {
-          "opened": 1,
-          "best": 25,
-          "types": [
-            "free"
-          ]
-        },
-        "chestCooldowns": {
-          "free": 1795901813303
-        },
-        "gifts": {},
-        "giftStats": {
-          "sold": 1,
-          "earned": 25,
-          "received": 1,
-          "found": [
-            "giftBox"
-          ]
-        },
-        "activeView": "gifts",
-        "unlocked": [
-          "giftSell"
-        ],
-        "activeGame": "slots",
-        "cardsChoice": "spades",
-        "soundEnabled": false,
-        "lastActionAt": 0,
-        "actionWindowStart": 0,
-        "actionCount": 0
-      }
-    },
-    "bot730544": {
-      "name": "bot730544",
-      "hash": "fnv1a-8162f0b4",
-      "created": 1795815392618,
-      "updated": 1795815422588,
-      "sessionAt": 1795815392618,
-      "profile": {
-        "balance": 189,
-        "currentBet": 1,
-        "stats": {
-          "spins": 1,
-          "wins": 0,
-          "best": 0
-        },
-        "history": [
-          {
-            "glyph": "slots",
-            "icons": [
-              "cherry",
-              "lemon",
-              "cherry"
-            ],
-            "delta": -1
-          }
-        ],
-        "streak": 0,
-        "xp": 2,
-        "level": 1,
-        "xpToNext": 120,
-        "collection": [
-          "cherry",
-          "lemon"
-        ],
-        "collectionRewardGiven": false,
-        "missions": [
-          {
-            "id": "games",
-            "title": "Сыграй 10 игр",
-            "target": 10,
-            "reward": 30,
-            "progress": 1,
-            "claimed": false
-          },
-          {
-            "id": "wins",
-            "title": "Победи 5 раз",
-            "target": 5,
-            "reward": 50,
-            "progress": 0,
-            "claimed": false
-          },
-          {
-            "id": "triple",
-            "title": "Получи трипу в костях",
-            "target": 1,
-            "reward": 75,
-            "progress": 0,
-            "claimed": false
-          },
-          {
-            "id": "jackpot",
-            "title": "Сорви джекпот",
-            "target": 1,
-            "reward": 100,
-            "progress": 0,
-            "claimed": false
-          }
-        ],
-        "chestStats": {
-          "opened": 1,
-          "best": 90,
-          "types": [
-            "free"
-          ]
-        },
-        "chestCooldowns": {
-          "free": 1795901814119
-        },
-        "gifts": {},
-        "giftStats": {
-          "sold": 1,
-          "earned": 90,
-          "received": 1,
-          "found": [
-            "musicBox"
-          ]
-        },
-        "activeView": "gifts",
-        "unlocked": [
-          "giftSell"
-        ],
-        "activeGame": "slots",
-        "cardsChoice": "spades",
-        "soundEnabled": false,
-        "lastActionAt": 0,
-        "actionWindowStart": 0,
-        "actionCount": 0
-      }
     }
   },
   "tokens": {
     "f6cbb883479d36ed93e7817f9525f9fa4a1936b05fcc5d3f72c5f28d9c6b7c79": "егор",
-    "3701ad15d2357814e30320aae93a1aebb2cf183b4016a39fc29bb77773f7c48d": "bot920058",
-    "b975f4d1494f903d1b37f8620bdf759dc711d67ad76903b657276c206a1035ee": "bot981290",
-    "d3f66b256d809c7915e2d0a21499658450c9620de34fffcbcd01c377abe47d33": "bot730544",
     "f6c3d30193f558cd02c16788af0d43bab41436aacbd89a0396fd5fdc764bf3fa": "pithp"
   },
   "leaderboard": [
@@ -780,7 +458,7 @@
       "chests": 37,
       "achievements": 5,
       "rank": "Игрок",
-      "ts": 1795815452599
+      "ts": 1795815455215
     },
     {
       "name": "pithp",
@@ -794,28 +472,6 @@
       "ts": 1795815443187
     },
     {
-      "name": "bot730544",
-      "level": 1,
-      "balance": 189,
-      "games": 1,
-      "gifts": 0,
-      "chests": 1,
-      "achievements": 1,
-      "rank": "Новичок",
-      "ts": 1795815422588
-    },
-    {
-      "name": "bot981290",
-      "level": 1,
-      "balance": 123,
-      "games": 2,
-      "gifts": 0,
-      "chests": 1,
-      "achievements": 1,
-      "rank": "Новичок",
-      "ts": 1795815432502
-    },
-    {
       "name": "Ольга",
       "level": 1,
       "balance": 100,
@@ -825,17 +481,6 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795729367800
-    },
-    {
-      "name": "bot920058",
-      "level": 1,
-      "balance": 98,
-      "games": 2,
-      "gifts": 1,
-      "chests": 1,
-      "achievements": 0,
-      "rank": "Новичок",
-      "ts": 1795815431495
     }
   ],
   "admin": {
