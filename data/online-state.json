@@ -441,7 +441,7 @@
       "hash": "sha256-aed7ca68d101dcae46ef044a1ea50f4f209a9e0b760fa9ef3f504288fb47c2eb",
       "created": 1795810154647,
       "updated": 1795810154647,
-      "sessionAt": 1795810154647,
+      "sessionAt": 1795810285868,
       "profile": {
         "balance": 100,
         "currentBet": 1,
@@ -518,7 +518,7 @@
   "tokens": {
     "31a4267d1737784006daba78b0a5b68823ac46ab3cfe995b53c3544f66a88d32": "pithp",
     "710b36cb333c482a471ddef322d3b42eadb9f89c17c1695f199426b5fa780cfa": "егор",
-    "3f1a86ec7c5682c90d391662386876295505fc6cc67b718c712ec993d89353a1": "_neoncfg"
+    "8858b4897e2ea9791a3e920d6f7f6c5a56e4c8a97cc081534d96f366fa9bca07": "_neoncfg"
   },
   "leaderboard": [
     {
