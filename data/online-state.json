@@ -450,142 +450,11 @@
         "actionCount": 0
       },
       "sessionAt": 1795810651372
-    },
-    "dotest": {
-      "name": "dotest",
-      "hash": "sha256-11cd1a83013366caf7a6a781d5599ec89c162b29c4e3fb617fd8af06d682e7e8",
-      "created": 1795813825736,
-      "updated": 1795813829612,
-      "sessionAt": 1795813825736,
-      "profile": {
-        "balance": 92,
-        "currentBet": 1,
-        "stats": {
-          "spins": 8,
-          "wins": 0,
-          "best": 0
-        },
-        "history": [
-          {
-            "glyph": "roulette",
-            "icons": [
-              "10",
-              "black"
-            ],
-            "delta": -1
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "9",
-              "red"
-            ],
-            "delta": -1
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "10",
-              "black"
-            ],
-            "delta": -1
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "8",
-              "black"
-            ],
-            "delta": -1
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "4",
-              "black"
-            ],
-            "delta": -1
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "1",
-              "red"
-            ],
-            "delta": -1
-          }
-        ],
-        "streak": 0,
-        "xp": 16,
-        "level": 1,
-        "xpToNext": 120,
-        "collection": [
-          "black",
-          "red"
-        ],
-        "collectionRewardGiven": false,
-        "missions": [
-          {
-            "id": "games",
-            "title": "Сыграй 10 игр",
-            "target": 10,
-            "reward": 30,
-            "progress": 8,
-            "claimed": false
-          },
-          {
-            "id": "wins",
-            "title": "Победи 5 раз",
-            "target": 5,
-            "reward": 50,
-            "progress": 0,
-            "claimed": false
-          },
-          {
-            "id": "triple",
-            "title": "Получи трипу в костях",
-            "target": 1,
-            "reward": 75,
-            "progress": 0,
-            "claimed": false
-          },
-          {
-            "id": "jackpot",
-            "title": "Сорви джекпот",
-            "target": 1,
-            "reward": 100,
-            "progress": 0,
-            "claimed": false
-          }
-        ],
-        "chestStats": {
-          "opened": 0,
-          "best": 0,
-          "types": []
-        },
-        "chestCooldowns": {},
-        "gifts": {},
-        "giftStats": {
-          "sold": 0,
-          "earned": 0,
-          "received": 0,
-          "found": []
-        },
-        "activeView": "games",
-        "unlocked": [],
-        "activeGame": "roulette",
-        "cardsChoice": "spades",
-        "soundEnabled": true,
-        "lastActionAt": 0,
-        "actionWindowStart": 0,
-        "actionCount": 0
-      }
     }
   },
   "tokens": {
     "f6cbb883479d36ed93e7817f9525f9fa4a1936b05fcc5d3f72c5f28d9c6b7c79": "егор",
-    "91a15eca0a835ca6f603ea3e11d332a0fa994c5a836182b796c2e4e3dcb3134e": "pithp",
-    "99d6eac1aa81c41610c1a8d88dd9622b372f233896bfaa2d318ee8d8c52c594a": "dotest"
+    "91a15eca0a835ca6f603ea3e11d332a0fa994c5a836182b796c2e4e3dcb3134e": "pithp"
   },
   "leaderboard": [
     {
@@ -609,17 +478,6 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795729367800
-    },
-    {
-      "name": "dotest",
-      "level": 1,
-      "balance": 92,
-      "games": 8,
-      "gifts": 0,
-      "chests": 0,
-      "achievements": 0,
-      "rank": "Новичок",
-      "ts": 1795813829612
     },
     {
       "name": "pithp",
