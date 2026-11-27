@@ -79,9 +79,9 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795811771422,
+      "updated": 1795811773625,
       "profile": {
-        "balance": 85,
+        "balance": 25,
         "currentBet": 1,
         "stats": {
           "spins": 361,
@@ -201,7 +201,7 @@
           }
         ],
         "chestStats": {
-          "opened": 88,
+          "opened": 89,
           "best": 350,
           "types": [
             "free",
@@ -218,19 +218,20 @@
         "chestCooldowns": {
           "free": 1795888370619,
           "paper": 1795811773696,
+          "bronze": 1795811785625,
           "cosmic": 1795811775994
         },
         "gifts": {
           "ring": 2,
           "diamond": 1,
           "lamp": 2,
-          "trophy": 1,
+          "trophy": 2,
           "candy": 1
         },
         "giftStats": {
           "sold": 80,
           "earned": 9645,
-          "received": 87,
+          "received": 88,
           "found": [
             "postcard",
             "giftBox",
@@ -626,13 +627,13 @@
     {
       "name": "pithp",
       "level": 7,
-      "balance": 85,
+      "balance": 25,
       "games": 361,
-      "gifts": 7,
-      "chests": 88,
+      "gifts": 8,
+      "chests": 89,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795811771422
+      "ts": 1795811773625
     }
   ],
   "admin": {
