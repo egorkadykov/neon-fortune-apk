@@ -435,17 +435,9 @@
         "actionCount": 0
       },
       "sessionAt": 1795809774992
-    },
-    "_neoncfg": {
-      "name": "_neoncfg",
-      "hash": "sha256-aed7ca68d101dcae46ef044a1ea50f4f209a9e0b760fa9ef3f504288fb47c2eb",
-      "created": 1795809577987,
-      "updated": 1795809577987,
-      "profile": null
     }
   },
   "tokens": {
-    "cb3bff3fc1121a79e78d79939a5ac90d": "_neoncfg",
     "31a4267d1737784006daba78b0a5b68823ac46ab3cfe995b53c3544f66a88d32": "pithp",
     "710b36cb333c482a471ddef322d3b42eadb9f89c17c1695f199426b5fa780cfa": "егор"
   },
@@ -482,17 +474,6 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795729367800
-    },
-    {
-      "name": "_neoncfg",
-      "level": 1,
-      "balance": 100,
-      "games": 0,
-      "gifts": 0,
-      "chests": 0,
-      "achievements": 0,
-      "rank": "Новичок",
-      "ts": 1795809577987
     }
   ],
   "admin": {
