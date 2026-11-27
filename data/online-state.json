@@ -449,17 +449,26 @@
       "name": "latencytest",
       "hash": "sha256-86d85960693c6aeb40f89a6df16927b30b74b1edd03123c2ee6ffd83e394cec6",
       "created": 1795811720513,
-      "updated": 1795811721192,
+      "updated": 1795811721481,
       "sessionAt": 1795811720513,
       "profile": {
-        "balance": 97,
+        "balance": 96,
         "currentBet": 1,
         "stats": {
-          "spins": 3,
+          "spins": 4,
           "wins": 0,
           "best": 0
         },
         "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "bell",
+              "seven",
+              "cherry"
+            ],
+            "delta": -1
+          },
           {
             "glyph": "slots",
             "icons": [
@@ -489,7 +498,7 @@
           }
         ],
         "streak": 0,
-        "xp": 6,
+        "xp": 8,
         "level": 1,
         "xpToNext": 120,
         "collection": [
@@ -498,7 +507,8 @@
           "cherry",
           "star",
           "diamond",
-          "melon"
+          "melon",
+          "seven"
         ],
         "collectionRewardGiven": false,
         "missions": [
@@ -507,7 +517,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 3,
+            "progress": 4,
             "claimed": false
           },
           {
@@ -601,13 +611,13 @@
     {
       "name": "latencytest",
       "level": 1,
-      "balance": 97,
-      "games": 3,
+      "balance": 96,
+      "games": 4,
       "gifts": 0,
       "chests": 0,
       "achievements": 0,
       "rank": "Новичок",
-      "ts": 1795811721192
+      "ts": 1795811721481
     }
   ],
   "admin": {
