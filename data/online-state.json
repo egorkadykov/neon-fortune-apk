@@ -79,9 +79,9 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795812332721,
+      "updated": 1795812333750,
       "profile": {
-        "balance": 0,
+        "balance": 5,
         "currentBet": 1,
         "stats": {
           "spins": 361,
@@ -225,14 +225,13 @@
           "diamond": 1,
           "lamp": 2,
           "trophy": 3,
-          "candy": 1,
           "teddy": 1,
           "bike": 1,
           "camera": 1
         },
         "giftStats": {
-          "sold": 80,
-          "earned": 9645,
+          "sold": 81,
+          "earned": 9650,
           "received": 92,
           "found": [
             "postcard",
@@ -485,13 +484,13 @@
     {
       "name": "pithp",
       "level": 7,
-      "balance": 0,
+      "balance": 5,
       "games": 361,
-      "gifts": 12,
+      "gifts": 11,
       "chests": 94,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795812332721
+      "ts": 1795812333750
     }
   ],
   "admin": {
