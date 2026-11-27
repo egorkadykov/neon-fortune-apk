@@ -272,10 +272,10 @@
       "name": "Егор",
       "hash": "sha256-03aaef0fd45d47ee37afee60b41f0a80010f58f95d3d34e9b7dc253c8558bf2a",
       "created": 1795801871294,
-      "updated": 1795819124902,
+      "updated": 1795819178514,
       "profile": {
         "balance": 9451,
-        "currentBet": 100,
+        "currentBet": 25,
         "stats": {
           "spins": 167,
           "wins": 20,
@@ -455,7 +455,7 @@
       "chests": 37,
       "achievements": 5,
       "rank": "Игрок",
-      "ts": 1795819124902
+      "ts": 1795819178514
     },
     {
       "name": "pithp",
