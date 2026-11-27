@@ -79,7 +79,7 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795816904395,
+      "updated": 1795817029996,
       "profile": {
         "balance": 226,
         "currentBet": 100,
@@ -269,16 +269,24 @@
       "name": "Егор",
       "hash": "sha256-03aaef0fd45d47ee37afee60b41f0a80010f58f95d3d34e9b7dc253c8558bf2a",
       "created": 1795801871294,
-      "updated": 1795817025498,
+      "updated": 1795817029169,
       "profile": {
-        "balance": 999967,
-        "currentBet": 5,
+        "balance": 999867,
+        "currentBet": 100,
         "stats": {
-          "spins": 153,
+          "spins": 154,
           "wins": 16,
           "best": 1000
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "7",
+              "red"
+            ],
+            "delta": -100
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -322,19 +330,10 @@
               "slotDie"
             ],
             "delta": -3
-          },
-          {
-            "glyph": "slots",
-            "icons": [
-              "melon",
-              "bell",
-              "seven"
-            ],
-            "delta": -5
           }
         ],
-        "streak": 1,
-        "xp": 254,
+        "streak": 0,
+        "xp": 256,
         "level": 3,
         "xpToNext": 360,
         "collection": [
@@ -451,13 +450,13 @@
     {
       "name": "Егор",
       "level": 3,
-      "balance": 999967,
-      "games": 153,
+      "balance": 999867,
+      "games": 154,
       "gifts": 0,
       "chests": 37,
       "achievements": 5,
       "rank": "Игрок",
-      "ts": 1795817025498
+      "ts": 1795817029169
     },
     {
       "name": "pithp",
@@ -468,7 +467,7 @@
       "chests": 94,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795816904395
+      "ts": 1795817029996
     },
     {
       "name": "Ольга",
