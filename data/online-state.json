@@ -79,9 +79,9 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795812307550,
+      "updated": 1795812312761,
       "profile": {
-        "balance": 900,
+        "balance": 100,
         "currentBet": 1,
         "stats": {
           "spins": 361,
@@ -201,8 +201,8 @@
           }
         ],
         "chestStats": {
-          "opened": 92,
-          "best": 350,
+          "opened": 93,
+          "best": 450,
           "types": [
             "free",
             "paper",
@@ -217,7 +217,8 @@
         },
         "chestCooldowns": {
           "free": 1795888370619,
-          "silver": 1795812320396
+          "silver": 1795812320396,
+          "legendary": 1795812372761
         },
         "gifts": {
           "ring": 2,
@@ -225,12 +226,13 @@
           "lamp": 2,
           "trophy": 3,
           "candy": 1,
-          "teddy": 1
+          "teddy": 1,
+          "bike": 1
         },
         "giftStats": {
           "sold": 80,
           "earned": 9645,
-          "received": 90,
+          "received": 91,
           "found": [
             "postcard",
             "giftBox",
@@ -250,7 +252,8 @@
             "scarf",
             "bouquet",
             "console",
-            "cake"
+            "cake",
+            "bike"
           ]
         },
         "activeView": "chests",
@@ -470,13 +473,13 @@
     {
       "name": "pithp",
       "level": 7,
-      "balance": 900,
+      "balance": 100,
       "games": 361,
-      "gifts": 10,
-      "chests": 92,
+      "gifts": 11,
+      "chests": 93,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795812307550
+      "ts": 1795812312761
     },
     {
       "name": "Ольга",
