@@ -101,10 +101,20 @@
     });
   }
 
-  function applyServerProfile(profile) {
+  // Ни в коем случае не применяем пустой профиль: он означает дефолтные
+  // 100 звёзд. Если ответ сервера не содержал профиль — переспрашиваем сессию.
+  function applyServerProfile(profile, retried) {
+    if (!profile) {
+      if (!retried && token()) {
+        api('/session', { token: token() }).then(function (session) {
+          applyServerProfile(session.user && session.user.profile, true);
+        }).catch(function () {});
+      }
+      return;
+    }
     var auto = autoEnabled;
     var timer = autoTimer;
-    applyProfile(profile || null);
+    applyProfile(profile);
     if (auto) {
       autoEnabled = true;
       autoTimer = timer;
@@ -136,6 +146,16 @@
       discovered: details && details.discovered ? details.discovered : []
     };
     originalFinishRound(merged);
+    if (!serverResult) {
+      // Ход пришёл не через серверный слой (например, событие привязано к
+      // старой функции) — возвращаем настоящий баланс с сервера.
+      setStatus('ход без проверки — синхронизируем', 'warn');
+      applyServerProfile(null);
+      serverRolls = [];
+      serverResult = null;
+      fetchLeaderboard();
+      return;
+    }
     applyServerProfile(result.profile);
     serverRolls = [];
     serverResult = null;
@@ -243,6 +263,30 @@
       setStatus('ошибка продажи · ' + friendly(error), 'warn');
     });
   };
+
+  // В игре кнопки привязаны к функциям через addEventListener при загрузке
+  // страницы — ссылка указывает на оригинальную функцию, поэтому простой
+  // перехват глобальной переменной не работает. Ловим клик на document в
+  // фазе capture и запускаем серверные версии.
+  document.addEventListener('click', function (event) {
+    var target = event.target;
+    if (!target || !target.closest) return;
+    if (target.closest('#playBtn')) {
+      var playButton = byId('playBtn');
+      if (!playButton || playButton.disabled || !currentUser || !token()) return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      play();
+      return;
+    }
+    if (target.closest('#sellAllBtn')) {
+      var sellButton = byId('sellAllBtn');
+      if (!sellButton || sellButton.disabled || !currentUser || !token()) return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      sellAllGifts();
+    }
+  }, true);
 
   // Настройки (ставка, вкладка, звук) — косметика. Сервер хранит их,
   // но никогда не берёт отсюда баланс или прогресс.
