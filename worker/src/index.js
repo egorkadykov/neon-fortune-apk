@@ -991,7 +991,11 @@ export default {
     const ip = request.headers.get('cf-connecting-ip') ||
       (request.headers.get('x-forwarded-for') || '').split(',')[0].trim() || 'unknown';
     const login = path === '/login';
-    const limiter = login ? environment.AUTH_GUARD : environment.API_GUARD;
+    // Проверку сессии не ограничиваем: временный 429 заставлял старый клиент
+    // удалить токен и требовать вход заново. Лимиты nella остальных роутов
+    // Остальные запросы по-прежнему ограничены.
+    const skipLimit = path === '/session';
+    const limiter = skipLimit ? null : login ? environment.AUTH_GUARD : environment.API_GUARD;
     if (limiter) {
       // Ход стоит дороже чтения таблицы лидеров, вход — отдельный квотный пул.
       const delta = login ? 2 : path === '/state' ? 1 : 2;
