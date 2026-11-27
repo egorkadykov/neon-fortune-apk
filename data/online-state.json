@@ -82,7 +82,7 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795820544703,
+      "updated": 1795820547402,
       "profile": {
         "balance": 281,
         "currentBet": 100,
@@ -221,8 +221,6 @@
         "chestCooldowns": {
           "free": 1795888370619,
           "wood": 1795820552703,
-          "bronze": 1795820546524,
-          "silver": 1795820546227,
           "gold": 1795820552711,
           "diamond": 1795820563894,
           "cosmic": 1795820554183
@@ -477,7 +475,7 @@
       "chests": 100,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795820544703
+      "ts": 1795820547402
     },
     {
       "name": "Ольга",
