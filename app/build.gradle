@@ -6,18 +6,37 @@ android {
     namespace 'com.neonfortune.app'
     compileSdk 34
 
+    // Один постоянный ключ подписи: только так Android разрешает доустановить
+    // новую версию прямо из приложения. Файл ключа создаётся в CI из секрета.
+    signingConfigs {
+        update {
+            storeFile file('neon.jks')
+            storePassword 'neon2026'
+            keyAlias 'neon'
+            keyPassword 'neon2026'
+        }
+    }
+
     defaultConfig {
         applicationId 'com.neonfortune.app'
         minSdk 21
         targetSdk 34
-        versionCode 1
-        versionName '1.0'
+        versionCode Integer.valueOf(System.getenv('APP_VERSION_CODE') ?: '1')
+        versionName System.getenv('APP_VERSION_NAME') ?: '1.0'
+    }
+
+    buildFeatures {
+        buildConfig true
     }
 
     buildTypes {
+        debug {
+            signingConfig signingConfigs.update
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.update
         }
     }
 
