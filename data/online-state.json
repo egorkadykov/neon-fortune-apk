@@ -82,9 +82,9 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795820605920,
+      "updated": 1795820609777,
       "profile": {
-        "balance": 196,
+        "balance": 16,
         "currentBet": 100,
         "stats": {
           "spins": 518,
@@ -204,7 +204,7 @@
           }
         ],
         "chestStats": {
-          "opened": 109,
+          "opened": 110,
           "best": 1000,
           "types": [
             "free",
@@ -222,10 +222,10 @@
           "free": 1795888370619,
           "bronze": 1795820610837,
           "silver": 1795820620920,
-          "gold": 1795820605977
+          "gold": 1795820634777
         },
         "gifts": {
-          "trophy": 1,
+          "trophy": 2,
           "camera": 1,
           "crownGem": 1,
           "ring": 1,
@@ -235,7 +235,7 @@
         "giftStats": {
           "sold": 100,
           "earned": 11960,
-          "received": 106,
+          "received": 107,
           "found": [
             "postcard",
             "giftBox",
@@ -469,17 +469,6 @@
       "ts": 1795820145947
     },
     {
-      "name": "pithp",
-      "level": 8,
-      "balance": 196,
-      "games": 518,
-      "gifts": 6,
-      "chests": 109,
-      "achievements": 7,
-      "rank": "Мастер",
-      "ts": 1795820605920
-    },
-    {
       "name": "Ольга",
       "level": 1,
       "balance": 100,
@@ -489,6 +478,17 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795817400915
+    },
+    {
+      "name": "pithp",
+      "level": 8,
+      "balance": 16,
+      "games": 518,
+      "gifts": 7,
+      "chests": 110,
+      "achievements": 7,
+      "rank": "Мастер",
+      "ts": 1795820609777
     }
   ],
   "admin": {
