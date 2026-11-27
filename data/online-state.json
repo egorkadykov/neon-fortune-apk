@@ -79,7 +79,7 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795817140253,
+      "updated": 1795817145488,
       "profile": {
         "balance": 20,
         "currentBet": 10,
@@ -246,7 +246,7 @@
             "bike"
           ]
         },
-        "activeView": "games",
+        "activeView": "top",
         "unlocked": [
           "games10",
           "first",
@@ -256,7 +256,7 @@
           "jackpot",
           "allChests"
         ],
-        "activeGame": "roulette",
+        "activeGame": "cards",
         "cardsChoice": "spades",
         "soundEnabled": true,
         "lastActionAt": 0,
@@ -269,7 +269,7 @@
       "name": "Егор",
       "hash": "sha256-03aaef0fd45d47ee37afee60b41f0a80010f58f95d3d34e9b7dc253c8558bf2a",
       "created": 1795801871294,
-      "updated": 1795817116544,
+      "updated": 1795817143893,
       "profile": {
         "balance": 999587,
         "currentBet": 100,
@@ -452,7 +452,7 @@
       "chests": 37,
       "achievements": 5,
       "rank": "Игрок",
-      "ts": 1795817116544
+      "ts": 1795817143893
     },
     {
       "name": "Ольга",
@@ -474,7 +474,7 @@
       "chests": 94,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795817140253
+      "ts": 1795817145488
     }
   ],
   "admin": {
