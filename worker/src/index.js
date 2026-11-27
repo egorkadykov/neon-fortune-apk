@@ -15,6 +15,11 @@ const MAX_GAIN_PER_ACTION = 10000;
 const MIN_ACTION_MS = 120;
 const MAX_ACTIONS_PER_MIN = 180;
 const SESSION_MAX_MS = 30 * 24 * 60 * 60 * 1000;
+// Защита от массовой регистрации ботов и от перегрузки сервера.
+const MAX_BODY_BYTES = 16384;
+const MAX_USERS = 500;
+const MAX_REGISTRATIONS_PER_HOUR = 10;
+const MAX_SAME_PASSWORD_USERS = 3;
 const MAX_BET = 100;
 const BETS = [1, 5, 10, 25, 50, 100];
 const GAMES = ['slots', 'dice', 'roulette', 'darts', 'cards'];
@@ -744,14 +749,18 @@ async function handle(request, ctx) {
   const path = url.pathname.replace(/\/$/, '') || '/state';
 
   if (path === '/state' && request.method === 'GET') {
-    const server = await loadState(url.searchParams.has('reload'));
+    // Принудительное чтение GitHub доступно только фоновой синхронизации DO.
+    // Злоумышленник не может заставить сервер лезть в GitHub через ?reload.
+    const server = await loadState(false);
     return reply({ ok: true, state: publicState(server.state) });
   }
   if (request.method !== 'POST') return fail('Метод не поддерживается', 405);
 
   let body;
   try {
-    body = await request.json();
+    const raw = await request.text();
+    if (raw.length > MAX_BODY_BYTES) return fail('Слишком большой запрос', 413);
+    body = JSON.parse(raw);
   } catch (error) {
     return fail('Некорректный запрос');
   }
@@ -767,6 +776,9 @@ async function handle(request, ctx) {
       const key = keyFor(name);
       if (mode === 'register') {
         if (state.users[key]) throw new Error('Такой игрок уже есть — войди или придумай другой ник');
+        if (Object.keys(state.users).length >= MAX_USERS) throw new Error('Сервер переполнен — попробуйте позже');
+        if (/^bot\d+$/i.test(key)) throw new Error('Такое имя нельзя использовать');
+        if (store && store.registerGuard) store.registerGuard(hash);
         const bytes = new Uint8Array(32);
         crypto.getRandomValues(bytes);
         const token = Array.from(bytes, (b) => ('0' + b.toString(16)).slice(-2)).join('');
@@ -866,6 +878,31 @@ export class FortuneState {
     this.sha = null;
     this.dirty = false;
     this.loading = null;
+    this.registerTimes = [];
+    this.registerHashes = new Map();
+  }
+
+  // Строгий глобальный лимит внутри одного Durable Object: боты с разных IP
+  // не могут завести сотни аккаунтов, даже обойдя сетевой лимит Cloudflare.
+  registerGuard(hash) {
+    const now = Date.now();
+    this.registerTimes = (this.registerTimes || []).filter((t) => now - t < 60 * 60 * 1000);
+    if (this.registerTimes.length >= MAX_REGISTRATIONS_PER_HOUR) {
+      throw new Error('Слишком много регистраций — попробуйте позже');
+    }
+    const hashes = this.registerHashes || new Map();
+    for (const [saved, info] of hashes) {
+      if (now - info.at > 24 * 60 * 60 * 1000) hashes.delete(saved);
+    }
+    const info = hashes.get(hash) || { count: 0, at: now };
+    if (info.count >= MAX_SAME_PASSWORD_USERS) {
+      throw new Error('Этот пароль уже используют слишком много игроков');
+    }
+    info.count += 1;
+    info.at = now;
+    hashes.set(hash, info);
+    this.registerHashes = hashes;
+    this.registerTimes.push(now);
   }
 
   ensure(force) {
@@ -943,6 +980,31 @@ export class FortuneState {
 export default {
   async fetch(request, environment) {
     env = environment;
+
+    // Дешёвые ответы и отсечение мусора — до обращения к Durable Object.
+    if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: CORS });
+
+    const path = new URL(request.url).pathname.replace(/\/$/, '') || '/state';
+    const length = Number(request.headers.get('content-length') || 0);
+    if (length > MAX_BODY_BYTES) return fail('Слишком большой запрос', 413);
+
+    const ip = request.headers.get('cf-connecting-ip') ||
+      (request.headers.get('x-forwarded-for') || '').split(',')[0].trim() || 'unknown';
+    const login = path === '/login';
+    const limiter = login ? environment.AUTH_GUARD : environment.API_GUARD;
+    if (limiter) {
+      // Ход стоит дороже чтения таблицы лидеров, вход — отдельный квотный пул.
+      const delta = login ? 2 : path === '/state' ? 1 : 2;
+      let allowed = true;
+      try {
+        const decision = await limiter.limit({ key: ip, delta });
+        allowed = decision && decision.success !== false;
+      } catch (error) {
+        // При недоступности лимитера не блокируем игроков.
+      }
+      if (!allowed) return fail('Слишком много запросов — попробуйте позже', 429);
+    }
+
     const id = environment.STATE.idFromName('global');
     return environment.STATE.get(id).fetch(request);
   }
