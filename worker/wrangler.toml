@@ -10,3 +10,20 @@ class_name = "FortuneState"
 [[migrations]]
 tag = "v1"
 new_sqlite_classes = ["FortuneState"]
+
+# Лимиты на границе Cloudflare: отсекают флуд до попадания в Durable Object.
+[[ratelimits]]
+name = "API_GUARD"
+namespace_id = "710001"
+
+  [ratelimits.simple]
+  limit = 600
+  period = 60
+
+[[ratelimits]]
+name = "AUTH_GUARD"
+namespace_id = "710002"
+
+  [ratelimits.simple]
+  limit = 12
+  period = 60
