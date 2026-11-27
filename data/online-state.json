@@ -79,7 +79,7 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795813951564,
+      "updated": 1795813953342,
       "profile": {
         "balance": 1455,
         "currentBet": 1,
@@ -246,7 +246,7 @@
             "bike"
           ]
         },
-        "activeView": "chests",
+        "activeView": "games",
         "unlocked": [
           "games10",
           "first",
@@ -469,7 +469,7 @@
       "chests": 94,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795813951564
+      "ts": 1795813953342
     },
     {
       "name": "Ольга",
