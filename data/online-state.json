@@ -79,10 +79,10 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795811561370,
+      "updated": 1795811563815,
       "profile": {
         "balance": 905,
-        "currentBet": 1,
+        "currentBet": 100,
         "stats": {
           "spins": 361,
           "wins": 258,
@@ -471,7 +471,7 @@
       "chests": 82,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795811561370
+      "ts": 1795811563815
     },
     {
       "name": "Ольга",
