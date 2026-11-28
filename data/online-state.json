@@ -147,16 +147,24 @@
     "pithp": {
       "name": "pithp",
       "created": 1795801746705,
-      "updated": 1795869538752,
+      "updated": 1795869541110,
       "profile": {
-        "balance": 3132,
+        "balance": 3282,
         "currentBet": 100,
         "stats": {
-          "spins": 576,
-          "wins": 368,
+          "spins": 577,
+          "wins": 369,
           "best": 2000
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "7",
+              "red"
+            ],
+            "delta": 150
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -196,18 +204,10 @@
               "red"
             ],
             "delta": 100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "4",
-              "black"
-            ],
-            "delta": -100
           }
         ],
-        "streak": 3,
-        "xp": 76,
+        "streak": 4,
+        "xp": 86,
         "level": 9,
         "xpToNext": 1080,
         "collection": [
@@ -328,9 +328,9 @@
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": true,
-        "lastActionAt": 1795869538752,
+        "lastActionAt": 1795869541110,
         "actionWindowStart": 1795869522085,
-        "actionCount": 8,
+        "actionCount": 9,
         "createdAt": 0
       },
       "sessionAt": 1795869388604
@@ -524,6 +524,17 @@
   "tokens": {},
   "leaderboard": [
     {
+      "name": "pithp",
+      "level": 9,
+      "balance": 3282,
+      "games": 577,
+      "gifts": 0,
+      "chests": 110,
+      "achievements": 7,
+      "rank": "Легенда",
+      "ts": 1795869541110
+    },
+    {
       "name": "Егор",
       "level": 4,
       "balance": 3264,
@@ -533,17 +544,6 @@
       "achievements": 8,
       "rank": "Игрок",
       "ts": 1795868711001
-    },
-    {
-      "name": "pithp",
-      "level": 9,
-      "balance": 3132,
-      "games": 576,
-      "gifts": 0,
-      "chests": 110,
-      "achievements": 7,
-      "rank": "Легенда",
-      "ts": 1795869538752
     },
     {
       "name": "Ольга",
