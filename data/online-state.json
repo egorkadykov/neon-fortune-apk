@@ -340,7 +340,7 @@
       "name": "Егор",
       "hash": "sha256-03aaef0fd45d47ee37afee60b41f0a80010f58f95d3d34e9b7dc253c8558bf2a",
       "created": 1795801871294,
-      "updated": 1795864897373,
+      "updated": 1795865015552,
       "profile": {
         "balance": 3364,
         "currentBet": 100,
@@ -501,7 +501,7 @@
             "watch"
           ]
         },
-        "activeView": "games",
+        "activeView": "top",
         "unlocked": [
           "giftSell",
           "first",
@@ -521,12 +521,161 @@
         "createdAt": 0
       },
       "sessionAt": 1795864889490
+    },
+    "geni": {
+      "name": "Geni",
+      "hash": "fnv1a-139b415b",
+      "created": 1795865008839,
+      "updated": 1795865022219,
+      "sessionAt": 1795865008839,
+      "profile": {
+        "balance": 675,
+        "currentBet": 1,
+        "stats": {
+          "spins": 18,
+          "wins": 10,
+          "best": 250
+        },
+        "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "10",
+              "black"
+            ],
+            "delta": -100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "9",
+              "red"
+            ],
+            "delta": 100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "7",
+              "red"
+            ],
+            "delta": 100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "6",
+              "black"
+            ],
+            "delta": -100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "11",
+              "red"
+            ],
+            "delta": 100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "5",
+              "red"
+            ],
+            "delta": 100
+          }
+        ],
+        "streak": 0,
+        "xp": 116,
+        "level": 1,
+        "xpToNext": 120,
+        "collection": [
+          "red",
+          "black"
+        ],
+        "collectionRewardGiven": false,
+        "missions": [
+          {
+            "id": "games",
+            "title": "Сыграй 10 игр",
+            "target": 10,
+            "reward": 30,
+            "progress": 10,
+            "claimed": true
+          },
+          {
+            "id": "wins",
+            "title": "Победи 5 раз",
+            "target": 5,
+            "reward": 50,
+            "progress": 5,
+            "claimed": true
+          },
+          {
+            "id": "triple",
+            "title": "Получи трипу в костях",
+            "target": 1,
+            "reward": 75,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "jackpot",
+            "title": "Сорви джекпот",
+            "target": 1,
+            "reward": 100,
+            "progress": 0,
+            "claimed": false
+          }
+        ],
+        "chestStats": {
+          "opened": 5,
+          "best": 150,
+          "types": [
+            "bronze",
+            "paper",
+            "free"
+          ]
+        },
+        "chestCooldowns": {
+          "free": 1795951410929,
+          "bronze": 1795865033805
+        },
+        "gifts": {},
+        "giftStats": {
+          "sold": 5,
+          "earned": 360,
+          "received": 5,
+          "found": [
+            "camera",
+            "musicBox",
+            "brick",
+            "diamond"
+          ]
+        },
+        "activeView": "gifts",
+        "unlocked": [
+          "giftSell",
+          "first",
+          "streak3",
+          "games10"
+        ],
+        "activeGame": "roulette",
+        "cardsChoice": "spades",
+        "soundEnabled": false,
+        "lastActionAt": 1795865022219,
+        "actionWindowStart": 1795865009267,
+        "actionCount": 30,
+        "createdAt": 1795865008839
+      }
     }
   },
   "tokens": {
     "685ba5a696832690777021bd7b1b884b655d7bc5c2ce03d7626cf2eedd189ee5": "ольга",
     "c53ef96e7eb97147267df0b07b510d999c31b2a1b396484c6122490a41ee9847": "pithp",
-    "9897d70088cd150d5ab288f3d56d71e87ee2a8b6937c68863446b18a8669f22f": "егор"
+    "9897d70088cd150d5ab288f3d56d71e87ee2a8b6937c68863446b18a8669f22f": "егор",
+    "563f5abb5d1d5a11ba380a541133fdd69a3cc6322842809f89dfcda66a53a2b7": "geni"
   },
   "leaderboard": [
     {
@@ -538,7 +687,7 @@
       "chests": 40,
       "achievements": 8,
       "rank": "Игрок",
-      "ts": 1795864897373
+      "ts": 1795865015552
     },
     {
       "name": "pithp",
@@ -550,6 +699,17 @@
       "achievements": 7,
       "rank": "Мастер",
       "ts": 1795863908017
+    },
+    {
+      "name": "Geni",
+      "level": 1,
+      "balance": 675,
+      "games": 18,
+      "gifts": 0,
+      "chests": 5,
+      "achievements": 4,
+      "rank": "Новичок",
+      "ts": 1795865022219
     },
     {
       "name": "Ольга",
