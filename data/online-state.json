@@ -525,7 +525,7 @@
       "name": "nbx00019119",
       "hash": "fnv1a-788f8607",
       "created": 1795863958402,
-      "updated": 1795864221544,
+      "updated": 1795864249290,
       "sessionAt": 1795864217876,
       "profile": {
         "balance": 5673,
@@ -639,8 +639,7 @@
           ]
         },
         "chestCooldowns": {
-          "free": 1795950360234,
-          "bronze": 1795864225196
+          "free": 1795950360234
         },
         "gifts": {},
         "giftStats": {
@@ -1029,7 +1028,7 @@
       "chests": 39,
       "achievements": 5,
       "rank": "Профи",
-      "ts": 1795864221544
+      "ts": 1795864249290
     },
     {
       "name": "Егор",
