@@ -338,16 +338,24 @@
     "егор": {
       "name": "Егор",
       "created": 1795801871294,
-      "updated": 1795870398109,
+      "updated": 1795870400136,
       "profile": {
-        "balance": 3475,
+        "balance": 3450,
         "currentBet": 100,
         "stats": {
-          "spins": 291,
+          "spins": 292,
           "wins": 47,
           "best": 1200
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "0",
+              "green"
+            ],
+            "delta": -100
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -387,20 +395,12 @@
               "black"
             ],
             "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "0",
-              "green"
-            ],
-            "delta": 11
           }
         ],
         "streak": 0,
-        "xp": 478,
-        "level": 4,
-        "xpToNext": 480,
+        "xp": 0,
+        "level": 5,
+        "xpToNext": 600,
         "collection": [
           "lemon",
           "diamond",
@@ -516,9 +516,9 @@
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": true,
-        "lastActionAt": 1795870397819,
+        "lastActionAt": 1795870400035,
         "actionWindowStart": 1795870384982,
-        "actionCount": 5,
+        "actionCount": 6,
         "createdAt": 0
       },
       "sessionAt": 1795870097815
@@ -539,14 +539,14 @@
     },
     {
       "name": "Егор",
-      "level": 4,
-      "balance": 3475,
-      "games": 291,
+      "level": 5,
+      "balance": 3450,
+      "games": 292,
       "gifts": 0,
       "chests": 52,
       "achievements": 9,
-      "rank": "Игрок",
-      "ts": 1795870398109
+      "rank": "Профи",
+      "ts": 1795870400136
     },
     {
       "name": "Ольга",
