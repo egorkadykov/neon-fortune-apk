@@ -445,17 +445,26 @@
       "name": "nbxTESTaudit1",
       "hash": "sha256-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       "created": 1795861131073,
-      "updated": 1795861142021,
+      "updated": 1795861143257,
       "sessionAt": 1795861131073,
       "profile": {
-        "balance": 100,
+        "balance": 99,
         "currentBet": 1,
         "stats": {
-          "spins": 8,
+          "spins": 9,
           "wins": 0,
           "best": 0
         },
         "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "star",
+              "melon",
+              "melon"
+            ],
+            "delta": -1
+          },
           {
             "glyph": "slots",
             "icons": [
@@ -500,19 +509,10 @@
               "melon"
             ],
             "delta": -1
-          },
-          {
-            "glyph": "slots",
-            "icons": [
-              "star",
-              "lemon",
-              "lemon"
-            ],
-            "delta": -1
           }
         ],
         "streak": 0,
-        "xp": 16,
+        "xp": 18,
         "level": 1,
         "xpToNext": 120,
         "collection": [
@@ -532,7 +532,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 8,
+            "progress": 9,
             "claimed": false
           },
           {
@@ -613,17 +613,6 @@
       "ts": 1795857441695
     },
     {
-      "name": "nbxTESTaudit1",
-      "level": 1,
-      "balance": 100,
-      "games": 8,
-      "gifts": 0,
-      "chests": 2,
-      "achievements": 0,
-      "rank": "Новичок",
-      "ts": 1795861142021
-    },
-    {
       "name": "Ольга",
       "level": 1,
       "balance": 100,
@@ -633,6 +622,17 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795817400915
+    },
+    {
+      "name": "nbxTESTaudit1",
+      "level": 1,
+      "balance": 99,
+      "games": 9,
+      "gifts": 0,
+      "chests": 2,
+      "achievements": 0,
+      "rank": "Новичок",
+      "ts": 1795861143257
     }
   ],
   "admin": {
