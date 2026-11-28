@@ -338,9 +338,9 @@
     "егор": {
       "name": "Егор",
       "created": 1795801871294,
-      "updated": 1795870133729,
+      "updated": 1795870135285,
       "profile": {
-        "balance": 3364,
+        "balance": 3304,
         "currentBet": 5,
         "stats": {
           "spins": 259,
@@ -462,7 +462,7 @@
           }
         ],
         "chestStats": {
-          "opened": 42,
+          "opened": 43,
           "best": 275,
           "types": [
             "free",
@@ -477,13 +477,16 @@
           ]
         },
         "chestCooldowns": {
-          "free": 1795888348339
+          "free": 1795888348339,
+          "bronze": 1795870147285
         },
-        "gifts": {},
+        "gifts": {
+          "sneakers": 1
+        },
         "giftStats": {
           "sold": 39,
           "earned": 4330,
-          "received": 39,
+          "received": 40,
           "found": [
             "cake",
             "teddy",
@@ -514,9 +517,9 @@
         "activeGame": "slots",
         "cardsChoice": "spades",
         "soundEnabled": true,
-        "lastActionAt": 1795870127299,
+        "lastActionAt": 1795870135285,
         "actionWindowStart": 1795870116477,
-        "actionCount": 4,
+        "actionCount": 5,
         "createdAt": 0
       },
       "sessionAt": 1795870097815
@@ -538,13 +541,13 @@
     {
       "name": "Егор",
       "level": 4,
-      "balance": 3364,
+      "balance": 3304,
       "games": 259,
-      "gifts": 0,
-      "chests": 42,
+      "gifts": 1,
+      "chests": 43,
       "achievements": 8,
       "rank": "Игрок",
-      "ts": 1795870133729
+      "ts": 1795870135285
     },
     {
       "name": "Ольга",
