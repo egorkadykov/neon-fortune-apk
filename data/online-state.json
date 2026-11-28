@@ -147,9 +147,9 @@
     "pithp": {
       "name": "pithp",
       "created": 1795801746705,
-      "updated": 1795872473813,
+      "updated": 1795872478819,
       "profile": {
-        "balance": 10445,
+        "balance": 9995,
         "currentBet": 100,
         "stats": {
           "spins": 1229,
@@ -269,7 +269,7 @@
           }
         ],
         "chestStats": {
-          "opened": 110,
+          "opened": 111,
           "best": 1000,
           "types": [
             "free",
@@ -284,13 +284,16 @@
           ]
         },
         "chestCooldowns": {
-          "free": 1795888370619
+          "free": 1795888370619,
+          "cosmic": 1795872513819
         },
-        "gifts": {},
+        "gifts": {
+          "trophy": 1
+        },
         "giftStats": {
           "sold": 107,
           "earned": 13750,
-          "received": 107,
+          "received": 108,
           "found": [
             "postcard",
             "giftBox",
@@ -328,9 +331,9 @@
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": true,
-        "lastActionAt": 1795872469721,
+        "lastActionAt": 1795872478819,
         "actionWindowStart": 1795872460653,
-        "actionCount": 5,
+        "actionCount": 6,
         "createdAt": 0
       },
       "sessionAt": 1795872026805
@@ -689,13 +692,13 @@
     {
       "name": "pithp",
       "level": 12,
-      "balance": 10445,
+      "balance": 9995,
       "games": 1229,
-      "gifts": 0,
-      "chests": 110,
+      "gifts": 1,
+      "chests": 111,
       "achievements": 7,
       "rank": "Легенда",
-      "ts": 1795872473813
+      "ts": 1795872478819
     },
     {
       "name": "Егор",
