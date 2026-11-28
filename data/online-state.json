@@ -76,7 +76,8 @@
         "lastActionAt": 0,
         "actionWindowStart": 0,
         "actionCount": 0
-      }
+      },
+      "sessionAt": 1795863655327
     },
     "pithp": {
       "name": "pithp",
@@ -456,7 +457,8 @@
   },
   "tokens": {
     "f6cbb883479d36ed93e7817f9525f9fa4a1936b05fcc5d3f72c5f28d9c6b7c79": "егор",
-    "de6f25ef0a1e60615c719e8357ea6b00c6e1966e9a27890e5a725b3d7debf1de": "pithp"
+    "de6f25ef0a1e60615c719e8357ea6b00c6e1966e9a27890e5a725b3d7debf1de": "pithp",
+    "6d2c92dfb4b02fcba44ffd1c7f1b71aca2aa98a3b25572487b1341747bec3b06": "ольга"
   },
   "leaderboard": [
     {
