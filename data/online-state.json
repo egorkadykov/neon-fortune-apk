@@ -445,10 +445,10 @@
       "name": "nbxTESTalpha",
       "hash": "fnv1a-a1b2c3d4",
       "created": 1795861279362,
-      "updated": 1795861319681,
+      "updated": 1795861357569,
       "sessionAt": 1795861279362,
       "profile": {
-        "balance": 100,
+        "balance": 90,
         "currentBet": 5,
         "stats": {
           "spins": 13,
@@ -556,28 +556,30 @@
           }
         ],
         "chestStats": {
-          "opened": 3,
+          "opened": 4,
           "best": 100,
           "types": [
             "bronze",
-            "wood"
+            "wood",
+            "paper"
           ]
         },
         "chestCooldowns": {
-          "wood": 1795861321592,
-          "bronze": 1795861325278
+          "paper": 1795861362569
         },
         "gifts": {
           "ring": 1,
-          "rose": 1
+          "rose": 1,
+          "candy": 1
         },
         "giftStats": {
           "sold": 0,
           "earned": 0,
-          "received": 2,
+          "received": 3,
           "found": [
             "ring",
-            "rose"
+            "rose",
+            "candy"
           ]
         },
         "activeView": "games",
@@ -624,17 +626,6 @@
       "ts": 1795857441695
     },
     {
-      "name": "nbxTESTalpha",
-      "level": 1,
-      "balance": 100,
-      "games": 13,
-      "gifts": 2,
-      "chests": 3,
-      "achievements": 3,
-      "rank": "Новичок",
-      "ts": 1795861319681
-    },
-    {
       "name": "Ольга",
       "level": 1,
       "balance": 100,
@@ -644,6 +635,17 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795817400915
+    },
+    {
+      "name": "nbxTESTalpha",
+      "level": 1,
+      "balance": 90,
+      "games": 13,
+      "gifts": 3,
+      "chests": 4,
+      "achievements": 3,
+      "rank": "Новичок",
+      "ts": 1795861357569
     }
   ],
   "admin": {
