@@ -445,17 +445,25 @@
       "name": "nb00041112",
       "hash": "fnv1a-258b654e",
       "created": 1795828669686,
-      "updated": 1795828675763,
+      "updated": 1795828681033,
       "sessionAt": 1795828669686,
       "profile": {
-        "balance": 465,
-        "currentBet": 100,
+        "balance": 615,
+        "currentBet": 1,
         "stats": {
-          "spins": 6,
-          "wins": 4,
+          "spins": 7,
+          "wins": 5,
           "best": 225
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "9",
+              "red"
+            ],
+            "delta": 100
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -495,18 +503,10 @@
               "red"
             ],
             "delta": 100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "0",
-              "green"
-            ],
-            "delta": -100
           }
         ],
-        "streak": 1,
-        "xp": 44,
+        "streak": 2,
+        "xp": 54,
         "level": 1,
         "xpToNext": 120,
         "collection": [
@@ -521,7 +521,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 6,
+            "progress": 7,
             "claimed": false
           },
           {
@@ -529,8 +529,8 @@
             "title": "Победи 5 раз",
             "target": 5,
             "reward": 50,
-            "progress": 4,
-            "claimed": false
+            "progress": 5,
+            "claimed": true
           },
           {
             "id": "triple",
@@ -560,7 +560,6 @@
         },
         "chestCooldowns": {
           "free": 1795915072499,
-          "paper": 1795828676555,
           "bronze": 1795828682547
         },
         "gifts": {},
@@ -574,7 +573,7 @@
             "teddy"
           ]
         },
-        "activeView": "games",
+        "activeView": "progress",
         "unlocked": [
           "giftSell",
           "first",
@@ -592,11 +591,11 @@
       "name": "nb00050130",
       "hash": "fnv1a-7cf8eb1c",
       "created": 1795828669686,
-      "updated": 1795828675809,
+      "updated": 1795828681041,
       "sessionAt": 1795828669686,
       "profile": {
-        "balance": 646,
-        "currentBet": 100,
+        "balance": 686,
+        "currentBet": 1,
         "stats": {
           "spins": 6,
           "wins": 5,
@@ -676,7 +675,7 @@
             "target": 5,
             "reward": 50,
             "progress": 5,
-            "claimed": false
+            "claimed": true
           },
           {
             "id": "triple",
@@ -696,7 +695,7 @@
           }
         ],
         "chestStats": {
-          "opened": 3,
+          "opened": 4,
           "best": 180,
           "types": [
             "bronze",
@@ -706,21 +705,24 @@
         },
         "chestCooldowns": {
           "free": 1795915072514,
-          "paper": 1795828676558,
+          "paper": 1795828686041,
           "bronze": 1795828682546
         },
-        "gifts": {},
+        "gifts": {
+          "candy": 1
+        },
         "giftStats": {
           "sold": 3,
           "earned": 230,
-          "received": 3,
+          "received": 4,
           "found": [
             "sneakers",
             "giftBox",
-            "rose"
+            "rose",
+            "candy"
           ]
         },
-        "activeView": "games",
+        "activeView": "chests",
         "unlocked": [
           "giftSell",
           "first",
@@ -738,17 +740,25 @@
       "name": "nb00028862",
       "hash": "fnv1a-57fa0ffd",
       "created": 1795828669686,
-      "updated": 1795828675721,
+      "updated": 1795828681028,
       "sessionAt": 1795828669686,
       "profile": {
-        "balance": 345,
-        "currentBet": 100,
+        "balance": 435,
+        "currentBet": 1,
         "stats": {
-          "spins": 6,
-          "wins": 3,
+          "spins": 7,
+          "wins": 4,
           "best": 200
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "7",
+              "red"
+            ],
+            "delta": 100
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -788,18 +798,10 @@
               "red"
             ],
             "delta": 100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "5",
-              "red"
-            ],
-            "delta": 100
           }
         ],
-        "streak": 0,
-        "xp": 36,
+        "streak": 1,
+        "xp": 46,
         "level": 1,
         "xpToNext": 120,
         "collection": [
@@ -814,7 +816,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 6,
+            "progress": 7,
             "claimed": false
           },
           {
@@ -822,7 +824,7 @@
             "title": "Победи 5 раз",
             "target": 5,
             "reward": 50,
-            "progress": 3,
+            "progress": 4,
             "claimed": false
           },
           {
@@ -843,7 +845,7 @@
           }
         ],
         "chestStats": {
-          "opened": 3,
+          "opened": 4,
           "best": 275,
           "types": [
             "bronze",
@@ -853,21 +855,24 @@
         },
         "chestCooldowns": {
           "free": 1795915072412,
-          "paper": 1795828676502,
+          "paper": 1795828686028,
           "bronze": 1795828682522
         },
-        "gifts": {},
+        "gifts": {
+          "candy": 1
+        },
         "giftStats": {
           "sold": 3,
           "earned": 315,
-          "received": 3,
+          "received": 4,
           "found": [
             "watch",
             "giftBox",
-            "heart"
+            "heart",
+            "candy"
           ]
         },
-        "activeView": "games",
+        "activeView": "chests",
         "unlocked": [
           "giftSell",
           "first"
@@ -996,17 +1001,25 @@
       "name": "nb00033669",
       "hash": "fnv1a-725ce401",
       "created": 1795828669686,
-      "updated": 1795828675826,
+      "updated": 1795828681041,
       "sessionAt": 1795828669686,
       "profile": {
-        "balance": 490,
-        "currentBet": 100,
+        "balance": 640,
+        "currentBet": 1,
         "stats": {
-          "spins": 6,
-          "wins": 4,
+          "spins": 7,
+          "wins": 5,
           "best": 200
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "3",
+              "red"
+            ],
+            "delta": 100
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -1046,18 +1059,10 @@
               "black"
             ],
             "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "5",
-              "red"
-            ],
-            "delta": 100
           }
         ],
-        "streak": 1,
-        "xp": 44,
+        "streak": 2,
+        "xp": 54,
         "level": 1,
         "xpToNext": 120,
         "collection": [
@@ -1071,7 +1076,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 6,
+            "progress": 7,
             "claimed": false
           },
           {
@@ -1079,8 +1084,8 @@
             "title": "Победи 5 раз",
             "target": 5,
             "reward": 50,
-            "progress": 4,
-            "claimed": false
+            "progress": 5,
+            "claimed": true
           },
           {
             "id": "triple",
@@ -1110,7 +1115,6 @@
         },
         "chestCooldowns": {
           "free": 1795915072469,
-          "paper": 1795828676502,
           "bronze": 1795828682531
         },
         "gifts": {},
@@ -1124,7 +1128,7 @@
             "heart"
           ]
         },
-        "activeView": "games",
+        "activeView": "progress",
         "unlocked": [
           "giftSell",
           "first"
@@ -1141,17 +1145,33 @@
       "name": "nb00070391",
       "hash": "fnv1a-bdd5b3b",
       "created": 1795828670173,
-      "updated": 1795828675732,
+      "updated": 1795828681027,
       "sessionAt": 1795828670173,
       "profile": {
-        "balance": 55,
-        "currentBet": 25,
+        "balance": 0,
+        "currentBet": 5,
         "stats": {
-          "spins": 6,
+          "spins": 8,
           "wins": 3,
           "best": 200
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "0",
+              "green"
+            ],
+            "delta": -5
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "6",
+              "black"
+            ],
+            "delta": -50
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -1183,26 +1203,10 @@
               "black"
             ],
             "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "5",
-              "red"
-            ],
-            "delta": 100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "2",
-              "black"
-            ],
-            "delta": -100
           }
         ],
-        "streak": 2,
-        "xp": 36,
+        "streak": 0,
+        "xp": 40,
         "level": 1,
         "xpToNext": 120,
         "collection": [
@@ -1217,7 +1221,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 6,
+            "progress": 8,
             "claimed": false
           },
           {
@@ -1256,7 +1260,6 @@
         },
         "chestCooldowns": {
           "free": 1795915072473,
-          "paper": 1795828676517,
           "bronze": 1795828682562
         },
         "gifts": {},
@@ -1287,17 +1290,25 @@
       "name": "nb00063720",
       "hash": "fnv1a-1659be7c",
       "created": 1795828670184,
-      "updated": 1795828675722,
+      "updated": 1795828681041,
       "sessionAt": 1795828670184,
       "profile": {
-        "balance": 415,
-        "currentBet": 100,
+        "balance": 590,
+        "currentBet": 1,
         "stats": {
-          "spins": 6,
-          "wins": 4,
-          "best": 200
+          "spins": 7,
+          "wins": 5,
+          "best": 225
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "3",
+              "red"
+            ],
+            "delta": 125
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -1337,18 +1348,10 @@
               "black"
             ],
             "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "9",
-              "red"
-            ],
-            "delta": 100
           }
         ],
-        "streak": 2,
-        "xp": 44,
+        "streak": 3,
+        "xp": 54,
         "level": 1,
         "xpToNext": 120,
         "collection": [
@@ -1362,7 +1365,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 6,
+            "progress": 7,
             "claimed": false
           },
           {
@@ -1370,8 +1373,8 @@
             "title": "Победи 5 раз",
             "target": 5,
             "reward": 50,
-            "progress": 4,
-            "claimed": false
+            "progress": 5,
+            "claimed": true
           },
           {
             "id": "triple",
@@ -1401,7 +1404,6 @@
         },
         "chestCooldowns": {
           "free": 1795915072445,
-          "paper": 1795828676508,
           "bronze": 1795828682548
         },
         "gifts": {},
@@ -1415,10 +1417,11 @@
             "teddy"
           ]
         },
-        "activeView": "games",
+        "activeView": "progress",
         "unlocked": [
           "giftSell",
-          "first"
+          "first",
+          "streak3"
         ],
         "activeGame": "roulette",
         "cardsChoice": "spades",
@@ -1466,57 +1469,57 @@
     {
       "name": "nb00050130",
       "level": 1,
-      "balance": 646,
+      "balance": 686,
       "games": 6,
-      "gifts": 0,
-      "chests": 3,
+      "gifts": 1,
+      "chests": 4,
       "achievements": 3,
       "rank": "Новичок",
-      "ts": 1795828675809
+      "ts": 1795828681041
     },
     {
       "name": "nb00033669",
       "level": 1,
-      "balance": 490,
-      "games": 6,
+      "balance": 640,
+      "games": 7,
       "gifts": 0,
       "chests": 3,
       "achievements": 2,
       "rank": "Новичок",
-      "ts": 1795828675826
+      "ts": 1795828681041
     },
     {
       "name": "nb00041112",
       "level": 1,
-      "balance": 465,
-      "games": 6,
+      "balance": 615,
+      "games": 7,
       "gifts": 0,
       "chests": 3,
       "achievements": 3,
       "rank": "Новичок",
-      "ts": 1795828675763
+      "ts": 1795828681033
     },
     {
       "name": "nb00063720",
       "level": 1,
-      "balance": 415,
-      "games": 6,
+      "balance": 590,
+      "games": 7,
       "gifts": 0,
       "chests": 3,
-      "achievements": 2,
+      "achievements": 3,
       "rank": "Новичок",
-      "ts": 1795828675722
+      "ts": 1795828681041
     },
     {
       "name": "nb00028862",
       "level": 1,
-      "balance": 345,
-      "games": 6,
-      "gifts": 0,
-      "chests": 3,
+      "balance": 435,
+      "games": 7,
+      "gifts": 1,
+      "chests": 4,
       "achievements": 2,
       "rank": "Новичок",
-      "ts": 1795828675721
+      "ts": 1795828681028
     },
     {
       "name": "Ольга",
@@ -1532,13 +1535,13 @@
     {
       "name": "nb00070391",
       "level": 1,
-      "balance": 55,
-      "games": 6,
+      "balance": 0,
+      "games": 8,
       "gifts": 0,
       "chests": 3,
       "achievements": 2,
       "rank": "Новичок",
-      "ts": 1795828675732
+      "ts": 1795828681027
     },
     {
       "name": "nb00019716",
