@@ -147,16 +147,24 @@
     "pithp": {
       "name": "pithp",
       "created": 1795801746705,
-      "updated": 1795870506997,
+      "updated": 1795870509307,
       "profile": {
-        "balance": 7224,
+        "balance": 7349,
         "currentBet": 100,
         "stats": {
-          "spins": 942,
-          "wins": 560,
+          "spins": 943,
+          "wins": 561,
           "best": 2000
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "7",
+              "red"
+            ],
+            "delta": 125
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -196,18 +204,10 @@
               "black"
             ],
             "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "3",
-              "red"
-            ],
-            "delta": 125
           }
         ],
-        "streak": 2,
-        "xp": 64,
+        "streak": 3,
+        "xp": 74,
         "level": 11,
         "xpToNext": 1320,
         "collection": [
@@ -328,9 +328,9 @@
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": true,
-        "lastActionAt": 1795870506997,
+        "lastActionAt": 1795870509307,
         "actionWindowStart": 1795870485885,
-        "actionCount": 10,
+        "actionCount": 11,
         "createdAt": 0
       },
       "sessionAt": 1795870173616
@@ -529,13 +529,13 @@
     {
       "name": "pithp",
       "level": 11,
-      "balance": 7224,
-      "games": 942,
+      "balance": 7349,
+      "games": 943,
       "gifts": 0,
       "chests": 110,
       "achievements": 7,
       "rank": "Легенда",
-      "ts": 1795870506997
+      "ts": 1795870509307
     },
     {
       "name": "Егор",
