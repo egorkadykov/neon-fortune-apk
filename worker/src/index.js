@@ -1017,7 +1017,7 @@ async function handle(request, ctx) {
   return fail('Не найдено', 404);
 }
 
-export class FortuneState {
+export class FortuneState2 {
   constructor(state, environment) {
     this.storage = state.storage;
     this.env = environment;
@@ -1123,6 +1123,10 @@ export class FortuneState {
     }
   }
 }
+
+// Старое имя оставляем на время миграции: так ни один запрос не упадёт,
+// пока Cloudflare переключает пространство классов на новую версию кода.
+export { FortuneState2 as FortuneState };
 
 export default {
   async fetch(request, environment) {
