@@ -82,7 +82,7 @@
       "name": "pithp",
       "hash": "sha256-6fff9f148433c5cccf456e4fcb951e8dd8368d13a897dc2b71cfa54054c165fe",
       "created": 1795801746705,
-      "updated": 1795829141931,
+      "updated": 1795829151459,
       "profile": {
         "balance": 1806,
         "currentBet": 1,
@@ -1329,10 +1329,10 @@
       "name": "nb00063720",
       "hash": "fnv1a-1659be7c",
       "created": 1795828670184,
-      "updated": 1795829150037,
+      "updated": 1795829151074,
       "sessionAt": 1795828670184,
       "profile": {
-        "balance": 785,
+        "balance": 800,
         "currentBet": 1,
         "stats": {
           "spins": 7,
@@ -1446,12 +1446,10 @@
           "paper": 1795829155037,
           "bronze": 1795829153931
         },
-        "gifts": {
-          "teddy": 1
-        },
+        "gifts": {},
         "giftStats": {
-          "sold": 11,
-          "earned": 620,
+          "sold": 12,
+          "earned": 635,
           "received": 12,
           "found": [
             "lamp",
@@ -1463,7 +1461,7 @@
             "brick"
           ]
         },
-        "activeView": "chests",
+        "activeView": "gifts",
         "unlocked": [
           "giftSell",
           "first",
@@ -1510,7 +1508,7 @@
       "chests": 110,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795829141931
+      "ts": 1795829151459
     },
     {
       "name": "nb00028862",
@@ -1546,6 +1544,17 @@
       "ts": 1795829149179
     },
     {
+      "name": "nb00063720",
+      "level": 1,
+      "balance": 800,
+      "games": 7,
+      "gifts": 0,
+      "chests": 12,
+      "achievements": 3,
+      "rank": "Новичок",
+      "ts": 1795829151074
+    },
+    {
       "name": "nb00033669",
       "level": 1,
       "balance": 790,
@@ -1555,17 +1564,6 @@
       "achievements": 2,
       "rank": "Новичок",
       "ts": 1795829150038
-    },
-    {
-      "name": "nb00063720",
-      "level": 1,
-      "balance": 785,
-      "games": 7,
-      "gifts": 1,
-      "chests": 12,
-      "achievements": 3,
-      "rank": "Новичок",
-      "ts": 1795829150037
     },
     {
       "name": "Ольга",
