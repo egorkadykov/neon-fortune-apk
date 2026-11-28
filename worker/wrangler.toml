@@ -11,9 +11,14 @@ class_name = "FortuneState2"
 tag = "v1"
 new_sqlite_classes = ["FortuneState"]
 
-# Миграция переименования уже применена. Повторное объявление заставляло
-# Cloudflare пересоздавать объект и терять хэши паролей при каждом деплое.
-# Класс FortuneState2 зафиксирован в binding выше, storage сохраняется.
+# Переименование заставляет Cloudflare запустить новую версию класса:
+# старый объект продолжал писать токены и хэши в публичный файл GitHub.
+[[migrations]]
+tag = "v2"
+
+  [[migrations.renamed_classes]]
+  from = "FortuneState"
+  to = "FortuneState2"
 
 # Лимиты на границе Cloudflare: отсекают флуд до попадания в Durable Object.
 [[ratelimits]]
