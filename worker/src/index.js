@@ -313,6 +313,10 @@ function normalizeProfile(raw) {
   p.activeGame = GAMES.includes(s.activeGame) ? s.activeGame : 'slots';
   p.cardsChoice = SUITS.includes(s.cardsChoice) ? s.cardsChoice : 'spades';
   p.soundEnabled = s.soundEnabled !== false;
+  p.createdAt = int(s.createdAt, 0, 0, 4102444800000);
+  p.lastActionAt = int(s.lastActionAt, 0, 0, 4102444800000);
+  p.actionWindowStart = int(s.actionWindowStart, 0, 0, 4102444800000);
+  p.actionCount = int(s.actionCount, 0, 0, 10000);
   return p;
 }
 
@@ -336,7 +340,11 @@ function rateLimit(profile) {
     profile.actionCount = 0;
   }
   profile.actionCount = (profile.actionCount || 0) + 1;
-  if (profile.actionCount > MAX_ACTIONS_PER_MIN) throw new Error('лимит действий в минуту');
+  // Новые аккаунты не должны разгонять сотни ходов сразу — так боты
+  // заходили под видом обычных игроков и грузили сервер.
+  const fresh = profile.createdAt && now - profile.createdAt < 24 * 60 * 60 * 1000;
+  const limit = fresh ? 30 : MAX_ACTIONS_PER_MIN;
+  if (profile.actionCount > limit) throw new Error('лимит действий в минуту');
   profile.lastActionAt = now;
 }
 
@@ -804,14 +812,16 @@ async function handle(request, ctx) {
       if (mode === 'register') {
         if (state.users[key]) throw new Error('Такой игрок уже есть — войди или придумай другой ник');
         if (Object.keys(state.users).length >= MAX_USERS) throw new Error('Сервер переполнен — попробуйте позже');
-        if (/^(bot|nb)\d+$/i.test(key)) throw new Error('Такое имя нельзя использовать');
+        if (/^(bot|nbx?)\d+$/i.test(key)) throw new Error('Такое имя нельзя использовать');
         if (store && store.registerGuard) store.registerGuard(hash);
         const bytes = new Uint8Array(32);
         crypto.getRandomValues(bytes);
         const token = Array.from(bytes, (b) => ('0' + b.toString(16)).slice(-2)).join('');
+        const profile = normalizeProfile(null);
+        profile.createdAt = Date.now();
         state.users[key] = {
-          name, hash, created: Date.now(), updated: Date.now(),
-          sessionAt: Date.now(), profile: normalizeProfile(null)
+          name, hash, created: profile.createdAt, updated: Date.now(),
+          sessionAt: Date.now(), profile
         };
         Object.keys(state.tokens).forEach((old) => {
           if (state.tokens[old] === key) delete state.tokens[old];
