@@ -445,10 +445,10 @@
       "name": "nbxTESTalpha",
       "hash": "fnv1a-a1b2c3d4",
       "created": 1795861279362,
-      "updated": 1795861295721,
+      "updated": 1795861313592,
       "sessionAt": 1795861279362,
       "profile": {
-        "balance": 98,
+        "balance": 8,
         "currentBet": 5,
         "stats": {
           "spins": 13,
@@ -556,17 +556,29 @@
           }
         ],
         "chestStats": {
-          "opened": 0,
-          "best": 0,
-          "types": []
+          "opened": 2,
+          "best": 100,
+          "types": [
+            "bronze",
+            "wood"
+          ]
         },
-        "chestCooldowns": {},
-        "gifts": {},
+        "chestCooldowns": {
+          "wood": 1795861321592,
+          "bronze": 1795861325278
+        },
+        "gifts": {
+          "ring": 1,
+          "rose": 1
+        },
         "giftStats": {
           "sold": 0,
           "earned": 0,
-          "received": 0,
-          "found": []
+          "received": 2,
+          "found": [
+            "ring",
+            "rose"
+          ]
         },
         "activeView": "games",
         "unlocked": [
@@ -625,13 +637,13 @@
     {
       "name": "nbxTESTalpha",
       "level": 1,
-      "balance": 98,
+      "balance": 8,
       "games": 13,
-      "gifts": 0,
-      "chests": 0,
+      "gifts": 2,
+      "chests": 2,
       "achievements": 3,
       "rank": "Новичок",
-      "ts": 1795861295721
+      "ts": 1795861313592
     }
   ],
   "admin": {
