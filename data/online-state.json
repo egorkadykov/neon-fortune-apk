@@ -526,7 +526,7 @@
     "gemi": {
       "name": "Gemi",
       "created": 1795870936657,
-      "updated": 1795870950768,
+      "updated": 1795870957881,
       "sessionAt": 1795870953857,
       "profile": {
         "balance": 455,
@@ -641,7 +641,6 @@
         },
         "chestCooldowns": {
           "free": 1795957339130,
-          "paper": 1795870954742,
           "bronze": 1795870962768
         },
         "gifts": {
@@ -660,7 +659,7 @@
             "ring"
           ]
         },
-        "activeView": "chests",
+        "activeView": "top",
         "unlocked": [
           "giftSell",
           "first",
@@ -710,7 +709,7 @@
       "chests": 8,
       "achievements": 4,
       "rank": "Новичок",
-      "ts": 1795870950768
+      "ts": 1795870957881
     },
     {
       "name": "Ольга",
