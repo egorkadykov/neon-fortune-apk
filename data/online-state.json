@@ -338,7 +338,7 @@
     "егор": {
       "name": "Егор",
       "created": 1795801871294,
-      "updated": 1795870407566,
+      "updated": 1795870792970,
       "profile": {
         "balance": 3450,
         "currentBet": 100,
@@ -501,7 +501,7 @@
             "rocket"
           ]
         },
-        "activeView": "games",
+        "activeView": "top",
         "unlocked": [
           "giftSell",
           "first",
@@ -546,7 +546,7 @@
       "chests": 52,
       "achievements": 9,
       "rank": "Профи",
-      "ts": 1795870407566
+      "ts": 1795870792970
     },
     {
       "name": "Ольга",
