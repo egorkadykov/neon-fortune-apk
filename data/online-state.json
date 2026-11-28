@@ -273,16 +273,25 @@
       "name": "Егор",
       "hash": "sha256-03aaef0fd45d47ee37afee60b41f0a80010f58f95d3d34e9b7dc253c8558bf2a",
       "created": 1795801871294,
-      "updated": 1795862888228,
+      "updated": 1795862889628,
       "profile": {
-        "balance": 6818,
+        "balance": 6718,
         "currentBet": 100,
         "stats": {
-          "spins": 223,
+          "spins": 224,
           "wins": 29,
           "best": 1200
         },
         "history": [
+          {
+            "glyph": "dice",
+            "icons": [
+              "dice5",
+              "dice1",
+              "dice2"
+            ],
+            "delta": -100
+          },
           {
             "glyph": "target",
             "icons": [
@@ -319,18 +328,10 @@
               "clubs"
             ],
             "delta": -100
-          },
-          {
-            "glyph": "cards",
-            "icons": [
-              "diamonds",
-              "hearts"
-            ],
-            "delta": -100
           }
         ],
-        "streak": 1,
-        "xp": 198,
+        "streak": 0,
+        "xp": 200,
         "level": 4,
         "xpToNext": 480,
         "collection": [
@@ -350,7 +351,10 @@
           "diamonds",
           "hearts",
           "dartOuter",
-          "bullseye"
+          "bullseye",
+          "dice5",
+          "dice1",
+          "dice2"
         ],
         "collectionRewardGiven": false,
         "missions": [
@@ -433,7 +437,7 @@
           "level3",
           "dartBull"
         ],
-        "activeGame": "roulette",
+        "activeGame": "dice",
         "cardsChoice": "spades",
         "soundEnabled": true,
         "lastActionAt": 0,
@@ -451,13 +455,13 @@
     {
       "name": "Егор",
       "level": 4,
-      "balance": 6818,
-      "games": 223,
+      "balance": 6718,
+      "games": 224,
       "gifts": 0,
       "chests": 38,
       "achievements": 6,
       "rank": "Игрок",
-      "ts": 1795862888228
+      "ts": 1795862889628
     },
     {
       "name": "pithp",
