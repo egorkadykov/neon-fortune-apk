@@ -147,16 +147,24 @@
     "pithp": {
       "name": "pithp",
       "created": 1795801746705,
-      "updated": 1795870000109,
+      "updated": 1795870002407,
       "profile": {
-        "balance": 4865,
+        "balance": 4965,
         "currentBet": 100,
         "stats": {
-          "spins": 773,
-          "wins": 469,
+          "spins": 774,
+          "wins": 470,
           "best": 2000
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "7",
+              "red"
+            ],
+            "delta": 100
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -196,18 +204,10 @@
               "black"
             ],
             "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "9",
-              "red"
-            ],
-            "delta": 100
           }
         ],
-        "streak": 0,
-        "xp": 198,
+        "streak": 1,
+        "xp": 208,
         "level": 10,
         "xpToNext": 1200,
         "collection": [
@@ -328,9 +328,9 @@
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": true,
-        "lastActionAt": 1795870000109,
+        "lastActionAt": 1795870002403,
         "actionWindowStart": 1795869948944,
-        "actionCount": 23,
+        "actionCount": 24,
         "createdAt": 0
       },
       "sessionAt": 1795869388604
@@ -523,10 +523,10 @@
     "nbxtestappck01": {
       "name": "nbxTESTappck01",
       "created": 1795869964255,
-      "updated": 1795869997535,
+      "updated": 1795870002152,
       "sessionAt": 1795869989546,
       "profile": {
-        "balance": 99,
+        "balance": 100,
         "currentBet": 1,
         "stats": {
           "spins": 1,
@@ -586,7 +586,7 @@
           }
         ],
         "chestStats": {
-          "opened": 0,
+          "opened": 1,
           "best": 0,
           "types": []
         },
@@ -603,9 +603,9 @@
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": true,
-        "lastActionAt": 1795869997535,
+        "lastActionAt": 1795870002152,
         "actionWindowStart": 1795869997535,
-        "actionCount": 1,
+        "actionCount": 2,
         "createdAt": 1795869964255
       }
     }
@@ -615,13 +615,13 @@
     {
       "name": "pithp",
       "level": 10,
-      "balance": 4865,
-      "games": 773,
+      "balance": 4965,
+      "games": 774,
       "gifts": 0,
       "chests": 110,
       "achievements": 7,
       "rank": "Легенда",
-      "ts": 1795870000109
+      "ts": 1795870002407
     },
     {
       "name": "Егор",
@@ -648,13 +648,13 @@
     {
       "name": "nbxTESTappck01",
       "level": 1,
-      "balance": 99,
+      "balance": 100,
       "games": 1,
       "gifts": 0,
-      "chests": 0,
+      "chests": 1,
       "achievements": 0,
       "rank": "Новичок",
-      "ts": 1795869997535
+      "ts": 1795870002152
     }
   ],
   "tokenDevices": {}
