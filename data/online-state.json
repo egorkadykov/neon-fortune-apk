@@ -273,7 +273,7 @@
       "name": "Егор",
       "hash": "sha256-03aaef0fd45d47ee37afee60b41f0a80010f58f95d3d34e9b7dc253c8558bf2a",
       "created": 1795801871294,
-      "updated": 1795862881849,
+      "updated": 1795862888228,
       "profile": {
         "balance": 6818,
         "currentBet": 100,
@@ -433,7 +433,7 @@
           "level3",
           "dartBull"
         ],
-        "activeGame": "darts",
+        "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": true,
         "lastActionAt": 0,
@@ -457,7 +457,7 @@
       "chests": 38,
       "achievements": 6,
       "rank": "Игрок",
-      "ts": 1795862881849
+      "ts": 1795862888228
     },
     {
       "name": "pithp",
