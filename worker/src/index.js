@@ -960,7 +960,8 @@ async function handle(request, ctx) {
       hashPrefix: String(user.hash || '').slice(0, 12),
       hasSalt: !!user.salt,
       loginFails: user.loginFails || 0,
-      lockUntil: user.loginLockUntil || 0
+      lockUntil: user.loginLockUntil || 0,
+      storedHasHash: !!(store && (await store.storage.get('state'))?.users?.[keyFor(String(body.name || ''))]?.hash)
     });
   }
 
