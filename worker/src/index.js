@@ -4,7 +4,11 @@ const PATH = 'data/online-state.json';
 const BRANCH = 'main';
 const GH_API = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${PATH}`;
 const RELEASES_API = `https://api.github.com/repos/${OWNER}/${REPO}/releases/latest`;
+// Старый публичный файл до очистки: оттуда сервер поднимает хэши, если
+// Durable Object перезапустился и подгрузил очищенный публичный файл.
+const LEGACY_STATE_REF = '2e2274f6f461e4dcaed519dc278dfaad2c36396e';
 let versionCache = { at: 0, value: null };
+let legacyUsers = null;
 
 const MAX_BALANCE = 1000000000000;
 // Игровая экономика полностью считается здесь. Клиент не присылает ни баланс,
@@ -179,6 +183,25 @@ async function readState() {
   if (!state.tokens || typeof state.tokens !== 'object') state.tokens = {};
   if (!Array.isArray(state.leaderboard)) state.leaderboard = [];
   return { state, sha: json.sha };
+}
+
+// Хэши лежат только в старом коммите, а не в текущем публичном файле.
+// Используются только если в загруженном состоянии хэша нет.
+async function legacyHashFor(key) {
+  if (!legacyUsers) {
+    try {
+      const response = await fetch(`${GH_API}?ref=${LEGACY_STATE_REF}`, { headers: ghHeaders() });
+      if (!response.ok) return null;
+      const payload = await response.json();
+      const bytes = Uint8Array.from(atob(String(payload.content || '').replace(/\n/g, '')), (c) => c.charCodeAt(0));
+      const old = JSON.parse(new TextDecoder('utf-8').decode(bytes));
+      legacyUsers = old && old.users && typeof old.users === 'object' ? old.users : {};
+    } catch (error) {
+      return null;
+    }
+  }
+  const old = legacyUsers[key];
+  return old && old.hash ? String(old.hash) : null;
 }
 
 async function writeState(state, sha) {
@@ -900,6 +923,17 @@ async function handle(request, ctx) {
       }
       const user = state.users[key];
       if (!user) return { error: 'Неверный никнейм или пароль' };
+      // Durable Object мог загрузить очищенный файл без хэшей — поднимаем
+      // пароль из старого коммита и сразу переводим его на PBKDF2.
+      if (!user.hash) {
+        const legacy = await legacyHashFor(key);
+        if (legacy) {
+          user.hash = legacy;
+          delete user.salt;
+          user.loginFails = 0;
+          user.loginLockUntil = 0;
+        }
+      }
       const now = Date.now();
       if (user.loginLockUntil && now < user.loginLockUntil) {
         return { error: 'Слишком много попыток входа — попробуйте позже', status: 429 };
