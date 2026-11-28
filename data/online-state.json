@@ -147,16 +147,24 @@
     "pithp": {
       "name": "pithp",
       "created": 1795801746705,
-      "updated": 1795870023223,
+      "updated": 1795870025599,
       "profile": {
-        "balance": 5340,
+        "balance": 5440,
         "currentBet": 100,
         "stats": {
-          "spins": 783,
-          "wins": 476,
+          "spins": 784,
+          "wins": 477,
           "best": 2000
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "3",
+              "red"
+            ],
+            "delta": 100
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -196,18 +204,10 @@
               "green"
             ],
             "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "2",
-              "black"
-            ],
-            "delta": -100
           }
         ],
-        "streak": 1,
-        "xp": 274,
+        "streak": 2,
+        "xp": 284,
         "level": 10,
         "xpToNext": 1200,
         "collection": [
@@ -328,9 +328,9 @@
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": true,
-        "lastActionAt": 1795870023223,
+        "lastActionAt": 1795870025599,
         "actionWindowStart": 1795870009431,
-        "actionCount": 7,
+        "actionCount": 8,
         "createdAt": 0
       },
       "sessionAt": 1795869388604
@@ -523,17 +523,34 @@
     "nbxtestappck01": {
       "name": "nbxTESTappck01",
       "created": 1795869964255,
-      "updated": 1795870002152,
+      "updated": 1795870025396,
       "sessionAt": 1795869989546,
       "profile": {
-        "balance": 100,
+        "balance": 98,
         "currentBet": 1,
         "stats": {
-          "spins": 1,
+          "spins": 3,
           "wins": 0,
           "best": 0
         },
         "history": [
+          {
+            "glyph": "cards",
+            "icons": [
+              "clubs",
+              "clubs"
+            ],
+            "delta": -1
+          },
+          {
+            "glyph": "slots",
+            "icons": [
+              "cherry",
+              "lemon",
+              "cherry"
+            ],
+            "delta": -1
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -544,11 +561,14 @@
           }
         ],
         "streak": 0,
-        "xp": 2,
+        "xp": 6,
         "level": 1,
         "xpToNext": 120,
         "collection": [
-          "black"
+          "black",
+          "cherry",
+          "lemon",
+          "clubs"
         ],
         "collectionRewardGiven": false,
         "missions": [
@@ -557,7 +577,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 1,
+            "progress": 3,
             "claimed": false
           },
           {
@@ -600,12 +620,12 @@
         },
         "activeView": "games",
         "unlocked": [],
-        "activeGame": "roulette",
+        "activeGame": "cards",
         "cardsChoice": "spades",
         "soundEnabled": true,
-        "lastActionAt": 1795870002152,
+        "lastActionAt": 1795870025396,
         "actionWindowStart": 1795869997535,
-        "actionCount": 2,
+        "actionCount": 4,
         "createdAt": 1795869964255
       }
     }
@@ -615,13 +635,13 @@
     {
       "name": "pithp",
       "level": 10,
-      "balance": 5340,
-      "games": 783,
+      "balance": 5440,
+      "games": 784,
       "gifts": 0,
       "chests": 110,
       "achievements": 7,
       "rank": "Легенда",
-      "ts": 1795870023223
+      "ts": 1795870025599
     },
     {
       "name": "Егор",
@@ -648,13 +668,13 @@
     {
       "name": "nbxTESTappck01",
       "level": 1,
-      "balance": 100,
-      "games": 1,
+      "balance": 98,
+      "games": 3,
       "gifts": 0,
       "chests": 1,
       "achievements": 0,
       "rank": "Новичок",
-      "ts": 1795870002152
+      "ts": 1795870025396
     }
   ],
   "tokenDevices": {}
