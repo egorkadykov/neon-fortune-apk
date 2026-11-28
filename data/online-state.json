@@ -679,17 +679,25 @@
       "name": "nbx00035056",
       "hash": "fnv1a-5dba522a",
       "created": 1795863958417,
-      "updated": 1795864074826,
+      "updated": 1795864077109,
       "sessionAt": 1795864026017,
       "profile": {
-        "balance": 2775,
+        "balance": 2675,
         "currentBet": 100,
         "stats": {
-          "spins": 76,
+          "spins": 77,
           "wins": 45,
           "best": 275
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "8",
+              "black"
+            ],
+            "delta": -100
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -729,18 +737,10 @@
               "black"
             ],
             "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "7",
-              "red"
-            ],
-            "delta": 100
           }
         ],
         "streak": 0,
-        "xp": 152,
+        "xp": 154,
         "level": 3,
         "xpToNext": 360,
         "collection": [
@@ -1021,13 +1021,13 @@
     {
       "name": "nbx00035056",
       "level": 3,
-      "balance": 2775,
-      "games": 76,
+      "balance": 2675,
+      "games": 77,
       "gifts": 0,
       "chests": 13,
       "achievements": 5,
       "rank": "Игрок",
-      "ts": 1795864074826
+      "ts": 1795864077109
     },
     {
       "name": "pithp",
