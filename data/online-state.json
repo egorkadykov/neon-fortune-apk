@@ -526,25 +526,17 @@
     "gemi": {
       "name": "Gemi",
       "created": 1795870936657,
-      "updated": 1795871167461,
+      "updated": 1795871226822,
       "sessionAt": 1795870995992,
       "profile": {
-        "balance": 1387,
+        "balance": 1512,
         "currentBet": 1,
         "stats": {
-          "spins": 72,
-          "wins": 36,
-          "best": 250
+          "spins": 92,
+          "wins": 45,
+          "best": 275
         },
         "history": [
-          {
-            "glyph": "roulette",
-            "icons": [
-              "7",
-              "red"
-            ],
-            "delta": 100
-          },
           {
             "glyph": "roulette",
             "icons": [
@@ -564,7 +556,7 @@
           {
             "glyph": "roulette",
             "icons": [
-              "10",
+              "4",
               "black"
             ],
             "delta": -100
@@ -572,7 +564,7 @@
           {
             "glyph": "roulette",
             "icons": [
-              "7",
+              "1",
               "red"
             ],
             "delta": 100
@@ -580,14 +572,22 @@
           {
             "glyph": "roulette",
             "icons": [
-              "0",
-              "green"
+              "6",
+              "black"
             ],
             "delta": -100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "5",
+              "red"
+            ],
+            "delta": 175
           }
         ],
-        "streak": 1,
-        "xp": 72,
+        "streak": 0,
+        "xp": 184,
         "level": 3,
         "xpToNext": 360,
         "collection": [
@@ -631,7 +631,7 @@
           }
         ],
         "chestStats": {
-          "opened": 23,
+          "opened": 28,
           "best": 275,
           "types": [
             "bronze",
@@ -641,14 +641,16 @@
         },
         "chestCooldowns": {
           "free": 1795957339130,
-          "paper": 1795871170808,
-          "bronze": 1795871178911
+          "paper": 1795871231822,
+          "bronze": 1795871237762
         },
-        "gifts": {},
+        "gifts": {
+          "bouquet": 1
+        },
         "giftStats": {
-          "sold": 20,
-          "earned": 1480,
-          "received": 20,
+          "sold": 24,
+          "earned": 1780,
+          "received": 25,
           "found": [
             "trophy",
             "brick",
@@ -663,10 +665,11 @@
             "watch",
             "bouquet",
             "rose",
-            "headphones"
+            "headphones",
+            "sneakers"
           ]
         },
-        "activeView": "gifts",
+        "activeView": "chests",
         "unlocked": [
           "giftSell",
           "first",
@@ -677,8 +680,8 @@
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": false,
-        "lastActionAt": 1795871167461,
-        "actionWindowStart": 1795871152803,
+        "lastActionAt": 1795871226822,
+        "actionWindowStart": 1795871212817,
         "actionCount": 29,
         "createdAt": 1795870936657
       }
@@ -711,13 +714,13 @@
     {
       "name": "Gemi",
       "level": 3,
-      "balance": 1387,
-      "games": 72,
-      "gifts": 0,
-      "chests": 23,
+      "balance": 1512,
+      "games": 92,
+      "gifts": 1,
+      "chests": 28,
       "achievements": 5,
       "rank": "Игрок",
-      "ts": 1795871167461
+      "ts": 1795871226822
     },
     {
       "name": "Ольга",
