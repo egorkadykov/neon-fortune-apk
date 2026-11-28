@@ -273,16 +273,25 @@
       "name": "Егор",
       "hash": "sha256-03aaef0fd45d47ee37afee60b41f0a80010f58f95d3d34e9b7dc253c8558bf2a",
       "created": 1795801871294,
-      "updated": 1795862779640,
+      "updated": 1795862781150,
       "profile": {
-        "balance": 8241,
+        "balance": 8312,
         "currentBet": 100,
         "stats": {
-          "spins": 178,
-          "wins": 22,
+          "spins": 179,
+          "wins": 23,
           "best": 1000
         },
         "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "seven",
+              "slotDie",
+              "diamond"
+            ],
+            "delta": 11
+          },
           {
             "glyph": "slots",
             "icons": [
@@ -327,21 +336,12 @@
               "diamond"
             ],
             "delta": -40
-          },
-          {
-            "glyph": "slots",
-            "icons": [
-              "melon",
-              "lemon",
-              "melon"
-            ],
-            "delta": -88
           }
         ],
-        "streak": 0,
-        "xp": 352,
-        "level": 3,
-        "xpToNext": 360,
+        "streak": 1,
+        "xp": 2,
+        "level": 4,
+        "xpToNext": 480,
         "collection": [
           "lemon",
           "diamond",
@@ -457,14 +457,14 @@
   "leaderboard": [
     {
       "name": "Егор",
-      "level": 3,
-      "balance": 8241,
-      "games": 178,
+      "level": 4,
+      "balance": 8312,
+      "games": 179,
       "gifts": 0,
       "chests": 38,
       "achievements": 5,
       "rank": "Игрок",
-      "ts": 1795862779640
+      "ts": 1795862781150
     },
     {
       "name": "pithp",
