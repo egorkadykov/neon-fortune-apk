@@ -147,7 +147,7 @@
     "pithp": {
       "name": "pithp",
       "created": 1795801746705,
-      "updated": 1795873026220,
+      "updated": 1795873028684,
       "profile": {
         "balance": 10256,
         "currentBet": 100,
@@ -315,7 +315,7 @@
             "crownGem"
           ]
         },
-        "activeView": "top",
+        "activeView": "games",
         "unlocked": [
           "games10",
           "first",
@@ -695,7 +695,7 @@
       "chests": 111,
       "achievements": 7,
       "rank": "Легенда",
-      "ts": 1795873026220
+      "ts": 1795873028684
     },
     {
       "name": "Егор",
