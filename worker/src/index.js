@@ -948,26 +948,6 @@ async function handle(request, ctx) {
     return reply({ ok: true, user: sessionUser(server.state.users[key]) });
   }
 
-  // Временный эндпоинт восстановления после миграции Durable Object:
-  // часть старых хэшей не попала в новое хранилище. Ключ живёт только
-  // в секрете Cloudflare. После восстановления эндпоинт будет удалён.
-  if (path === '/admin/restore') {
-    const supplied = String(request.headers.get('x-admin-token') || '');
-    if (!env.ADMIN_TOKEN || supplied !== env.ADMIN_TOKEN) return fail('Нет доступа', 403);
-    const hash = String(body.hash || '');
-    if (!/^(sha256-[0-9a-f]{64}|pbkdf2-[0-9a-f]{64})$/.test(hash)) return fail('Некорректный хэш');
-    const result = await mutateSync((state) => {
-      const user = state.users[keyFor(String(body.name || ''))];
-      if (!user) throw new Error('Игрок не найден');
-      user.hash = hash;
-      delete user.salt;
-      user.loginFails = 0;
-      user.loginLockUntil = 0;
-      return { name: user.name };
-    });
-    return reply({ ok: true, ...result });
-  }
-
   // Действия. Клиент НЕ передаёт баланс, статистику или подарки —
   // сервер сам решает, что выпало и сколько начислено.
   const actions = {
