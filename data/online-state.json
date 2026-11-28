@@ -333,12 +333,12 @@
         "actionCount": 17,
         "createdAt": 0
       },
-      "sessionAt": 1795870783561
+      "sessionAt": 1795870796668
     },
     "егор": {
       "name": "Егор",
       "created": 1795801871294,
-      "updated": 1795870792970,
+      "updated": 1795870796077,
       "profile": {
         "balance": 3450,
         "currentBet": 100,
@@ -546,7 +546,7 @@
       "chests": 52,
       "achievements": 9,
       "rank": "Профи",
-      "ts": 1795870792970
+      "ts": 1795870796077
     },
     {
       "name": "Ольга",
