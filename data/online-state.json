@@ -147,7 +147,7 @@
     "pithp": {
       "name": "pithp",
       "created": 1795801746705,
-      "updated": 1795873069452,
+      "updated": 1795873096690,
       "profile": {
         "balance": 10156,
         "currentBet": 100,
@@ -284,8 +284,7 @@
           ]
         },
         "chestCooldowns": {
-          "free": 1795888370619,
-          "silver": 1795873075417
+          "free": 1795888370619
         },
         "gifts": {},
         "giftStats": {
@@ -696,7 +695,7 @@
       "chests": 112,
       "achievements": 7,
       "rank": "Легенда",
-      "ts": 1795873069452
+      "ts": 1795873096690
     },
     {
       "name": "Егор",
