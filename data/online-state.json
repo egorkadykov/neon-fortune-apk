@@ -526,7 +526,7 @@
     "gemi": {
       "name": "Gemi",
       "created": 1795870936657,
-      "updated": 1795870966501,
+      "updated": 1795871001558,
       "sessionAt": 1795870995992,
       "profile": {
         "balance": 555,
@@ -656,7 +656,7 @@
             "ring"
           ]
         },
-        "activeView": "gifts",
+        "activeView": "top",
         "unlocked": [
           "giftSell",
           "first",
@@ -706,7 +706,7 @@
       "chests": 8,
       "achievements": 4,
       "rank": "Новичок",
-      "ts": 1795870966501
+      "ts": 1795871001558
     },
     {
       "name": "Ольга",
