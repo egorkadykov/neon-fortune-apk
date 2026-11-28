@@ -147,16 +147,24 @@
     "pithp": {
       "name": "pithp",
       "created": 1795801746705,
-      "updated": 1795870788717,
+      "updated": 1795870852448,
       "profile": {
-        "balance": 8632,
+        "balance": 8643,
         "currentBet": 100,
         "stats": {
-          "spins": 1026,
-          "wins": 606,
+          "spins": 1027,
+          "wins": 607,
           "best": 2000
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "8",
+              "black"
+            ],
+            "delta": 11
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -196,18 +204,10 @@
               "red"
             ],
             "delta": 100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "10",
-              "black"
-            ],
-            "delta": -100
           }
         ],
-        "streak": 0,
-        "xp": 600,
+        "streak": 1,
+        "xp": 610,
         "level": 11,
         "xpToNext": 1320,
         "collection": [
@@ -315,7 +315,7 @@
             "crownGem"
           ]
         },
-        "activeView": "top",
+        "activeView": "games",
         "unlocked": [
           "games10",
           "first",
@@ -328,9 +328,9 @@
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": true,
-        "lastActionAt": 1795870705412,
-        "actionWindowStart": 1795870669121,
-        "actionCount": 17,
+        "lastActionAt": 1795870852448,
+        "actionWindowStart": 1795870852448,
+        "actionCount": 1,
         "createdAt": 0
       },
       "sessionAt": 1795870826824
@@ -529,13 +529,13 @@
     {
       "name": "pithp",
       "level": 11,
-      "balance": 8632,
-      "games": 1026,
+      "balance": 8643,
+      "games": 1027,
       "gifts": 0,
       "chests": 110,
       "achievements": 7,
       "rank": "Легенда",
-      "ts": 1795870788717
+      "ts": 1795870852448
     },
     {
       "name": "Егор",
