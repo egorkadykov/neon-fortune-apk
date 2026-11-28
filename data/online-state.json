@@ -445,22 +445,57 @@
       "name": "nbxTESTalpha",
       "hash": "fnv1a-a1b2c3d4",
       "created": 1795861279362,
-      "updated": 1795861279362,
+      "updated": 1795861287587,
       "sessionAt": 1795861279362,
       "profile": {
-        "balance": 100,
+        "balance": 97,
         "currentBet": 1,
         "stats": {
-          "spins": 0,
+          "spins": 3,
           "wins": 0,
           "best": 0
         },
-        "history": [],
+        "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "diamond",
+              "star",
+              "slotDie"
+            ],
+            "delta": -1
+          },
+          {
+            "glyph": "slots",
+            "icons": [
+              "lemon",
+              "diamond",
+              "lemon"
+            ],
+            "delta": -1
+          },
+          {
+            "glyph": "slots",
+            "icons": [
+              "lemon",
+              "bell",
+              "cherry"
+            ],
+            "delta": -1
+          }
+        ],
         "streak": 0,
-        "xp": 0,
+        "xp": 6,
         "level": 1,
         "xpToNext": 120,
-        "collection": [],
+        "collection": [
+          "lemon",
+          "bell",
+          "cherry",
+          "diamond",
+          "star",
+          "slotDie"
+        ],
         "collectionRewardGiven": false,
         "missions": [
           {
@@ -468,7 +503,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 0,
+            "progress": 3,
             "claimed": false
           },
           {
@@ -562,13 +597,13 @@
     {
       "name": "nbxTESTalpha",
       "level": 1,
-      "balance": 100,
-      "games": 0,
+      "balance": 97,
+      "games": 3,
       "gifts": 0,
       "chests": 0,
       "achievements": 0,
       "rank": "Новичок",
-      "ts": 1795861279362
+      "ts": 1795861287587
     }
   ],
   "admin": {
