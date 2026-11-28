@@ -686,45 +686,37 @@
     "хуй": {
       "name": "хуй",
       "created": 1795873289889,
-      "updated": 1795873304483,
+      "updated": 1795873364676,
       "sessionAt": 1795873289889,
       "profile": {
-        "balance": 100,
+        "balance": 666,
         "currentBet": 1,
         "stats": {
-          "spins": 15,
-          "wins": 4,
-          "best": 200
+          "spins": 32,
+          "wins": 15,
+          "best": 225
         },
         "history": [
           {
             "glyph": "roulette",
             "icons": [
-              "10",
-              "black"
+              "11",
+              "red"
             ],
-            "delta": -10
+            "delta": 100
           },
           {
             "glyph": "roulette",
             "icons": [
-              "4",
+              "2",
               "black"
             ],
-            "delta": -10
+            "delta": 11
           },
           {
             "glyph": "roulette",
             "icons": [
-              "8",
-              "black"
-            ],
-            "delta": -25
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "4",
+              "2",
               "black"
             ],
             "delta": -100
@@ -732,24 +724,32 @@
           {
             "glyph": "roulette",
             "icons": [
-              "1",
+              "3",
               "red"
             ],
-            "delta": 50
+            "delta": 100
           },
           {
             "glyph": "roulette",
             "icons": [
-              "7",
+              "9",
               "red"
             ],
-            "delta": 25
+            "delta": 100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "8",
+              "black"
+            ],
+            "delta": -100
           }
         ],
-        "streak": 0,
-        "xp": 62,
-        "level": 1,
-        "xpToNext": 120,
+        "streak": 2,
+        "xp": 64,
+        "level": 2,
+        "xpToNext": 240,
         "collection": [
           "red",
           "black",
@@ -770,8 +770,8 @@
             "title": "Победи 5 раз",
             "target": 5,
             "reward": 50,
-            "progress": 4,
-            "claimed": false
+            "progress": 5,
+            "claimed": true
           },
           {
             "id": "triple",
@@ -791,7 +791,7 @@
           }
         ],
         "chestStats": {
-          "opened": 8,
+          "opened": 14,
           "best": 180,
           "types": [
             "free",
@@ -802,32 +802,41 @@
         },
         "chestCooldowns": {
           "free": 1795959690926,
-          "paper": 1795873304704,
-          "silver": 1795873307908
+          "paper": 1795873369676,
+          "bronze": 1795873375737,
+          "silver": 1795873366997
         },
-        "gifts": {},
+        "gifts": {
+          "heart": 1
+        },
         "giftStats": {
-          "sold": 5,
-          "earned": 425,
-          "received": 5,
+          "sold": 10,
+          "earned": 775,
+          "received": 11,
           "found": [
             "brick",
             "sneakers",
             "candy",
-            "rocket"
+            "rocket",
+            "ring",
+            "diamond",
+            "rose",
+            "giftBox",
+            "heart"
           ]
         },
         "activeView": "chests",
         "unlocked": [
           "giftSell",
           "first",
-          "games10"
+          "games10",
+          "streak3"
         ],
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": false,
-        "lastActionAt": 1795873304483,
-        "actionWindowStart": 1795873290926,
+        "lastActionAt": 1795873364676,
+        "actionWindowStart": 1795873351041,
         "actionCount": 29,
         "createdAt": 1795873289889
       }
@@ -835,14 +844,14 @@
     "jesus": {
       "name": "Jesus",
       "created": 1795873290255,
-      "updated": 1795873304533,
+      "updated": 1795873364336,
       "sessionAt": 1795873290255,
       "profile": {
-        "balance": 151,
+        "balance": 240,
         "currentBet": 1,
         "stats": {
-          "spins": 15,
-          "wins": 7,
+          "spins": 32,
+          "wins": 14,
           "best": 225
         },
         "history": [
@@ -857,23 +866,7 @@
           {
             "glyph": "roulette",
             "icons": [
-              "8",
-              "black"
-            ],
-            "delta": 11
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "0",
-              "green"
-            ],
-            "delta": -25
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "8",
+              "6",
               "black"
             ],
             "delta": -100
@@ -881,10 +874,10 @@
           {
             "glyph": "roulette",
             "icons": [
-              "0",
-              "green"
+              "3",
+              "red"
             ],
-            "delta": -100
+            "delta": 100
           },
           {
             "glyph": "roulette",
@@ -892,13 +885,29 @@
               "5",
               "red"
             ],
-            "delta": 50
+            "delta": 100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "6",
+              "black"
+            ],
+            "delta": -100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "8",
+              "black"
+            ],
+            "delta": -100
           }
         ],
-        "streak": 2,
-        "xp": 86,
-        "level": 1,
-        "xpToNext": 120,
+        "streak": 1,
+        "xp": 56,
+        "level": 2,
+        "xpToNext": 240,
         "collection": [
           "black",
           "red",
@@ -940,7 +949,7 @@
           }
         ],
         "chestStats": {
-          "opened": 7,
+          "opened": 14,
           "best": 150,
           "types": [
             "free",
@@ -951,24 +960,26 @@
         },
         "chestCooldowns": {
           "free": 1795959690927,
-          "paper": 1795873305686,
-          "bronze": 1795873316533,
-          "silver": 1795873307903
+          "bronze": 1795873376336,
+          "silver": 1795873367464
         },
         "gifts": {
-          "trophy": 1
+          "lamp": 1
         },
         "giftStats": {
-          "sold": 5,
-          "earned": 330,
-          "received": 6,
+          "sold": 10,
+          "earned": 705,
+          "received": 11,
           "found": [
             "giftBox",
             "camera",
             "diamond",
             "candy",
             "cake",
-            "trophy"
+            "trophy",
+            "rose",
+            "bouquet",
+            "lamp"
           ]
         },
         "activeView": "chests",
@@ -981,8 +992,8 @@
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": false,
-        "lastActionAt": 1795873304533,
-        "actionWindowStart": 1795873290927,
+        "lastActionAt": 1795873364336,
+        "actionWindowStart": 1795873351004,
         "actionCount": 29,
         "createdAt": 1795873290255
       }
@@ -990,41 +1001,17 @@
     "hdvick": {
       "name": "hdvick",
       "created": 1795873290587,
-      "updated": 1795873304235,
+      "updated": 1795873364581,
       "sessionAt": 1795873290587,
       "profile": {
-        "balance": 1185,
-        "currentBet": 100,
+        "balance": 1766,
+        "currentBet": 1,
         "stats": {
-          "spins": 17,
-          "wins": 12,
+          "spins": 35,
+          "wins": 23,
           "best": 250
         },
         "history": [
-          {
-            "glyph": "roulette",
-            "icons": [
-              "10",
-              "black"
-            ],
-            "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "5",
-              "red"
-            ],
-            "delta": 125
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "3",
-              "red"
-            ],
-            "delta": 100
-          },
           {
             "glyph": "roulette",
             "icons": [
@@ -1044,14 +1031,38 @@
           {
             "glyph": "roulette",
             "icons": [
-              "5",
+              "11",
               "red"
             ],
-            "delta": 150
+            "delta": 125
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "9",
+              "red"
+            ],
+            "delta": 100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "9",
+              "red"
+            ],
+            "delta": 100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "4",
+              "black"
+            ],
+            "delta": -100
           }
         ],
-        "streak": 0,
-        "xp": 10,
+        "streak": 1,
+        "xp": 134,
         "level": 2,
         "xpToNext": 240,
         "collection": [
@@ -1094,8 +1105,8 @@
           }
         ],
         "chestStats": {
-          "opened": 5,
-          "best": 120,
+          "opened": 11,
+          "best": 180,
           "types": [
             "free",
             "bronze",
@@ -1105,22 +1116,28 @@
         },
         "chestCooldowns": {
           "free": 1795959690928,
-          "paper": 1795873304425,
-          "silver": 1795873307855
+          "paper": 1795873369581,
+          "bronze": 1795873375640,
+          "silver": 1795873367002
         },
-        "gifts": {},
+        "gifts": {
+          "brick": 1
+        },
         "giftStats": {
-          "sold": 5,
-          "earned": 280,
-          "received": 5,
+          "sold": 10,
+          "earned": 700,
+          "received": 11,
           "found": [
             "rose",
             "lamp",
             "trophy",
-            "brick"
+            "brick",
+            "heart",
+            "candy",
+            "sneakers"
           ]
         },
-        "activeView": "games",
+        "activeView": "chests",
         "unlocked": [
           "giftSell",
           "first",
@@ -1130,8 +1147,8 @@
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": false,
-        "lastActionAt": 1795873304235,
-        "actionWindowStart": 1795873290928,
+        "lastActionAt": 1795873364581,
+        "actionWindowStart": 1795873350981,
         "actionCount": 29,
         "createdAt": 1795873290587
       }
@@ -1175,13 +1192,24 @@
     {
       "name": "hdvick",
       "level": 2,
-      "balance": 1185,
-      "games": 17,
-      "gifts": 0,
-      "chests": 5,
+      "balance": 1766,
+      "games": 35,
+      "gifts": 1,
+      "chests": 11,
       "achievements": 4,
       "rank": "Новичок",
-      "ts": 1795873304235
+      "ts": 1795873364581
+    },
+    {
+      "name": "хуй",
+      "level": 2,
+      "balance": 666,
+      "games": 32,
+      "gifts": 1,
+      "chests": 14,
+      "achievements": 4,
+      "rank": "Новичок",
+      "ts": 1795873364676
     },
     {
       "name": "Ольга",
@@ -1196,25 +1224,14 @@
     },
     {
       "name": "Jesus",
-      "level": 1,
-      "balance": 151,
-      "games": 15,
+      "level": 2,
+      "balance": 240,
+      "games": 32,
       "gifts": 1,
-      "chests": 7,
+      "chests": 14,
       "achievements": 4,
       "rank": "Новичок",
-      "ts": 1795873304533
-    },
-    {
-      "name": "хуй",
-      "level": 1,
-      "balance": 100,
-      "games": 15,
-      "gifts": 0,
-      "chests": 8,
-      "achievements": 3,
-      "rank": "Новичок",
-      "ts": 1795873304483
+      "ts": 1795873364336
     }
   ],
   "tokenDevices": {}
