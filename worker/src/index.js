@@ -20,7 +20,7 @@ const SESSION_MAX_MS = 30 * 24 * 60 * 60 * 1000;
 // Защита от массовой регистрации ботов и от перегрузки сервера.
 const MAX_BODY_BYTES = 16384;
 const MAX_USERS = 500;
-const MAX_REGISTRATIONS_PER_HOUR = 10;
+const MAX_REGISTRATIONS_PER_HOUR = 3;
 const MAX_SAME_PASSWORD_USERS = 3;
 const MAX_BET = 100;
 const BETS = [1, 5, 10, 25, 50, 100];
@@ -804,7 +804,7 @@ async function handle(request, ctx) {
       if (mode === 'register') {
         if (state.users[key]) throw new Error('Такой игрок уже есть — войди или придумай другой ник');
         if (Object.keys(state.users).length >= MAX_USERS) throw new Error('Сервер переполнен — попробуйте позже');
-        if (/^bot\d+$/i.test(key)) throw new Error('Такое имя нельзя использовать');
+        if (/^(bot|nb)\d+$/i.test(key)) throw new Error('Такое имя нельзя использовать');
         if (store && store.registerGuard) store.registerGuard(hash);
         const bytes = new Uint8Array(32);
         crypto.getRandomValues(bytes);
@@ -862,6 +862,25 @@ async function handle(request, ctx) {
       user.updated = Date.now();
       state.leaderboard = buildLeaderboard(state);
       return { name: user.name, balance: user.profile.balance };
+    });
+    return reply({ ok: true, ...result });
+  }
+
+  // Админское удаление аккаунта: используется только для чистки ботов.
+  // Ключ хранится в секрете Cloudflare и не попадает в клиент.
+  if (path === '/admin/delete') {
+    const supplied = String(request.headers.get('x-admin-token') || '');
+    if (!env.ADMIN_TOKEN || supplied !== env.ADMIN_TOKEN) return fail('Нет доступа', 403);
+    const targetKey = keyFor(String(body.name || ''));
+    const result = await mutateSync((state) => {
+      const user = state.users[targetKey];
+      if (!user) throw new Error('Игрок не найден');
+      delete state.users[targetKey];
+      Object.keys(state.tokens).forEach((old) => {
+        if (state.tokens[old] === targetKey) delete state.tokens[old];
+      });
+      state.leaderboard = buildLeaderboard(state);
+      return { name: user.name };
     });
     return reply({ ok: true, ...result });
   }
