@@ -445,7 +445,7 @@
       "name": "nbxTESTalpha",
       "hash": "fnv1a-a1b2c3d4",
       "created": 1795861279362,
-      "updated": 1795861379745,
+      "updated": 1795861435235,
       "sessionAt": 1795861279362,
       "profile": {
         "balance": 120,
@@ -580,7 +580,7 @@
             "candy"
           ]
         },
-        "activeView": "chests",
+        "activeView": "games",
         "unlocked": [
           "first",
           "streak3",
@@ -632,7 +632,7 @@
       "chests": 4,
       "achievements": 3,
       "rank": "Новичок",
-      "ts": 1795861379745
+      "ts": 1795861435235
     },
     {
       "name": "Ольга",
