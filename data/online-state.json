@@ -445,10 +445,10 @@
       "name": "nb00041112",
       "hash": "fnv1a-258b654e",
       "created": 1795828669686,
-      "updated": 1795831390666,
+      "updated": 1795831397312,
       "sessionAt": 1795828669686,
       "profile": {
-        "balance": 1185,
+        "balance": 1270,
         "currentBet": 1,
         "stats": {
           "spins": 7,
@@ -550,7 +550,7 @@
           }
         ],
         "chestStats": {
-          "opened": 22,
+          "opened": 24,
           "best": 220,
           "types": [
             "bronze",
@@ -560,14 +560,14 @@
         },
         "chestCooldowns": {
           "free": 1795915072499,
-          "paper": 1795831395183,
-          "bronze": 1795831394636
+          "paper": 1795831401846,
+          "bronze": 1795831407907
         },
         "gifts": {},
         "giftStats": {
-          "sold": 21,
-          "earned": 1320,
-          "received": 21,
+          "sold": 23,
+          "earned": 1475,
+          "received": 23,
           "found": [
             "lamp",
             "scarf",
@@ -600,10 +600,10 @@
       "name": "nb00050130",
       "hash": "fnv1a-7cf8eb1c",
       "created": 1795828669686,
-      "updated": 1795831390350,
+      "updated": 1795831397269,
       "sessionAt": 1795828669686,
       "profile": {
-        "balance": 1404,
+        "balance": 1504,
         "currentBet": 1,
         "stats": {
           "spins": 82,
@@ -705,7 +705,7 @@
           }
         ],
         "chestStats": {
-          "opened": 43,
+          "opened": 45,
           "best": 275,
           "types": [
             "bronze",
@@ -715,14 +715,14 @@
         },
         "chestCooldowns": {
           "free": 1795915072514,
-          "paper": 1795831394847,
-          "bronze": 1795831394636
+          "paper": 1795831401792,
+          "bronze": 1795831407790
         },
         "gifts": {},
         "giftStats": {
-          "sold": 39,
-          "earned": 2650,
-          "received": 39,
+          "sold": 41,
+          "earned": 2820,
+          "received": 41,
           "found": [
             "sneakers",
             "giftBox",
@@ -765,10 +765,10 @@
       "name": "nb00028862",
       "hash": "fnv1a-57fa0ffd",
       "created": 1795828669686,
-      "updated": 1795831390969,
+      "updated": 1795831397191,
       "sessionAt": 1795828669686,
       "profile": {
-        "balance": 2292,
+        "balance": 2332,
         "currentBet": 1,
         "stats": {
           "spins": 83,
@@ -870,7 +870,7 @@
           }
         ],
         "chestStats": {
-          "opened": 43,
+          "opened": 45,
           "best": 275,
           "types": [
             "bronze",
@@ -880,14 +880,14 @@
         },
         "chestCooldowns": {
           "free": 1795915072412,
-          "paper": 1795831395349,
-          "bronze": 1795831394636
+          "paper": 1795831401735,
+          "bronze": 1795831407742
         },
         "gifts": {},
         "giftStats": {
-          "sold": 41,
-          "earned": 2910,
-          "received": 41,
+          "sold": 43,
+          "earned": 3020,
+          "received": 43,
           "found": [
             "watch",
             "giftBox",
@@ -1040,10 +1040,10 @@
       "name": "nb00033669",
       "hash": "fnv1a-725ce401",
       "created": 1795828669686,
-      "updated": 1795831390536,
+      "updated": 1795831397313,
       "sessionAt": 1795828669686,
       "profile": {
-        "balance": 1175,
+        "balance": 1230,
         "currentBet": 1,
         "stats": {
           "spins": 7,
@@ -1144,7 +1144,7 @@
           }
         ],
         "chestStats": {
-          "opened": 22,
+          "opened": 24,
           "best": 220,
           "types": [
             "bronze",
@@ -1154,14 +1154,14 @@
         },
         "chestCooldowns": {
           "free": 1795915072469,
-          "paper": 1795831395072,
-          "bronze": 1795831394636
+          "paper": 1795831401846,
+          "bronze": 1795831407877
         },
         "gifts": {},
         "giftStats": {
-          "sold": 21,
-          "earned": 1335,
-          "received": 21,
+          "sold": 23,
+          "earned": 1460,
+          "received": 23,
           "found": [
             "headphones",
             "giftBox",
@@ -1174,7 +1174,8 @@
             "rose",
             "brick",
             "lamp",
-            "teddy"
+            "teddy",
+            "diamond"
           ]
         },
         "activeView": "gifts",
@@ -1339,10 +1340,10 @@
       "name": "nb00063720",
       "hash": "fnv1a-1659be7c",
       "created": 1795828670184,
-      "updated": 1795831390663,
+      "updated": 1795831397284,
       "sessionAt": 1795828670184,
       "profile": {
-        "balance": 1065,
+        "balance": 1100,
         "currentBet": 1,
         "stats": {
           "spins": 7,
@@ -1443,7 +1444,7 @@
           }
         ],
         "chestStats": {
-          "opened": 22,
+          "opened": 24,
           "best": 150,
           "types": [
             "bronze",
@@ -1453,14 +1454,14 @@
         },
         "chestCooldowns": {
           "free": 1795915072445,
-          "paper": 1795831395182,
-          "bronze": 1795831394636
+          "paper": 1795831401845,
+          "bronze": 1795831407908
         },
         "gifts": {},
         "giftStats": {
-          "sold": 22,
-          "earned": 1200,
-          "received": 22,
+          "sold": 24,
+          "earned": 1305,
+          "received": 24,
           "found": [
             "lamp",
             "champagne",
@@ -1472,7 +1473,8 @@
             "musicBox",
             "trophy",
             "rose",
-            "heart"
+            "heart",
+            "diamond"
           ]
         },
         "activeView": "gifts",
@@ -1516,13 +1518,13 @@
     {
       "name": "nb00028862",
       "level": 3,
-      "balance": 2292,
+      "balance": 2332,
       "games": 83,
       "gifts": 0,
-      "chests": 43,
+      "chests": 45,
       "achievements": 5,
       "rank": "Игрок",
-      "ts": 1795831390969
+      "ts": 1795831397191
     },
     {
       "name": "pithp",
@@ -1538,46 +1540,46 @@
     {
       "name": "nb00050130",
       "level": 3,
-      "balance": 1404,
+      "balance": 1504,
       "games": 82,
       "gifts": 0,
-      "chests": 43,
+      "chests": 45,
       "achievements": 5,
       "rank": "Игрок",
-      "ts": 1795831390350
+      "ts": 1795831397269
     },
     {
       "name": "nb00041112",
       "level": 1,
-      "balance": 1185,
+      "balance": 1270,
       "games": 7,
       "gifts": 0,
-      "chests": 22,
+      "chests": 24,
       "achievements": 3,
       "rank": "Новичок",
-      "ts": 1795831390666
+      "ts": 1795831397312
     },
     {
       "name": "nb00033669",
       "level": 1,
-      "balance": 1175,
+      "balance": 1230,
       "games": 7,
       "gifts": 0,
-      "chests": 22,
+      "chests": 24,
       "achievements": 2,
       "rank": "Новичок",
-      "ts": 1795831390536
+      "ts": 1795831397313
     },
     {
       "name": "nb00063720",
       "level": 1,
-      "balance": 1065,
+      "balance": 1100,
       "games": 7,
       "gifts": 0,
-      "chests": 22,
+      "chests": 24,
       "achievements": 3,
       "rank": "Новичок",
-      "ts": 1795831390663
+      "ts": 1795831397284
     },
     {
       "name": "Ольга",
