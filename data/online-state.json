@@ -340,7 +340,7 @@
       "name": "Егор",
       "hash": "sha256-03aaef0fd45d47ee37afee60b41f0a80010f58f95d3d34e9b7dc253c8558bf2a",
       "created": 1795801871294,
-      "updated": 1795864774357,
+      "updated": 1795864821436,
       "profile": {
         "balance": 3364,
         "currentBet": 100,
@@ -479,8 +479,7 @@
           ]
         },
         "chestCooldowns": {
-          "free": 1795888348339,
-          "diamond": 1795864806029
+          "free": 1795888348339
         },
         "gifts": {},
         "giftStats": {
@@ -539,7 +538,7 @@
       "chests": 40,
       "achievements": 8,
       "rank": "Игрок",
-      "ts": 1795864774357
+      "ts": 1795864821436
     },
     {
       "name": "pithp",
