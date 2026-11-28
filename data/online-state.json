@@ -520,7 +520,7 @@
         "actionCount": 3,
         "createdAt": 0
       },
-      "sessionAt": 1795864889490
+      "sessionAt": 1795865036552
     },
     "geni": {
       "name": "Geni",
@@ -674,8 +674,8 @@
   "tokens": {
     "685ba5a696832690777021bd7b1b884b655d7bc5c2ce03d7626cf2eedd189ee5": "ольга",
     "c53ef96e7eb97147267df0b07b510d999c31b2a1b396484c6122490a41ee9847": "pithp",
-    "9897d70088cd150d5ab288f3d56d71e87ee2a8b6937c68863446b18a8669f22f": "егор",
-    "563f5abb5d1d5a11ba380a541133fdd69a3cc6322842809f89dfcda66a53a2b7": "geni"
+    "563f5abb5d1d5a11ba380a541133fdd69a3cc6322842809f89dfcda66a53a2b7": "geni",
+    "69fd0f4bd50d2e9813fe25ccc218a7b86251118db786abd60264c53bdacf8908": "егор"
   },
   "leaderboard": [
     {
