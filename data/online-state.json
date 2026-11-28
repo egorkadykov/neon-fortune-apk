@@ -147,16 +147,24 @@
     "pithp": {
       "name": "pithp",
       "created": 1795801746705,
-      "updated": 1795869517409,
+      "updated": 1795869519809,
       "profile": {
-        "balance": 2807,
+        "balance": 2707,
         "currentBet": 100,
         "stats": {
-          "spins": 567,
+          "spins": 568,
           "wins": 362,
           "best": 2000
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "10",
+              "black"
+            ],
+            "delta": -100
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -196,18 +204,10 @@
               "green"
             ],
             "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "2",
-              "black"
-            ],
-            "delta": -100
           }
         ],
         "streak": 0,
-        "xp": 10,
+        "xp": 12,
         "level": 9,
         "xpToNext": 1080,
         "collection": [
@@ -328,9 +328,9 @@
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": true,
-        "lastActionAt": 1795869517409,
+        "lastActionAt": 1795869519809,
         "actionWindowStart": 1795869460591,
-        "actionCount": 25,
+        "actionCount": 26,
         "createdAt": 0
       },
       "sessionAt": 1795869388604
@@ -537,13 +537,13 @@
     {
       "name": "pithp",
       "level": 9,
-      "balance": 2807,
-      "games": 567,
+      "balance": 2707,
+      "games": 568,
       "gifts": 0,
       "chests": 110,
       "achievements": 7,
       "rank": "Легенда",
-      "ts": 1795869517409
+      "ts": 1795869519809
     },
     {
       "name": "Ольга",
