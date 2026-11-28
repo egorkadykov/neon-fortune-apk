@@ -5,16 +5,24 @@
       "name": "Ольга",
       "hash": "sha256-cbfad02f9ed2a8d1e08d8f74f5303e9eb93637d47f82ab6f1c15871cf8dd0481",
       "created": 1795729360755,
-      "updated": 1795863710038,
+      "updated": 1795863713272,
       "profile": {
-        "balance": 109,
+        "balance": 209,
         "currentBet": 100,
         "stats": {
-          "spins": 8,
-          "wins": 4,
+          "spins": 9,
+          "wins": 5,
           "best": 200
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "9",
+              "red"
+            ],
+            "delta": 100
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -54,18 +62,10 @@
               "red"
             ],
             "delta": 25
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "4",
-              "black"
-            ],
-            "delta": -25
           }
         ],
-        "streak": 0,
-        "xp": 48,
+        "streak": 1,
+        "xp": 58,
         "level": 1,
         "xpToNext": 120,
         "collection": [
@@ -80,7 +80,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 8,
+            "progress": 9,
             "claimed": false
           },
           {
@@ -88,7 +88,7 @@
             "title": "Победи 5 раз",
             "target": 5,
             "reward": 50,
-            "progress": 4,
+            "progress": 5,
             "claimed": false
           },
           {
@@ -329,7 +329,7 @@
       "name": "Егор",
       "hash": "sha256-03aaef0fd45d47ee37afee60b41f0a80010f58f95d3d34e9b7dc253c8558bf2a",
       "created": 1795801871294,
-      "updated": 1795862932702,
+      "updated": 1795863712418,
       "profile": {
         "balance": 6418,
         "currentBet": 100,
@@ -525,7 +525,7 @@
       "chests": 38,
       "achievements": 6,
       "rank": "Игрок",
-      "ts": 1795862932702
+      "ts": 1795863712418
     },
     {
       "name": "pithp",
@@ -541,13 +541,13 @@
     {
       "name": "Ольга",
       "level": 1,
-      "balance": 109,
-      "games": 8,
+      "balance": 209,
+      "games": 9,
       "gifts": 0,
       "chests": 0,
       "achievements": 1,
       "rank": "Новичок",
-      "ts": 1795863710038
+      "ts": 1795863713272
     }
   ],
   "admin": {
