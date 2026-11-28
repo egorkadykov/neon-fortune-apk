@@ -526,10 +526,10 @@
     "gemi": {
       "name": "Gemi",
       "created": 1795870936657,
-      "updated": 1795870957881,
+      "updated": 1795870966501,
       "sessionAt": 1795870953857,
       "profile": {
-        "balance": 455,
+        "balance": 555,
         "currentBet": 1,
         "stats": {
           "spins": 14,
@@ -640,15 +640,12 @@
           ]
         },
         "chestCooldowns": {
-          "free": 1795957339130,
-          "bronze": 1795870962768
+          "free": 1795957339130
         },
-        "gifts": {
-          "ring": 1
-        },
+        "gifts": {},
         "giftStats": {
-          "sold": 5,
-          "earned": 145,
+          "sold": 6,
+          "earned": 245,
           "received": 6,
           "found": [
             "trophy",
@@ -659,7 +656,7 @@
             "ring"
           ]
         },
-        "activeView": "top",
+        "activeView": "gifts",
         "unlocked": [
           "giftSell",
           "first",
@@ -669,9 +666,9 @@
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": false,
-        "lastActionAt": 1795870950768,
+        "lastActionAt": 1795870966501,
         "actionWindowStart": 1795870937237,
-        "actionCount": 29,
+        "actionCount": 30,
         "createdAt": 1795870936657
       }
     }
@@ -703,13 +700,13 @@
     {
       "name": "Gemi",
       "level": 1,
-      "balance": 455,
+      "balance": 555,
       "games": 14,
-      "gifts": 1,
+      "gifts": 0,
       "chests": 8,
       "achievements": 4,
       "rank": "Новичок",
-      "ts": 1795870957881
+      "ts": 1795870966501
     },
     {
       "name": "Ольга",
