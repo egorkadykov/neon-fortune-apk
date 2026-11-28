@@ -5,7 +5,7 @@
       "name": "Ольга",
       "hash": "sha256-cbfad02f9ed2a8d1e08d8f74f5303e9eb93637d47f82ab6f1c15871cf8dd0481",
       "created": 1795729360755,
-      "updated": 1795863787957,
+      "updated": 1795863790224,
       "profile": {
         "balance": 275,
         "currentBet": 5,
@@ -129,7 +129,7 @@
             "watch"
           ]
         },
-        "activeView": "gifts",
+        "activeView": "games",
         "unlocked": [
           "first",
           "games10",
@@ -557,7 +557,7 @@
       "chests": 2,
       "achievements": 3,
       "rank": "Новичок",
-      "ts": 1795863787957
+      "ts": 1795863790224
     }
   ],
   "admin": {
