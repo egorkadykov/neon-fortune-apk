@@ -5,9 +5,9 @@
       "name": "Ольга",
       "hash": "sha256-cbfad02f9ed2a8d1e08d8f74f5303e9eb93637d47f82ab6f1c15871cf8dd0481",
       "created": 1795729360755,
-      "updated": 1795863768387,
+      "updated": 1795863770692,
       "profile": {
-        "balance": 60,
+        "balance": 0,
         "currentBet": 5,
         "stats": {
           "spins": 16,
@@ -109,22 +109,27 @@
           }
         ],
         "chestStats": {
-          "opened": 1,
-          "best": 60,
+          "opened": 2,
+          "best": 275,
           "types": [
-            "free"
+            "free",
+            "bronze"
           ]
         },
         "chestCooldowns": {
-          "free": 1795950152081
+          "free": 1795950152081,
+          "bronze": 1795863782692
         },
-        "gifts": {},
+        "gifts": {
+          "watch": 1
+        },
         "giftStats": {
           "sold": 1,
           "earned": 60,
-          "received": 1,
+          "received": 2,
           "found": [
-            "postcard"
+            "postcard",
+            "watch"
           ]
         },
         "activeView": "chests",
@@ -549,13 +554,13 @@
     {
       "name": "Ольга",
       "level": 1,
-      "balance": 60,
+      "balance": 0,
       "games": 16,
-      "gifts": 0,
-      "chests": 1,
+      "gifts": 1,
+      "chests": 2,
       "achievements": 3,
       "rank": "Новичок",
-      "ts": 1795863768387
+      "ts": 1795863770692
     }
   ],
   "admin": {
