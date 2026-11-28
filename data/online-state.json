@@ -147,16 +147,24 @@
     "pithp": {
       "name": "pithp",
       "created": 1795801746705,
-      "updated": 1795872505116,
+      "updated": 1795872507413,
       "profile": {
         "balance": 10395,
         "currentBet": 100,
         "stats": {
-          "spins": 1240,
+          "spins": 1241,
           "wins": 718,
           "best": 2000
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "2",
+              "black"
+            ],
+            "delta": -100
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -196,18 +204,10 @@
               "black"
             ],
             "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "6",
-              "black"
-            ],
-            "delta": -100
           }
         ],
-        "streak": 4,
-        "xp": 604,
+        "streak": 0,
+        "xp": 606,
         "level": 12,
         "xpToNext": 1440,
         "collection": [
@@ -287,12 +287,10 @@
           "free": 1795888370619,
           "cosmic": 1795872513819
         },
-        "gifts": {
-          "trophy": 1
-        },
+        "gifts": {},
         "giftStats": {
-          "sold": 107,
-          "earned": 13750,
+          "sold": 108,
+          "earned": 13850,
           "received": 108,
           "found": [
             "postcard",
@@ -331,9 +329,9 @@
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": true,
-        "lastActionAt": 1795872505116,
+        "lastActionAt": 1795872507413,
         "actionWindowStart": 1795872460653,
-        "actionCount": 17,
+        "actionCount": 19,
         "createdAt": 0
       },
       "sessionAt": 1795872026805
@@ -693,12 +691,12 @@
       "name": "pithp",
       "level": 12,
       "balance": 10395,
-      "games": 1240,
-      "gifts": 1,
+      "games": 1241,
+      "gifts": 0,
       "chests": 111,
       "achievements": 7,
       "rank": "Легенда",
-      "ts": 1795872505116
+      "ts": 1795872507413
     },
     {
       "name": "Егор",
