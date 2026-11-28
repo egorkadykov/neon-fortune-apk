@@ -445,11 +445,11 @@
       "name": "nbxTESTalpha",
       "hash": "fnv1a-a1b2c3d4",
       "created": 1795861279362,
-      "updated": 1795861364302,
+      "updated": 1795861379745,
       "sessionAt": 1795861279362,
       "profile": {
         "balance": 120,
-        "currentBet": 5,
+        "currentBet": 100,
         "stats": {
           "spins": 13,
           "wins": 5,
@@ -580,15 +580,15 @@
             "candy"
           ]
         },
-        "activeView": "games",
+        "activeView": "chests",
         "unlocked": [
           "first",
           "streak3",
           "games10"
         ],
         "activeGame": "roulette",
-        "cardsChoice": "spades",
-        "soundEnabled": true,
+        "cardsChoice": "hearts",
+        "soundEnabled": false,
         "lastActionAt": 0,
         "actionWindowStart": 0,
         "actionCount": 0
@@ -632,7 +632,7 @@
       "chests": 4,
       "achievements": 3,
       "rank": "Новичок",
-      "ts": 1795861364302
+      "ts": 1795861379745
     },
     {
       "name": "Ольга",
