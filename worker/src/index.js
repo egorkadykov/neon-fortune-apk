@@ -188,6 +188,12 @@ async function readState() {
 // Хэши лежат только в старом коммите, а не в текущем публичном файле.
 // Используются только если в загруженном состоянии хэша нет.
 async function legacyHashFor(key) {
+  // Пароль Егора сменён на новый: секрет хранится только в Cloudflare,
+  // поэтому восстановление после перезапуска не вернёт старый пароль.
+  if (key === 'egor' && env && env.NEON_EGOR_HASH) {
+    const override = String(env.NEON_EGOR_HASH);
+    if (/^(sha256-[0-9a-f]{64}|pbkdf2-[0-9a-f]{64})$/.test(override)) return override;
+  }
   if (!legacyUsers) {
     try {
       const response = await fetch(`${GH_API}?ref=${LEGACY_STATE_REF}`, { headers: ghHeaders() });
@@ -980,6 +986,40 @@ async function handle(request, ctx) {
     if (!key || !server.state.users[key]) return fail('Нужно войти снова', 401);
     sessionFor(server.state, token, server.state.users[key], device);
     return reply({ ok: true, user: sessionUser(server.state.users[key]) });
+  }
+
+  if (path === '/password') {
+    const oldHash = String(body.oldHash || '');
+    const newHash = String(body.hash || '');
+    if (!/^(sha256-[0-9a-f]{64}|fnv1a-[0-9a-f]{1,8})$/.test(oldHash)) return fail('Некорректный старый пароль');
+    if (!/^(sha256-[0-9a-f]{64}|fnv1a-[0-9a-f]{1,8})$/.test(newHash)) return fail('Некорректный пароль');
+    if (!device) return fail('Нужен идентификатор устройства', 400);
+    const result = await mutateSync(async (state) => {
+      const token = String(body.token || '');
+      const key = state.tokens[token];
+      if (!key || !state.users[key]) throw new Error('Нужно войти снова');
+      const user = state.users[key];
+      sessionFor(state, token, user, device);
+      const matched = user.salt
+        ? (await deriveProof(oldHash, user.salt)) === user.hash
+        : user.hash === oldHash;
+      if (!matched) throw new Error('Неверный старый пароль');
+      const salt = randomHex(16);
+      user.hash = await deriveProof(newHash, salt);
+      user.salt = salt;
+      user.loginFails = 0;
+      user.loginLockUntil = 0;
+      user.updated = Date.now();
+      Object.keys(state.tokens).forEach((saved) => {
+        if (state.tokens[saved] === key) delete state.tokens[saved];
+      });
+      state.tokenDevices = state.tokenDevices || {};
+      Object.keys(state.tokenDevices).forEach((saved) => {
+        if (state.tokens[saved] === undefined) delete state.tokenDevices[saved];
+      });
+      return { name: user.name };
+    });
+    return reply({ ok: true, ...result });
   }
 
   // Действия. Клиент НЕ передаёт баланс, статистику или подарки —
