@@ -147,16 +147,24 @@
     "pithp": {
       "name": "pithp",
       "created": 1795801746705,
-      "updated": 1795870201078,
+      "updated": 1795870203305,
       "profile": {
-        "balance": 6265,
+        "balance": 6365,
         "currentBet": 100,
         "stats": {
-          "spins": 810,
-          "wins": 493,
+          "spins": 811,
+          "wins": 494,
           "best": 2000
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "1",
+              "red"
+            ],
+            "delta": 100
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -196,18 +204,10 @@
               "red"
             ],
             "delta": 100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "10",
-              "black"
-            ],
-            "delta": -100
           }
         ],
-        "streak": 0,
-        "xp": 464,
+        "streak": 1,
+        "xp": 474,
         "level": 10,
         "xpToNext": 1200,
         "collection": [
@@ -328,9 +328,9 @@
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": true,
-        "lastActionAt": 1795870201076,
+        "lastActionAt": 1795870203305,
         "actionWindowStart": 1795870180790,
-        "actionCount": 10,
+        "actionCount": 11,
         "createdAt": 0
       },
       "sessionAt": 1795870173616
@@ -338,7 +338,7 @@
     "егор": {
       "name": "Егор",
       "created": 1795801871294,
-      "updated": 1795870200493,
+      "updated": 1795870204138,
       "profile": {
         "balance": 3734,
         "currentBet": 5,
@@ -501,7 +501,7 @@
             "musicBox"
           ]
         },
-        "activeView": "gifts",
+        "activeView": "top",
         "unlocked": [
           "giftSell",
           "first",
@@ -528,13 +528,13 @@
     {
       "name": "pithp",
       "level": 10,
-      "balance": 6265,
-      "games": 810,
+      "balance": 6365,
+      "games": 811,
       "gifts": 0,
       "chests": 110,
       "achievements": 7,
       "rank": "Легенда",
-      "ts": 1795870201078
+      "ts": 1795870203305
     },
     {
       "name": "Егор",
@@ -545,7 +545,7 @@
       "chests": 47,
       "achievements": 8,
       "rank": "Игрок",
-      "ts": 1795870200493
+      "ts": 1795870204138
     },
     {
       "name": "Ольга",
