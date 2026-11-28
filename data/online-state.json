@@ -591,17 +591,41 @@
       "name": "nb00017010",
       "hash": "fnv1a-736576db",
       "created": 1795825837417,
-      "updated": 1795825856196,
+      "updated": 1795825859207,
       "sessionAt": 1795825837417,
       "profile": {
-        "balance": 11,
+        "balance": 1,
         "currentBet": 10,
         "stats": {
-          "spins": 14,
-          "wins": 6,
+          "spins": 17,
+          "wins": 7,
           "best": 200
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "6",
+              "black"
+            ],
+            "delta": -10
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "2",
+              "black"
+            ],
+            "delta": -10
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "11",
+              "red"
+            ],
+            "delta": 10
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -625,34 +649,10 @@
               "black"
             ],
             "delta": -25
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "8",
-              "black"
-            ],
-            "delta": -50
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "8",
-              "black"
-            ],
-            "delta": 1
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "2",
-              "black"
-            ],
-            "delta": -100
           }
         ],
         "streak": 0,
-        "xp": 76,
+        "xp": 90,
         "level": 1,
         "xpToNext": 120,
         "collection": [
@@ -738,17 +738,33 @@
       "name": "nb00033858",
       "hash": "fnv1a-e7ffe0b4",
       "created": 1795825837417,
-      "updated": 1795825856205,
+      "updated": 1795825859217,
       "sessionAt": 1795825837417,
       "profile": {
-        "balance": 577,
-        "currentBet": 1,
+        "balance": 627,
+        "currentBet": 100,
         "stats": {
-          "spins": 14,
-          "wins": 9,
+          "spins": 16,
+          "wins": 10,
           "best": 250
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "7",
+              "red"
+            ],
+            "delta": 100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "8",
+              "black"
+            ],
+            "delta": -100
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -780,26 +796,10 @@
               "black"
             ],
             "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "0",
-              "green"
-            ],
-            "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "8",
-              "black"
-            ],
-            "delta": -100
           }
         ],
-        "streak": 3,
-        "xp": 100,
+        "streak": 1,
+        "xp": 112,
         "level": 1,
         "xpToNext": 120,
         "collection": [
@@ -856,12 +856,10 @@
           "paper": 1795825861205,
           "bronze": 1795825866319
         },
-        "gifts": {
-          "cake": 1
-        },
+        "gifts": {},
         "giftStats": {
-          "sold": 5,
-          "earned": 250,
+          "sold": 6,
+          "earned": 300,
           "received": 6,
           "found": [
             "ring",
@@ -872,7 +870,7 @@
             "cake"
           ]
         },
-        "activeView": "chests",
+        "activeView": "games",
         "unlocked": [
           "giftSell",
           "first",
@@ -891,17 +889,33 @@
       "name": "nb00029455",
       "hash": "fnv1a-346a6e41",
       "created": 1795825837417,
-      "updated": 1795825856224,
+      "updated": 1795825859218,
       "sessionAt": 1795825837417,
       "profile": {
-        "balance": 1035,
-        "currentBet": 1,
+        "balance": 1040,
+        "currentBet": 100,
         "stats": {
-          "spins": 13,
-          "wins": 9,
+          "spins": 15,
+          "wins": 10,
           "best": 225
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "3",
+              "red"
+            ],
+            "delta": 100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "10",
+              "black"
+            ],
+            "delta": -100
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -933,26 +947,10 @@
               "red"
             ],
             "delta": 125
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "7",
-              "red"
-            ],
-            "delta": 100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "9",
-              "red"
-            ],
-            "delta": 100
           }
         ],
-        "streak": 2,
-        "xp": 98,
+        "streak": 1,
+        "xp": 110,
         "level": 1,
         "xpToNext": 120,
         "collection": [
@@ -1009,12 +1007,10 @@
           "paper": 1795825861224,
           "bronze": 1795825866328
         },
-        "gifts": {
-          "candy": 1
-        },
+        "gifts": {},
         "giftStats": {
-          "sold": 5,
-          "earned": 480,
+          "sold": 6,
+          "earned": 485,
           "received": 6,
           "found": [
             "headphones",
@@ -1024,7 +1020,7 @@
             "sneakers"
           ]
         },
-        "activeView": "chests",
+        "activeView": "games",
         "unlocked": [
           "giftSell",
           "first",
@@ -1172,17 +1168,33 @@
       "name": "nb00070852",
       "hash": "fnv1a-4c38cdf3",
       "created": 1795825837816,
-      "updated": 1795825856201,
+      "updated": 1795825859207,
       "sessionAt": 1795825837816,
       "profile": {
-        "balance": 796,
-        "currentBet": 1,
+        "balance": 611,
+        "currentBet": 100,
         "stats": {
-          "spins": 13,
+          "spins": 15,
           "wins": 9,
           "best": 250
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "8",
+              "black"
+            ],
+            "delta": -100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "0",
+              "green"
+            ],
+            "delta": -100
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -1214,26 +1226,10 @@
               "red"
             ],
             "delta": 100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "4",
-              "black"
-            ],
-            "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "0",
-              "green"
-            ],
-            "delta": -100
           }
         ],
-        "streak": 4,
-        "xp": 98,
+        "streak": 0,
+        "xp": 102,
         "level": 1,
         "xpToNext": 120,
         "collection": [
@@ -1290,12 +1286,10 @@
           "paper": 1795825861201,
           "bronze": 1795825866320
         },
-        "gifts": {
-          "teddy": 1
-        },
+        "gifts": {},
         "giftStats": {
-          "sold": 5,
-          "earned": 255,
+          "sold": 6,
+          "earned": 270,
           "received": 6,
           "found": [
             "lamp",
@@ -1305,7 +1299,7 @@
             "teddy"
           ]
         },
-        "activeView": "chests",
+        "activeView": "games",
         "unlocked": [
           "giftSell",
           "first",
@@ -1324,17 +1318,33 @@
       "name": "nb00063677",
       "hash": "fnv1a-b6c8f28b",
       "created": 1795825837818,
-      "updated": 1795825856217,
+      "updated": 1795825859222,
       "sessionAt": 1795825837818,
       "profile": {
-        "balance": 235,
-        "currentBet": 1,
+        "balance": 260,
+        "currentBet": 100,
         "stats": {
-          "spins": 13,
-          "wins": 6,
+          "spins": 15,
+          "wins": 7,
           "best": 250
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "2",
+              "black"
+            ],
+            "delta": -100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "7",
+              "red"
+            ],
+            "delta": 100
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -1366,26 +1376,10 @@
               "black"
             ],
             "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "10",
-              "black"
-            ],
-            "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "4",
-              "black"
-            ],
-            "delta": -100
           }
         ],
         "streak": 0,
-        "xp": 74,
+        "xp": 86,
         "level": 1,
         "xpToNext": 120,
         "collection": [
@@ -1442,12 +1436,10 @@
           "paper": 1795825861217,
           "bronze": 1795825866320
         },
-        "gifts": {
-          "giftBox": 1
-        },
+        "gifts": {},
         "giftStats": {
-          "sold": 5,
-          "earned": 230,
+          "sold": 6,
+          "earned": 255,
           "received": 6,
           "found": [
             "diamond",
@@ -1457,7 +1449,7 @@
             "giftBox"
           ]
         },
-        "activeView": "chests",
+        "activeView": "games",
         "unlocked": [
           "giftSell",
           "first",
@@ -1510,46 +1502,46 @@
     {
       "name": "nb00029455",
       "level": 1,
-      "balance": 1035,
-      "games": 13,
-      "gifts": 1,
+      "balance": 1040,
+      "games": 15,
+      "gifts": 0,
       "chests": 6,
       "achievements": 4,
       "rank": "Новичок",
-      "ts": 1795825856224
-    },
-    {
-      "name": "nb00070852",
-      "level": 1,
-      "balance": 796,
-      "games": 13,
-      "gifts": 1,
-      "chests": 6,
-      "achievements": 4,
-      "rank": "Новичок",
-      "ts": 1795825856201
+      "ts": 1795825859218
     },
     {
       "name": "nb00033858",
       "level": 1,
-      "balance": 577,
-      "games": 14,
-      "gifts": 1,
+      "balance": 627,
+      "games": 16,
+      "gifts": 0,
       "chests": 6,
       "achievements": 4,
       "rank": "Новичок",
-      "ts": 1795825856205
+      "ts": 1795825859217
+    },
+    {
+      "name": "nb00070852",
+      "level": 1,
+      "balance": 611,
+      "games": 15,
+      "gifts": 0,
+      "chests": 6,
+      "achievements": 4,
+      "rank": "Новичок",
+      "ts": 1795825859207
     },
     {
       "name": "nb00063677",
       "level": 1,
-      "balance": 235,
-      "games": 13,
-      "gifts": 1,
+      "balance": 260,
+      "games": 15,
+      "gifts": 0,
       "chests": 6,
       "achievements": 4,
       "rank": "Новичок",
-      "ts": 1795825856217
+      "ts": 1795825859222
     },
     {
       "name": "Ольга",
@@ -1565,13 +1557,13 @@
     {
       "name": "nb00017010",
       "level": 1,
-      "balance": 11,
-      "games": 14,
+      "balance": 1,
+      "games": 17,
       "gifts": 0,
       "chests": 5,
       "achievements": 3,
       "rank": "Новичок",
-      "ts": 1795825856196
+      "ts": 1795825859207
     },
     {
       "name": "nb00052400",
