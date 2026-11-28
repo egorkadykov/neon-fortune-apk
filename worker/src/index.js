@@ -22,6 +22,9 @@ const MAX_BODY_BYTES = 16384;
 const MAX_USERS = 500;
 const MAX_REGISTRATIONS_PER_HOUR = 3;
 const MAX_SAME_PASSWORD_USERS = 3;
+const MAX_LOGIN_FAILS = 5;
+const LOGIN_LOCK_MS = 15 * 60 * 1000;
+const AUTH_ITERATIONS = 60000;
 const MAX_BET = 100;
 const BETS = [1, 5, 10, 25, 50, 100];
 const GAMES = ['slots', 'dice', 'roulette', 'darts', 'cards'];
@@ -83,7 +86,7 @@ const CHESTS = {
 const CORS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type'
+  'Access-Control-Allow-Headers': 'Content-Type, x-neon-device'
 };
 
 let env = {};
@@ -130,7 +133,25 @@ async function latestRelease() {
 }
 
 function emptyState() {
-  return { version: 1, users: {}, tokens: {}, leaderboard: [] };
+  return { version: 1, users: {}, tokens: {}, tokenDevices: {}, leaderboard: [] };
+}
+
+// Публичный файл в GitHub доступен всем. В нём не должно быть ни токенов,
+// ни хэшей паролей — иначе враг просто скачивает готовые ключи к аккаунтам.
+function safeState(state) {
+  const copy = JSON.parse(JSON.stringify(state));
+  copy.tokens = {};
+  copy.tokenDevices = {};
+  Object.keys(copy.users || {}).forEach((key) => {
+    const user = copy.users[key];
+    delete user.hash;
+    delete user.salt;
+    delete user.deviceId;
+    delete user.loginFails;
+    delete user.loginLockUntil;
+  });
+  delete copy.admin;
+  return copy;
 }
 
 function ghHeaders() {
@@ -153,6 +174,7 @@ async function readState() {
     state = JSON.parse(new TextDecoder('utf-8').decode(bytes));
   }
   if (!state || typeof state !== 'object') state = emptyState();
+  state = safeState(state);
   if (!state.users || typeof state.users !== 'object') state.users = {};
   if (!state.tokens || typeof state.tokens !== 'object') state.tokens = {};
   if (!Array.isArray(state.leaderboard)) state.leaderboard = [];
@@ -160,7 +182,7 @@ async function readState() {
 }
 
 async function writeState(state, sha) {
-  const content = btoa(unescape(encodeURIComponent(JSON.stringify(state, null, 2))));
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify(safeState(state), null, 2))));
   const response = await fetch(GH_API, {
     method: 'PUT',
     headers: { ...ghHeaders(), 'Content-Type': 'application/json' },
@@ -220,6 +242,33 @@ function str(value, fallback) {
 
 function keyFor(name) {
   return String(name).trim().toLowerCase();
+}
+
+function bytesToHex(bytes) {
+  return Array.from(bytes, (b) => ('0' + b.toString(16)).slice(-2)).join('');
+}
+
+function randomHex(length) {
+  const bytes = new Uint8Array(length);
+  crypto.getRandomValues(bytes);
+  return bytesToHex(bytes);
+}
+
+// Пароль, пришедший от клиента, дополнительно солится и медленно хэшируется
+// уже на сервере. Даже при утечке базы подобрать пароль становится нереально.
+async function deriveProof(proof, salt) {
+  const key = await crypto.subtle.importKey(
+    'raw', new TextEncoder().encode(proof), 'PBKDF2', false, ['deriveBits']
+  );
+  const saltBytes = Uint8Array.from(salt.match(/.{2}/g) || [], (pair) => parseInt(pair, 16));
+  const bits = await crypto.subtle.deriveBits({
+    name: 'PBKDF2', salt: saltBytes, iterations: AUTH_ITERATIONS, hash: 'SHA-256'
+  }, key, 256);
+  return 'pbkdf2-' + bytesToHex(new Uint8Array(bits));
+}
+
+function deviceOf(request) {
+  return String(request.headers.get('x-neon-device') || '').slice(0, 64);
 }
 
 function defaultProfile() {
@@ -471,9 +520,17 @@ function sessionUser(user) {
   };
 }
 
-function sessionFor(state, token, user) {
+function sessionFor(state, token, user, device) {
   if (!token || state.tokens[token] !== keyFor(user.name)) throw new Error('Нужно войти снова');
   if (Date.now() - (user.sessionAt || 0) > SESSION_MAX_MS) throw new Error('Сессия истекла — войди заново');
+  const devices = state.tokenDevices || (state.tokenDevices = {});
+  const bound = devices[token];
+  if (bound && bound !== device) throw new Error('Сессия привязана к другому устройству');
+  // Старые сессии без привязки получают её при первом входе через новую версию.
+  if (!bound && device) {
+    devices[token] = device;
+    user.deviceId = device;
+  }
 }
 
 function chestPrizes(id) {
@@ -782,6 +839,7 @@ async function handle(request, ctx) {
 
   const url = new URL(request.url);
   const path = url.pathname.replace(/\/$/, '') || '/state';
+  const device = deviceOf(request);
 
   if (path === '/state' && request.method === 'GET') {
     // Принудительное чтение GitHub доступно только фоновой синхронизации DO.
@@ -807,42 +865,79 @@ async function handle(request, ctx) {
     const mode = body.mode === 'register' ? 'register' : 'login';
     if (!/^[A-Za-zА-Яа-яЁё0-9_]{3,16}$/.test(name)) return fail('Никнейм: от 3 до 16 букв, цифр или _');
     if (!/^(sha256-[0-9a-f]{64}|fnv1a-[0-9a-f]{1,8})$/.test(hash)) return fail('Некорректный пароль');
-    const result = await mutateSync((state) => {
+    // Вход разрешён только клиенту с идентификатором устройства: украденный
+    // токен или пароль без этого идентификатора работать не будут.
+    if (!device) return fail('Нужен идентификатор устройства', 400);
+    const result = await mutateSync(async (state) => {
       const key = keyFor(name);
       if (mode === 'register') {
         if (state.users[key]) throw new Error('Такой игрок уже есть — войди или придумай другой ник');
         if (Object.keys(state.users).length >= MAX_USERS) throw new Error('Сервер переполнен — попробуйте позже');
         if (/^(bot|nbx?)\d+$/i.test(key)) throw new Error('Такое имя нельзя использовать');
         if (store && store.registerGuard) store.registerGuard(hash);
-        const bytes = new Uint8Array(32);
-        crypto.getRandomValues(bytes);
-        const token = Array.from(bytes, (b) => ('0' + b.toString(16)).slice(-2)).join('');
+        const token = randomHex(32);
+        const salt = randomHex(16);
         const profile = normalizeProfile(null);
         profile.createdAt = Date.now();
         state.users[key] = {
-          name, hash, created: profile.createdAt, updated: Date.now(),
-          sessionAt: Date.now(), profile
+          name,
+          hash: await deriveProof(hash, salt),
+          salt,
+          created: profile.createdAt,
+          updated: Date.now(),
+          sessionAt: Date.now(),
+          deviceId: device,
+          loginFails: 0,
+          loginLockUntil: 0,
+          profile
         };
         Object.keys(state.tokens).forEach((old) => {
           if (state.tokens[old] === key) delete state.tokens[old];
         });
         state.tokens[token] = key;
+        state.tokenDevices = state.tokenDevices || {};
+        state.tokenDevices[token] = device;
         state.leaderboard = buildLeaderboard(state);
         return { token, user: sessionUser(state.users[key]), isNew: true };
       }
       const user = state.users[key];
-      if (!user || user.hash !== hash) throw new Error('Неверный никнейм или пароль');
-      const bytes = new Uint8Array(32);
-      crypto.getRandomValues(bytes);
-      const token = Array.from(bytes, (b) => ('0' + b.toString(16)).slice(-2)).join('');
+      if (!user) return { error: 'Неверный никнейм или пароль' };
+      const now = Date.now();
+      if (user.loginLockUntil && now < user.loginLockUntil) {
+        return { error: 'Слишком много попыток входа — попробуйте позже', status: 429 };
+      }
+      let matched;
+      if (user.salt) matched = (await deriveProof(hash, user.salt)) === user.hash;
+      else matched = user.hash === hash;
+      if (!matched) {
+        user.loginFails = (user.loginFails || 0) + 1;
+        user.loginLockUntil = 0;
+        if (user.loginFails >= MAX_LOGIN_FAILS) {
+          user.loginLockUntil = now + LOGIN_LOCK_MS;
+          user.loginFails = 0;
+          return { error: 'Слишком много попыток входа — попробуйте позже', status: 429 };
+        }
+        return { error: 'Неверный никнейм или пароль' };
+      }
+      user.loginFails = 0;
+      user.loginLockUntil = 0;
+      if (!user.salt) {
+        user.salt = randomHex(16);
+        user.hash = await deriveProof(hash, user.salt);
+      }
+      user.deviceId = device;
+      const token = randomHex(32);
       Object.keys(state.tokens).forEach((old) => {
         if (state.tokens[old] === key) delete state.tokens[old];
       });
       state.tokens[token] = key;
-      user.sessionAt = Date.now();
+      state.tokenDevices = state.tokenDevices || {};
+      state.tokenDevices[token] = device;
+      user.sessionAt = now;
       user.profile = normalizeProfile(user.profile);
       return { token, user: sessionUser(user), isNew: false };
     });
+    if (result.error) return fail(result.error, result.status || 400);
     return reply({ ok: true, ...result });
   }
 
@@ -851,50 +946,12 @@ async function handle(request, ctx) {
     const server = await loadState();
     const key = server.state.tokens[token];
     if (!key || !server.state.users[key]) return fail('Нужно войти снова', 401);
-    sessionFor(server.state, token, server.state.users[key]);
+    sessionFor(server.state, token, server.state.users[key], device);
     return reply({ ok: true, user: sessionUser(server.state.users[key]) });
   }
 
-  // Админская правка баланса. Ключ хранится только в секрете Cloudflare,
-  // клиент не знает его и не может изменить свои звёзды.
-  if (path === '/admin/balance') {
-    const supplied = String(request.headers.get('x-admin-token') || '');
-    if (!env.ADMIN_TOKEN || supplied !== env.ADMIN_TOKEN) return fail('Нет доступа', 403);
-    if (typeof body.balance !== 'number' || !Number.isFinite(body.balance)) {
-      return fail('Некорректный баланс');
-    }
-    const balance = Math.min(MAX_BALANCE, Math.max(0, Math.floor(body.balance)));
-    const result = await mutateSync((state) => {
-      const user = state.users[keyFor(String(body.name || ''))];
-      if (!user) throw new Error('Игрок не найден');
-      user.profile = normalizeProfile(user.profile);
-      user.profile.balance = balance;
-      user.updated = Date.now();
-      state.leaderboard = buildLeaderboard(state);
-      return { name: user.name, balance: user.profile.balance };
-    });
-    return reply({ ok: true, ...result });
-  }
-
-  // Админское удаление аккаунта: используется только для чистки ботов.
-  // Ключ хранится в секрете Cloudflare и не попадает в клиент.
-  if (path === '/admin/delete') {
-    const supplied = String(request.headers.get('x-admin-token') || '');
-    if (!env.ADMIN_TOKEN || supplied !== env.ADMIN_TOKEN) return fail('Нет доступа', 403);
-    const targetKey = keyFor(String(body.name || ''));
-    const result = await mutateSync((state) => {
-      const user = state.users[targetKey];
-      if (!user) throw new Error('Игрок не найден');
-      delete state.users[targetKey];
-      Object.keys(state.tokens).forEach((old) => {
-        if (state.tokens[old] === targetKey) delete state.tokens[old];
-      });
-      state.leaderboard = buildLeaderboard(state);
-      return { name: user.name };
-    });
-    return reply({ ok: true, ...result });
-  }
-
+  // Админских эндпоинтов больше нет: даже при утечке старого ключа
+  // злоумышленник не сможет изменить баланс или удалить аккаунт.
   // Действия. Клиент НЕ передаёт баланс, статистику или подарки —
   // сервер сам решает, что выпало и сколько начислено.
   const actions = {
@@ -915,7 +972,7 @@ async function handle(request, ctx) {
       const key = state.tokens[token];
       if (!key || !state.users[key]) throw new Error('Нужно войти снова');
       const user = state.users[key];
-      sessionFor(state, token, user);
+      sessionFor(state, token, user, device);
       const outcome = actions[path](state, key, user);
       user.profile = normalizeProfile(outcome.profile);
       user.updated = Date.now();
@@ -926,7 +983,14 @@ async function handle(request, ctx) {
   }
 
   if (path === '/logout') {
-    await mutateSync((state) => { delete state.tokens[String(body.token || '')]; });
+    await mutateSync((state) => {
+      const token = String(body.token || '');
+      const key = state.tokens[token];
+      if (!key || !state.users[key]) return;
+      sessionFor(state, token, state.users[key], device);
+      delete state.tokens[token];
+      if (state.tokenDevices) delete state.tokenDevices[token];
+    });
     return reply({ ok: true });
   }
 
@@ -935,10 +999,16 @@ async function handle(request, ctx) {
       const token = String(body.token || '');
       const key = state.tokens[token];
       if (!key || !state.users[key]) throw new Error('Нужно войти снова');
+      sessionFor(state, token, state.users[key], device);
       delete state.users[key];
       Object.keys(state.tokens).forEach((saved) => {
         if (state.tokens[saved] === key) delete state.tokens[saved];
       });
+      if (state.tokenDevices) {
+        Object.keys(state.tokenDevices).forEach((saved) => {
+          if (state.tokens[saved] === undefined) delete state.tokenDevices[saved];
+        });
+      }
       state.leaderboard = buildLeaderboard(state);
     });
     return reply({ ok: true });
