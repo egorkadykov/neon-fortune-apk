@@ -440,165 +440,11 @@
         "actionCount": 0
       },
       "sessionAt": 1795810651372
-    },
-    "nbxtestalpha": {
-      "name": "nbxTESTalpha",
-      "hash": "fnv1a-a1b2c3d4",
-      "created": 1795861279362,
-      "updated": 1795861435235,
-      "sessionAt": 1795861279362,
-      "profile": {
-        "balance": 120,
-        "currentBet": 100,
-        "stats": {
-          "spins": 13,
-          "wins": 5,
-          "best": 11
-        },
-        "history": [
-          {
-            "glyph": "roulette",
-            "icons": [
-              "1",
-              "red"
-            ],
-            "delta": 5
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "11",
-              "red"
-            ],
-            "delta": 5
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "6",
-              "black"
-            ],
-            "delta": -5
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "2",
-              "black"
-            ],
-            "delta": -5
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "4",
-              "black"
-            ],
-            "delta": -5
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "7",
-              "red"
-            ],
-            "delta": 6
-          }
-        ],
-        "streak": 2,
-        "xp": 66,
-        "level": 1,
-        "xpToNext": 120,
-        "collection": [
-          "lemon",
-          "bell",
-          "cherry",
-          "diamond",
-          "star",
-          "slotDie",
-          "black",
-          "green",
-          "red"
-        ],
-        "collectionRewardGiven": false,
-        "missions": [
-          {
-            "id": "games",
-            "title": "Сыграй 10 игр",
-            "target": 10,
-            "reward": 30,
-            "progress": 10,
-            "claimed": true
-          },
-          {
-            "id": "wins",
-            "title": "Победи 5 раз",
-            "target": 5,
-            "reward": 50,
-            "progress": 5,
-            "claimed": false
-          },
-          {
-            "id": "triple",
-            "title": "Получи трипу в костях",
-            "target": 1,
-            "reward": 75,
-            "progress": 0,
-            "claimed": false
-          },
-          {
-            "id": "jackpot",
-            "title": "Сорви джекпот",
-            "target": 1,
-            "reward": 100,
-            "progress": 0,
-            "claimed": false
-          }
-        ],
-        "chestStats": {
-          "opened": 4,
-          "best": 100,
-          "types": [
-            "bronze",
-            "wood",
-            "paper"
-          ]
-        },
-        "chestCooldowns": {},
-        "gifts": {
-          "ring": 1,
-          "rose": 1,
-          "candy": 1
-        },
-        "giftStats": {
-          "sold": 0,
-          "earned": 0,
-          "received": 3,
-          "found": [
-            "ring",
-            "rose",
-            "candy"
-          ]
-        },
-        "activeView": "games",
-        "unlocked": [
-          "first",
-          "streak3",
-          "games10"
-        ],
-        "activeGame": "roulette",
-        "cardsChoice": "hearts",
-        "soundEnabled": false,
-        "lastActionAt": 0,
-        "actionWindowStart": 0,
-        "actionCount": 0
-      }
     }
   },
   "tokens": {
     "f6cbb883479d36ed93e7817f9525f9fa4a1936b05fcc5d3f72c5f28d9c6b7c79": "егор",
-    "de6f25ef0a1e60615c719e8357ea6b00c6e1966e9a27890e5a725b3d7debf1de": "pithp",
-    "06d8df63bb31b89d372d6537d5125ae75bbc8a03a57036d7ddc9df71127f6a7c": "nbxtestalpha"
+    "de6f25ef0a1e60615c719e8357ea6b00c6e1966e9a27890e5a725b3d7debf1de": "pithp"
   },
   "leaderboard": [
     {
@@ -622,17 +468,6 @@
       "achievements": 7,
       "rank": "Мастер",
       "ts": 1795857441695
-    },
-    {
-      "name": "nbxTESTalpha",
-      "level": 1,
-      "balance": 120,
-      "games": 13,
-      "gifts": 3,
-      "chests": 4,
-      "achievements": 3,
-      "rank": "Новичок",
-      "ts": 1795861435235
     },
     {
       "name": "Ольга",
