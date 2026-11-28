@@ -526,45 +526,21 @@
     "gemi": {
       "name": "Gemi",
       "created": 1795870936657,
-      "updated": 1795871046913,
+      "updated": 1795871106636,
       "sessionAt": 1795870995992,
       "profile": {
-        "balance": 886,
+        "balance": 1121,
         "currentBet": 1,
         "stats": {
-          "spins": 34,
-          "wins": 18,
-          "best": 225
+          "spins": 54,
+          "wins": 28,
+          "best": 250
         },
         "history": [
           {
             "glyph": "roulette",
             "icons": [
-              "3",
-              "red"
-            ],
-            "delta": 125
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "1",
-              "red"
-            ],
-            "delta": 100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "9",
-              "red"
-            ],
-            "delta": 100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "10",
+              "6",
               "black"
             ],
             "delta": -100
@@ -572,22 +548,46 @@
           {
             "glyph": "roulette",
             "icons": [
-              "0",
-              "green"
+              "6",
+              "black"
             ],
             "delta": -100
           },
           {
             "glyph": "roulette",
             "icons": [
-              "10",
+              "7",
+              "red"
+            ],
+            "delta": 100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "6",
+              "black"
+            ],
+            "delta": -100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "11",
+              "red"
+            ],
+            "delta": 100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "4",
               "black"
             ],
             "delta": -100
           }
         ],
-        "streak": 3,
-        "xp": 92,
+        "streak": 0,
+        "xp": 212,
         "level": 2,
         "xpToNext": 240,
         "collection": [
@@ -631,7 +631,7 @@
           }
         ],
         "chestStats": {
-          "opened": 13,
+          "opened": 18,
           "best": 120,
           "types": [
             "bronze",
@@ -641,14 +641,16 @@
         },
         "chestCooldowns": {
           "free": 1795957339130,
-          "paper": 1795871050334,
-          "bronze": 1795871058425
+          "paper": 1795871111636,
+          "bronze": 1795871117691
         },
-        "gifts": {},
+        "gifts": {
+          "rocket": 1
+        },
         "giftStats": {
-          "sold": 10,
-          "earned": 535,
-          "received": 10,
+          "sold": 14,
+          "earned": 845,
+          "received": 15,
           "found": [
             "trophy",
             "brick",
@@ -657,10 +659,12 @@
             "heart",
             "ring",
             "postcard",
-            "lamp"
+            "lamp",
+            "scarf",
+            "rocket"
           ]
         },
-        "activeView": "gifts",
+        "activeView": "chests",
         "unlocked": [
           "giftSell",
           "first",
@@ -670,8 +674,8 @@
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": false,
-        "lastActionAt": 1795871046913,
-        "actionWindowStart": 1795871032764,
+        "lastActionAt": 1795871106636,
+        "actionWindowStart": 1795871092798,
         "actionCount": 29,
         "createdAt": 1795870936657
       }
@@ -704,13 +708,13 @@
     {
       "name": "Gemi",
       "level": 2,
-      "balance": 886,
-      "games": 34,
-      "gifts": 0,
-      "chests": 13,
+      "balance": 1121,
+      "games": 54,
+      "gifts": 1,
+      "chests": 18,
       "achievements": 4,
       "rank": "Новичок",
-      "ts": 1795871046913
+      "ts": 1795871106636
     },
     {
       "name": "Ольга",
