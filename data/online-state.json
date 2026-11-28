@@ -147,12 +147,12 @@
     "pithp": {
       "name": "pithp",
       "created": 1795801746705,
-      "updated": 1795870362233,
+      "updated": 1795870364470,
       "profile": {
-        "balance": 7001,
+        "balance": 6901,
         "currentBet": 100,
         "stats": {
-          "spins": 881,
+          "spins": 882,
           "wins": 529,
           "best": 2000
         },
@@ -160,54 +160,54 @@
           {
             "glyph": "roulette",
             "icons": [
-              "10",
-              "black"
-            ],
-            "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "8",
-              "black"
-            ],
-            "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "8",
-              "black"
-            ],
-            "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "10",
-              "black"
-            ],
-            "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "8",
-              "black"
-            ],
-            "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
               "0",
               "green"
+            ],
+            "delta": -100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "10",
+              "black"
+            ],
+            "delta": -100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "8",
+              "black"
+            ],
+            "delta": -100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "8",
+              "black"
+            ],
+            "delta": -100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "10",
+              "black"
+            ],
+            "delta": -100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "8",
+              "black"
             ],
             "delta": -100
           }
         ],
         "streak": 0,
-        "xp": 894,
+        "xp": 896,
         "level": 10,
         "xpToNext": 1200,
         "collection": [
@@ -328,9 +328,9 @@
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": true,
-        "lastActionAt": 1795870362233,
-        "actionWindowStart": 1795870303148,
-        "actionCount": 27,
+        "lastActionAt": 1795870364470,
+        "actionWindowStart": 1795870364470,
+        "actionCount": 1,
         "createdAt": 0
       },
       "sessionAt": 1795870173616
@@ -529,13 +529,13 @@
     {
       "name": "pithp",
       "level": 10,
-      "balance": 7001,
-      "games": 881,
+      "balance": 6901,
+      "games": 882,
       "gifts": 0,
       "chests": 110,
       "achievements": 7,
       "rank": "Легенда",
-      "ts": 1795870362233
+      "ts": 1795870364470
     },
     {
       "name": "Егор",
