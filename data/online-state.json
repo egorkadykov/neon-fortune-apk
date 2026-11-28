@@ -273,16 +273,24 @@
       "name": "Егор",
       "hash": "sha256-03aaef0fd45d47ee37afee60b41f0a80010f58f95d3d34e9b7dc253c8558bf2a",
       "created": 1795801871294,
-      "updated": 1795862823764,
+      "updated": 1795862826661,
       "profile": {
-        "balance": 6607,
+        "balance": 6507,
         "currentBet": 100,
         "stats": {
-          "spins": 200,
+          "spins": 201,
           "wins": 25,
           "best": 1000
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "9",
+              "red"
+            ],
+            "delta": -100
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -324,19 +332,10 @@
               "melon"
             ],
             "delta": -100
-          },
-          {
-            "glyph": "slots",
-            "icons": [
-              "diamond",
-              "star",
-              "diamond"
-            ],
-            "delta": -40
           }
         ],
-        "streak": 1,
-        "xp": 60,
+        "streak": 0,
+        "xp": 62,
         "level": 4,
         "xpToNext": 480,
         "collection": [
@@ -454,13 +453,13 @@
     {
       "name": "Егор",
       "level": 4,
-      "balance": 6607,
-      "games": 200,
+      "balance": 6507,
+      "games": 201,
       "gifts": 0,
       "chests": 38,
       "achievements": 5,
       "rank": "Игрок",
-      "ts": 1795862823764
+      "ts": 1795862826661
     },
     {
       "name": "pithp",
