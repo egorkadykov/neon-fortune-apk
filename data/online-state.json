@@ -445,10 +445,10 @@
       "name": "nbxTESTaudit1",
       "hash": "sha256-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       "created": 1795861131073,
-      "updated": 1795861136348,
+      "updated": 1795861142021,
       "sessionAt": 1795861131073,
       "profile": {
-        "balance": 92,
+        "balance": 100,
         "currentBet": 1,
         "stats": {
           "spins": 8,
@@ -561,7 +561,7 @@
           }
         ],
         "chestStats": {
-          "opened": 0,
+          "opened": 2,
           "best": 0,
           "types": []
         },
@@ -613,6 +613,17 @@
       "ts": 1795857441695
     },
     {
+      "name": "nbxTESTaudit1",
+      "level": 1,
+      "balance": 100,
+      "games": 8,
+      "gifts": 0,
+      "chests": 2,
+      "achievements": 0,
+      "rank": "Новичок",
+      "ts": 1795861142021
+    },
+    {
       "name": "Ольга",
       "level": 1,
       "balance": 100,
@@ -622,17 +633,6 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795817400915
-    },
-    {
-      "name": "nbxTESTaudit1",
-      "level": 1,
-      "balance": 92,
-      "games": 8,
-      "gifts": 0,
-      "chests": 0,
-      "achievements": 0,
-      "rank": "Новичок",
-      "ts": 1795861136348
     }
   ],
   "admin": {
