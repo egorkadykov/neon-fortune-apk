@@ -147,16 +147,25 @@
     "pithp": {
       "name": "pithp",
       "created": 1795801746705,
-      "updated": 1795869414470,
+      "updated": 1795869416605,
       "profile": {
-        "balance": 1798,
+        "balance": 1797,
         "currentBet": 1,
         "stats": {
-          "spins": 526,
+          "spins": 527,
           "wins": 339,
           "best": 2000
         },
         "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "melon",
+              "lemon",
+              "diamond"
+            ],
+            "delta": -1
+          },
           {
             "glyph": "slots",
             "icons": [
@@ -201,19 +210,10 @@
               "bell"
             ],
             "delta": -1
-          },
-          {
-            "glyph": "slots",
-            "icons": [
-              "cherry",
-              "lemon",
-              "slotDie"
-            ],
-            "delta": -1
           }
         ],
         "streak": 0,
-        "xp": 704,
+        "xp": 706,
         "level": 8,
         "xpToNext": 960,
         "collection": [
@@ -334,9 +334,9 @@
         "activeGame": "slots",
         "cardsChoice": "spades",
         "soundEnabled": true,
-        "lastActionAt": 1795869414470,
+        "lastActionAt": 1795869416600,
         "actionWindowStart": 1795869399340,
-        "actionCount": 8,
+        "actionCount": 9,
         "createdAt": 0
       },
       "sessionAt": 1795869388604
@@ -543,13 +543,13 @@
     {
       "name": "pithp",
       "level": 8,
-      "balance": 1798,
-      "games": 526,
+      "balance": 1797,
+      "games": 527,
       "gifts": 0,
       "chests": 110,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795869414470
+      "ts": 1795869416605
     },
     {
       "name": "Ольга",
