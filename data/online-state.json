@@ -338,7 +338,7 @@
     "егор": {
       "name": "Егор",
       "created": 1795801871294,
-      "updated": 1795870264519,
+      "updated": 1795870265827,
       "profile": {
         "balance": 3534,
         "currentBet": 100,
@@ -502,7 +502,7 @@
             "musicBox"
           ]
         },
-        "activeView": "games",
+        "activeView": "chests",
         "unlocked": [
           "giftSell",
           "first",
@@ -546,7 +546,7 @@
       "chests": 47,
       "achievements": 8,
       "rank": "Игрок",
-      "ts": 1795870264519
+      "ts": 1795870265827
     },
     {
       "name": "Ольга",
