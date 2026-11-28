@@ -7,6 +7,7 @@
   var API = window.NEON_API_BASE || '';
   var TOKEN_KEY = 'neon-online-token';
   var USER_KEY = 'neon-online-user';
+  var DEVICE_KEY = 'neon-device-id';
   var LITE_UI = window.matchMedia('(max-width: 700px)').matches;
   var serverRolls = [];
   var serverResult = null;
@@ -18,6 +19,20 @@
   function byId(id) { return document.getElementById(id); }
 
   function token() { return localStorage.getItem(TOKEN_KEY) || ''; }
+
+  function deviceId() {
+    var id = localStorage.getItem(DEVICE_KEY) || '';
+    if (!/^[0-9a-f]{32}$/.test(id)) {
+      var bytes = new Uint8Array(16);
+      if (window.crypto && window.crypto.getRandomValues) window.crypto.getRandomValues(bytes);
+      else for (var i = 0; i < bytes.length; i++) bytes[i] = Math.floor(Math.random() * 256);
+      id = Array.prototype.map.call(bytes, function (b) {
+        return ('0' + b.toString(16)).slice(-2);
+      }).join('');
+      localStorage.setItem(DEVICE_KEY, id);
+    }
+    return id;
+  }
 
   function friendly(error) {
     var text = error && error.message ? error.message : String(error || 'Неизвестная ошибка');
@@ -37,7 +52,11 @@
     if (!API) return Promise.reject(new Error('адрес сервера не настроен'));
     var init = {
       method: 'POST',
-      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'x-neon-device': deviceId()
+      },
       cache: 'no-store'
     };
     if (body) init.body = JSON.stringify(body);
