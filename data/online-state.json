@@ -338,7 +338,7 @@
     "егор": {
       "name": "Егор",
       "created": 1795801871294,
-      "updated": 1795870108360,
+      "updated": 1795870111099,
       "profile": {
         "balance": 3264,
         "currentBet": 5,
@@ -510,7 +510,7 @@
           "cardFlush",
           "allChests"
         ],
-        "activeGame": "roulette",
+        "activeGame": "slots",
         "cardsChoice": "spades",
         "soundEnabled": true,
         "lastActionAt": 1795865246004,
@@ -543,7 +543,7 @@
       "chests": 40,
       "achievements": 8,
       "rank": "Игрок",
-      "ts": 1795870108360
+      "ts": 1795870111099
     },
     {
       "name": "Ольга",
