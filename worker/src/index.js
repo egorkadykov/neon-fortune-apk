@@ -1194,6 +1194,10 @@ export class FortuneState2 {
   }
 }
 
+// Старое имя нужно для завершённой миграции renamed_classes: Cloudflare проверяет,
+// что класс-источник всё ещё экспортируется, иначе деплой падает.
+export { FortuneState2 as FortuneState };
+
 export default {
   async fetch(request, environment) {
     env = environment;
