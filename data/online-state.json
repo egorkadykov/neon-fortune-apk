@@ -5,16 +5,24 @@
       "name": "Ольга",
       "hash": "sha256-cbfad02f9ed2a8d1e08d8f74f5303e9eb93637d47f82ab6f1c15871cf8dd0481",
       "created": 1795729360755,
-      "updated": 1795863729666,
+      "updated": 1795863731935,
       "profile": {
-        "balance": 10,
+        "balance": 5,
         "currentBet": 5,
         "stats": {
-          "spins": 12,
+          "spins": 13,
           "wins": 6,
           "best": 200
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "6",
+              "black"
+            ],
+            "delta": -5
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -54,18 +62,10 @@
               "black"
             ],
             "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "7",
-              "red"
-            ],
-            "delta": 100
           }
         ],
-        "streak": 1,
-        "xp": 72,
+        "streak": 0,
+        "xp": 74,
         "level": 1,
         "xpToNext": 120,
         "collection": [
@@ -542,13 +542,13 @@
     {
       "name": "Ольга",
       "level": 1,
-      "balance": 10,
-      "games": 12,
+      "balance": 5,
+      "games": 13,
       "gifts": 0,
       "chests": 0,
       "achievements": 2,
       "rank": "Новичок",
-      "ts": 1795863729666
+      "ts": 1795863731935
     }
   ],
   "admin": {
