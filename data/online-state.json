@@ -4,16 +4,24 @@
     "ольга": {
       "name": "Ольга",
       "created": 1795729360755,
-      "updated": 1795870817502,
+      "updated": 1795871022796,
       "profile": {
-        "balance": 275,
+        "balance": 280,
         "currentBet": 5,
         "stats": {
-          "spins": 16,
-          "wins": 7,
+          "spins": 17,
+          "wins": 8,
           "best": 200
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "1",
+              "red"
+            ],
+            "delta": 5
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -53,18 +61,10 @@
               "black"
             ],
             "delta": 1
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "8",
-              "black"
-            ],
-            "delta": -100
           }
         ],
-        "streak": 0,
-        "xp": 88,
+        "streak": 1,
+        "xp": 98,
         "level": 1,
         "xpToNext": 120,
         "collection": [
@@ -128,7 +128,7 @@
             "watch"
           ]
         },
-        "activeView": "top",
+        "activeView": "games",
         "unlocked": [
           "first",
           "games10",
@@ -137,9 +137,9 @@
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": true,
-        "lastActionAt": 0,
-        "actionWindowStart": 0,
-        "actionCount": 0,
+        "lastActionAt": 1795871022796,
+        "actionWindowStart": 1795871022796,
+        "actionCount": 1,
         "createdAt": 0
       },
       "sessionAt": 1795871017039
@@ -711,13 +711,13 @@
     {
       "name": "Ольга",
       "level": 1,
-      "balance": 275,
-      "games": 16,
+      "balance": 280,
+      "games": 17,
       "gifts": 0,
       "chests": 2,
       "achievements": 3,
       "rank": "Новичок",
-      "ts": 1795870817502
+      "ts": 1795871022796
     }
   ],
   "tokenDevices": {}
