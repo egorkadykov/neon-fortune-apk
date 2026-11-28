@@ -445,11 +445,11 @@
       "name": "nbxTESTaudit1",
       "hash": "sha256-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       "created": 1795861131073,
-      "updated": 1795861143257,
-      "sessionAt": 1795861186883,
+      "updated": 1795861199295,
+      "sessionAt": 1795861198964,
       "profile": {
         "balance": 99,
-        "currentBet": 1,
+        "currentBet": 100,
         "stats": {
           "spins": 9,
           "wins": 0,
@@ -573,11 +573,11 @@
           "received": 0,
           "found": []
         },
-        "activeView": "games",
+        "activeView": "top",
         "unlocked": [],
-        "activeGame": "slots",
-        "cardsChoice": "spades",
-        "soundEnabled": true,
+        "activeGame": "cards",
+        "cardsChoice": "hearts",
+        "soundEnabled": false,
         "lastActionAt": 0,
         "actionWindowStart": 0,
         "actionCount": 0
@@ -587,7 +587,7 @@
   "tokens": {
     "f6cbb883479d36ed93e7817f9525f9fa4a1936b05fcc5d3f72c5f28d9c6b7c79": "егор",
     "de6f25ef0a1e60615c719e8357ea6b00c6e1966e9a27890e5a725b3d7debf1de": "pithp",
-    "34214901b6bf92bf417e27636202eb62cb554a56950f8362a62a3eeb4b8c03bf": "nbxtestaudit1"
+    "416637ad94ea6c5a631f1c32637663258057b33584332ae7318a4eb5072d969f": "nbxtestaudit1"
   },
   "leaderboard": [
     {
@@ -632,7 +632,7 @@
       "chests": 2,
       "achievements": 0,
       "rank": "Новичок",
-      "ts": 1795861143257
+      "ts": 1795861199295
     }
   ],
   "admin": {
