@@ -147,16 +147,32 @@
     "pithp": {
       "name": "pithp",
       "created": 1795801746705,
-      "updated": 1795870233069,
+      "updated": 1795870237609,
       "profile": {
-        "balance": 6465,
+        "balance": 6740,
         "currentBet": 100,
         "stats": {
-          "spins": 824,
-          "wins": 501,
+          "spins": 826,
+          "wins": 503,
           "best": 2000
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "11",
+              "red"
+            ],
+            "delta": 150
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "7",
+              "red"
+            ],
+            "delta": 125
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -188,26 +204,10 @@
               "black"
             ],
             "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "10",
-              "black"
-            ],
-            "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "11",
-              "red"
-            ],
-            "delta": 100
           }
         ],
-        "streak": 2,
-        "xp": 556,
+        "streak": 4,
+        "xp": 576,
         "level": 10,
         "xpToNext": 1200,
         "collection": [
@@ -328,9 +328,9 @@
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": true,
-        "lastActionAt": 1795870233069,
+        "lastActionAt": 1795870237609,
         "actionWindowStart": 1795870180790,
-        "actionCount": 24,
+        "actionCount": 26,
         "createdAt": 0
       },
       "sessionAt": 1795870173616
@@ -338,7 +338,7 @@
     "егор": {
       "name": "Егор",
       "created": 1795801871294,
-      "updated": 1795870231039,
+      "updated": 1795870238021,
       "profile": {
         "balance": 3734,
         "currentBet": 100,
@@ -500,7 +500,7 @@
             "musicBox"
           ]
         },
-        "activeView": "games",
+        "activeView": "gifts",
         "unlocked": [
           "giftSell",
           "first",
@@ -527,13 +527,13 @@
     {
       "name": "pithp",
       "level": 10,
-      "balance": 6465,
-      "games": 824,
+      "balance": 6740,
+      "games": 826,
       "gifts": 0,
       "chests": 110,
       "achievements": 7,
       "rank": "Легенда",
-      "ts": 1795870233069
+      "ts": 1795870237609
     },
     {
       "name": "Егор",
@@ -544,7 +544,7 @@
       "chests": 47,
       "achievements": 8,
       "rank": "Игрок",
-      "ts": 1795870231039
+      "ts": 1795870238021
     },
     {
       "name": "Ольга",
