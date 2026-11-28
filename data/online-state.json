@@ -273,7 +273,7 @@
       "name": "Егор",
       "hash": "sha256-03aaef0fd45d47ee37afee60b41f0a80010f58f95d3d34e9b7dc253c8558bf2a",
       "created": 1795801871294,
-      "updated": 1795862901690,
+      "updated": 1795862913305,
       "profile": {
         "balance": 6418,
         "currentBet": 100,
@@ -435,7 +435,7 @@
             "watch"
           ]
         },
-        "activeView": "progress",
+        "activeView": "gifts",
         "unlocked": [
           "giftSell",
           "first",
@@ -468,7 +468,7 @@
       "chests": 38,
       "achievements": 6,
       "rank": "Игрок",
-      "ts": 1795862901690
+      "ts": 1795862913305
     },
     {
       "name": "pithp",
