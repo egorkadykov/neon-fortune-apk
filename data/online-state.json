@@ -445,10 +445,10 @@
       "name": "nbxTESTalpha",
       "hash": "fnv1a-a1b2c3d4",
       "created": 1795861279362,
-      "updated": 1795861357569,
+      "updated": 1795861364302,
       "sessionAt": 1795861279362,
       "profile": {
-        "balance": 90,
+        "balance": 120,
         "currentBet": 5,
         "stats": {
           "spins": 13,
@@ -528,7 +528,7 @@
             "target": 10,
             "reward": 30,
             "progress": 10,
-            "claimed": false
+            "claimed": true
           },
           {
             "id": "wins",
@@ -564,9 +564,7 @@
             "paper"
           ]
         },
-        "chestCooldowns": {
-          "paper": 1795861362569
-        },
+        "chestCooldowns": {},
         "gifts": {
           "ring": 1,
           "rose": 1,
@@ -626,6 +624,17 @@
       "ts": 1795857441695
     },
     {
+      "name": "nbxTESTalpha",
+      "level": 1,
+      "balance": 120,
+      "games": 13,
+      "gifts": 3,
+      "chests": 4,
+      "achievements": 3,
+      "rank": "Новичок",
+      "ts": 1795861364302
+    },
+    {
       "name": "Ольга",
       "level": 1,
       "balance": 100,
@@ -635,17 +644,6 @@
       "achievements": 0,
       "rank": "Новичок",
       "ts": 1795817400915
-    },
-    {
-      "name": "nbxTESTalpha",
-      "level": 1,
-      "balance": 90,
-      "games": 13,
-      "gifts": 3,
-      "chests": 4,
-      "achievements": 3,
-      "rank": "Новичок",
-      "ts": 1795861357569
     }
   ],
   "admin": {
