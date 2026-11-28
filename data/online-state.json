@@ -592,17 +592,200 @@
       "name": "nb00050130",
       "hash": "fnv1a-7cf8eb1c",
       "created": 1795828669686,
-      "updated": 1795828762749,
+      "updated": 1795828949383,
       "sessionAt": 1795828669686,
       "profile": {
-        "balance": 974,
-        "currentBet": 1,
+        "balance": 729,
+        "currentBet": 100,
         "stats": {
-          "spins": 37,
-          "wins": 21,
+          "spins": 66,
+          "wins": 33,
           "best": 250
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "4",
+              "black"
+            ],
+            "delta": -100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "8",
+              "black"
+            ],
+            "delta": -100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "6",
+              "black"
+            ],
+            "delta": -100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "6",
+              "black"
+            ],
+            "delta": -100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "0",
+              "green"
+            ],
+            "delta": -100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "2",
+              "black"
+            ],
+            "delta": -100
+          }
+        ],
+        "streak": 0,
+        "xp": 36,
+        "level": 3,
+        "xpToNext": 360,
+        "collection": [
+          "black",
+          "red",
+          "green"
+        ],
+        "collectionRewardGiven": false,
+        "missions": [
+          {
+            "id": "games",
+            "title": "Сыграй 10 игр",
+            "target": 10,
+            "reward": 30,
+            "progress": 10,
+            "claimed": true
+          },
+          {
+            "id": "wins",
+            "title": "Победи 5 раз",
+            "target": 5,
+            "reward": 50,
+            "progress": 5,
+            "claimed": true
+          },
+          {
+            "id": "triple",
+            "title": "Получи трипу в костях",
+            "target": 1,
+            "reward": 75,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "jackpot",
+            "title": "Сорви джекпот",
+            "target": 1,
+            "reward": 100,
+            "progress": 0,
+            "claimed": false
+          }
+        ],
+        "chestStats": {
+          "opened": 18,
+          "best": 180,
+          "types": [
+            "bronze",
+            "paper",
+            "free"
+          ]
+        },
+        "chestCooldowns": {
+          "free": 1795915072514,
+          "paper": 1795828950502,
+          "bronze": 1795828957009
+        },
+        "gifts": {},
+        "giftStats": {
+          "sold": 17,
+          "earned": 1100,
+          "received": 17,
+          "found": [
+            "sneakers",
+            "giftBox",
+            "rose",
+            "candy",
+            "diamond",
+            "champagne",
+            "postcard",
+            "ring",
+            "lamp",
+            "bouquet",
+            "brick",
+            "heart",
+            "musicBox"
+          ]
+        },
+        "activeView": "games",
+        "unlocked": [
+          "giftSell",
+          "first",
+          "streak3",
+          "games10",
+          "level3"
+        ],
+        "activeGame": "roulette",
+        "cardsChoice": "spades",
+        "soundEnabled": false,
+        "lastActionAt": 0,
+        "actionWindowStart": 0,
+        "actionCount": 0
+      }
+    },
+    "nb00028862": {
+      "name": "nb00028862",
+      "hash": "fnv1a-57fa0ffd",
+      "created": 1795828669686,
+      "updated": 1795828949665,
+      "sessionAt": 1795828669686,
+      "profile": {
+        "balance": 1876,
+        "currentBet": 100,
+        "stats": {
+          "spins": 69,
+          "wins": 38,
+          "best": 250
+        },
+        "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "10",
+              "black"
+            ],
+            "delta": -100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "5",
+              "red"
+            ],
+            "delta": 100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "7",
+              "red"
+            ],
+            "delta": 100
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -622,196 +805,16 @@
           {
             "glyph": "roulette",
             "icons": [
-              "7",
-              "red"
-            ],
-            "delta": 125
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "10",
-              "black"
-            ],
-            "delta": 11
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
               "5",
               "red"
             ],
             "delta": 100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "0",
-              "green"
-            ],
-            "delta": -100
           }
         ],
         "streak": 0,
-        "xp": 122,
-        "level": 2,
-        "xpToNext": 240,
-        "collection": [
-          "black",
-          "red",
-          "green"
-        ],
-        "collectionRewardGiven": false,
-        "missions": [
-          {
-            "id": "games",
-            "title": "Сыграй 10 игр",
-            "target": 10,
-            "reward": 30,
-            "progress": 10,
-            "claimed": true
-          },
-          {
-            "id": "wins",
-            "title": "Победи 5 раз",
-            "target": 5,
-            "reward": 50,
-            "progress": 5,
-            "claimed": true
-          },
-          {
-            "id": "triple",
-            "title": "Получи трипу в костях",
-            "target": 1,
-            "reward": 75,
-            "progress": 0,
-            "claimed": false
-          },
-          {
-            "id": "jackpot",
-            "title": "Сорви джекпот",
-            "target": 1,
-            "reward": 100,
-            "progress": 0,
-            "claimed": false
-          }
-        ],
-        "chestStats": {
-          "opened": 13,
-          "best": 180,
-          "types": [
-            "bronze",
-            "paper",
-            "free"
-          ]
-        },
-        "chestCooldowns": {
-          "free": 1795915072514,
-          "paper": 1795828767209,
-          "bronze": 1795828767018
-        },
-        "gifts": {},
-        "giftStats": {
-          "sold": 13,
-          "earned": 790,
-          "received": 13,
-          "found": [
-            "sneakers",
-            "giftBox",
-            "rose",
-            "candy",
-            "diamond",
-            "champagne",
-            "postcard",
-            "ring",
-            "lamp",
-            "bouquet",
-            "brick"
-          ]
-        },
-        "activeView": "gifts",
-        "unlocked": [
-          "giftSell",
-          "first",
-          "streak3",
-          "games10"
-        ],
-        "activeGame": "roulette",
-        "cardsChoice": "spades",
-        "soundEnabled": false,
-        "lastActionAt": 0,
-        "actionWindowStart": 0,
-        "actionCount": 0
-      }
-    },
-    "nb00028862": {
-      "name": "nb00028862",
-      "hash": "fnv1a-57fa0ffd",
-      "created": 1795828669686,
-      "updated": 1795828762753,
-      "sessionAt": 1795828669686,
-      "profile": {
-        "balance": 1926,
-        "currentBet": 1,
-        "stats": {
-          "spins": 40,
-          "wins": 25,
-          "best": 250
-        },
-        "history": [
-          {
-            "glyph": "roulette",
-            "icons": [
-              "5",
-              "red"
-            ],
-            "delta": 150
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "3",
-              "red"
-            ],
-            "delta": 125
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "3",
-              "red"
-            ],
-            "delta": 100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "7",
-              "red"
-            ],
-            "delta": 100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "0",
-              "green"
-            ],
-            "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "9",
-              "red"
-            ],
-            "delta": 100
-          }
-        ],
-        "streak": 4,
-        "xp": 160,
-        "level": 2,
-        "xpToNext": 240,
+        "xp": 82,
+        "level": 3,
+        "xpToNext": 360,
         "collection": [
           "red",
           "black",
@@ -853,7 +856,7 @@
           }
         ],
         "chestStats": {
-          "opened": 13,
+          "opened": 18,
           "best": 275,
           "types": [
             "bronze",
@@ -863,14 +866,14 @@
         },
         "chestCooldowns": {
           "free": 1795915072412,
-          "paper": 1795828767275,
-          "bronze": 1795828767014
+          "paper": 1795828950918,
+          "bronze": 1795828956985
         },
         "gifts": {},
         "giftStats": {
-          "sold": 12,
-          "earned": 950,
-          "received": 12,
+          "sold": 17,
+          "earned": 1255,
+          "received": 17,
           "found": [
             "watch",
             "giftBox",
@@ -882,15 +885,20 @@
             "headphones",
             "brick",
             "lamp",
-            "rocket"
+            "rocket",
+            "diamond",
+            "teddy",
+            "camera",
+            "rose"
           ]
         },
-        "activeView": "gifts",
+        "activeView": "games",
         "unlocked": [
           "giftSell",
           "first",
           "games10",
-          "streak3"
+          "streak3",
+          "level3"
         ],
         "activeGame": "roulette",
         "cardsChoice": "spades",
@@ -1473,14 +1481,14 @@
     },
     {
       "name": "nb00028862",
-      "level": 2,
-      "balance": 1926,
-      "games": 40,
+      "level": 3,
+      "balance": 1876,
+      "games": 69,
       "gifts": 0,
-      "chests": 13,
-      "achievements": 4,
-      "rank": "Новичок",
-      "ts": 1795828762753
+      "chests": 18,
+      "achievements": 5,
+      "rank": "Игрок",
+      "ts": 1795828949665
     },
     {
       "name": "pithp",
@@ -1495,14 +1503,14 @@
     },
     {
       "name": "nb00050130",
-      "level": 2,
-      "balance": 974,
-      "games": 37,
+      "level": 3,
+      "balance": 729,
+      "games": 66,
       "gifts": 0,
-      "chests": 13,
-      "achievements": 4,
-      "rank": "Новичок",
-      "ts": 1795828762749
+      "chests": 18,
+      "achievements": 5,
+      "rank": "Игрок",
+      "ts": 1795828949383
     },
     {
       "name": "nb00033669",
