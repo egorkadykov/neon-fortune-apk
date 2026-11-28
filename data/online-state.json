@@ -340,9 +340,9 @@
       "name": "Егор",
       "hash": "sha256-03aaef0fd45d47ee37afee60b41f0a80010f58f95d3d34e9b7dc253c8558bf2a",
       "created": 1795801871294,
-      "updated": 1795864760888,
+      "updated": 1795864766029,
       "profile": {
-        "balance": 3424,
+        "balance": 3144,
         "currentBet": 100,
         "stats": {
           "spins": 254,
@@ -464,7 +464,7 @@
           }
         ],
         "chestStats": {
-          "opened": 39,
+          "opened": 40,
           "best": 275,
           "types": [
             "free",
@@ -474,19 +474,22 @@
             "cosmic",
             "paper",
             "gold",
-            "legendary"
+            "legendary",
+            "diamond"
           ]
         },
         "chestCooldowns": {
-          "free": 1795888348339
+          "free": 1795888348339,
+          "diamond": 1795864806029
         },
         "gifts": {
-          "lamp": 1
+          "lamp": 1,
+          "trophy": 1
         },
         "giftStats": {
           "sold": 35,
           "earned": 3920,
-          "received": 36,
+          "received": 37,
           "found": [
             "cake",
             "teddy",
@@ -510,13 +513,14 @@
           "jackpot",
           "level3",
           "dartBull",
-          "cardFlush"
+          "cardFlush",
+          "allChests"
         ],
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": true,
-        "lastActionAt": 1795864436243,
-        "actionWindowStart": 1795864436243,
+        "lastActionAt": 1795864766029,
+        "actionWindowStart": 1795864766029,
         "actionCount": 1,
         "createdAt": 0
       },
@@ -532,13 +536,13 @@
     {
       "name": "Егор",
       "level": 4,
-      "balance": 3424,
+      "balance": 3144,
       "games": 254,
-      "gifts": 1,
-      "chests": 39,
-      "achievements": 7,
+      "gifts": 2,
+      "chests": 40,
+      "achievements": 8,
       "rank": "Игрок",
-      "ts": 1795864760888
+      "ts": 1795864766029
     },
     {
       "name": "pithp",
