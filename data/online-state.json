@@ -147,16 +147,32 @@
     "pithp": {
       "name": "pithp",
       "created": 1795801746705,
-      "updated": 1795869986484,
+      "updated": 1795869991164,
       "profile": {
         "balance": 4729,
         "currentBet": 100,
         "stats": {
-          "spins": 767,
-          "wins": 465,
+          "spins": 769,
+          "wins": 466,
           "best": 2000
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "6",
+              "black"
+            ],
+            "delta": -100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "9",
+              "red"
+            ],
+            "delta": 100
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -188,26 +204,10 @@
               "red"
             ],
             "delta": 100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "4",
-              "black"
-            ],
-            "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "0",
-              "green"
-            ],
-            "delta": -100
           }
         ],
         "streak": 0,
-        "xp": 154,
+        "xp": 166,
         "level": 10,
         "xpToNext": 1200,
         "collection": [
@@ -328,9 +328,9 @@
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": true,
-        "lastActionAt": 1795869986484,
+        "lastActionAt": 1795869991164,
         "actionWindowStart": 1795869948944,
-        "actionCount": 17,
+        "actionCount": 19,
         "createdAt": 0
       },
       "sessionAt": 1795869388604
@@ -524,7 +524,7 @@
       "name": "nbxTESTappck01",
       "created": 1795869964255,
       "updated": 1795869964255,
-      "sessionAt": 1795869964255,
+      "sessionAt": 1795869989546,
       "profile": {
         "balance": 100,
         "currentBet": 1,
@@ -605,12 +605,12 @@
       "name": "pithp",
       "level": 10,
       "balance": 4729,
-      "games": 767,
+      "games": 769,
       "gifts": 0,
       "chests": 110,
       "achievements": 7,
       "rank": "Легенда",
-      "ts": 1795869986484
+      "ts": 1795869991164
     },
     {
       "name": "Егор",
