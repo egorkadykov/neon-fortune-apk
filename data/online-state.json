@@ -338,7 +338,7 @@
     "егор": {
       "name": "Егор",
       "created": 1795801871294,
-      "updated": 1795867470221,
+      "updated": 1795868339570,
       "profile": {
         "balance": 3264,
         "currentBet": 5,
@@ -518,7 +518,7 @@
         "actionCount": 1,
         "createdAt": 0
       },
-      "sessionAt": 1795867466415
+      "sessionAt": 1795868339194
     }
   },
   "tokens": {},
