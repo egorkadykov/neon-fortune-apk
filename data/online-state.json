@@ -679,7 +679,7 @@
       "name": "nbx00035056",
       "hash": "fnv1a-5dba522a",
       "created": 1795863958417,
-      "updated": 1795864086391,
+      "updated": 1795864089398,
       "sessionAt": 1795864026017,
       "profile": {
         "balance": 2675,
@@ -814,7 +814,7 @@
             "bouquet"
           ]
         },
-        "activeView": "games",
+        "activeView": "top",
         "unlocked": [
           "giftSell",
           "first",
@@ -1027,7 +1027,7 @@
       "chests": 13,
       "achievements": 5,
       "rank": "Игрок",
-      "ts": 1795864086391
+      "ts": 1795864089398
     },
     {
       "name": "pithp",
