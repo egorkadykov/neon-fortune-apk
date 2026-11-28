@@ -139,9 +139,10 @@
         "soundEnabled": true,
         "lastActionAt": 0,
         "actionWindowStart": 0,
-        "actionCount": 0
+        "actionCount": 0,
+        "createdAt": 0
       },
-      "sessionAt": 1795864269304
+      "sessionAt": 1795866440735
     },
     "pithp": {
       "name": "pithp",
@@ -332,7 +333,7 @@
         "actionCount": 0,
         "createdAt": 0
       },
-      "sessionAt": 1795864886833
+      "sessionAt": 1795866441111
     },
     "егор": {
       "name": "Егор",
@@ -517,7 +518,7 @@
         "actionCount": 1,
         "createdAt": 0
       },
-      "sessionAt": 1795865091461
+      "sessionAt": 1795866441457
     }
   },
   "tokens": {},
