@@ -338,7 +338,7 @@
     "егор": {
       "name": "Егор",
       "created": 1795801871294,
-      "updated": 1795870127299,
+      "updated": 1795870129891,
       "profile": {
         "balance": 3364,
         "currentBet": 5,
@@ -477,9 +477,7 @@
           ]
         },
         "chestCooldowns": {
-          "free": 1795888348339,
-          "wood": 1795870128808,
-          "bronze": 1795870128477
+          "free": 1795888348339
         },
         "gifts": {},
         "giftStats": {
@@ -502,7 +500,7 @@
             "musicBox"
           ]
         },
-        "activeView": "gifts",
+        "activeView": "top",
         "unlocked": [
           "giftSell",
           "first",
@@ -546,7 +544,7 @@
       "chests": 42,
       "achievements": 8,
       "rank": "Игрок",
-      "ts": 1795870127299
+      "ts": 1795870129891
     },
     {
       "name": "Ольга",
