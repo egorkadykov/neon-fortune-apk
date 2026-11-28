@@ -147,16 +147,24 @@
     "pithp": {
       "name": "pithp",
       "created": 1795801746705,
-      "updated": 1795870405944,
+      "updated": 1795870408178,
       "profile": {
-        "balance": 6798,
+        "balance": 6923,
         "currentBet": 100,
         "stats": {
-          "spins": 900,
-          "wins": 538,
+          "spins": 901,
+          "wins": 539,
           "best": 2000
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "7",
+              "red"
+            ],
+            "delta": 125
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -196,18 +204,10 @@
               "black"
             ],
             "delta": -100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "4",
-              "black"
-            ],
-            "delta": 11
           }
         ],
-        "streak": 2,
-        "xp": 1004,
+        "streak": 3,
+        "xp": 1014,
         "level": 10,
         "xpToNext": 1200,
         "collection": [
@@ -328,9 +328,9 @@
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": true,
-        "lastActionAt": 1795870405944,
+        "lastActionAt": 1795870408171,
         "actionWindowStart": 1795870364470,
-        "actionCount": 19,
+        "actionCount": 20,
         "createdAt": 0
       },
       "sessionAt": 1795870173616
@@ -338,7 +338,7 @@
     "егор": {
       "name": "Егор",
       "created": 1795801871294,
-      "updated": 1795870404837,
+      "updated": 1795870407566,
       "profile": {
         "balance": 3450,
         "currentBet": 100,
@@ -529,13 +529,13 @@
     {
       "name": "pithp",
       "level": 10,
-      "balance": 6798,
-      "games": 900,
+      "balance": 6923,
+      "games": 901,
       "gifts": 0,
       "chests": 110,
       "achievements": 7,
       "rank": "Легенда",
-      "ts": 1795870405944
+      "ts": 1795870408178
     },
     {
       "name": "Егор",
@@ -546,7 +546,7 @@
       "chests": 52,
       "achievements": 9,
       "rank": "Профи",
-      "ts": 1795870404837
+      "ts": 1795870407566
     },
     {
       "name": "Ольга",
