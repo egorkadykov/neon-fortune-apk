@@ -965,6 +965,23 @@ async function handle(request, ctx) {
     });
   }
 
+  if (path === '/admin/restore') {
+    const supplied = String(request.headers.get('x-admin-token') || '');
+    if (!env.ADMIN_TOKEN || supplied !== env.ADMIN_TOKEN) return fail('Нет доступа', 403);
+    const hash = String(body.hash || '');
+    if (!/^(sha256-[0-9a-f]{64}|pbkdf2-[0-9a-f]{64})$/.test(hash)) return fail('Некорректный хэш');
+    const result = await mutateSync((state) => {
+      const user = state.users[keyFor(String(body.name || ''))];
+      if (!user) throw new Error('Игрок не найден');
+      user.hash = hash;
+      delete user.salt;
+      user.loginFails = 0;
+      user.loginLockUntil = 0;
+      return { name: user.name };
+    });
+    return reply({ ok: true, ...result });
+  }
+
   // Действия. Клиент НЕ передаёт баланс, статистику или подарки —
   // сервер сам решает, что выпало и сколько начислено.
   const actions = {
@@ -1136,10 +1153,6 @@ export class FortuneState2 {
     }
   }
 }
-
-// Старое имя оставляем на время миграции: так ни один запрос не упадёт,
-// пока Cloudflare переключает пространство классов на новую версию кода.
-export { FortuneState2 as FortuneState };
 
 export default {
   async fetch(request, environment) {
