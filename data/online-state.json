@@ -331,9 +331,10 @@
         "soundEnabled": true,
         "lastActionAt": 0,
         "actionWindowStart": 0,
-        "actionCount": 0
+        "actionCount": 0,
+        "createdAt": 0
       },
-      "sessionAt": 1795863902859
+      "sessionAt": 1795864510168
     },
     "егор": {
       "name": "Егор",
@@ -523,9 +524,9 @@
     }
   },
   "tokens": {
-    "ba6c9dfd29e7d931d9cb87d2b83a30e68aeadc10dfaf03e3a468b9436e308914": "pithp",
     "685ba5a696832690777021bd7b1b884b655d7bc5c2ce03d7626cf2eedd189ee5": "ольга",
-    "c20b745eaed036c56d735b7af44377fb488cc8f38b37b75127716921cc494f16": "егор"
+    "c20b745eaed036c56d735b7af44377fb488cc8f38b37b75127716921cc494f16": "егор",
+    "01f995b4c74d5d312b8aab5241d38a667ed4242091e755cb817e2dadb0dd39ba": "pithp"
   },
   "leaderboard": [
     {
