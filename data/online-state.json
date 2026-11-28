@@ -273,9 +273,9 @@
       "name": "Егор",
       "hash": "sha256-03aaef0fd45d47ee37afee60b41f0a80010f58f95d3d34e9b7dc253c8558bf2a",
       "created": 1795801871294,
-      "updated": 1795862757171,
+      "updated": 1795862758819,
       "profile": {
-        "balance": 8576,
+        "balance": 8851,
         "currentBet": 5,
         "stats": {
           "spins": 171,
@@ -406,12 +406,10 @@
           "free": 1795888348339,
           "legendary": 1795862811073
         },
-        "gifts": {
-          "watch": 1
-        },
+        "gifts": {},
         "giftStats": {
-          "sold": 34,
-          "earned": 3645,
+          "sold": 35,
+          "earned": 3920,
           "received": 35,
           "found": [
             "cake",
@@ -454,13 +452,13 @@
     {
       "name": "Егор",
       "level": 3,
-      "balance": 8576,
+      "balance": 8851,
       "games": 171,
-      "gifts": 1,
+      "gifts": 0,
       "chests": 38,
       "achievements": 5,
       "rank": "Игрок",
-      "ts": 1795862757171
+      "ts": 1795862758819
     },
     {
       "name": "pithp",
