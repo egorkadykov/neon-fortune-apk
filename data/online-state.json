@@ -445,22 +445,86 @@
       "name": "nbxTESTaudit1",
       "hash": "sha256-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       "created": 1795861131073,
-      "updated": 1795861131073,
+      "updated": 1795861136348,
       "sessionAt": 1795861131073,
       "profile": {
-        "balance": 100,
+        "balance": 92,
         "currentBet": 1,
         "stats": {
-          "spins": 0,
+          "spins": 8,
           "wins": 0,
           "best": 0
         },
-        "history": [],
+        "history": [
+          {
+            "glyph": "slots",
+            "icons": [
+              "diamond",
+              "cherry",
+              "cherry"
+            ],
+            "delta": -1
+          },
+          {
+            "glyph": "slots",
+            "icons": [
+              "diamond",
+              "bell",
+              "lemon"
+            ],
+            "delta": -1
+          },
+          {
+            "glyph": "slots",
+            "icons": [
+              "melon",
+              "diamond",
+              "seven"
+            ],
+            "delta": -1
+          },
+          {
+            "glyph": "slots",
+            "icons": [
+              "slotDie",
+              "bell",
+              "cherry"
+            ],
+            "delta": -1
+          },
+          {
+            "glyph": "slots",
+            "icons": [
+              "star",
+              "star",
+              "melon"
+            ],
+            "delta": -1
+          },
+          {
+            "glyph": "slots",
+            "icons": [
+              "star",
+              "lemon",
+              "lemon"
+            ],
+            "delta": -1
+          }
+        ],
         "streak": 0,
-        "xp": 0,
+        "xp": 16,
         "level": 1,
         "xpToNext": 120,
-        "collection": [],
+        "collection": [
+          "cherry",
+          "melon",
+          "diamond",
+          "star",
+          "lemon",
+          "slotDie",
+          "bell",
+          "seven"
+        ],
         "collectionRewardGiven": false,
         "missions": [
           {
@@ -468,7 +532,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 0,
+            "progress": 8,
             "claimed": false
           },
           {
@@ -562,13 +626,13 @@
     {
       "name": "nbxTESTaudit1",
       "level": 1,
-      "balance": 100,
-      "games": 0,
+      "balance": 92,
+      "games": 8,
       "gifts": 0,
       "chests": 0,
       "achievements": 0,
       "rank": "Новичок",
-      "ts": 1795861131073
+      "ts": 1795861136348
     }
   ],
   "admin": {
