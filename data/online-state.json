@@ -522,6 +522,159 @@
         "createdAt": 0
       },
       "sessionAt": 1795870790856
+    },
+    "gemi": {
+      "name": "Gemi",
+      "created": 1795870936657,
+      "updated": 1795870950768,
+      "sessionAt": 1795870936657,
+      "profile": {
+        "balance": 455,
+        "currentBet": 1,
+        "stats": {
+          "spins": 14,
+          "wins": 7,
+          "best": 225
+        },
+        "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "9",
+              "red"
+            ],
+            "delta": 100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "0",
+              "green"
+            ],
+            "delta": -100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "9",
+              "red"
+            ],
+            "delta": 125
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "9",
+              "red"
+            ],
+            "delta": 100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "5",
+              "red"
+            ],
+            "delta": 100
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "0",
+              "green"
+            ],
+            "delta": -100
+          }
+        ],
+        "streak": 1,
+        "xp": 84,
+        "level": 1,
+        "xpToNext": 120,
+        "collection": [
+          "green",
+          "black",
+          "red"
+        ],
+        "collectionRewardGiven": false,
+        "missions": [
+          {
+            "id": "games",
+            "title": "Сыграй 10 игр",
+            "target": 10,
+            "reward": 30,
+            "progress": 10,
+            "claimed": true
+          },
+          {
+            "id": "wins",
+            "title": "Победи 5 раз",
+            "target": 5,
+            "reward": 50,
+            "progress": 5,
+            "claimed": true
+          },
+          {
+            "id": "triple",
+            "title": "Получи трипу в костях",
+            "target": 1,
+            "reward": 75,
+            "progress": 0,
+            "claimed": false
+          },
+          {
+            "id": "jackpot",
+            "title": "Сорви джекпот",
+            "target": 1,
+            "reward": 100,
+            "progress": 0,
+            "claimed": false
+          }
+        ],
+        "chestStats": {
+          "opened": 8,
+          "best": 100,
+          "types": [
+            "bronze",
+            "paper",
+            "free"
+          ]
+        },
+        "chestCooldowns": {
+          "free": 1795957339130,
+          "paper": 1795870954742,
+          "bronze": 1795870962768
+        },
+        "gifts": {
+          "ring": 1
+        },
+        "giftStats": {
+          "sold": 5,
+          "earned": 145,
+          "received": 6,
+          "found": [
+            "trophy",
+            "brick",
+            "candy",
+            "teddy",
+            "heart",
+            "ring"
+          ]
+        },
+        "activeView": "chests",
+        "unlocked": [
+          "giftSell",
+          "first",
+          "games10",
+          "streak3"
+        ],
+        "activeGame": "roulette",
+        "cardsChoice": "spades",
+        "soundEnabled": false,
+        "lastActionAt": 1795870950768,
+        "actionWindowStart": 1795870937237,
+        "actionCount": 29,
+        "createdAt": 1795870936657
+      }
     }
   },
   "tokens": {},
@@ -547,6 +700,17 @@
       "achievements": 9,
       "rank": "Профи",
       "ts": 1795870796077
+    },
+    {
+      "name": "Gemi",
+      "level": 1,
+      "balance": 455,
+      "games": 14,
+      "gifts": 1,
+      "chests": 8,
+      "achievements": 4,
+      "rank": "Новичок",
+      "ts": 1795870950768
     },
     {
       "name": "Ольга",
