@@ -948,6 +948,22 @@ async function handle(request, ctx) {
     return reply({ ok: true, user: sessionUser(server.state.users[key]) });
   }
 
+  if (path === '/admin/diag') {
+    const supplied = String(request.headers.get('x-admin-token') || '');
+    if (!env.ADMIN_TOKEN || supplied !== env.ADMIN_TOKEN) return fail('Нет доступа', 403);
+    const user = (await loadState()).state.users[keyFor(String(body.name || ''))];
+    if (!user) return fail('Игрок не найден');
+    return reply({
+      ok: true,
+      name: user.name,
+      hasHash: !!user.hash,
+      hashPrefix: String(user.hash || '').slice(0, 12),
+      hasSalt: !!user.salt,
+      loginFails: user.loginFails || 0,
+      lockUntil: user.loginLockUntil || 0
+    });
+  }
+
   // Действия. Клиент НЕ передаёт баланс, статистику или подарки —
   // сервер сам решает, что выпало и сколько начислено.
   const actions = {
