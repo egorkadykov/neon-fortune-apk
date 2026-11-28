@@ -4,7 +4,7 @@
     "ольга": {
       "name": "Ольга",
       "created": 1795729360755,
-      "updated": 1795863801966,
+      "updated": 1795870816211,
       "profile": {
         "balance": 275,
         "currentBet": 5,
@@ -128,7 +128,7 @@
             "watch"
           ]
         },
-        "activeView": "top",
+        "activeView": "games",
         "unlocked": [
           "first",
           "games10",
@@ -557,7 +557,7 @@
       "chests": 2,
       "achievements": 3,
       "rank": "Новичок",
-      "ts": 1795863801966
+      "ts": 1795870816211
     }
   ],
   "tokenDevices": {}
