@@ -340,9 +340,9 @@
       "name": "Егор",
       "hash": "sha256-03aaef0fd45d47ee37afee60b41f0a80010f58f95d3d34e9b7dc253c8558bf2a",
       "created": 1795801871294,
-      "updated": 1795864769871,
+      "updated": 1795864771874,
       "profile": {
-        "balance": 3144,
+        "balance": 3364,
         "currentBet": 100,
         "stats": {
           "spins": 254,
@@ -482,13 +482,10 @@
           "free": 1795888348339,
           "diamond": 1795864806029
         },
-        "gifts": {
-          "lamp": 1,
-          "trophy": 1
-        },
+        "gifts": {},
         "giftStats": {
-          "sold": 35,
-          "earned": 3920,
+          "sold": 37,
+          "earned": 4140,
           "received": 37,
           "found": [
             "cake",
@@ -519,9 +516,9 @@
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": true,
-        "lastActionAt": 1795864766029,
+        "lastActionAt": 1795864771874,
         "actionWindowStart": 1795864766029,
-        "actionCount": 1,
+        "actionCount": 3,
         "createdAt": 0
       },
       "sessionAt": 1795864666333
@@ -536,13 +533,13 @@
     {
       "name": "Егор",
       "level": 4,
-      "balance": 3144,
+      "balance": 3364,
       "games": 254,
-      "gifts": 2,
+      "gifts": 0,
       "chests": 40,
       "achievements": 8,
       "rank": "Игрок",
-      "ts": 1795864769871
+      "ts": 1795864771874
     },
     {
       "name": "pithp",
