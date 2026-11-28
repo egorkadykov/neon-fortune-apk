@@ -338,7 +338,7 @@
     "егор": {
       "name": "Егор",
       "created": 1795801871294,
-      "updated": 1795868339570,
+      "updated": 1795868711001,
       "profile": {
         "balance": 3264,
         "currentBet": 5,
@@ -532,7 +532,7 @@
       "chests": 40,
       "achievements": 8,
       "rank": "Игрок",
-      "ts": 1795867470221
+      "ts": 1795868711001
     },
     {
       "name": "pithp",
