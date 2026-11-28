@@ -339,7 +339,7 @@
       "name": "Егор",
       "hash": "sha256-03aaef0fd45d47ee37afee60b41f0a80010f58f95d3d34e9b7dc253c8558bf2a",
       "created": 1795801871294,
-      "updated": 1795863992007,
+      "updated": 1795864081565,
       "profile": {
         "balance": 5618,
         "currentBet": 100,
@@ -679,17 +679,25 @@
       "name": "nbx00035056",
       "hash": "fnv1a-5dba522a",
       "created": 1795863958417,
-      "updated": 1795864079321,
+      "updated": 1795864081433,
       "sessionAt": 1795864026017,
       "profile": {
-        "balance": 2575,
+        "balance": 2475,
         "currentBet": 100,
         "stats": {
-          "spins": 78,
+          "spins": 79,
           "wins": 45,
           "best": 275
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "8",
+              "black"
+            ],
+            "delta": -100
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -729,18 +737,10 @@
               "black"
             ],
             "delta": -1
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "1",
-              "red"
-            ],
-            "delta": 100
           }
         ],
         "streak": 0,
-        "xp": 156,
+        "xp": 158,
         "level": 3,
         "xpToNext": 360,
         "collection": [
@@ -1005,7 +1005,7 @@
       "chests": 39,
       "achievements": 6,
       "rank": "Игрок",
-      "ts": 1795863992007
+      "ts": 1795864081565
     },
     {
       "name": "nbx00019119",
@@ -1021,13 +1021,13 @@
     {
       "name": "nbx00035056",
       "level": 3,
-      "balance": 2575,
-      "games": 78,
+      "balance": 2475,
+      "games": 79,
       "gifts": 0,
       "chests": 13,
       "achievements": 5,
       "rank": "Игрок",
-      "ts": 1795864079321
+      "ts": 1795864081433
     },
     {
       "name": "pithp",
