@@ -5,11 +5,20 @@ workers_dev = true
 
 [[durable_objects.bindings]]
 name = "STATE"
-class_name = "FortuneState"
+class_name = "FortuneState2"
 
 [[migrations]]
 tag = "v1"
 new_sqlite_classes = ["FortuneState"]
+
+# Переименование заставляет Cloudflare запустить новую версию класса:
+# старый объект продолжал писать токены и хэши в публичный файл GitHub.
+[[migrations]]
+tag = "v2"
+
+  [[migrations.renamed_classes]]
+  from = "FortuneState"
+  to = "FortuneState2"
 
 # Лимиты на границе Cloudflare: отсекают флуд до попадания в Durable Object.
 [[ratelimits]]
