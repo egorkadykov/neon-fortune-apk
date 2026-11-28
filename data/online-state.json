@@ -679,7 +679,7 @@
       "name": "nbx00035056",
       "hash": "fnv1a-5dba522a",
       "created": 1795863958417,
-      "updated": 1795864025960,
+      "updated": 1795864029855,
       "sessionAt": 1795864026017,
       "profile": {
         "balance": 2976,
@@ -816,7 +816,7 @@
             "bouquet"
           ]
         },
-        "activeView": "gifts",
+        "activeView": "games",
         "unlocked": [
           "giftSell",
           "first",
@@ -1018,7 +1018,7 @@
       "chests": 13,
       "achievements": 5,
       "rank": "Игрок",
-      "ts": 1795864025960
+      "ts": 1795864029855
     },
     {
       "name": "nbx00019119",
