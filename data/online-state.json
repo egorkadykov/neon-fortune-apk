@@ -147,7 +147,7 @@
     "pithp": {
       "name": "pithp",
       "created": 1795801746705,
-      "updated": 1795869416605,
+      "updated": 1795869419332,
       "profile": {
         "balance": 1797,
         "currentBet": 1,
@@ -331,7 +331,7 @@
           "jackpot",
           "allChests"
         ],
-        "activeGame": "slots",
+        "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": true,
         "lastActionAt": 1795869416600,
@@ -549,7 +549,7 @@
       "chests": 110,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795869416605
+      "ts": 1795869419332
     },
     {
       "name": "Ольга",
