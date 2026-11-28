@@ -188,12 +188,6 @@ async function readState() {
 // Хэши лежат только в старом коммите, а не в текущем публичном файле.
 // Используются только если в загруженном состоянии хэша нет.
 async function legacyHashFor(key) {
-  // Пароль Егора сменён на новый: секрет хранится только в Cloudflare,
-  // поэтому восстановление после перезапуска не вернёт старый пароль.
-  if (key === 'egor' && env && env.NEON_EGOR_HASH) {
-    const override = String(env.NEON_EGOR_HASH);
-    if (/^(sha256-[0-9a-f]{64}|pbkdf2-[0-9a-f]{64})$/.test(override)) return override;
-  }
   if (!legacyUsers) {
     try {
       const response = await fetch(`${GH_API}?ref=${LEGACY_STATE_REF}`, { headers: ghHeaders() });
@@ -929,9 +923,18 @@ async function handle(request, ctx) {
       }
       const user = state.users[key];
       if (!user) return { error: 'Неверный никнейм или пароль' };
-      // Durable Object мог загрузить очищенный файл без хэшей — поднимаем
-      // пароль из старого коммита и сразу переводим его на PBKDF2.
-      if (!user.hash) {
+      // Пароль Егора сменён: секрет из Cloudflare всегда восстанавливает
+      // новый хэш, даже если объект загрузил старый хэш из публичного файла.
+      if (key === keyFor('Егор') && env && env.NEON_EGOR_HASH) {
+        const override = String(env.NEON_EGOR_HASH);
+        if (/^(sha256-[0-9a-f]{64}|pbkdf2-[0-9a-f]{64})$/.test(override)) {
+          user.hash = override;
+          delete user.salt;
+          user.loginFails = 0;
+          user.loginLockUntil = 0;
+        }
+      } else if (!user.hash) {
+        // Остальные старые аккаунты поднимают хэш из зафиксированного коммита.
         const legacy = await legacyHashFor(key);
         if (legacy) {
           user.hash = legacy;
