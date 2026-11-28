@@ -525,12 +525,10 @@ function sessionFor(state, token, user, device) {
   if (Date.now() - (user.sessionAt || 0) > SESSION_MAX_MS) throw new Error('Сессия истекла — войди заново');
   const devices = state.tokenDevices || (state.tokenDevices = {});
   const bound = devices[token];
-  if (bound && bound !== device) throw new Error('Сессия привязана к другому устройству');
-  // Старые сессии без привязки получают её при первом входе через новую версию.
-  if (!bound && device) {
-    devices[token] = device;
-    user.deviceId = device;
-  }
+  // Старые токены из публичного файла были без привязки. Разрешить их
+  // «первую привязку» — значит отдать аккаунт тому, кто скачал файл с GitHub.
+  if (!bound) throw new Error('Сессия не привязана к устройству — войди заново');
+  if (bound !== device) throw new Error('Сессия привязана к другому устройству');
 }
 
 function chestPrizes(id) {
