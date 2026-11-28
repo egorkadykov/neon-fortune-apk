@@ -445,47 +445,68 @@
       "name": "nbxTESTalpha",
       "hash": "fnv1a-a1b2c3d4",
       "created": 1795861279362,
-      "updated": 1795861287587,
+      "updated": 1795861295721,
       "sessionAt": 1795861279362,
       "profile": {
-        "balance": 97,
-        "currentBet": 1,
+        "balance": 98,
+        "currentBet": 5,
         "stats": {
-          "spins": 3,
-          "wins": 0,
-          "best": 0
+          "spins": 13,
+          "wins": 5,
+          "best": 11
         },
         "history": [
           {
-            "glyph": "slots",
+            "glyph": "roulette",
             "icons": [
-              "diamond",
-              "star",
-              "slotDie"
+              "1",
+              "red"
             ],
-            "delta": -1
+            "delta": 5
           },
           {
-            "glyph": "slots",
+            "glyph": "roulette",
             "icons": [
-              "lemon",
-              "diamond",
-              "lemon"
+              "11",
+              "red"
             ],
-            "delta": -1
+            "delta": 5
           },
           {
-            "glyph": "slots",
+            "glyph": "roulette",
             "icons": [
-              "lemon",
-              "bell",
-              "cherry"
+              "6",
+              "black"
             ],
-            "delta": -1
+            "delta": -5
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "2",
+              "black"
+            ],
+            "delta": -5
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "4",
+              "black"
+            ],
+            "delta": -5
+          },
+          {
+            "glyph": "roulette",
+            "icons": [
+              "7",
+              "red"
+            ],
+            "delta": 6
           }
         ],
-        "streak": 0,
-        "xp": 6,
+        "streak": 2,
+        "xp": 66,
         "level": 1,
         "xpToNext": 120,
         "collection": [
@@ -494,7 +515,10 @@
           "cherry",
           "diamond",
           "star",
-          "slotDie"
+          "slotDie",
+          "black",
+          "green",
+          "red"
         ],
         "collectionRewardGiven": false,
         "missions": [
@@ -503,7 +527,7 @@
             "title": "Сыграй 10 игр",
             "target": 10,
             "reward": 30,
-            "progress": 3,
+            "progress": 10,
             "claimed": false
           },
           {
@@ -511,7 +535,7 @@
             "title": "Победи 5 раз",
             "target": 5,
             "reward": 50,
-            "progress": 0,
+            "progress": 5,
             "claimed": false
           },
           {
@@ -545,8 +569,12 @@
           "found": []
         },
         "activeView": "games",
-        "unlocked": [],
-        "activeGame": "slots",
+        "unlocked": [
+          "first",
+          "streak3",
+          "games10"
+        ],
+        "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": true,
         "lastActionAt": 0,
@@ -597,13 +625,13 @@
     {
       "name": "nbxTESTalpha",
       "level": 1,
-      "balance": 97,
-      "games": 3,
+      "balance": 98,
+      "games": 13,
       "gifts": 0,
       "chests": 0,
-      "achievements": 0,
+      "achievements": 3,
       "rank": "Новичок",
-      "ts": 1795861287587
+      "ts": 1795861295721
     }
   ],
   "admin": {
