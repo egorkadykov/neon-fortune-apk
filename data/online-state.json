@@ -525,7 +525,7 @@
       "name": "nbx00019119",
       "hash": "fnv1a-788f8607",
       "created": 1795863958402,
-      "updated": 1795864217669,
+      "updated": 1795864221544,
       "sessionAt": 1795864217876,
       "profile": {
         "balance": 5673,
@@ -640,7 +640,6 @@
         },
         "chestCooldowns": {
           "free": 1795950360234,
-          "paper": 1795864218924,
           "bronze": 1795864225196
         },
         "gifts": {},
@@ -666,7 +665,7 @@
             "sneakers"
           ]
         },
-        "activeView": "games",
+        "activeView": "top",
         "unlocked": [
           "giftSell",
           "first",
@@ -1030,7 +1029,7 @@
       "chests": 39,
       "achievements": 5,
       "rank": "Профи",
-      "ts": 1795864217669
+      "ts": 1795864221544
     },
     {
       "name": "Егор",
