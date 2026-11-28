@@ -147,10 +147,10 @@
     "pithp": {
       "name": "pithp",
       "created": 1795801746705,
-      "updated": 1795869419332,
+      "updated": 1795869421001,
       "profile": {
         "balance": 1797,
-        "currentBet": 1,
+        "currentBet": 100,
         "stats": {
           "spins": 527,
           "wins": 339,
@@ -549,7 +549,7 @@
       "chests": 110,
       "achievements": 7,
       "rank": "Мастер",
-      "ts": 1795869419332
+      "ts": 1795869421001
     },
     {
       "name": "Ольга",
