@@ -147,16 +147,24 @@
     "pithp": {
       "name": "pithp",
       "created": 1795801746705,
-      "updated": 1795870264713,
+      "updated": 1795870266937,
       "profile": {
-        "balance": 6540,
+        "balance": 6640,
         "currentBet": 100,
         "stats": {
-          "spins": 838,
-          "wins": 508,
+          "spins": 839,
+          "wins": 509,
           "best": 2000
         },
         "history": [
+          {
+            "glyph": "roulette",
+            "icons": [
+              "5",
+              "red"
+            ],
+            "delta": 100
+          },
           {
             "glyph": "roulette",
             "icons": [
@@ -196,18 +204,10 @@
               "red"
             ],
             "delta": 100
-          },
-          {
-            "glyph": "roulette",
-            "icons": [
-              "6",
-              "black"
-            ],
-            "delta": -100
           }
         ],
-        "streak": 0,
-        "xp": 640,
+        "streak": 1,
+        "xp": 650,
         "level": 10,
         "xpToNext": 1200,
         "collection": [
@@ -328,9 +328,9 @@
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": true,
-        "lastActionAt": 1795870264713,
+        "lastActionAt": 1795870266930,
         "actionWindowStart": 1795870242059,
-        "actionCount": 11,
+        "actionCount": 12,
         "createdAt": 0
       },
       "sessionAt": 1795870173616
@@ -338,9 +338,9 @@
     "егор": {
       "name": "Егор",
       "created": 1795801871294,
-      "updated": 1795870265827,
+      "updated": 1795870267077,
       "profile": {
-        "balance": 3534,
+        "balance": 3474,
         "currentBet": 100,
         "stats": {
           "spins": 261,
@@ -464,7 +464,7 @@
           }
         ],
         "chestStats": {
-          "opened": 47,
+          "opened": 48,
           "best": 275,
           "types": [
             "free",
@@ -479,13 +479,16 @@
           ]
         },
         "chestCooldowns": {
-          "free": 1795888348339
+          "free": 1795888348339,
+          "bronze": 1795870279077
         },
-        "gifts": {},
+        "gifts": {
+          "camera": 1
+        },
         "giftStats": {
           "sold": 44,
           "earned": 5000,
-          "received": 44,
+          "received": 45,
           "found": [
             "cake",
             "teddy",
@@ -516,9 +519,9 @@
         "activeGame": "roulette",
         "cardsChoice": "spades",
         "soundEnabled": true,
-        "lastActionAt": 1795870260869,
+        "lastActionAt": 1795870267077,
         "actionWindowStart": 1795870258796,
-        "actionCount": 2,
+        "actionCount": 3,
         "createdAt": 0
       },
       "sessionAt": 1795870097815
@@ -529,24 +532,24 @@
     {
       "name": "pithp",
       "level": 10,
-      "balance": 6540,
-      "games": 838,
+      "balance": 6640,
+      "games": 839,
       "gifts": 0,
       "chests": 110,
       "achievements": 7,
       "rank": "Легенда",
-      "ts": 1795870264713
+      "ts": 1795870266937
     },
     {
       "name": "Егор",
       "level": 4,
-      "balance": 3534,
+      "balance": 3474,
       "games": 261,
-      "gifts": 0,
-      "chests": 47,
+      "gifts": 1,
+      "chests": 48,
       "achievements": 8,
       "rank": "Игрок",
-      "ts": 1795870265827
+      "ts": 1795870267077
     },
     {
       "name": "Ольга",
