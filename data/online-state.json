@@ -5,7 +5,7 @@
       "name": "Ольга",
       "hash": "sha256-cbfad02f9ed2a8d1e08d8f74f5303e9eb93637d47f82ab6f1c15871cf8dd0481",
       "created": 1795729360755,
-      "updated": 1795863692160,
+      "updated": 1795863693937,
       "profile": {
         "balance": 209,
         "currentBet": 100,
@@ -121,7 +121,7 @@
           "received": 0,
           "found": []
         },
-        "activeView": "games",
+        "activeView": "top",
         "unlocked": [
           "first"
         ],
@@ -547,7 +547,7 @@
       "chests": 0,
       "achievements": 1,
       "rank": "Новичок",
-      "ts": 1795863692160
+      "ts": 1795863693937
     }
   ],
   "admin": {
